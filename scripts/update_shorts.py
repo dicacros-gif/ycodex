@@ -505,6 +505,45 @@ def clean_text(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip()
 
 
+def content_signature(item: dict[str, Any]) -> str:
+    title = clean_text(str(item.get("title") or "")).lower()
+    signature = re.sub(r"\W+", " ", title, flags=re.UNICODE).strip()
+    if len(signature) >= 12:
+        return f"title:{signature}"
+    return f"id:{item.get('id') or ''}"
+
+
+def text_signature(value: Any) -> str:
+    return re.sub(r"\W+", " ", clean_text(str(value)).lower(), flags=re.UNICODE).strip()
+
+
+def unique_texts(values: list[str]) -> list[str]:
+    unique: list[str] = []
+    seen: set[str] = set()
+    for value in values:
+        signature = text_signature(value)
+        if not signature or signature in seen:
+            continue
+        seen.add(signature)
+        unique.append(value)
+    return unique
+
+
+def unique_content_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    unique: list[dict[str, Any]] = []
+    seen_ids: set[str] = set()
+    seen_signatures: set[str] = set()
+    for item in items:
+        video_id = str(item.get("id") or "")
+        signature = content_signature(item)
+        if not video_id or video_id in seen_ids or signature in seen_signatures:
+            continue
+        seen_ids.add(video_id)
+        seen_signatures.add(signature)
+        unique.append(item)
+    return unique
+
+
 def parse_int(value: Any) -> int:
     if isinstance(value, int):
         return value
@@ -1625,7 +1664,7 @@ def card_popularity_points(item: dict[str, Any]) -> list[str]:
         selected.append(points[3])
     if len(points) > 6:
         selected.append(points[-2])
-    return selected[:4]
+    return unique_texts(selected)[:4]
 
 
 RECENT_MEGA_CASE_NOTES: dict[str, list[str]] = {
@@ -1841,7 +1880,7 @@ def highlight_text(text: Any) -> str:
 
 
 def render_points(points: list[str]) -> str:
-    return "\n".join(f"<li>{highlight_text(point)}</li>" for point in points)
+    return "\n".join(f"<li>{highlight_text(point)}</li>" for point in unique_texts(points))
 
 
 def source_label(item: dict[str, Any]) -> str:
@@ -1875,13 +1914,22 @@ def render_mega_case_card(item: dict[str, Any]) -> str:
 
 
 def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
-    mega_items = [item for item in items if parse_int(item.get("viewsGained")) >= VIRAL_VIEW_THRESHOLD]
+    unique_items = unique_content_items(items)
+    mega_items = [item for item in unique_items if parse_int(item.get("viewsGained")) >= VIRAL_VIEW_THRESHOLD]
     near_items = [
         item
-        for item in sorted(items, key=lambda row: parse_int(row.get("viewsGained")), reverse=True)
-        if parse_int(item.get("viewsGained")) >= 30_000_000
+        for item in sorted(unique_items, key=lambda row: parse_int(row.get("viewsGained")), reverse=True)
+        if 30_000_000 <= parse_int(item.get("viewsGained")) < VIRAL_VIEW_THRESHOLD
     ][:6]
-    analysis_items = mega_items or near_items or sorted(items, key=lambda row: parse_int(row.get("viewsGained")), reverse=True)[:6]
+    recent_mega_items = sorted(
+        mega_items,
+        key=lambda row: (parse_date(row.get("publishedAt")) or datetime.min.date(), parse_int(row.get("viewsGained"))),
+        reverse=True,
+    )
+    analysis_items = unique_content_items(recent_mega_items + near_items)
+    if not analysis_items:
+        analysis_items = sorted(unique_items, key=lambda row: parse_int(row.get("viewsGained")), reverse=True)[:6]
+    analysis_items = analysis_items[:6]
     counts = cluster_counts(analysis_items)
     top_patterns = [
         cluster_label(key)
@@ -1917,37 +1965,17 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
     hero_points.append(f"현재 데이터에서는 {top_pattern_text} 신호가 특히 강합니다.")
     hero_point_items = render_points(hero_points)
 
-    recent_mega_items = sorted(
-        mega_items,
-        key=lambda row: (parse_date(row.get("publishedAt")) or datetime.min.date(), parse_int(row.get("viewsGained"))),
-        reverse=True,
-    )[:3]
-    recent_case_cards = "\n".join(render_mega_case_card(item) for item in recent_mega_items)
-    recent_case_section = (
+    case_cards = "\n".join(render_mega_case_card(item) for item in analysis_items)
+    case_section = (
         f"""
       <div class="mega-case-section">
         <div class="mega-section-heading">
-          <h3>최근 1억뷰 달성 사례</h3>
+          <h3>1억뷰·근접 사례 분석</h3>
         </div>
-        <div class="mega-case-list">{recent_case_cards}</div>
+        <div class="mega-case-list">{case_cards}</div>
       </div>"""
-        if recent_case_cards
+        if case_cards
         else ""
-    )
-
-    examples = "\n".join(
-        f"""
-        <article class="mega-example">
-          <a class="mega-example-thumb" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">
-            <img src="{escape(item.get('thumbnail') or thumbnail_url(item['id']))}" alt="{escape(str(item.get('title', 'YouTube Shorts thumbnail')))}">
-          </a>
-          <div class="mega-example-body">
-            <a class="mega-example-title" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">{escape(compact_title(str(item.get('title', '')), 64))}</a>
-            <span>{highlight_text(f"{fmt_int(item.get('viewsGained'))} views")}</span>
-            <ul>{render_points(popularity_reason_points(item)[:4])}</ul>
-          </div>
-        </article>"""
-        for item in analysis_items
     )
 
     return f"""
@@ -1959,15 +1987,11 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
         </div>
         <strong>{len(mega_items)}</strong>
       </div>
-{recent_case_section}
+{case_section}
       <div class="mega-grid">
         <div class="mega-block">
           <h3>왜 1억뷰가 나오는가</h3>
           <ul>{principle_items}</ul>
-        </div>
-        <div class="mega-block">
-          <h3>현재 데이터의 1억뷰·근접 사례</h3>
-          <div class="mega-examples">{examples}</div>
         </div>
       </div>
     </section>"""
@@ -2067,11 +2091,14 @@ def render_card(item: dict[str, Any], index: int) -> str:
 def group_items_by_region(items: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
     grouped = {region["key"]: [] for region in REGIONS}
     seen: set[str] = set()
+    seen_signatures: set[str] = set()
     for item in order_items_newest_first(items):
         video_id = item.get("id")
-        if not video_id or video_id in seen or not is_displayable(item):
+        signature = content_signature(item)
+        if not video_id or video_id in seen or signature in seen_signatures or not is_displayable(item):
             continue
         seen.add(video_id)
+        seen_signatures.add(signature)
         grouped[item["region"]].append(item)
     return grouped
 
@@ -2535,7 +2562,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     .mega-grid {{
       display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      grid-template-columns: 1fr;
       gap: 12px;
     }}
     .mega-block {{
