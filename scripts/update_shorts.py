@@ -206,6 +206,8 @@ CHARTIKA_REGION_IDS = {
 
 RANKING_SOURCE_LIMIT = int(os.environ.get("RANKING_SOURCE_LIMIT", "18"))
 YT_SEARCH_LIMIT = int(os.environ.get("YT_SEARCH_LIMIT", "12"))
+MIN_DISPLAY_VIEWS = int(os.environ.get("MIN_DISPLAY_VIEWS", "3000"))
+PUBLISHED_METADATA_LIMIT = int(os.environ.get("PUBLISHED_METADATA_LIMIT", "200"))
 
 CORE_TERMS = {
     "dance",
@@ -463,6 +465,34 @@ def parse_int(value: Any) -> int:
     return int(match.group(0).replace(",", ""))
 
 
+def normalize_published_at(value: Any) -> str:
+    if value is None or value == "":
+        return ""
+    if isinstance(value, (int, float)):
+        try:
+            return datetime.fromtimestamp(value, tz=timezone.utc).date().isoformat()
+        except Exception:
+            return ""
+
+    text = clean_text(str(value))
+    if not text:
+        return ""
+    if re.fullmatch(r"\d{8}", text):
+        return f"{text[:4]}-{text[4:6]}-{text[6:8]}"
+    match = re.search(r"(\d{4})[./-](\d{1,2})[./-](\d{1,2})", text)
+    if match:
+        year, month, day = match.groups()
+        return f"{int(year):04d}-{int(month):02d}-{int(day):02d}"
+    try:
+        return datetime.fromisoformat(text.replace("Z", "+00:00")).date().isoformat()
+    except ValueError:
+        return text[:10]
+
+
+def fmt_published(value: Any) -> str:
+    return normalize_published_at(value) or "확인 필요"
+
+
 def score_candidate(title: str, category: str = "") -> tuple[int, list[str]]:
     text = f"{title} {category}".lower()
     core_hits = term_hits(text, CORE_TERMS)
@@ -505,6 +535,7 @@ def make_candidate(
     source_name: str,
     source_url: str,
     collected_at: str,
+    published_at: Any = "",
     extra_notes: list[str] | None = None,
     min_score: int = 4,
 ) -> dict[str, Any] | None:
@@ -533,6 +564,7 @@ def make_candidate(
         "sourceName": source_name,
         "sourceUrl": source_url,
         "collectedAt": collected_at,
+        "publishedAt": normalize_published_at(published_at),
         "matchNotes": notes,
     }
 
@@ -591,6 +623,7 @@ def collect_playboard(collected_at: str) -> list[dict[str, Any]]:
             title_match = re.search(r'class="title__label"[^>]*title="([^"]+)"', row, flags=re.S | re.I)
             if not title_match:
                 title_match = re.search(r'<td class="thumbnail"[^>]*>.*?title="([^"]+)"', row, flags=re.S | re.I)
+            published_match = re.search(r'<div class="title__date"[^>]*>\s*([^<]+?)\s*</div>', row, flags=re.S | re.I)
             channel_match = re.search(r'class="channel__wrapper"[^>]*title="([^"]+)"', row, flags=re.S | re.I)
             views_match = re.search(r'<td class="score"[^>]*>.*?>([\d,]+)\s*</span>', row, flags=re.S | re.I)
             href_match = re.search(r'href="([^"]*/video/[A-Za-z0-9_-]{11}[^"]*)"', row, flags=re.S | re.I)
@@ -606,6 +639,7 @@ def collect_playboard(collected_at: str) -> list[dict[str, Any]]:
                 source_name=source["name"],
                 source_url=urljoin(source["page"], href_match.group(1) if href_match else source["page"]),
                 collected_at=collected_at,
+                published_at=published_match.group(1) if published_match else "",
                 extra_notes=["source: Playboard regional shorts chart"],
                 min_score=0,
             )
@@ -824,6 +858,7 @@ def collect_chartika(collected_at: str) -> list[dict[str, Any]]:
                     source_name=f"Chartika {REGION_BY_KEY[region]['label']} {category_name} Chart",
                     source_url=page,
                     collected_at=collected_at,
+                    published_at=raw.get("published_at"),
                     extra_notes=[f"source: Chartika regional chart", f"duration: {duration}s"],
                     min_score=3,
                 )
@@ -873,6 +908,68 @@ def run_yt_search(query: str) -> list[dict[str, Any]]:
     return payload.get("entries") or []
 
 
+def run_yt_metadata(video_ids: list[str]) -> dict[str, dict[str, Any]]:
+    metadata: dict[str, dict[str, Any]] = {}
+    for index in range(0, len(video_ids), 40):
+        chunk = video_ids[index : index + 40]
+        cmd = [
+            sys.executable,
+            "-m",
+            "yt_dlp",
+            "--skip-download",
+            "--dump-json",
+            "--ignore-errors",
+            "--no-warnings",
+            *[normalized_url(video_id) for video_id in chunk],
+        ]
+        try:
+            proc = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, timeout=600, check=False)
+        except Exception as exc:
+            print(f"warning: yt-dlp metadata failed: {exc}", file=sys.stderr)
+            continue
+        if proc.returncode != 0 and proc.stderr.strip():
+            print(proc.stderr.strip(), file=sys.stderr)
+        for line in proc.stdout.splitlines():
+            try:
+                payload = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            video_id = payload.get("id")
+            if video_id:
+                metadata[video_id] = payload
+    return metadata
+
+
+def enrich_video_metadata(items: list[dict[str, Any]]) -> None:
+    targets: list[str] = []
+    seen: set[str] = set()
+    for item in items:
+        video_id = item.get("id")
+        if not video_id or video_id in seen:
+            continue
+        if not item.get("publishedAt") or parse_int(item.get("viewsGained")) < MIN_DISPLAY_VIEWS:
+            targets.append(video_id)
+            seen.add(video_id)
+            if len(targets) >= PUBLISHED_METADATA_LIMIT:
+                break
+    if not targets:
+        return
+
+    metadata = run_yt_metadata(targets)
+    for item in items:
+        payload = metadata.get(item.get("id"))
+        if not payload:
+            continue
+        published_at = normalize_published_at(
+            payload.get("upload_date") or payload.get("timestamp") or payload.get("release_timestamp")
+        )
+        if published_at:
+            item["publishedAt"] = published_at
+        view_count = parse_int(payload.get("view_count"))
+        if view_count:
+            item["viewsGained"] = view_count
+
+
 def from_ytdlp_item(raw: dict[str, Any], query: str, region: str, collected_at: str) -> dict[str, Any] | None:
     video_id = raw.get("id")
     duration = raw.get("duration")
@@ -894,6 +991,7 @@ def from_ytdlp_item(raw: dict[str, Any], query: str, region: str, collected_at: 
         source_name="YouTube Shorts search via yt-dlp",
         source_url=f"https://www.youtube.com/results?search_query={quote_plus(search_text)}",
         collected_at=collected_at,
+        published_at=raw.get("upload_date") or raw.get("timestamp") or raw.get("release_timestamp") or "",
         extra_notes=["source: YouTube search result"],
     )
 
@@ -962,6 +1060,7 @@ def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]],
                     "sourceName": item.get("sourceName") or old.get("sourceName"),
                     "sourceUrl": item.get("sourceUrl") or old.get("sourceUrl"),
                     "collectedAt": item.get("collectedAt") or old.get("collectedAt"),
+                    "publishedAt": item.get("publishedAt") or old.get("publishedAt"),
                     "matchNotes": item.get("matchNotes") or old.get("matchNotes"),
                 }
             )
@@ -1016,6 +1115,10 @@ def source_priority(item: dict[str, Any]) -> int:
     if "YouTube Search" in name:
         return 9
     return 7
+
+
+def is_displayable(item: dict[str, Any]) -> bool:
+    return parse_int(item.get("viewsGained")) >= MIN_DISPLAY_VIEWS and bool(item.get("publishedAt"))
 
 
 def rank_item(item: dict[str, Any]) -> tuple[Any, ...]:
@@ -1073,6 +1176,7 @@ def render_card(item: dict[str, Any], index: int) -> str:
             <span>{fmt_int(item.get('viewsGained'))} views</span>
           </div>
           <h2>{escape(item['title'])}</h2>
+          <p class="published">게시일 {escape(fmt_published(item.get('publishedAt')))}</p>
           <p class="video-url"><a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">{escape(str(item.get('channel') or 'Unknown channel'))}</p>
           <p class="source">Source: <a href="{escape(str(item.get('sourceUrl') or '#'))}" target="_blank" rel="noopener">{escape(str(item.get('sourceName') or 'source'))}</a>{escape(source_rank)}</p>
@@ -1086,7 +1190,7 @@ def group_items_by_region(items: list[dict[str, Any]]) -> dict[str, list[dict[st
     seen: set[str] = set()
     for item in normalize_items(items):
         video_id = item.get("id")
-        if not video_id or video_id in seen:
+        if not video_id or video_id in seen or not is_displayable(item):
             continue
         seen.add(video_id)
         grouped[item["region"]].append(item)
@@ -1096,6 +1200,7 @@ def group_items_by_region(items: list[dict[str, Any]]) -> dict[str, list[dict[st
 def render_index(items: list[dict[str, Any]]) -> str:
     items = normalize_items(items)
     grouped = group_items_by_region(items)
+    display_items = [item for region_items in grouped.values() for item in region_items]
 
     tab_buttons = "\n".join(
         f"""<button class="tab-button{' active' if region['key'] == 'global' else ''}" type="button" data-region-tab="{region['key']}">{escape(region['label'])}<span>{len(grouped[region['key']])}</span></button>"""
@@ -1117,7 +1222,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
 
     links = "\n".join(
         f'<a href="{escape(url)}" target="_blank" rel="noopener">{escape(name)}</a>'
-        for name, url in source_links(items)
+        for name, url in source_links(display_items)
     )
 
     data_json = escape(json.dumps(items, ensure_ascii=False), quote=False)
@@ -1292,12 +1397,17 @@ def render_index(items: list[dict[str, Any]]) -> str:
       text-decoration: underline;
     }}
     .channel,
+    .published,
     .video-url,
     .source {{
       margin: 0;
       color: var(--muted);
       font-size: 11px;
       line-height: 1.35;
+    }}
+    .published {{
+      color: #475467;
+      font-weight: 700;
     }}
     .video-url a {{
       color: var(--focus);
@@ -1398,6 +1508,12 @@ def main() -> int:
             else:
                 print("ranking sources filled every region; skipping YouTube search fallback", file=sys.stderr)
         merged = merge_items(existing, candidates, args.max_new)
+        try:
+            import yt_dlp  # noqa: F401
+        except Exception:
+            print("warning: yt-dlp is not installed; skipping publish-date enrichment", file=sys.stderr)
+        else:
+            enrich_video_metadata(merged)
         write_data(merged)
 
     INDEX_PATH.write_text(render_index(merged), encoding="utf-8")

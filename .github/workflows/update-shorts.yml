@@ -14,6 +14,8 @@ jobs:
     env:
       MAX_NEW_SHORTS_PER_REGION: "8"
       YT_SEARCH_LIMIT: "12"
+      MIN_DISPLAY_VIEWS: "3000"
+      PUBLISHED_METADATA_LIMIT: "200"
       TZ: Asia/Seoul
     concurrency:
       group: update-youtube-shorts
@@ -39,6 +41,7 @@ jobs:
           python - <<'PY'
           from html.parser import HTMLParser
           from pathlib import Path
+          import json
 
           class CardCounter(HTMLParser):
               def __init__(self):
@@ -46,17 +49,22 @@ jobs:
                   self.cards = 0
                   self.images = 0
                   self.short_links = []
+                  self.thumb_links = []
                   self.tabs = 0
                   self.panels = 0
 
               def handle_starttag(self, tag, attrs):
                   attrs = dict(attrs)
-                  if tag == "article" and "short-card" in attrs.get("class", ""):
+                  classes = attrs.get("class", "")
+                  href = attrs.get("href", "")
+                  if tag == "article" and "short-card" in classes:
                       self.cards += 1
                   if tag == "img":
                       self.images += 1
-                  if tag == "a" and attrs.get("href", "").startswith("https://www.youtube.com/shorts/"):
-                      self.short_links.append(attrs.get("href"))
+                  if tag == "a" and href.startswith("https://www.youtube.com/shorts/"):
+                      self.short_links.append(href)
+                      if "thumb-link" in classes:
+                          self.thumb_links.append(href)
                   if tag == "button" and attrs.get("data-region-tab"):
                       self.tabs += 1
                   if tag == "section" and attrs.get("data-region-panel"):
@@ -64,13 +72,19 @@ jobs:
 
           parser = CardCounter()
           parser.feed(Path("index.html").read_text(encoding="utf-8"))
-          video_ids = [url.rstrip("/").split("/")[-1] for url in parser.short_links]
+          video_ids = [url.rstrip("/").split("/")[-1] for url in parser.thumb_links]
+          data = json.loads(Path("shorts-data.json").read_text(encoding="utf-8"))
+          by_id = {item["id"]: item for item in data}
+          visible = [by_id[video_id] for video_id in video_ids]
           if (
               parser.tabs != 17
               or parser.panels != 17
               or parser.cards == 0
               or parser.cards != parser.images
+              or parser.cards != len(parser.thumb_links)
               or len(video_ids) != len(set(video_ids))
+              or any((item.get("viewsGained") or 0) < 3000 for item in visible)
+              or any(not item.get("publishedAt") for item in visible)
           ):
               raise SystemExit("index.html did not render unique Shorts across the expected region tabs")
           print({
@@ -78,7 +92,8 @@ jobs:
               "panels": parser.panels,
               "cards": parser.cards,
               "images": parser.images,
-              "short_links": len(parser.short_links),
+              "thumb_links": len(parser.thumb_links),
+              "all_short_links": len(parser.short_links),
               "unique_short_ids": len(set(video_ids)),
           })
           PY
