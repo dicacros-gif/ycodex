@@ -1480,6 +1480,18 @@ def popularity_reason(item: dict[str, Any]) -> str:
     return " ".join(popularity_reason_points(item))
 
 
+def card_popularity_points(item: dict[str, Any]) -> list[str]:
+    points = popularity_reason_points(item)
+    selected = [points[0]]
+    if len(points) > 2:
+        selected.append(points[2])
+    if len(points) > 3:
+        selected.append(points[3])
+    if len(points) > 6:
+        selected.append(points[-2])
+    return selected[:4]
+
+
 def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
     mega_items = [item for item in items if parse_int(item.get("viewsGained")) >= VIRAL_VIEW_THRESHOLD]
     near_items = [
@@ -1619,7 +1631,7 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
 def render_card(item: dict[str, Any], index: int) -> str:
     notes = "".join(f"<li>{escape(str(note))}</li>" for note in item.get("matchNotes", []))
     source_rank = f" · rank {item.get('sourceRank')}" if item.get("sourceRank") else ""
-    reason_items = "".join(f"<li>{escape(point)}</li>" for point in popularity_reason_points(item))
+    reason_items = "".join(f"<li>{escape(point)}</li>" for point in card_popularity_points(item))
     return f"""
       <article class="short-card">
         <a class="thumb-link" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener" aria-label="Open {escape(item['title'])} on YouTube Shorts">
@@ -1632,6 +1644,7 @@ def render_card(item: dict[str, Any], index: int) -> str:
             <span>{escape(str(item.get('sourceName') or 'source'))}</span>
           </div>
           <h2>{escape(item['title'])}</h2>
+          <p class="channel">{escape(str(item.get('channel') or 'Unknown channel'))}</p>
           <div class="stats-row">
             <span><b>조회수</b>{fmt_count(item.get('viewsGained'))}</span>
             <span><b>좋아요</b>{fmt_count(item.get('likeCount'))}</span>
@@ -1645,7 +1658,6 @@ def render_card(item: dict[str, Any], index: int) -> str:
             <ul>{reason_items}</ul>
           </div>
           <p class="video-url"><a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">Open YouTube Short</a></p>
-          <p class="channel">{escape(str(item.get('channel') or 'Unknown channel'))}</p>
           <p class="source">Source: <a href="{escape(str(item.get('sourceUrl') or '#'))}" target="_blank" rel="noopener">{escape(str(item.get('sourceName') or 'source'))}</a>{escape(source_rank)}</p>
           <ul class="notes">{notes}</ul>
         </div>
@@ -1744,7 +1756,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     a {{ color: inherit; }}
     .shell {{
-      width: min(1760px, calc(100% - 40px));
+      width: min(1500px, calc(100% - 32px));
       margin: 0 auto;
     }}
     header {{
@@ -1961,8 +1973,8 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     .grid {{
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
-      gap: 22px 26px;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 14px;
       align-items: stretch;
     }}
     .region-panel {{
@@ -1984,25 +1996,27 @@ def render_index(items: list[dict[str, Any]]) -> str:
     .short-card {{
       background: var(--surface);
       border: 1px solid var(--line);
-      border-radius: 12px;
+      border-radius: 16px;
       overflow: hidden;
-      display: flex;
-      flex-direction: row;
-      gap: 16px;
+      display: block;
       min-height: 100%;
-      padding: 12px;
-      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.07);
+      padding: 0;
+      box-shadow: 0 6px 22px rgba(15, 23, 42, 0.08);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }}
+    .short-card:hover {{
+      transform: translateY(-4px);
+      border-color: rgba(220, 38, 38, 0.38);
+      box-shadow: 0 14px 36px rgba(220, 38, 38, 0.14);
     }}
     .thumb-link {{
       position: relative;
       display: block;
-      flex: 0 0 108px;
-      width: 108px;
+      width: 100%;
       aspect-ratio: 9 / 16;
       background: #dbe4ee;
       overflow: hidden;
-      border-radius: 10px;
-      align-self: flex-start;
+      border-radius: 0;
     }}
     .thumb-link img {{
       width: 100%;
@@ -2012,29 +2026,33 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     .rank {{
       position: absolute;
-      top: 5px;
-      left: 5px;
-      background: rgba(24, 33, 47, 0.86);
+      top: 8px;
+      left: 8px;
+      min-width: 26px;
+      height: 26px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.72);
       color: white;
-      border-radius: 999px;
-      padding: 3px 6px;
-      font-size: 10px;
-      font-weight: 700;
+      border-radius: 8px;
+      padding: 0 7px;
+      font-size: 11px;
+      font-weight: 800;
     }}
     .short-body {{
       min-width: 0;
-      padding: 2px 2px 2px 0;
+      padding: 10px 11px 12px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      flex: 1 1 auto;
+      gap: 7px;
     }}
     .meta-row {{
       display: flex;
       justify-content: space-between;
-      gap: 8px;
+      gap: 6px;
       color: var(--accent-2);
-      font-size: 10.5px;
+      font-size: 10px;
       font-weight: 800;
     }}
     .meta-row span {{
@@ -2045,12 +2063,13 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     .short-card h2 {{
       margin: 0;
-      font-size: 14.5px;
+      font-size: 12.5px;
       line-height: 1.38;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
       overflow: hidden;
+      min-height: 2.75em;
     }}
     .short-card h2 a {{
       text-decoration: none;
@@ -2065,75 +2084,74 @@ def render_index(items: list[dict[str, Any]]) -> str:
     .source {{
       margin: 0;
       color: var(--muted);
-      font-size: 11.5px;
-      line-height: 1.42;
+      font-size: 10.5px;
+      line-height: 1.38;
+    }}
+    .channel {{
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: #475467;
+      font-weight: 700;
     }}
     .stats-row {{
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px 8px;
     }}
     .stats-row span {{
-      border: 1px solid #fee2e2;
-      border-radius: 8px;
-      background: #fff7f7;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
       color: #991b1b;
-      padding: 6px 8px;
+      padding: 0;
       font-weight: 800;
       min-width: 0;
     }}
     .stats-row b {{
-      display: block;
+      display: inline;
       color: #667085;
       font-size: 10px;
       line-height: 1.15;
-      margin-bottom: 2px;
+      margin-right: 3px;
     }}
     .date-row {{
       color: #475467;
       font-weight: 700;
       display: flex;
       flex-wrap: wrap;
-      gap: 4px 7px;
+      gap: 4px 6px;
     }}
     .date-row span {{
       border-radius: 999px;
       background: #f8fafc;
       border: 1px solid var(--line);
-      padding: 2px 6px;
+      padding: 1px 6px;
     }}
     .popularity {{
-      color: #344054;
-      border: 2px solid rgba(220, 38, 38, 0.38);
-      border-radius: 24px;
-      background: radial-gradient(circle at 22px 22px, rgba(254, 226, 226, 0.9), #fffafa 58%);
-      padding: 12px 14px 12px 12px;
-      display: grid;
-      grid-template-columns: 44px minmax(0, 1fr);
-      gap: 9px;
-      align-items: start;
-      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+      color: #92400e;
+      border: 0;
+      border-left: 2px solid #f97316;
+      border-radius: 8px;
+      background: rgba(255, 140, 0, 0.08);
+      padding: 7px 8px;
+      display: block;
     }}
     .popularity strong {{
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: var(--tab-red);
-      color: white;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      font-size: 10px;
-      line-height: 1.15;
+      display: block;
+      color: #b45309;
+      background: transparent;
+      font-size: 10.5px;
+      line-height: 1.2;
       font-weight: 800;
       letter-spacing: 0;
+      margin-bottom: 4px;
     }}
     .popularity ul {{
       margin: 0;
-      padding-left: 15px;
-      font-size: 12px;
-      line-height: 1.58;
+      padding-left: 14px;
+      font-size: 10.5px;
+      line-height: 1.45;
     }}
     .popularity li {{
       margin: 0 0 4px;
@@ -2146,6 +2164,9 @@ def render_index(items: list[dict[str, Any]]) -> str:
       color: var(--focus);
       overflow-wrap: anywhere;
       text-decoration: none;
+    }}
+    .video-url {{
+      display: none;
     }}
     .source a {{
       color: var(--focus);
@@ -2178,11 +2199,8 @@ def render_index(items: list[dict[str, Any]]) -> str:
       .trend-heading span {{ white-space: normal; }}
       .mega-grid {{ grid-template-columns: 1fr; }}
       .mega-hero {{ flex-direction: column; }}
-      .grid {{ grid-template-columns: 1fr; }}
-      .thumb-link {{ flex-basis: 82px; width: 82px; }}
-      .short-card {{ gap: 10px; padding: 8px; }}
-      .popularity {{ grid-template-columns: 1fr; border-radius: 22px; padding: 10px 12px; }}
-      .popularity strong {{ width: auto; height: auto; border-radius: 999px; padding: 5px 9px; justify-self: start; }}
+      .grid {{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }}
+      .short-body {{ padding: 8px; }}
     }}
   </style>
 </head>

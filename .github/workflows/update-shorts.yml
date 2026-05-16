@@ -109,9 +109,9 @@ jobs:
                   parsed = parsed.replace(tzinfo=timezone.utc)
               return parsed.astimezone(timezone.utc)
           collected_order = [parse_collected_at(item) for item in data]
-          detailed_popularity = [
+          explained_popularity = [
               text for text in parser.popularity_text
-              if len(text) >= 250 and "views" in text
+              if len(text) >= 100 and "views" in text
           ]
           if (
               parser.tabs != 18
@@ -121,8 +121,8 @@ jobs:
               or parser.cards != len(parser.thumb_links)
               or parser.cards != parser.stats_rows
               or parser.cards != parser.popularity
-              or parser.cards != len(detailed_popularity)
-              or parser.reason_items < parser.cards * 5
+              or parser.cards != len(explained_popularity)
+              or parser.reason_items < parser.cards * 4
               or len(video_ids) != len(set(video_ids))
               or "trend-brief" not in html
               or "mega-panel" not in html
@@ -147,7 +147,7 @@ jobs:
               "thumb_links": len(parser.thumb_links),
               "stats_rows": parser.stats_rows,
               "popularity": parser.popularity,
-              "detailed_popularity": len(detailed_popularity),
+              "explained_popularity": len(explained_popularity),
               "reason_items": parser.reason_items,
               "all_short_links": len(parser.short_links),
               "unique_short_ids": len(set(video_ids)),
