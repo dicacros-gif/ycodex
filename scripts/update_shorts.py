@@ -2486,9 +2486,10 @@ def render_index(items: list[dict[str, Any]]) -> str:
       min-height: 100%;
       padding: 0;
       box-shadow: 0 6px 22px rgba(15, 23, 42, 0.08);
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.2s ease;
     }}
     .short-card:hover {{
+      background: #fff1f2;
       transform: translateY(-4px);
       border-color: rgba(220, 38, 38, 0.38);
       box-shadow: 0 14px 36px rgba(220, 38, 38, 0.14);
@@ -2502,11 +2503,27 @@ def render_index(items: list[dict[str, Any]]) -> str:
       overflow: hidden;
       border-radius: 0;
     }}
+    .thumb-link::after {{
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(220, 38, 38, 0);
+      transition: background 0.2s ease;
+      pointer-events: none;
+    }}
+    .short-card:hover .thumb-link::after {{
+      background: rgba(220, 38, 38, 0.16);
+    }}
     .thumb-link img {{
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }}
+    .short-card:hover .thumb-link img {{
+      transform: scale(1.025);
+      filter: saturate(1.08) contrast(1.04);
     }}
     .rank {{
       position: absolute;
@@ -2530,6 +2547,11 @@ def render_index(items: list[dict[str, Any]]) -> str:
       display: flex;
       flex-direction: column;
       gap: 7px;
+      background: var(--surface);
+      transition: background 0.2s ease, color 0.2s ease;
+    }}
+    .short-card:hover .short-body {{
+      background: #fff1f2;
     }}
     .short-card h2 {{
       margin: 0;
@@ -2540,6 +2562,10 @@ def render_index(items: list[dict[str, Any]]) -> str:
       -webkit-box-orient: vertical;
       overflow: hidden;
       min-height: 2.75em;
+      transition: color 0.2s ease;
+    }}
+    .short-card:hover h2 {{
+      color: var(--tab-red-dark);
     }}
     .short-card h2 a {{
       text-decoration: none;
@@ -2582,6 +2608,12 @@ def render_index(items: list[dict[str, Any]]) -> str:
       background: rgba(255, 140, 0, 0.08);
       padding: 7px 8px;
       display: block;
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    }}
+    .short-card:hover .popularity {{
+      background: #ffe4e6;
+      border-left-color: var(--tab-red);
+      color: #7f1d1d;
     }}
     .popularity > strong {{
       display: block;
