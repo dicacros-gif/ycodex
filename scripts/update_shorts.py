@@ -19,6 +19,80 @@ INDEX_PATH = ROOT / "index.html"
 
 KST = timezone(timedelta(hours=9))
 
+REGIONS = [
+    {"key": "global", "label": "글로벌", "queries": [
+        "#shorts dance challenge music trend",
+        "#shorts slowed dance edit",
+        "#shorts cute dance one person music",
+    ]},
+    {"key": "kr", "label": "KR", "queries": [
+        "#shorts 댄스 음악 챌린지",
+        "한국 쇼츠 댄스 음악 트렌드",
+    ]},
+    {"key": "us", "label": "US", "queries": [
+        "#shorts dance challenge music USA",
+        "US trending shorts dance music",
+    ]},
+    {"key": "jp", "label": "JP", "queries": [
+        "#shorts ダンス 音楽 チャレンジ 日本",
+        "Japan shorts dance challenge music",
+    ]},
+    {"key": "mx", "label": "멕시코", "queries": [
+        "#shorts baile musica tendencia Mexico",
+        "Mexico dance challenge shorts music",
+    ]},
+    {"key": "de", "label": "독일", "queries": [
+        "#shorts tanz musik trend deutschland",
+        "Germany dance challenge shorts music",
+    ]},
+    {"key": "br", "label": "브라질", "queries": [
+        "#shorts danca musica tendencia Brasil",
+        "Brazil dance challenge shorts funk",
+    ]},
+    {"key": "id", "label": "인도네시아", "queries": [
+        "#shorts joget musik viral Indonesia",
+        "Indonesia dance challenge shorts music",
+    ]},
+    {"key": "ar", "label": "아르헨티나", "queries": [
+        "#shorts baile musica tendencia Argentina",
+        "Argentina dance challenge shorts music",
+    ]},
+    {"key": "ph", "label": "필리핀", "queries": [
+        "#shorts dance challenge music Philippines",
+        "Philippines trending shorts dance music",
+    ]},
+    {"key": "es", "label": "스페인", "queries": [
+        "#shorts baile musica tendencia Espana",
+        "Spain dance challenge shorts music",
+    ]},
+    {"key": "it", "label": "이탈리아", "queries": [
+        "#shorts ballo musica tendenza Italia",
+        "Italy dance challenge shorts music",
+    ]},
+    {"key": "fr", "label": "프랑스", "queries": [
+        "#shorts danse musique tendance France",
+        "France dance challenge shorts music",
+    ]},
+    {"key": "uz", "label": "우즈베키스탄", "queries": [
+        "#shorts raqs musiqa trend Uzbekistan",
+        "Uzbekistan dance challenge shorts music",
+    ]},
+    {"key": "dz", "label": "알제리", "queries": [
+        "#shorts danse musique Algerie",
+        "Algeria dance challenge shorts music",
+    ]},
+    {"key": "kz", "label": "카자흐스탄", "queries": [
+        "#shorts bi muzyka Kazakhstan",
+        "Kazakhstan dance challenge shorts music",
+    ]},
+    {"key": "vn", "label": "베트남", "queries": [
+        "#shorts nhay nhac trend Viet Nam",
+        "Vietnam dance challenge shorts music",
+    ]},
+]
+
+REGION_BY_KEY = {region["key"]: region for region in REGIONS}
+
 VIDIRUN_SOURCES = [
     {
         "name": "Vidirun Top 50 Short-Form Videos",
@@ -57,21 +131,23 @@ HTML_SOURCES = [
     },
 ]
 
-YT_SEARCH_QUERIES = [
-    "ytsearch25:#shorts dance challenge music trend",
-    "ytsearch25:#shorts slowed dance edit",
-    "ytsearch25:#shorts cute dance one person music",
-    "ytsearch25:#shorts couple dance music",
-    "ytsearch25:#shorts funny situation music edit",
-    "ytsearch25:#shorts dance challenge no talking",
-    "ytsearch25:#shorts 댄스 음악 챌린지",
-    "ytsearch25:#shorts KPOP dance music trend",
-]
+YT_SEARCH_LIMIT = int(os.environ.get("YT_SEARCH_LIMIT", "12"))
 
 CORE_TERMS = {
     "dance",
     "댄스",
     "춤",
+    "baile",
+    "ballo",
+    "danse",
+    "danca",
+    "dança",
+    "joget",
+    "tari",
+    "tanz",
+    "raqs",
+    "nhay",
+    "nhảy",
     "dancing",
     "dancer",
     "battle",
@@ -106,6 +182,12 @@ SUPPORT_TERMS = {
     "trend",
     "trending",
     "music",
+    "musica",
+    "música",
+    "musik",
+    "musiqa",
+    "nhac",
+    "nhạc",
     "beat",
 }
 
@@ -169,7 +251,24 @@ def fetch_text(url: str) -> str:
 def read_data() -> list[dict[str, Any]]:
     if not DATA_PATH.exists():
         return []
-    return json.loads(DATA_PATH.read_text(encoding="utf-8"))
+    return normalize_items(json.loads(DATA_PATH.read_text(encoding="utf-8")))
+
+
+def normalize_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    normalized: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for item in items:
+        video_id = item.get("id")
+        if not video_id or video_id in seen:
+            continue
+        seen.add(video_id)
+        region = item.get("region") or "global"
+        if region not in REGION_BY_KEY:
+            region = "global"
+        item["region"] = region
+        item["regionLabel"] = REGION_BY_KEY[region]["label"]
+        normalized.append(item)
+    return normalized
 
 
 def write_data(items: list[dict[str, Any]]) -> None:
@@ -260,6 +359,7 @@ def score_candidate(title: str, category: str = "") -> tuple[int, list[str]]:
 
 def make_candidate(
     *,
+    region: str,
     video_id: str,
     title: str,
     channel: str,
@@ -276,6 +376,8 @@ def make_candidate(
     title = clean_text(title)
     if not video_id or not title:
         return None
+    if region not in REGION_BY_KEY:
+        region = "global"
     score, notes = score_candidate(title, category)
     if score < min_score:
         return None
@@ -283,6 +385,8 @@ def make_candidate(
         notes = extra_notes + notes
     return {
         "id": video_id,
+        "region": region,
+        "regionLabel": REGION_BY_KEY[region]["label"],
         "title": title,
         "channel": clean_text(channel),
         "category": clean_text(category),
@@ -303,6 +407,7 @@ def from_vidirun_item(raw: dict[str, Any], source: dict[str, str], collected_at:
     if not video_id:
         return None
     return make_candidate(
+        region="global",
         video_id=video_id,
         title=str(raw.get("Title", "")),
         channel=str(raw.get("Channel", "")),
@@ -351,6 +456,7 @@ def collect_playboard(collected_at: str) -> list[dict[str, Any]]:
         seen.add(video_id)
         rank += 1
         item = make_candidate(
+            region="global",
             video_id=video_id,
             title=title,
             channel="",
@@ -387,6 +493,7 @@ def collect_redtoolbox(collected_at: str) -> list[dict[str, Any]]:
         channel_match = re.search(r'<span class="channel">\s*<a[^>]*>(.*?)</a>', row, flags=re.S | re.I)
         growth_match = re.search(r"<font[^>]*>\s*\+?([\d,]+)\s*</font>", row, flags=re.S | re.I)
         item = make_candidate(
+            region="global",
             video_id=video_id,
             title=clean_text(title_match.group(1) if title_match else ""),
             channel=clean_text(channel_match.group(1) if channel_match else ""),
@@ -426,6 +533,7 @@ def collect_trendsfox(collected_at: str) -> list[dict[str, Any]]:
         tail = html[match.end() : match.end() + 1200]
         channel_match = re.search(r"<p[^>]*>(.*?)</p>", tail, flags=re.S | re.I)
         item = make_candidate(
+            region="global",
             video_id=video_id,
             title=alt_title,
             channel=clean_text(channel_match.group(1) if channel_match else ""),
@@ -462,6 +570,7 @@ def collect_top1trend(collected_at: str) -> list[dict[str, Any]]:
         text = clean_text(label_html)
         rank_match = re.match(r"#?\s*(\d+)", text)
         item = make_candidate(
+            region="global",
             video_id=video_id,
             title=re.sub(r"^#?\s*\d+\s*(?:\+\s*\d+\s*)?", "", text),
             channel="",
@@ -510,7 +619,7 @@ def run_yt_search(query: str) -> list[dict[str, Any]]:
     return payload.get("entries") or []
 
 
-def from_ytdlp_item(raw: dict[str, Any], query: str, collected_at: str) -> dict[str, Any] | None:
+def from_ytdlp_item(raw: dict[str, Any], query: str, region: str, collected_at: str) -> dict[str, Any] | None:
     video_id = raw.get("id")
     duration = raw.get("duration")
     if not video_id:
@@ -520,6 +629,7 @@ def from_ytdlp_item(raw: dict[str, Any], query: str, collected_at: str) -> dict[
     title = str(raw.get("title", "")).strip()
     search_text = re.sub(r"^ytsearch\d*:", "", query)
     return make_candidate(
+        region=region,
         video_id=video_id,
         title=title,
         channel=str(raw.get("channel") or raw.get("uploader") or ""),
@@ -536,11 +646,13 @@ def from_ytdlp_item(raw: dict[str, Any], query: str, collected_at: str) -> dict[
 
 def collect_youtube_search(collected_at: str) -> list[dict[str, Any]]:
     candidates: list[dict[str, Any]] = []
-    for query in YT_SEARCH_QUERIES:
-        for raw in run_yt_search(query):
-            item = from_ytdlp_item(raw, query, collected_at)
-            if item:
-                candidates.append(item)
+    for region in REGIONS:
+        for text_query in region["queries"]:
+            query = f"ytsearch{YT_SEARCH_LIMIT}:{text_query}"
+            for raw in run_yt_search(query):
+                item = from_ytdlp_item(raw, query, region["key"], collected_at)
+                if item:
+                    candidates.append(item)
     return candidates
 
 
@@ -548,37 +660,31 @@ def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]],
     old_by_id = {item.get("id"): item for item in existing if item.get("id")}
     ranked = sorted(new_items, key=rank_item)
 
-    deduped: list[dict[str, Any]] = []
+    candidates_by_region: dict[str, list[dict[str, Any]]] = {region["key"]: [] for region in REGIONS}
     seen: set[str] = set()
     for item in ranked:
         video_id = item.get("id")
         if not video_id or video_id in seen:
             continue
         seen.add(video_id)
-        deduped.append(item)
+        region = item.get("region") or "global"
+        if region not in candidates_by_region:
+            region = "global"
+        candidates_by_region[region].append(item)
 
-    selected = deduped[:max_new]
-    selected_sources = {item.get("sourceName") for item in selected}
-    selected_ids = {item.get("id") for item in selected}
-
-    source_heads: dict[str, dict[str, Any]] = {}
-    for item in deduped:
-        source_name = item.get("sourceName") or ""
-        if source_name and source_name not in source_heads:
-            source_heads[source_name] = item
-
-    for source_name, item in sorted(source_heads.items(), key=lambda pair: rank_item(pair[1])):
-        if source_name in selected_sources or item.get("id") in selected_ids:
-            continue
-        if len(selected) < max_new:
+    selected: list[dict[str, Any]] = []
+    selected_ids: set[str] = set()
+    for region in REGIONS:
+        count = 0
+        for item in candidates_by_region[region["key"]]:
+            video_id = item.get("id")
+            if not video_id or video_id in selected_ids:
+                continue
             selected.append(item)
-        else:
-            replaced = selected[-1]
-            selected_sources.discard(replaced.get("sourceName"))
-            selected_ids.discard(replaced.get("id"))
-            selected[-1] = item
-        selected_sources.add(source_name)
-        selected_ids.add(item.get("id"))
+            selected_ids.add(video_id)
+            count += 1
+            if count >= max_new:
+                break
 
     fresh: list[dict[str, Any]] = []
     for item in selected:
@@ -590,6 +696,8 @@ def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]],
             old.update(
                 {
                     "title": item.get("title") or old.get("title"),
+                    "region": item.get("region") or old.get("region") or "global",
+                    "regionLabel": item.get("regionLabel") or old.get("regionLabel") or "Global",
                     "channel": item.get("channel") or old.get("channel"),
                     "category": item.get("category") or old.get("category"),
                     "viewsGained": item.get("viewsGained") or old.get("viewsGained"),
@@ -606,12 +714,20 @@ def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]],
             fresh.append(item)
 
     fresh_ids = {item.get("id") for item in fresh}
-    tail = [item for item in existing if item.get("id") not in fresh_ids]
+    tail: list[dict[str, Any]] = []
+    seen_ids = set(fresh_ids)
+    for item in existing:
+        video_id = item.get("id")
+        if not video_id or video_id in seen_ids:
+            continue
+        seen_ids.add(video_id)
+        tail.append(item)
     return fresh + tail
 
 
 def rank_item(item: dict[str, Any]) -> tuple[Any, ...]:
     return (
+        REGIONS.index(REGION_BY_KEY.get(item.get("region") or "global", REGION_BY_KEY["global"])),
         item.get("sourceWindow") != "24H",
         -(item.get("viewsGained") or 0),
         item.get("sourceRank") or 9999,
@@ -640,29 +756,62 @@ def source_links(items: list[dict[str, Any]]) -> list[tuple[str, str]]:
     return sorted(pairs)
 
 
-def render_index(items: list[dict[str, Any]]) -> str:
-    latest = items[0].get("collectedAt", "") if items else ""
-    cards = []
-    for index, item in enumerate(items, start=1):
-        notes = "".join(f"<li>{escape(str(note))}</li>" for note in item.get("matchNotes", []))
-        cards.append(
-            f"""
+def render_card(item: dict[str, Any], index: int) -> str:
+    notes = "".join(f"<li>{escape(str(note))}</li>" for note in item.get("matchNotes", []))
+    source_rank = f" · rank {item.get('sourceRank')}" if item.get("sourceRank") else ""
+    return f"""
       <article class="short-card">
-        <a class="thumb-link" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">
+        <div class="thumb-link">
           <img src="{escape(item['thumbnail'])}" alt="{escape(item['title'])} thumbnail" loading="lazy">
           <span class="rank">#{index}</span>
-        </a>
+        </div>
         <div class="short-body">
           <div class="meta-row">
-            <span>{escape(str(item.get('sourceWindow', 'trend')))}</span>
-            <span>{fmt_int(item.get('viewsGained'))} views gained</span>
+            <span>{escape(str(item.get('regionLabel') or 'Global'))} · {escape(str(item.get('sourceWindow', 'trend')))}</span>
+            <span>{fmt_int(item.get('viewsGained'))} views</span>
           </div>
-          <h2><a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">{escape(item['title'])}</a></h2>
+          <h2>{escape(item['title'])}</h2>
+          <p class="video-url"><a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">{escape(item['shortsUrl'])}</a></p>
           <p class="channel">{escape(str(item.get('channel') or 'Unknown channel'))}</p>
-          <p class="source">Source: <a href="{escape(str(item.get('sourceUrl') or '#'))}" target="_blank" rel="noopener">{escape(str(item.get('sourceName') or 'source'))}</a>{' · rank ' + str(item.get('sourceRank')) if item.get('sourceRank') else ''}</p>
+          <p class="source">Source: <a href="{escape(str(item.get('sourceUrl') or '#'))}" target="_blank" rel="noopener">{escape(str(item.get('sourceName') or 'source'))}</a>{escape(source_rank)}</p>
           <ul class="notes">{notes}</ul>
         </div>
       </article>"""
+
+
+def group_items_by_region(items: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
+    grouped = {region["key"]: [] for region in REGIONS}
+    seen: set[str] = set()
+    for item in normalize_items(items):
+        video_id = item.get("id")
+        if not video_id or video_id in seen:
+            continue
+        seen.add(video_id)
+        grouped[item["region"]].append(item)
+    return grouped
+
+
+def render_index(items: list[dict[str, Any]]) -> str:
+    items = normalize_items(items)
+    latest = items[0].get("collectedAt", "") if items else ""
+    grouped = group_items_by_region(items)
+
+    tab_buttons = "\n".join(
+        f"""<button class="tab-button{' active' if region['key'] == 'global' else ''}" type="button" data-region-tab="{region['key']}">{escape(region['label'])}<span>{len(grouped[region['key']])}</span></button>"""
+        for region in REGIONS
+    )
+
+    panels = []
+    for region in REGIONS:
+        region_cards = "".join(render_card(item, index) for index, item in enumerate(grouped[region["key"]], start=1))
+        if not region_cards:
+            region_cards = '<div class="empty-state">No matching Shorts collected for this region yet.</div>'
+        panels.append(
+            f"""
+    <section class="region-panel{' active' if region['key'] == 'global' else ''}" data-region-panel="{region['key']}" aria-label="{escape(region['label'])} trending shorts">
+      <div class="grid">{region_cards}
+      </div>
+    </section>"""
         )
 
     links = "\n".join(
@@ -678,7 +827,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>YouTube Shorts Trend Watch</title>
-  <meta name="description" content="음악 중심, 자막 없는 1~2인 댄스/상황형 인기 YouTube Shorts 후보 모음">
+  <meta name="description" content="지역별 인기 YouTube Shorts 후보 모음">
   <style>
     :root {{
       color-scheme: light;
@@ -757,6 +906,45 @@ def render_index(items: list[dict[str, Any]]) -> str:
       font-size: 13px;
       color: #475467;
     }}
+    .tabs {{
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 0 0 18px;
+      scrollbar-width: thin;
+    }}
+    .tab-button {{
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: #344054;
+      padding: 9px 12px;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }}
+    .tab-button span {{
+      min-width: 22px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background: #edf2f7;
+      color: #475467;
+      font-size: 12px;
+    }}
+    .tab-button.active {{
+      background: var(--ink);
+      border-color: var(--ink);
+      color: white;
+    }}
+    .tab-button.active span {{
+      background: rgba(255, 255, 255, 0.18);
+      color: white;
+    }}
     main {{
       padding: 24px 0 44px;
     }}
@@ -774,6 +962,22 @@ def render_index(items: list[dict[str, Any]]) -> str:
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 14px;
+    }}
+    .region-panel {{
+      display: none;
+    }}
+    .region-panel.active {{
+      display: block;
+    }}
+    .empty-state {{
+      grid-column: 1 / -1;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 26px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
     }}
     .short-card {{
       background: var(--surface);
@@ -834,11 +1038,17 @@ def render_index(items: list[dict[str, Any]]) -> str:
       text-decoration: underline;
     }}
     .channel,
+    .video-url,
     .source {{
       margin: 0;
       color: var(--muted);
       font-size: 13px;
       line-height: 1.45;
+    }}
+    .video-url a {{
+      color: var(--focus);
+      overflow-wrap: anywhere;
+      text-decoration: none;
     }}
     .source a {{
       color: var(--focus);
@@ -885,7 +1095,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
       <div class="topbar">
         <div>
           <h1>YouTube Shorts Trend Watch</h1>
-          <p class="lead">Vidirun, Playboard, RedToolBox, TrendsFox, Top1Trend, YouTube 검색에서 음악 중심 배경, 자막 없음, 1~2명 등장, 댄스 또는 짧은 상황형으로 보이는 인기 YouTube Shorts 후보를 모아 최신순으로 누적합니다.</p>
+          <p class="lead">글로벌, KR, US, JP, 멕시코, 독일, 브라질, 인도네시아, 아르헨티나, 필리핀, 스페인, 이탈리아, 프랑스, 우즈베키스탄, 알제리, 카자흐스탄, 베트남 탭별로 음악 중심 배경, 자막 없음, 1~2명 등장, 댄스 또는 짧은 상황형으로 보이는 인기 YouTube Shorts 후보를 수집합니다.</p>
         </div>
         <div class="status">
           Last update
@@ -897,24 +1107,39 @@ def render_index(items: list[dict[str, Any]]) -> str:
         <span class="chip">no visible captions target</span>
         <span class="chip">1-2 people target</span>
         <span class="chip">dance or situation</span>
+        <span class="chip">region tabs</span>
+        <span class="chip">no duplicate videos</span>
         <span class="chip">new items stay on top</span>
       </div>
     </div>
   </header>
   <main class="shell">
-    <div class="notice">GitHub Actions가 매일 17:00 KST에 여러 공개 트렌드/랭킹 소스를 확인합니다. 공개 데이터는 영상 안의 실제 자막, 대사 유무, 인물 수를 직접 제공하지 않으므로 제목, 카테고리, 썸네일, 트렌드 순위를 기준으로 후보를 자동 수집하고 검수 메모를 남깁니다.</div>
-    <section class="grid" aria-label="trending shorts">
-{''.join(cards)}
-    </section>
+    <div class="notice">GitHub Actions가 매일 17:00 KST에 여러 공개 트렌드/랭킹 소스와 지역별 검색어를 확인합니다. 같은 YouTube 영상 ID는 전체 탭에서 한 번만 배치하며, 공개 데이터가 제공하지 않는 자막·대사·인물 수 조건은 검수 메모로 남깁니다.</div>
+    <nav class="tabs" aria-label="region tabs">
+      {tab_buttons}
+    </nav>
+{''.join(panels)}
     <section class="source-panel" aria-label="sources">
       <span>Connected sources:</span>
       {links}
     </section>
   </main>
   <footer>
-    <div class="shell">Runs on GitHub-hosted Actions at 17:00 Asia/Seoul. New matches are prepended and older links stay below.</div>
+    <div class="shell">Runs on GitHub-hosted Actions at 17:00 Asia/Seoul. New region matches are prepended and older unique links stay below.</div>
   </footer>
   <script type="application/json" id="shorts-data">{data_json}</script>
+  <script>
+    const buttons = Array.from(document.querySelectorAll("[data-region-tab]"));
+    const panelsByRegion = new Map(Array.from(document.querySelectorAll("[data-region-panel]")).map((panel) => [panel.dataset.regionPanel, panel]));
+
+    buttons.forEach((button) => {{
+      button.addEventListener("click", () => {{
+        const region = button.dataset.regionTab;
+        buttons.forEach((item) => item.classList.toggle("active", item === button));
+        panelsByRegion.forEach((panel, key) => panel.classList.toggle("active", key === region));
+      }});
+    }});
+  </script>
 </body>
 </html>
 """
@@ -923,7 +1148,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--render-only", action="store_true", help="Render index.html from existing shorts-data.json")
-    parser.add_argument("--max-new", type=int, default=int(os.environ.get("MAX_NEW_SHORTS", "20")))
+    parser.add_argument("--max-new", type=int, default=int(os.environ.get("MAX_NEW_SHORTS_PER_REGION", "8")))
     args = parser.parse_args()
 
     existing = read_data()

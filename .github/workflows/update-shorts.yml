@@ -12,7 +12,8 @@ jobs:
   update:
     runs-on: ubuntu-latest
     env:
-      MAX_NEW_SHORTS: "20"
+      MAX_NEW_SHORTS_PER_REGION: "8"
+      YT_SEARCH_LIMIT: "12"
       TZ: Asia/Seoul
     concurrency:
       group: update-youtube-shorts
@@ -44,7 +45,9 @@ jobs:
                   super().__init__()
                   self.cards = 0
                   self.images = 0
-                  self.short_links = 0
+                  self.short_links = []
+                  self.tabs = 0
+                  self.panels = 0
 
               def handle_starttag(self, tag, attrs):
                   attrs = dict(attrs)
@@ -53,13 +56,31 @@ jobs:
                   if tag == "img":
                       self.images += 1
                   if tag == "a" and attrs.get("href", "").startswith("https://www.youtube.com/shorts/"):
-                      self.short_links += 1
+                      self.short_links.append(attrs.get("href"))
+                  if tag == "button" and attrs.get("data-region-tab"):
+                      self.tabs += 1
+                  if tag == "section" and attrs.get("data-region-panel"):
+                      self.panels += 1
 
           parser = CardCounter()
           parser.feed(Path("index.html").read_text(encoding="utf-8"))
-          if parser.cards == 0 or parser.images == 0 or parser.short_links == 0:
-              raise SystemExit("index.html did not render any Shorts cards")
-          print({"cards": parser.cards, "images": parser.images, "short_links": parser.short_links})
+          video_ids = [url.rstrip("/").split("/")[-1] for url in parser.short_links]
+          if (
+              parser.tabs != 17
+              or parser.panels != 17
+              or parser.cards == 0
+              or parser.cards != parser.images
+              or len(video_ids) != len(set(video_ids))
+          ):
+              raise SystemExit("index.html did not render unique Shorts across the expected region tabs")
+          print({
+              "tabs": parser.tabs,
+              "panels": parser.panels,
+              "cards": parser.cards,
+              "images": parser.images,
+              "short_links": len(parser.short_links),
+              "unique_short_ids": len(set(video_ids)),
+          })
           PY
 
       - name: Commit updates
