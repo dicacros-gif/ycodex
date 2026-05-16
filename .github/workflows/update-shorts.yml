@@ -71,7 +71,8 @@ jobs:
                       self.panels += 1
 
           parser = CardCounter()
-          parser.feed(Path("index.html").read_text(encoding="utf-8"))
+          html = Path("index.html").read_text(encoding="utf-8")
+          parser.feed(html)
           video_ids = [url.rstrip("/").split("/")[-1] for url in parser.thumb_links]
           data = json.loads(Path("shorts-data.json").read_text(encoding="utf-8"))
           by_id = {item["id"]: item for item in data}
@@ -83,6 +84,7 @@ jobs:
               or parser.cards != parser.images
               or parser.cards != len(parser.thumb_links)
               or len(video_ids) != len(set(video_ids))
+              or "trend-brief" not in html
               or any((item.get("viewsGained") or 0) < 3000 for item in visible)
               or any(not item.get("publishedAt") for item in visible)
           ):

@@ -1138,6 +1138,16 @@ def fmt_int(value: Any) -> str:
         return "0"
 
 
+def parse_date(value: Any) -> datetime.date | None:
+    normalized = normalize_published_at(value)
+    if not normalized:
+        return None
+    try:
+        return datetime.fromisoformat(normalized).date()
+    except ValueError:
+        return None
+
+
 def source_links(items: list[dict[str, Any]]) -> list[tuple[str, str]]:
     pairs: set[tuple[str, str]] = set()
     for source in VIDIRUN_SOURCES:
@@ -1159,6 +1169,186 @@ def source_links(items: list[dict[str, Any]]) -> list[tuple[str, str]]:
         if source_name and source_name not in known_names:
             pairs.add((source_name, item.get("sourceUrl") or "#"))
     return sorted(pairs)
+
+
+TREND_CLUSTERS = [
+    {
+        "key": "dance",
+        "label": "댄스·음악 챌린지",
+        "terms": {
+            "dance",
+            "dances",
+            "dancing",
+            "dancer",
+            "댄스",
+            "춤",
+            "challenge",
+            "챌린지",
+            "baile",
+            "ballo",
+            "danse",
+            "danca",
+            "dança",
+            "joget",
+            "tari",
+            "tanz",
+            "raqs",
+            "nhay",
+            "nhảy",
+            "music",
+            "musica",
+            "música",
+            "musik",
+            "musiqa",
+        },
+    },
+    {
+        "key": "edit",
+        "label": "편집·슬로우드 사운드",
+        "terms": {"edit", "edits", "slowed", "funk", "phonk", "beat", "montagem", "jumpstyle", "velocity"},
+    },
+    {
+        "key": "situation",
+        "label": "상황형 코미디·짧은 사건",
+        "terms": {
+            "funny",
+            "comedy",
+            "humor",
+            "prank",
+            "surprise",
+            "saved",
+            "happened",
+            "wild",
+            "angry",
+            "movie",
+            "series",
+            "상황",
+            "마술",
+        },
+    },
+    {
+        "key": "performance",
+        "label": "스포츠·퍼포먼스 순간",
+        "terms": {"football", "f1", "formula1", "stunt", "battle", "moonwalk", "michael jackson", "backstage", "reveal"},
+    },
+    {
+        "key": "kpop",
+        "label": "K-pop·아이돌 파생",
+        "terms": {"kpop", "k-pop", "bts", "new jeans", "newjeans", "jisoo", "blackpink", "소녀시대", "뉴진스", "방탄소년단"},
+    },
+]
+
+
+def item_text(item: dict[str, Any]) -> str:
+    notes = " ".join(str(note) for note in item.get("matchNotes", []))
+    return f"{item.get('title', '')} {item.get('category', '')} {notes}"
+
+
+def item_cluster_keys(item: dict[str, Any]) -> list[str]:
+    text = item_text(item)
+    keys = [cluster["key"] for cluster in TREND_CLUSTERS if term_hits(text, cluster["terms"])]
+    return keys or ["other"]
+
+
+def cluster_label(key: str) -> str:
+    for cluster in TREND_CLUSTERS:
+        if cluster["key"] == key:
+            return cluster["label"]
+    return "기타 신호"
+
+
+def cluster_counts(items: list[dict[str, Any]]) -> dict[str, int]:
+    counts = {cluster["key"]: 0 for cluster in TREND_CLUSTERS}
+    counts["other"] = 0
+    for item in items:
+        for key in item_cluster_keys(item):
+            counts[key] += 1
+    return counts
+
+
+def top_cluster(items: list[dict[str, Any]]) -> tuple[str, int]:
+    counts = cluster_counts(items)
+    key, count = max(counts.items(), key=lambda pair: pair[1])
+    return key, count
+
+
+def trend_ratio(counts: dict[str, int], key: str, total: int) -> float:
+    if total <= 0:
+        return 0.0
+    return counts.get(key, 0) / total
+
+
+def compact_title(title: str, limit: int = 46) -> str:
+    title = clean_text(title)
+    if len(title) <= limit:
+        return title
+    return title[: limit - 1].rstrip() + "..."
+
+
+def render_trend_analysis(items: list[dict[str, Any]]) -> str:
+    dated_items = [(item, parse_date(item.get("publishedAt"))) for item in items]
+    dated_items = [(item, published) for item, published in dated_items if published]
+    if not dated_items:
+        return ""
+
+    latest_date = max(published for _, published in dated_items)
+    cutoff = latest_date - timedelta(days=6)
+    recent = [item for item, published in dated_items if published >= cutoff]
+    previous = [item for item, published in dated_items if published < cutoff]
+    analysis_base = recent or [item for item, _ in dated_items]
+
+    recent_key, recent_count = top_cluster(analysis_base)
+    recent_counts = cluster_counts(analysis_base)
+    previous_counts = cluster_counts(previous)
+    comparison = []
+    if previous:
+        for key in recent_counts:
+            delta = trend_ratio(recent_counts, key, len(analysis_base)) - trend_ratio(previous_counts, key, len(previous))
+            comparison.append((delta, key))
+    comparison.sort(reverse=True)
+    rising_delta, rising_key = comparison[0] if comparison else (0.0, recent_key)
+
+    region_counts: dict[str, int] = {}
+    for item in analysis_base:
+        region_counts[item["region"]] = region_counts.get(item["region"], 0) + 1
+    region_focus = sorted(region_counts.items(), key=lambda pair: pair[1], reverse=True)[:3]
+    region_text = ", ".join(f"{REGION_BY_KEY[key]['label']} {count}개" for key, count in region_focus)
+
+    top_view_item = max(analysis_base, key=lambda item: parse_int(item.get("viewsGained")))
+    top_view_clusters = ", ".join(cluster_label(key) for key in item_cluster_keys(top_view_item)[:2])
+    if not top_view_clusters:
+        top_view_clusters = "복합 트렌드"
+
+    if rising_delta >= 0.08:
+        shift_sentence = f"이전 누적 대비 {cluster_label(rising_key)} 비중이 약 {round(rising_delta * 100)}%p 높아졌습니다."
+    elif rising_delta <= -0.08:
+        shift_sentence = f"최근 표본에서는 {cluster_label(rising_key)} 비중이 이전보다 낮아져, 관심이 다른 포맷으로 분산됩니다."
+    else:
+        shift_sentence = "최근 표본은 이전 누적과 큰 급변보다는 기존 강세 포맷이 유지되는 흐름입니다."
+
+    recent_range = f"{cutoff.isoformat()}~{latest_date.isoformat()}"
+    notes = [
+        f"최근 {recent_range} 게시 영상 {len(analysis_base)}개 기준으로 {cluster_label(recent_key)} 신호가 가장 큽니다.",
+        shift_sentence,
+        f"지역별로는 {region_text or '여러 지역'}에서 새 게시물이 많이 잡히며, 지역 탭마다 코미디·댄스·편집형 비중이 다르게 나타납니다.",
+        f"조회수 상위 최근 사례는 {compact_title(str(top_view_item.get('title', '')))} ({fmt_int(top_view_item.get('viewsGained'))} views)이며, {top_view_clusters} 쪽 신호가 강합니다.",
+    ]
+
+    note_items = "\n".join(f"<li>{escape(note)}</li>" for note in notes)
+    top_badges = "\n".join(
+        f"<span>{escape(cluster_label(key))} {count}</span>"
+        for key, count in sorted(recent_counts.items(), key=lambda pair: pair[1], reverse=True)[:4]
+        if count
+    )
+    return f"""
+    <section class="trend-brief" aria-label="trend analysis">
+      <div class="trend-heading">
+        <strong>트렌드 분석</strong>
+        <span>{len(items)}개 표시 영상 · {MIN_DISPLAY_VIEWS:,}뷰 이상</span>
+      </div>
+      <div class="trend-badges">{top_badges}</div>
+      <ul class="trend-notes">{note_items}</ul>
+    </section>"""
 
 
 def render_card(item: dict[str, Any], index: int) -> str:
@@ -1201,6 +1391,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
     items = normalize_items(items)
     grouped = group_items_by_region(items)
     display_items = [item for region_items in grouped.values() for item in region_items]
+    trend_analysis = render_trend_analysis(display_items)
 
     tab_buttons = "\n".join(
         f"""<button class="tab-button{' active' if region['key'] == 'global' else ''}" type="button" data-region-tab="{region['key']}">{escape(region['label'])}<span>{len(grouped[region['key']])}</span></button>"""
@@ -1308,6 +1499,57 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     main {{
       padding: 14px 0 44px;
+    }}
+    .trend-brief {{
+      border-bottom: 1px solid var(--line);
+      padding: 2px 0 16px;
+      margin-bottom: 16px;
+    }}
+    .trend-heading {{
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+    }}
+    .trend-heading strong {{
+      font-size: 15px;
+      line-height: 1.3;
+    }}
+    .trend-heading span {{
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }}
+    .trend-badges {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }}
+    .trend-badges span {{
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: #344054;
+      padding: 5px 8px;
+      font-size: 11px;
+      font-weight: 700;
+    }}
+    .trend-notes {{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 10px 14px;
+    }}
+    .trend-notes li {{
+      border-left: 3px solid var(--accent);
+      padding-left: 10px;
+      color: #344054;
+      font-size: 13px;
+      line-height: 1.55;
     }}
     .grid {{
       display: grid;
@@ -1441,6 +1683,8 @@ def render_index(items: list[dict[str, Any]]) -> str:
       .tabs {{ gap: 5px; padding: 8px 0; }}
       .tab-button {{ padding: 6px 8px; font-size: 11px; gap: 5px; }}
       .tab-button span {{ min-width: 18px; padding: 1px 5px; font-size: 10px; }}
+      .trend-heading {{ align-items: flex-start; flex-direction: column; gap: 4px; }}
+      .trend-heading span {{ white-space: normal; }}
       .grid {{ grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }}
       .thumb-link {{ flex-basis: 68px; width: 68px; }}
     }}
@@ -1455,6 +1699,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
     </div>
   </header>
   <main class="shell">
+{trend_analysis}
 {''.join(panels)}
     <section class="source-panel" aria-label="sources">
       <span>Connected sources:</span>
