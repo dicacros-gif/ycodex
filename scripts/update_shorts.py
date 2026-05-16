@@ -1866,7 +1866,8 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     a {{ color: inherit; }}
     .shell {{
-      width: min(1840px, calc(100% - 28px));
+      width: calc(100% - 28px);
+      max-width: 100%;
       margin: 0 auto;
     }}
     header {{
@@ -2420,7 +2421,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
       text-align: center;
     }}
     @media (max-width: 720px) {{
-      .shell {{ width: min(100% - 16px, 1180px); }}
+      .shell {{ width: calc(100% - 16px); max-width: 100%; }}
       .tabs {{ gap: 5px; padding: 8px 0; }}
       .tab-button {{ padding: 6px 8px; font-size: 11px; gap: 5px; }}
       .tab-button span {{ min-width: 18px; padding: 1px 5px; font-size: 10px; }}
