@@ -1659,6 +1659,8 @@ HIGHLIGHT_TERMS: list[tuple[str, str]] = [
     ("metric", "조회수"),
     ("metric", "좋아요"),
     ("metric", "views"),
+    ("metric", "3,000뷰"),
+    ("metric", "24H"),
     ("region", "글로벌"),
     ("region", "멕시코"),
     ("region", "독일"),
@@ -1684,6 +1686,7 @@ HIGHLIGHT_TERMS: list[tuple[str, str]] = [
     ("source", "YouTube"),
     ("source", "랭킹"),
     ("source", "트렌드"),
+    ("source", "소스"),
     ("signal", "상황형 코미디·짧은 사건"),
     ("signal", "댄스·음악 챌린지"),
     ("signal", "편집·슬로우드 사운드"),
@@ -1699,10 +1702,59 @@ HIGHLIGHT_TERMS: list[tuple[str, str]] = [
     ("signal", "클릭률"),
     ("signal", "클릭 유지율"),
     ("signal", "지역 확장"),
+    ("signal", "급상승권"),
+    ("signal", "대형 확산권"),
+    ("signal", "지역 탭 검토 후보"),
+    ("signal", "초기 속도"),
+    ("signal", "초기 반응"),
+    ("signal", "알고리즘"),
+    ("signal", "추천 노출"),
+    ("signal", "추천 피드"),
+    ("signal", "반응 신호"),
+    ("signal", "인기 신호"),
+    ("signal", "상황형 포맷"),
+    ("signal", "상황극"),
+    ("signal", "상황"),
+    ("signal", "반전"),
+    ("signal", "갈등"),
+    ("signal", "궁금증"),
+    ("signal", "호기심"),
+    ("signal", "웃음 코드"),
+    ("signal", "언어 장벽"),
+    ("signal", "첫 장면"),
+    ("signal", "첫 프레임"),
+    ("signal", "시각적 훅"),
+    ("signal", "음악 훅"),
+    ("signal", "훅"),
+    ("signal", "루프"),
+    ("signal", "사운드"),
+    ("signal", "펑크"),
+    ("signal", "빠른 컷"),
+    ("signal", "편집"),
+    ("signal", "마술"),
+    ("signal", "구출"),
+    ("signal", "공개"),
+    ("signal", "놀라움"),
+    ("signal", "스턴트"),
+    ("signal", "퍼포먼스"),
+    ("signal", "K-pop"),
+    ("signal", "아이돌"),
+    ("signal", "팬덤"),
+    ("signal", "확산"),
+    ("signal", "재확산"),
+    ("signal", "숏폼"),
+    ("signal", "모바일"),
+    ("signal", "따라 하기"),
+    ("signal", "다시 보기"),
+    ("signal", "재시청"),
     ("signal", "댄스"),
     ("signal", "음악"),
     ("signal", "챌린지"),
     ("signal", "코미디"),
+    ("signal", "Astronomia"),
+    ("signal", "Squid Game"),
+    ("signal", "IP"),
+    ("signal", "shuffle"),
     ("signal", "magic"),
     ("signal", "dance"),
     ("signal", "challenge"),
@@ -1710,6 +1762,18 @@ HIGHLIGHT_TERMS: list[tuple[str, str]] = [
     ("signal", "comedy"),
     ("signal", "slowed"),
     ("signal", "edit"),
+    ("signal", "saved"),
+    ("signal", "reveal"),
+    ("signal", "surprise"),
+    ("signal", "defying"),
+    ("signal", "wild"),
+    ("signal", "prank"),
+    ("signal", "humor"),
+    ("signal", "music"),
+    ("signal", "trend"),
+    ("signal", "tutorial"),
+    ("signal", "backstage"),
+    ("signal", "baile"),
 ]
 
 HIGHLIGHT_NUMBER_RE = re.compile(r"\d{1,3}(?:,\d{3})+(?:\s*(?:views|뷰))?|\d+(?:%p|개|뷰)")
@@ -2074,25 +2138,30 @@ def render_index(items: list[dict[str, Any]]) -> str:
       display: inline;
       border-radius: 5px;
       padding: 0 3px;
+      border: 1px solid transparent;
       font-weight: 900;
       box-decoration-break: clone;
       -webkit-box-decoration-break: clone;
     }}
     .text-mark--metric {{
-      background: #fee2e2;
-      color: #b91c1c;
+      background: #ffe4e6;
+      border-color: #fecdd3;
+      color: #9f1239;
     }}
     .text-mark--region {{
       background: #ccfbf1;
+      border-color: #99f6e4;
       color: #0f766e;
     }}
     .text-mark--source {{
       background: #dbeafe;
+      border-color: #bfdbfe;
       color: #1d4ed8;
     }}
     .text-mark--signal {{
       background: #fef3c7;
-      color: #a16207;
+      border-color: #fde68a;
+      color: #854d0e;
     }}
     .shell {{
       width: calc(100% - 28px);
