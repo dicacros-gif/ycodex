@@ -267,6 +267,31 @@
       font-size: 13px;
       line-height: 1.55;
     }
+    .trend-source-insights {
+      margin-top: 14px;
+      padding: 14px;
+      border: 1px solid rgba(220, 38, 38, 0.16);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ffffff 0%, #fff7f7 100%);
+    }
+    .trend-source-insights > strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #7f1d1d;
+      font-size: 14px;
+      line-height: 1.3;
+      font-weight: 900;
+    }
+    .trend-source-insights ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #344054;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+    .trend-source-insights li + li {
+      margin-top: 6px;
+    }
     .mega-panel {
       background: transparent;
     }
@@ -735,7 +760,7 @@
   <header>
     <div class="shell">
       <nav class="tabs" role="tablist" aria-label="지역별 쇼츠 탭">
-        <button id="tab-global" class="tab-button active" type="button" role="tab" aria-selected="true" aria-controls="panel-global" data-region-tab="global"><span class="tab-label">글로벌</span><span class="tab-count">10</span></button>
+        <button id="tab-global" class="tab-button active" type="button" role="tab" aria-selected="true" aria-controls="panel-global" data-region-tab="global"><span class="tab-label">글로벌</span><span class="tab-count">11</span></button>
 <button id="tab-mega" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-mega" data-region-tab="mega"><span class="tab-label">1억뷰 분석</span><span class="tab-count">5</span></button>
 <button id="tab-kr" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-kr" data-region-tab="kr"><span class="tab-label">대한민국</span><span class="tab-count">2</span></button>
 <button id="tab-us" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-us" data-region-tab="us"><span class="tab-label">미국</span><span class="tab-count">0</span></button>
@@ -744,9 +769,9 @@
 <button id="tab-de" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-de" data-region-tab="de"><span class="tab-label">독일</span><span class="tab-count">0</span></button>
 <button id="tab-br" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-br" data-region-tab="br"><span class="tab-label">브라질</span><span class="tab-count">2</span></button>
 <button id="tab-id" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-id" data-region-tab="id"><span class="tab-label">인도네시아</span><span class="tab-count">1</span></button>
-<button id="tab-ar" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-ar" data-region-tab="ar"><span class="tab-label">아르헨티나</span><span class="tab-count">2</span></button>
+<button id="tab-ar" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-ar" data-region-tab="ar"><span class="tab-label">아르헨티나</span><span class="tab-count">3</span></button>
 <button id="tab-ph" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-ph" data-region-tab="ph"><span class="tab-label">필리핀</span><span class="tab-count">1</span></button>
-<button id="tab-es" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-es" data-region-tab="es"><span class="tab-label">스페인</span><span class="tab-count">3</span></button>
+<button id="tab-es" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-es" data-region-tab="es"><span class="tab-label">스페인</span><span class="tab-count">2</span></button>
 <button id="tab-it" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-it" data-region-tab="it"><span class="tab-label">이탈리아</span><span class="tab-count">2</span></button>
 <button id="tab-fr" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-fr" data-region-tab="fr"><span class="tab-label">프랑스</span><span class="tab-count">2</span></button>
 <button id="tab-uz" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-uz" data-region-tab="uz"><span class="tab-label">우즈베키스탄</span><span class="tab-count">0</span></button>
@@ -763,7 +788,7 @@
         <div>
           <h2>1억뷰 분석</h2>
           <ul class="mega-hero-points"><li>현재 표시 영상 중 <strong class="text-mark text-mark--metric">5개</strong>가 <strong class="text-mark text-mark--metric">1억뷰</strong> 이상입니다.</li>
-<li>가장 강한 사례는 <strong class="text-mark text-mark--signal">ASTRONOMIA</strong> 🤯 TEACHING <strong class="text-mark text-mark--signal">SHUFFLE</strong> TUZELITY 😨 LITTLE BOY N... (<strong class="text-mark text-mark--metric">399,630,284 views</strong>)입니다.</li>
+<li>가장 강한 사례는 <strong class="text-mark text-mark--signal">ASTRONOMIA</strong> 🤯 TEACHING <strong class="text-mark text-mark--signal">SHUFFLE</strong> TUZELITY 😨 LITTLE BOY N... (<strong class="text-mark text-mark--metric">399,695,283 views</strong>)입니다.</li>
 <li>현재 데이터에서는 <strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong>, <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong>, <strong class="text-mark text-mark--signal">스포츠·퍼포먼스 순간</strong> 신호가 특히 강합니다.</li></ul>
         </div>
         <strong>5</strong>
@@ -799,8 +824,8 @@
           <div class="mega-case-body">
             <h3><a href="https://www.youtube.com/shorts/ZdXwPHwdwhY" target="_blank" rel="noopener">Saito09 funny video 😂😂😂 #shorts</a></h3>
             <div class="mega-case-meta">
-              <span><b>조회수</b><strong class="text-mark text-mark--metric">193,174,684</strong></span>
-              <span><b>좋아요</b><strong class="text-mark text-mark--metric">1,420,720</strong></span>
+              <span><b>조회수</b><strong class="text-mark text-mark--metric">193,270,263</strong></span>
+              <span><b>좋아요</b><strong class="text-mark text-mark--metric">1,421,559</strong></span>
             </div>
             <a class="mega-case-source" href="https://playboard.co/en/video/ZdXwPHwdwhY?channelId=UCKLbzfmjFv_oalDX8sHxhkQ" target="_blank" rel="noopener">근거: <strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">일본</strong> daily rank 15</a>
             <ul class="mega-case-points"><li><strong class="text-mark text-mark--region">일본</strong> 탭에서 <strong class="text-mark text-mark--metric">1억뷰</strong>를 넘긴 <strong class="text-mark text-mark--signal">코미디</strong> 사례로, 표정과 행동 중심의 짧은 <strong class="text-mark text-mark--signal">상황</strong>이 언어 없이도 바로 전달됩니다.</li>
@@ -817,8 +842,8 @@
           <div class="mega-case-body">
             <h3><a href="https://www.youtube.com/shorts/tgOQlzCqc0M" target="_blank" rel="noopener">ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY NEON DANCE !! 🔥🔥</a></h3>
             <div class="mega-case-meta">
-              <span><b>조회수</b><strong class="text-mark text-mark--metric">399,630,284</strong></span>
-              <span><b>좋아요</b><strong class="text-mark text-mark--metric">2,790,631</strong></span>
+              <span><b>조회수</b><strong class="text-mark text-mark--metric">399,695,283</strong></span>
+              <span><b>좋아요</b><strong class="text-mark text-mark--metric">2,791,055</strong></span>
             </div>
             <a class="mega-case-source" href="https://playboard.co/en/video/tgOQlzCqc0M?channelId=UCVRqK0tS3B8pVog1HwCR4pg" target="_blank" rel="noopener">근거: <strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">카자흐스탄</strong> daily rank 5</a>
             <ul class="mega-case-points"><li><strong class="text-mark text-mark--signal">Astronomia</strong> <strong class="text-mark text-mark--signal">사운드</strong>와 셔플 동작이 결합된 <strong class="text-mark text-mark--metric">1억뷰</strong> 이상 <strong class="text-mark text-mark--signal">댄스</strong> 사례로, <strong class="text-mark text-mark--signal">음악 훅</strong>이 시작 즉시 장르를 알려 줍니다.</li>
@@ -835,8 +860,8 @@
           <div class="mega-case-body">
             <h3><a href="https://www.youtube.com/shorts/FWMyxmIu1Ss" target="_blank" rel="noopener">When princesses playing &quot;Squid Game&quot; Challenge #bybacademy #thanhhuyenn...</a></h3>
             <div class="mega-case-meta">
-              <span><b>조회수</b><strong class="text-mark text-mark--metric">253,704,686</strong></span>
-              <span><b>좋아요</b><strong class="text-mark text-mark--metric">2,194,130</strong></span>
+              <span><b>조회수</b><strong class="text-mark text-mark--metric">253,765,991</strong></span>
+              <span><b>좋아요</b><strong class="text-mark text-mark--metric">2,194,768</strong></span>
             </div>
             <a class="mega-case-source" href="https://playboard.co/en/video/FWMyxmIu1Ss?channelId=UC0DHkN8GvXGXRf3SA2PKKcg" target="_blank" rel="noopener">근거: <strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">베트남</strong> daily rank 20</a>
             <ul class="mega-case-points"><li><strong class="text-mark text-mark--signal">Squid Game</strong> <strong class="text-mark text-mark--signal">Challenge</strong>라는 <strong class="text-mark text-mark--region">글로벌</strong> <strong class="text-mark text-mark--signal">IP</strong> 신호와 공주 콘셉트의 대비가 첫 순간부터 <strong class="text-mark text-mark--signal">상황</strong>을 이해시키는 사례입니다.</li>
@@ -853,8 +878,8 @@
           <div class="mega-case-body">
             <h3><a href="https://www.youtube.com/shorts/9Egj8PiHiak" target="_blank" rel="noopener">CHUPANDO DEDO #santi #santioficial #funny #comedy</a></h3>
             <div class="mega-case-meta">
-              <span><b>조회수</b><strong class="text-mark text-mark--metric">141,065,469</strong></span>
-              <span><b>좋아요</b><strong class="text-mark text-mark--metric">477,808</strong></span>
+              <span><b>조회수</b><strong class="text-mark text-mark--metric">141,184,582</strong></span>
+              <span><b>좋아요</b><strong class="text-mark text-mark--metric">478,120</strong></span>
             </div>
             <a class="mega-case-source" href="https://playboard.co/en/video/9Egj8PiHiak?channelId=UCizBBt3xOHkXPKvnaEEUKAA" target="_blank" rel="noopener">근거: <strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">멕시코</strong> daily rank 5</a>
             <ul class="mega-case-points"><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">1억뷰</strong>를 넘긴 <strong class="text-mark text-mark--signal">코미디</strong> 사례로, 강한 행동 <strong class="text-mark text-mark--signal">훅</strong>과 짧은 반응이 바로 시선을 붙잡습니다.</li>
@@ -871,11 +896,11 @@
           <div class="mega-case-body">
             <h3><a href="https://www.youtube.com/shorts/CkaFGiLhk9U" target="_blank" rel="noopener">Backstage vs Result cute dance 😊🧸</a></h3>
             <div class="mega-case-meta">
-              <span><b>조회수</b><strong class="text-mark text-mark--metric">99,458,918</strong></span>
-              <span><b>좋아요</b><strong class="text-mark text-mark--metric">410,073</strong></span>
+              <span><b>조회수</b><strong class="text-mark text-mark--metric">99,463,253</strong></span>
+              <span><b>좋아요</b><strong class="text-mark text-mark--metric">410,208</strong></span>
             </div>
             <a class="mega-case-source" href="https://vidirun.com/format-short" target="_blank" rel="noopener">근거: <strong class="text-mark text-mark--source">Vidirun</strong> Top 50 Short-Form Videos 7D rank 26</a>
-            <ul class="mega-case-points"><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">99,458,918 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 <strong class="text-mark text-mark--signal">대형 확산권</strong> 쇼츠</li>
+            <ul class="mega-case-points"><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">99,463,253 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 <strong class="text-mark text-mark--signal">대형 확산권</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">backstage</strong>, cute, <strong class="text-mark text-mark--signal">dance</strong></li>
 <li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 <strong class="text-mark text-mark--signal">첫 프레임</strong>만으로 장르가 전달되고 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉽습니다</li>
 <li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 <strong class="text-mark text-mark--signal">추천 노출</strong>이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
@@ -899,34 +924,66 @@
       <div class="trend-heading">
         <strong>트렌드 분석</strong>
         <ul class="trend-meta">
-          <li><strong class="text-mark text-mark--metric">40개</strong> 표시 영상</li>
+          <li><strong class="text-mark text-mark--metric">41개</strong> 표시 영상</li>
           <li><strong class="text-mark text-mark--metric">3,000뷰</strong> 이상</li>
         </ul>
       </div>
-      <ul class="trend-badges"><li><strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 17</li>
+      <ul class="trend-badges"><li><strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 18</li>
 <li><strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong> 5</li>
 <li><strong class="text-mark text-mark--signal">스포츠·퍼포먼스 순간</strong> 4</li>
 <li><strong class="text-mark text-mark--signal">K-pop</strong>·<strong class="text-mark text-mark--signal">아이돌</strong> 파생 2</li></ul>
-      <ul class="trend-notes"><li>최근 5/9 ~ 5/15 게시 영상 <strong class="text-mark text-mark--metric">24개</strong> 기준으로 <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 신호가 가장 큽니다.</li>
-<li>이전 누적 대비 <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 비중이 약 <strong class="text-mark text-mark--metric">27%p</strong> 높아졌습니다.</li>
-<li>지역별로는 <strong class="text-mark text-mark--region">글로벌</strong> <strong class="text-mark text-mark--metric">6개</strong>, <strong class="text-mark text-mark--region">멕시코</strong> <strong class="text-mark text-mark--metric">6개</strong>, <strong class="text-mark text-mark--region">브라질</strong> <strong class="text-mark text-mark--metric">2개</strong>에서 새 게시물이 많이 잡히며, 지역 탭마다 <strong class="text-mark text-mark--signal">코미디</strong>·<strong class="text-mark text-mark--signal">댄스</strong>·<strong class="text-mark text-mark--signal">편집</strong>형 비중이 다르게 나타납니다.</li>
-<li><strong class="text-mark text-mark--metric">조회수</strong> 상위 최근 사례는 BTS <strong class="text-mark text-mark--signal">REVEAL</strong>! 🎬 Jasmin is <strong class="text-mark text-mark--signal">defying</strong> gravity… 😱 #s... (<strong class="text-mark text-mark--metric">34,888,819 views</strong>)이며, <strong class="text-mark text-mark--signal">스포츠·퍼포먼스 순간</strong>, <strong class="text-mark text-mark--signal">K-pop</strong>·<strong class="text-mark text-mark--signal">아이돌</strong> 파생 쪽 신호가 강합니다.</li></ul>
+      <ul class="trend-notes"><li>최근 5/9 ~ 5/15 게시 영상 <strong class="text-mark text-mark--metric">25개</strong> 기준으로 <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 신호가 가장 큽니다.</li>
+<li>이전 누적 대비 <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 비중이 약 <strong class="text-mark text-mark--metric">28%p</strong> 높아졌습니다.</li>
+<li>지역별로는 <strong class="text-mark text-mark--region">글로벌</strong> <strong class="text-mark text-mark--metric">7개</strong>, <strong class="text-mark text-mark--region">멕시코</strong> <strong class="text-mark text-mark--metric">6개</strong>, <strong class="text-mark text-mark--region">아르헨티나</strong> <strong class="text-mark text-mark--metric">3개</strong>에서 새 게시물이 많이 잡히며, 지역 탭마다 <strong class="text-mark text-mark--signal">코미디</strong>·<strong class="text-mark text-mark--signal">댄스</strong>·<strong class="text-mark text-mark--signal">편집</strong>형 비중이 다르게 나타납니다.</li>
+<li><strong class="text-mark text-mark--metric">조회수</strong> 상위 최근 사례는 BTS <strong class="text-mark text-mark--signal">REVEAL</strong>! 🎬 Jasmin is <strong class="text-mark text-mark--signal">defying</strong> gravity… 😱 #s... (<strong class="text-mark text-mark--metric">34,890,432 views</strong>)이며, <strong class="text-mark text-mark--signal">스포츠·퍼포먼스 순간</strong>, <strong class="text-mark text-mark--signal">K-pop</strong>·<strong class="text-mark text-mark--signal">아이돌</strong> 파생 쪽 신호가 강합니다.</li></ul>
+
+      <div class="trend-source-insights">
+        <strong>글로벌 크롤링 인사이트</strong>
+        <ul><li><strong class="text-mark text-mark--source">글로벌 크롤링</strong>은 <strong class="text-mark text-mark--source">Vidirun</strong> <strong class="text-mark text-mark--metric">24H</strong>/7D <strong class="text-mark text-mark--signal">숏폼</strong> <strong class="text-mark text-mark--source">랭킹</strong>, <strong class="text-mark text-mark--source">Playboard</strong> 지역별 Shorts Daily, <strong class="text-mark text-mark--source">RedToolBox</strong> 일/주/월 <strong class="text-mark text-mark--source">Top Shorts</strong>, <strong class="text-mark text-mark--source">TubeTrending</strong> 48H 신규 Shorts, <strong class="text-mark text-mark--source">YTTrack</strong> 지역·카테고리 <strong class="text-mark text-mark--source">트렌드</strong>, <strong class="text-mark text-mark--source">Chartika</strong> 지역 차트, <strong class="text-mark text-mark--source">TrendsFox</strong> <strong class="text-mark text-mark--source">라이브 트렌딩</strong>, <strong class="text-mark text-mark--source">Top1Trend</strong> <strong class="text-mark text-mark--source">YouTube</strong> Trending를 매일 확인하고, 9:16·3천뷰 이상·중복 제거를 통과한 영상만 분석에 반영합니다.</li>
+<li>현재 표시 데이터는 <strong class="text-mark text-mark--source">Vidirun</strong> <strong class="text-mark text-mark--metric">24H</strong>/7D <strong class="text-mark text-mark--signal">숏폼</strong> <strong class="text-mark text-mark--source">랭킹</strong>, <strong class="text-mark text-mark--source">Playboard</strong> 지역별 Shorts Daily, <strong class="text-mark text-mark--source">YTTrack</strong> 지역·카테고리 <strong class="text-mark text-mark--source">트렌드</strong>에서 실제 <strong class="text-mark text-mark--source">랭킹</strong> 신호가 잡혔고, <strong class="text-mark text-mark--source">검색 보강</strong>보다 <strong class="text-mark text-mark--source">공개 랭킹</strong> 출처를 우선합니다.</li>
+<li><strong class="text-mark text-mark--source">Vidirun</strong> <strong class="text-mark text-mark--metric">24H</strong>/7D <strong class="text-mark text-mark--signal">숏폼</strong> <strong class="text-mark text-mark--source">랭킹</strong>: <strong class="text-mark text-mark--metric">10개</strong> 표시, <strong class="text-mark text-mark--metric">24H</strong>/7D 기준에서 <strong class="text-mark text-mark--region">글로벌</strong> <strong class="text-mark text-mark--metric">10개</strong> 신호가 잡혔고 대표 사례는 When did Ermao learn to do <strong class="text-mark text-mark--signal">magic</strong>？ #<strong class="text-mark text-mark--signal">funny</strong>... (<strong class="text-mark text-mark--metric">118,572,269 views</strong>), <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 성격이 강합니다.</li>
+<li><strong class="text-mark text-mark--source">Playboard</strong> 지역별 Shorts Daily: <strong class="text-mark text-mark--metric">20개</strong> 표시, daily 기준에서 <strong class="text-mark text-mark--region">멕시코</strong> <strong class="text-mark text-mark--metric">5개</strong>, <strong class="text-mark text-mark--region">일본</strong> <strong class="text-mark text-mark--metric">4개</strong>, <strong class="text-mark text-mark--region">이탈리아</strong> <strong class="text-mark text-mark--metric">2개</strong> 신호가 잡혔고 대표 사례는 <strong class="text-mark text-mark--signal">ASTRONOMIA</strong> 🤯 TEACHING <strong class="text-mark text-mark--signal">SHUFFLE</strong> TUZELITY 😨... (<strong class="text-mark text-mark--metric">399,695,283 views</strong>), <strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong> 성격이 강합니다.</li>
+<li><strong class="text-mark text-mark--source">YTTrack</strong> 지역·카테고리 <strong class="text-mark text-mark--source">트렌드</strong>: <strong class="text-mark text-mark--metric">7개</strong> 표시, regional 기준에서 <strong class="text-mark text-mark--region">멕시코</strong> <strong class="text-mark text-mark--metric">3개</strong>, <strong class="text-mark text-mark--region">브라질</strong> <strong class="text-mark text-mark--metric">2개</strong>, <strong class="text-mark text-mark--region">아르헨티나</strong> <strong class="text-mark text-mark--metric">2개</strong> 신호가 잡혔고 대표 사례는 Me perdía muy seguido 😩😂 #shorts #<strong class="text-mark text-mark--signal">humor</strong> #... (<strong class="text-mark text-mark--metric">8,073,847 views</strong>), <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 성격이 강합니다.</li>
+<li><strong class="text-mark text-mark--source">YouTube</strong> <strong class="text-mark text-mark--source">검색 보강</strong>: <strong class="text-mark text-mark--metric">4개</strong> 표시, search 기준에서 <strong class="text-mark text-mark--region">글로벌</strong> <strong class="text-mark text-mark--metric">1개</strong>, <strong class="text-mark text-mark--region">대한민국</strong> <strong class="text-mark text-mark--metric">1개</strong>, <strong class="text-mark text-mark--region">필리핀</strong> <strong class="text-mark text-mark--metric">1개</strong> 신호가 잡혔고 대표 사례는 Rush - Ayra Starr | <strong class="text-mark text-mark--signal">Dance</strong> <strong class="text-mark text-mark--signal">Challenge</strong> (<strong class="text-mark text-mark--metric">84,332 views</strong>), <strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong> 성격이 강합니다.</li>
+<li><strong class="text-mark text-mark--source">소스</strong>별 <strong class="text-mark text-mark--source">랭킹</strong>을 합쳐 보면 <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> <strong class="text-mark text-mark--metric">18개</strong>, <strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong> <strong class="text-mark text-mark--metric">5개</strong>, <strong class="text-mark text-mark--signal">스포츠·퍼포먼스 순간</strong> <strong class="text-mark text-mark--metric">4개</strong>가 <strong class="text-mark text-mark--region">글로벌</strong> 탭의 핵심 관찰 포인트입니다.</li>
+<li><strong class="text-mark text-mark--source">YouTube</strong> <strong class="text-mark text-mark--source">검색 보강</strong>은 <strong class="text-mark text-mark--source">랭킹</strong> 사이트가 부족한 지역을 채우는 보조 단계이며, 같은 영상 ID와 같은 제목은 전체 탭에서 한 번만 남깁니다.</li></ul>
+      </div>
     </section>
       <div class="grid">
       <article class="short-card">
+        <a class="thumb-link" href="https://www.youtube.com/shorts/pu5NE-nABcI" target="_blank" rel="noopener" aria-label="Open Michael Jackson Moonwalk with Skates Part 2 on YouTube Shorts">
+          <img src="https://i.ytimg.com/vi/pu5NE-nABcI/hqdefault.jpg" alt="Michael Jackson Moonwalk with Skates Part 2 thumbnail" loading="lazy">
+          <span class="rank">#1</span>
+        </a>
+        <div class="short-body">
+          <h2>Michael Jackson Moonwalk with Skates Part 2</h2>
+          <div class="stats-row">
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">63,584,729</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">확인 필요</strong></span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">63,584,729 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 <strong class="text-mark text-mark--signal">대형 확산권</strong> 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: michael jackson, moonwalk</li>
+<li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
+<li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 <strong class="text-mark text-mark--signal">추천 노출</strong>이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="short-card">
         <a class="thumb-link" href="https://www.youtube.com/shorts/bMhgjlhIsjQ" target="_blank" rel="noopener" aria-label="Open Sister Very Angry Bhai Aa Gaye 🤣🤩😅 ##funnyvideo #funny #comedyvideos #funnyshorts on YouTube Shorts">
           <img src="https://i.ytimg.com/vi/bMhgjlhIsjQ/hqdefault.jpg" alt="Sister Very Angry Bhai Aa Gaye 🤣🤩😅 ##funnyvideo #funny #comedyvideos #funnyshorts thumbnail" loading="lazy">
-          <span class="rank">#1</span>
+          <span class="rank">#2</span>
         </a>
         <div class="short-body">
           <h2>Sister Very Angry Bhai Aa Gaye 🤣🤩😅 ##funnyvideo #funny #comedyvideos #funnyshorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">22,932,373</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">162,030</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">22,956,060</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">162,296</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">22,932,373 views</strong>로 확인된 중대형 <strong class="text-mark text-mark--signal">급상승권</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">22,956,060 views</strong>로 확인된 중대형 <strong class="text-mark text-mark--signal">급상승권</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>게시 후 6일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 <strong class="text-mark text-mark--signal">초기 속도</strong>가 강해 <strong class="text-mark text-mark--signal">알고리즘</strong> 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
@@ -934,19 +991,39 @@
         </div>
       </article>
       <article class="short-card">
+        <a class="thumb-link" href="https://www.youtube.com/shorts/vWdr3dETkqY" target="_blank" rel="noopener" aria-label="Open They’ll never know what happened💀 | Now you see me 3 (2025) - 4k Edit | MATADORA (Slowed) on YouTube Shorts">
+          <img src="https://i.ytimg.com/vi/vWdr3dETkqY/hqdefault.jpg" alt="They’ll never know what happened💀 | Now you see me 3 (2025) - 4k Edit | MATADORA (Slowed) thumbnail" loading="lazy">
+          <span class="rank">#3</span>
+        </a>
+        <div class="short-body">
+          <h2>They’ll never know what happened💀 | Now you see me 3 (2025) - 4k Edit | MATADORA (Slowed)</h2>
+          <div class="stats-row">
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">21,087,821</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">385,539</strong></span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">21,087,821 views</strong>로 확인된 중대형 <strong class="text-mark text-mark--signal">급상승권</strong> 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: happened, <strong class="text-mark text-mark--signal">edit</strong>, <strong class="text-mark text-mark--signal">slowed</strong></li>
+<li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
+<li>게시 후 7일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 <strong class="text-mark text-mark--signal">초기 속도</strong>가 강해 <strong class="text-mark text-mark--signal">알고리즘</strong> 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="short-card">
         <a class="thumb-link" href="https://www.youtube.com/shorts/jBtyy-xQaB0" target="_blank" rel="noopener" aria-label="Open Reddington saved the people in the convenience store.#shortvideo#theblacklist #series #shorts on YouTube Shorts">
           <img src="https://i.ytimg.com/vi/jBtyy-xQaB0/hqdefault.jpg" alt="Reddington saved the people in the convenience store.#shortvideo#theblacklist #series #shorts thumbnail" loading="lazy">
-          <span class="rank">#2</span>
+          <span class="rank">#4</span>
         </a>
         <div class="short-body">
           <h2>Reddington saved the people in the convenience store.#shortvideo#theblacklist #series #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">19,983,960</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">662,227</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">20,192,254</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">668,471</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">19,983,960 views</strong>로 확인된 중대형 <strong class="text-mark text-mark--signal">급상승권</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">20,192,254 views</strong>로 확인된 중대형 <strong class="text-mark text-mark--signal">급상승권</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">saved</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>게시 후 3일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 <strong class="text-mark text-mark--signal">초기 속도</strong>가 강해 <strong class="text-mark text-mark--signal">알고리즘</strong> 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
@@ -954,19 +1031,39 @@
         </div>
       </article>
       <article class="short-card">
+        <a class="thumb-link" href="https://www.youtube.com/shorts/FK-2XVp0w90" target="_blank" rel="noopener" aria-label="Open Tillu vs Generator⚡️🤣#shorts #comedy #funny #olidavines on YouTube Shorts">
+          <img src="https://i.ytimg.com/vi/FK-2XVp0w90/hqdefault.jpg" alt="Tillu vs Generator⚡️🤣#shorts #comedy #funny #olidavines thumbnail" loading="lazy">
+          <span class="rank">#5</span>
+        </a>
+        <div class="short-body">
+          <h2>Tillu vs Generator⚡️🤣#shorts #comedy #funny #olidavines</h2>
+          <div class="stats-row">
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">16,190,655</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">106,504</strong></span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">16,190,655 views</strong>로 확인된 중대형 <strong class="text-mark text-mark--signal">급상승권</strong> 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
+<li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
+<li>게시 후 4일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 <strong class="text-mark text-mark--signal">초기 속도</strong>가 강해 <strong class="text-mark text-mark--signal">알고리즘</strong> 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="short-card">
         <a class="thumb-link" href="https://www.youtube.com/shorts/vHqQqFwhGuw" target="_blank" rel="noopener" aria-label="Open SOAP BALL 🧼🫧⚾ #shorts #youtubeshorts #cricket #unboxing #ball #funny #boxofvengeance on YouTube Shorts">
           <img src="https://i.ytimg.com/vi/vHqQqFwhGuw/hqdefault.jpg" alt="SOAP BALL 🧼🫧⚾ #shorts #youtubeshorts #cricket #unboxing #ball #funny #boxofvengeance thumbnail" loading="lazy">
-          <span class="rank">#3</span>
+          <span class="rank">#6</span>
         </a>
         <div class="short-body">
           <h2>SOAP BALL 🧼🫧⚾ #shorts #youtubeshorts #cricket #unboxing #ball #funny #boxofvengeance</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">9,236,595</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">407,185</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">9,290,172</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">409,427</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">9,236,595 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">9,290,172 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li><strong class="text-mark text-mark--metric">24H</strong> <strong class="text-mark text-mark--source">랭킹</strong> 출처에서 잡힌 항목이라 최신 피드 반응은 있지만, 장기 <strong class="text-mark text-mark--signal">확산</strong> 여부는 다음 업데이트에서 확인해야 합니다</li></ul>
@@ -974,9 +1071,49 @@
         </div>
       </article>
       <article class="short-card">
+        <a class="thumb-link" href="https://www.youtube.com/shorts/CkaFGiLhk9U" target="_blank" rel="noopener" aria-label="Open Backstage vs Result cute dance 😊🧸 on YouTube Shorts">
+          <img src="https://i.ytimg.com/vi/CkaFGiLhk9U/hqdefault.jpg" alt="Backstage vs Result cute dance 😊🧸 thumbnail" loading="lazy">
+          <span class="rank">#7</span>
+        </a>
+        <div class="short-body">
+          <h2>Backstage vs Result cute dance 😊🧸</h2>
+          <div class="stats-row">
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">99,463,253</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">410,208</strong></span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">99,463,253 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 <strong class="text-mark text-mark--signal">대형 확산권</strong> 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">backstage</strong>, cute, <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 <strong class="text-mark text-mark--signal">첫 프레임</strong>만으로 장르가 전달되고 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉽습니다</li>
+<li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 <strong class="text-mark text-mark--signal">추천 노출</strong>이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="short-card">
+        <a class="thumb-link" href="https://www.youtube.com/shorts/BKFhBNgoG_M" target="_blank" rel="noopener" aria-label="Open BTS REVEAL! 🎬 Jasmin is defying gravity… 😱 #shorts #michaeljackson on YouTube Shorts">
+          <img src="https://i.ytimg.com/vi/BKFhBNgoG_M/hqdefault.jpg" alt="BTS REVEAL! 🎬 Jasmin is defying gravity… 😱 #shorts #michaeljackson thumbnail" loading="lazy">
+          <span class="rank">#8</span>
+        </a>
+        <div class="short-body">
+          <h2>BTS REVEAL! 🎬 Jasmin is defying gravity… 😱 #shorts #michaeljackson</h2>
+          <div class="stats-row">
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">34,890,432</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">210,234</strong></span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">34,890,432 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 <strong class="text-mark text-mark--signal">대형 확산권</strong> 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">defying</strong></li>
+<li><strong class="text-mark text-mark--signal">퍼포먼스</strong>나 <strong class="text-mark text-mark--signal">스턴트</strong>성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li>
+<li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 <strong class="text-mark text-mark--signal">추천 노출</strong>이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="short-card">
         <a class="thumb-link" href="https://www.youtube.com/shorts/HsKltJyJ-UI" target="_blank" rel="noopener" aria-label="Open When did Ermao learn to do magic？ #funny #comedy on YouTube Shorts">
           <img src="https://i.ytimg.com/vi/HsKltJyJ-UI/hqdefault.jpg" alt="When did Ermao learn to do magic？ #funny #comedy thumbnail" loading="lazy">
-          <span class="rank">#4</span>
+          <span class="rank">#9</span>
         </a>
         <div class="short-body">
           <h2>When did Ermao learn to do magic？ #funny #comedy</h2>
@@ -994,89 +1131,9 @@
         </div>
       </article>
       <article class="short-card">
-        <a class="thumb-link" href="https://www.youtube.com/shorts/vWdr3dETkqY" target="_blank" rel="noopener" aria-label="Open They’ll never know what happened💀 | Now you see me 3 (2025) - 4k Edit | MATADORA (Slowed) on YouTube Shorts">
-          <img src="https://i.ytimg.com/vi/vWdr3dETkqY/hqdefault.jpg" alt="They’ll never know what happened💀 | Now you see me 3 (2025) - 4k Edit | MATADORA (Slowed) thumbnail" loading="lazy">
-          <span class="rank">#5</span>
-        </a>
-        <div class="short-body">
-          <h2>They’ll never know what happened💀 | Now you see me 3 (2025) - 4k Edit | MATADORA (Slowed)</h2>
-          <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">20,999,019</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">383,808</strong></span>
-          </div>
-          <div class="popularity" aria-label="인기 이유">
-            <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">20,999,019 views</strong>로 확인된 중대형 <strong class="text-mark text-mark--signal">급상승권</strong> 쇼츠</li>
-<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: happened, <strong class="text-mark text-mark--signal">edit</strong>, <strong class="text-mark text-mark--signal">slowed</strong></li>
-<li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
-<li>게시 후 7일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 <strong class="text-mark text-mark--signal">초기 속도</strong>가 강해 <strong class="text-mark text-mark--signal">알고리즘</strong> 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
-          </div>
-        </div>
-      </article>
-      <article class="short-card">
-        <a class="thumb-link" href="https://www.youtube.com/shorts/pu5NE-nABcI" target="_blank" rel="noopener" aria-label="Open Michael Jackson Moonwalk with Skates Part 2 on YouTube Shorts">
-          <img src="https://i.ytimg.com/vi/pu5NE-nABcI/hqdefault.jpg" alt="Michael Jackson Moonwalk with Skates Part 2 thumbnail" loading="lazy">
-          <span class="rank">#6</span>
-        </a>
-        <div class="short-body">
-          <h2>Michael Jackson Moonwalk with Skates Part 2</h2>
-          <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">63,508,670</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">확인 필요</strong></span>
-          </div>
-          <div class="popularity" aria-label="인기 이유">
-            <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">63,508,670 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 <strong class="text-mark text-mark--signal">대형 확산권</strong> 쇼츠</li>
-<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: michael jackson, moonwalk</li>
-<li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
-<li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 <strong class="text-mark text-mark--signal">추천 노출</strong>이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
-          </div>
-        </div>
-      </article>
-      <article class="short-card">
-        <a class="thumb-link" href="https://www.youtube.com/shorts/CkaFGiLhk9U" target="_blank" rel="noopener" aria-label="Open Backstage vs Result cute dance 😊🧸 on YouTube Shorts">
-          <img src="https://i.ytimg.com/vi/CkaFGiLhk9U/hqdefault.jpg" alt="Backstage vs Result cute dance 😊🧸 thumbnail" loading="lazy">
-          <span class="rank">#7</span>
-        </a>
-        <div class="short-body">
-          <h2>Backstage vs Result cute dance 😊🧸</h2>
-          <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">99,458,918</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">410,073</strong></span>
-          </div>
-          <div class="popularity" aria-label="인기 이유">
-            <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">99,458,918 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 <strong class="text-mark text-mark--signal">대형 확산권</strong> 쇼츠</li>
-<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">backstage</strong>, cute, <strong class="text-mark text-mark--signal">dance</strong></li>
-<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 <strong class="text-mark text-mark--signal">첫 프레임</strong>만으로 장르가 전달되고 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉽습니다</li>
-<li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 <strong class="text-mark text-mark--signal">추천 노출</strong>이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
-          </div>
-        </div>
-      </article>
-      <article class="short-card">
-        <a class="thumb-link" href="https://www.youtube.com/shorts/BKFhBNgoG_M" target="_blank" rel="noopener" aria-label="Open BTS REVEAL! 🎬 Jasmin is defying gravity… 😱 #shorts #michaeljackson on YouTube Shorts">
-          <img src="https://i.ytimg.com/vi/BKFhBNgoG_M/hqdefault.jpg" alt="BTS REVEAL! 🎬 Jasmin is defying gravity… 😱 #shorts #michaeljackson thumbnail" loading="lazy">
-          <span class="rank">#8</span>
-        </a>
-        <div class="short-body">
-          <h2>BTS REVEAL! 🎬 Jasmin is defying gravity… 😱 #shorts #michaeljackson</h2>
-          <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">34,888,819</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">210,228</strong></span>
-          </div>
-          <div class="popularity" aria-label="인기 이유">
-            <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">34,888,819 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 <strong class="text-mark text-mark--signal">대형 확산권</strong> 쇼츠</li>
-<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">defying</strong></li>
-<li><strong class="text-mark text-mark--signal">퍼포먼스</strong>나 <strong class="text-mark text-mark--signal">스턴트</strong>성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li>
-<li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 <strong class="text-mark text-mark--signal">추천 노출</strong>이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
-          </div>
-        </div>
-      </article>
-      <article class="short-card">
         <a class="thumb-link" href="https://www.youtube.com/shorts/e5XUL2p3HjU" target="_blank" rel="noopener" aria-label="Open 요청💘) 아무래도난 튜토리얼 [거울모드 mirrored]/ 릴스 틱톡 쇼츠 댄스 챌린지 / tiktok reels short dance challenge on YouTube Shorts">
           <img src="https://i.ytimg.com/vi/e5XUL2p3HjU/hqdefault.jpg" alt="요청💘) 아무래도난 튜토리얼 [거울모드 mirrored]/ 릴스 틱톡 쇼츠 댄스 챌린지 / tiktok reels short dance challenge thumbnail" loading="lazy">
-          <span class="rank">#9</span>
+          <span class="rank">#10</span>
         </a>
         <div class="short-body">
           <h2>요청💘) 아무래도난 튜토리얼 [거울모드 mirrored]/ 릴스 틱톡 쇼츠 댄스 챌린지 / tiktok reels short dance challenge</h2>
@@ -1096,7 +1153,7 @@
       <article class="short-card">
         <a class="thumb-link" href="https://www.youtube.com/shorts/gaofbq_8cAQ" target="_blank" rel="noopener" aria-label="Open Turning anime into reality on YouTube Shorts">
           <img src="https://i.ytimg.com/vi/gaofbq_8cAQ/hqdefault.jpg" alt="Turning anime into reality thumbnail" loading="lazy">
-          <span class="rank">#10</span>
+          <span class="rank">#11</span>
         </a>
         <div class="short-body">
           <h2>Turning anime into reality</h2>
@@ -1126,12 +1183,12 @@
         <div class="short-body">
           <h2>F1 스탑 챌린지 #f1 #formula1 #포뮬러1</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">40,663,355</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">246,127</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">40,774,337</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">246,692</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">대한민국</strong> 탭에서 <strong class="text-mark text-mark--metric">40,663,355 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 <strong class="text-mark text-mark--signal">대형 확산권</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">대한민국</strong> 탭에서 <strong class="text-mark text-mark--metric">40,774,337 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 <strong class="text-mark text-mark--signal">대형 확산권</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">챌린지</strong></li>
 <li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 <strong class="text-mark text-mark--signal">첫 프레임</strong>만으로 장르가 전달되고 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉽습니다</li>
 <li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 <strong class="text-mark text-mark--signal">추천 노출</strong>이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
@@ -1146,13 +1203,13 @@
         <div class="short-body">
           <h2>Starting the day : 😄 Smile #DancingYoonji #Soomile #Challenge #Shorts #Dance #kpop #DancingBear #...</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">3,902</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">3,897</strong></span>
             <span><b>좋아요</b><strong class="text-mark text-mark--metric">112</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">대한민국</strong> 탭에서 <strong class="text-mark text-mark--metric">3,902 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
-<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong>, dancing</li>
+            <ul><li><strong class="text-mark text-mark--region">대한민국</strong> 탭에서 <strong class="text-mark text-mark--metric">3,897 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong></li>
 <li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 <strong class="text-mark text-mark--signal">첫 프레임</strong>만으로 장르가 전달되고 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉽습니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
@@ -1176,12 +1233,12 @@
         <div class="short-body">
           <h2>Saito09 funny video 😂😂😂 #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">193,174,684</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">1,420,720</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">193,270,263</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">1,421,559</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">일본</strong> 탭에서 <strong class="text-mark text-mark--metric">193,174,684 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">일본</strong> 탭에서 <strong class="text-mark text-mark--metric">193,270,263 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>이미 <strong class="text-mark text-mark--metric">1억뷰</strong>를 넘은 사례라 <strong class="text-mark text-mark--signal">클릭률</strong>, <strong class="text-mark text-mark--signal">완주율</strong>, <strong class="text-mark text-mark--signal">반복 시청</strong>, <strong class="text-mark text-mark--signal">공유</strong> 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다</li></ul>
@@ -1196,12 +1253,12 @@
         <div class="short-body">
           <h2>プラスチックストローから笛の作り方🥤🪈💞#challenge#straw#flute</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">66,703,794</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">485,878</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">66,818,844</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">486,277</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">일본</strong> 탭에서 <strong class="text-mark text-mark--metric">66,703,794 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 <strong class="text-mark text-mark--signal">대형 확산권</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">일본</strong> 탭에서 <strong class="text-mark text-mark--metric">66,818,844 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 <strong class="text-mark text-mark--signal">대형 확산권</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong></li>
 <li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 <strong class="text-mark text-mark--signal">첫 프레임</strong>만으로 장르가 전달되고 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉽습니다</li>
 <li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 <strong class="text-mark text-mark--signal">추천 노출</strong>이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
@@ -1216,12 +1273,12 @@
         <div class="short-body">
           <h2>プレゼント🎁for you #shorts #funny #comedy</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">13,919,436</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">13,926,162</strong></span>
             <span><b>좋아요</b><strong class="text-mark text-mark--metric">확인 필요</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">일본</strong> 탭에서 <strong class="text-mark text-mark--metric">13,919,436 views</strong>로 확인된 중대형 <strong class="text-mark text-mark--signal">급상승권</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">일본</strong> 탭에서 <strong class="text-mark text-mark--metric">13,926,162 views</strong>로 확인된 중대형 <strong class="text-mark text-mark--signal">급상승권</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>게시 후 9일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 <strong class="text-mark text-mark--signal">초기 속도</strong>가 강해 <strong class="text-mark text-mark--signal">알고리즘</strong> 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
@@ -1236,12 +1293,12 @@
         <div class="short-body">
           <h2>Mbappé, Haaland, and Yamal Are Too Funny 😂🔥 #football #haaland #parody</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">12,807,910</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">47,575</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">12,833,846</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">47,611</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">일본</strong> 탭에서 <strong class="text-mark text-mark--metric">12,807,910 views</strong>로 확인된 중대형 <strong class="text-mark text-mark--signal">급상승권</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">일본</strong> 탭에서 <strong class="text-mark text-mark--metric">12,833,846 views</strong>로 확인된 중대형 <strong class="text-mark text-mark--signal">급상승권</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>게시 후 5일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 <strong class="text-mark text-mark--signal">초기 속도</strong>가 강해 <strong class="text-mark text-mark--signal">알고리즘</strong> 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
@@ -1261,12 +1318,12 @@
         <div class="short-body">
           <h2>CHUPANDO DEDO #santi #santioficial #funny #comedy</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">141,065,469</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">477,808</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">141,184,582</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">478,120</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">141,065,469 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">141,184,582 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>이미 <strong class="text-mark text-mark--metric">1억뷰</strong>를 넘은 사례라 <strong class="text-mark text-mark--signal">클릭률</strong>, <strong class="text-mark text-mark--signal">완주율</strong>, <strong class="text-mark text-mark--signal">반복 시청</strong>, <strong class="text-mark text-mark--signal">공유</strong> 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다</li></ul>
@@ -1281,12 +1338,12 @@
         <div class="short-body">
           <h2>#timelapse for entertainment , so cute funny family , new memes smc</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">13,538,978</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">26,977</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">13,568,247</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">27,025</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">13,538,978 views</strong>로 확인된 중대형 <strong class="text-mark text-mark--signal">급상승권</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">13,568,247 views</strong>로 확인된 중대형 <strong class="text-mark text-mark--signal">급상승권</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: cute, <strong class="text-mark text-mark--signal">funny</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
@@ -1301,12 +1358,12 @@
         <div class="short-body">
           <h2>Cazador de Demonios a Cazadoras de los Sajaboys hay diferencia 🤣.#cosplay #humor #kpopdemonhunters</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">5,709,270</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">16,675</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">5,714,523</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">16,679</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">5,709,270 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">5,714,523 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">humor</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
@@ -1321,12 +1378,12 @@
         <div class="short-body">
           <h2>ASÍ es como MICHAEL JACKSON DESAFIO la GRAVEDAD 😱 #michaeljackson #curiosidades #datoscuriosos</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">5,624,923</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">74,322</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">5,637,737</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">74,576</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">5,624,923 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">5,637,737 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: michael jackson</li>
 <li><strong class="text-mark text-mark--signal">퍼포먼스</strong>나 <strong class="text-mark text-mark--signal">스턴트</strong>성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
@@ -1341,12 +1398,12 @@
         <div class="short-body">
           <h2>Mango limpio ? O sucio? #viral #humor #casosdefamilia #youtubeshorts #comedia #shortvideo</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">5,264,528</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">38,633</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">5,309,834</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">39,076</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">5,264,528 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">5,309,834 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">humor</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
@@ -1361,12 +1418,12 @@
         <div class="short-body">
           <h2>Me perdía muy seguido 😩😂 #shorts #humor #tiktokvideo #comedia #funny #fyp</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">7,955,031</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">152,550</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">8,073,847</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">153,775</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">7,955,031 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">8,073,847 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong>, <strong class="text-mark text-mark--signal">humor</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
@@ -1381,12 +1438,12 @@
         <div class="short-body">
           <h2>Enganaron a LARIN JR😭🥺By:alfredolarin #humor #comedy #comedia #youtubeshorts #shortvideo</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">6,341,367</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">47,060</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">6,430,233</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">47,865</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">6,341,367 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">6,430,233 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">humor</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
@@ -1401,12 +1458,12 @@
         <div class="short-body">
           <h2>POV: SE TE OLVIDAN LAS LLAVES ADENTRO DEL CARRO😭💀🚗 #humor #shorts #comedia #lospqliares</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">4,702,826</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">68,962</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">4,756,505</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">69,752</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">4,702,826 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">4,756,505 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">humor</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
@@ -1431,12 +1488,12 @@
         <div class="short-body">
           <h2>Qual delas vocês gostaram mais #humor #piadascurtas #comedy #comedia #piadasrapidas #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">4,641,920</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">29,176</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">4,660,632</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">29,385</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">브라질</strong> 탭에서 <strong class="text-mark text-mark--metric">4,641,920 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">브라질</strong> 탭에서 <strong class="text-mark text-mark--metric">4,660,632 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">humor</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
@@ -1451,12 +1508,12 @@
         <div class="short-body">
           <h2>Truco na escola? 🤣🤣🤣 #humor #memes #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">3,524,128</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">29,897</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">3,527,445</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">29,912</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">브라질</strong> 탭에서 <strong class="text-mark text-mark--metric">3,524,128 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">브라질</strong> 탭에서 <strong class="text-mark text-mark--metric">3,527,445 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">humor</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
@@ -1476,12 +1533,12 @@
         <div class="short-body">
           <h2>Gercep banget ini cewek😂 #couple #funny #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">6,247,597</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">29,464</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">6,260,985</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">29,487</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">인도네시아</strong> 탭에서 <strong class="text-mark text-mark--metric">6,247,597 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">인도네시아</strong> 탭에서 <strong class="text-mark text-mark--metric">6,260,985 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
@@ -1501,13 +1558,33 @@
         <div class="short-body">
           <h2>Mission Impossible 😎 #humor #funny #comedy</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">5,946,953</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">23,449</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">5,952,690</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">23,459</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">아르헨티나</strong> 탭에서 <strong class="text-mark text-mark--metric">5,946,953 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">아르헨티나</strong> 탭에서 <strong class="text-mark text-mark--metric">5,952,690 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong>, <strong class="text-mark text-mark--signal">humor</strong></li>
+<li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
+<li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
+          </div>
+        </div>
+      </article>
+      <article class="short-card">
+        <a class="thumb-link" href="https://www.youtube.com/shorts/sVvCEhqaHhw" target="_blank" rel="noopener" aria-label="Open Se lo juro mister #shorts #humor #comedia on YouTube Shorts">
+          <img src="https://i.ytimg.com/vi/sVvCEhqaHhw/hqdefault.jpg" alt="Se lo juro mister #shorts #humor #comedia thumbnail" loading="lazy">
+          <span class="rank">#2</span>
+        </a>
+        <div class="short-body">
+          <h2>Se lo juro mister #shorts #humor #comedia</h2>
+          <div class="stats-row">
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">3,274,104</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">126,888</strong></span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li><strong class="text-mark text-mark--region">아르헨티나</strong> 탭에서 <strong class="text-mark text-mark--metric">3,274,104 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">humor</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
@@ -1516,7 +1593,7 @@
       <article class="short-card">
         <a class="thumb-link" href="https://www.youtube.com/shorts/0nPaRKaWm8g" target="_blank" rel="noopener" aria-label="Open Su reacción al saltar a agua fría fue ÉPICA #shorts #challenge on YouTube Shorts">
           <img src="https://i.ytimg.com/vi/0nPaRKaWm8g/hqdefault.jpg" alt="Su reacción al saltar a agua fría fue ÉPICA #shorts #challenge thumbnail" loading="lazy">
-          <span class="rank">#2</span>
+          <span class="rank">#3</span>
         </a>
         <div class="short-body">
           <h2>Su reacción al saltar a agua fría fue ÉPICA #shorts #challenge</h2>
@@ -1571,12 +1648,12 @@
         <div class="short-body">
           <h2>New look, same love ❤️😂#shaving #beard #couple #challenge #fyp</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">37,239,446</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">619,404</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">37,282,208</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">619,916</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">스페인</strong> 탭에서 <strong class="text-mark text-mark--metric">37,239,446 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 <strong class="text-mark text-mark--signal">대형 확산권</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">스페인</strong> 탭에서 <strong class="text-mark text-mark--metric">37,282,208 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 <strong class="text-mark text-mark--signal">대형 확산권</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong></li>
 <li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 <strong class="text-mark text-mark--signal">첫 프레임</strong>만으로 장르가 전달되고 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉽습니다</li>
 <li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 <strong class="text-mark text-mark--signal">추천 노출</strong>이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
@@ -1584,29 +1661,9 @@
         </div>
       </article>
       <article class="short-card">
-        <a class="thumb-link" href="https://www.youtube.com/shorts/sVvCEhqaHhw" target="_blank" rel="noopener" aria-label="Open Se lo juro mister #shorts #humor #comedia on YouTube Shorts">
-          <img src="https://i.ytimg.com/vi/sVvCEhqaHhw/hqdefault.jpg" alt="Se lo juro mister #shorts #humor #comedia thumbnail" loading="lazy">
-          <span class="rank">#2</span>
-        </a>
-        <div class="short-body">
-          <h2>Se lo juro mister #shorts #humor #comedia</h2>
-          <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">3,187,817</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">125,153</strong></span>
-          </div>
-          <div class="popularity" aria-label="인기 이유">
-            <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">스페인</strong> 탭에서 <strong class="text-mark text-mark--metric">3,187,817 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
-<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">humor</strong></li>
-<li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
-<li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
-          </div>
-        </div>
-      </article>
-      <article class="short-card">
         <a class="thumb-link" href="https://www.youtube.com/shorts/O_Z4t9iwWW4" target="_blank" rel="noopener" aria-label="Open PRACTICANDO #POLEDANCE | ¿TE GUSTARÍA APRENDER? | ARIANN MUSIC #SHORTS BAILANDO #BAILE #DANCE on YouTube Shorts">
           <img src="https://i.ytimg.com/vi/O_Z4t9iwWW4/hqdefault.jpg" alt="PRACTICANDO #POLEDANCE | ¿TE GUSTARÍA APRENDER? | ARIANN MUSIC #SHORTS BAILANDO #BAILE #DANCE thumbnail" loading="lazy">
-          <span class="rank">#3</span>
+          <span class="rank">#2</span>
         </a>
         <div class="short-body">
           <h2>PRACTICANDO #POLEDANCE | ¿TE GUSTARÍA APRENDER? | ARIANN MUSIC #SHORTS BAILANDO #BAILE #DANCE</h2>
@@ -1636,12 +1693,12 @@
         <div class="short-body">
           <h2>Nobody Knows Rowan Atkinson Was Actually a Punk #comedy #celebrity #funny</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">9,461,572</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">75,629</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">9,475,880</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">75,739</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">이탈리아</strong> 탭에서 <strong class="text-mark text-mark--metric">9,461,572 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">이탈리아</strong> 탭에서 <strong class="text-mark text-mark--metric">9,475,880 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
@@ -1656,12 +1713,12 @@
         <div class="short-body">
           <h2>TUTORIAL magic Gif #TREND 😳🍆🤮#trend #magic #backstage #creative #lol #shorts#tutorial</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">2,332,730</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">11,419</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">2,351,930</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">11,490</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">이탈리아</strong> 탭에서 <strong class="text-mark text-mark--metric">2,332,730 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">이탈리아</strong> 탭에서 <strong class="text-mark text-mark--metric">2,351,930 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">backstage</strong>, <strong class="text-mark text-mark--signal">magic</strong>, <strong class="text-mark text-mark--signal">trend</strong>, <strong class="text-mark text-mark--signal">tutorial</strong></li>
 <li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 <strong class="text-mark text-mark--signal">첫 프레임</strong>만으로 장르가 전달되고 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉽습니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
@@ -1681,12 +1738,12 @@
         <div class="short-body">
           <h2>#funny #comedy #india</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">4,000,757</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">34,673</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">4,007,407</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">34,730</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">프랑스</strong> 탭에서 <strong class="text-mark text-mark--metric">4,000,757 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">프랑스</strong> 탭에서 <strong class="text-mark text-mark--metric">4,007,407 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
@@ -1701,12 +1758,12 @@
         <div class="short-body">
           <h2>Que se passe-t-il si vous renversez de l&#x27;eau partout ? 💦 #shorts #prank</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">2,724,713</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">12,756</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">2,726,648</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">12,762</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">프랑스</strong> 탭에서 <strong class="text-mark text-mark--metric">2,724,713 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">프랑스</strong> 탭에서 <strong class="text-mark text-mark--metric">2,726,648 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">prank</strong></li>
 <li><strong class="text-mark text-mark--signal">상황</strong>·<strong class="text-mark text-mark--signal">반전</strong>·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 <strong class="text-mark text-mark--signal">궁금증</strong>을 만듭니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
@@ -1736,12 +1793,12 @@
         <div class="short-body">
           <h2>ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY NEON DANCE !! 🔥🔥</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">399,630,284</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">2,790,631</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">399,695,283</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">2,791,055</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">카자흐스탄</strong> 탭에서 <strong class="text-mark text-mark--metric">399,630,284 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">카자흐스탄</strong> 탭에서 <strong class="text-mark text-mark--metric">399,695,283 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong></li>
 <li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 <strong class="text-mark text-mark--signal">첫 프레임</strong>만으로 장르가 전달되고 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉽습니다</li>
 <li>이미 <strong class="text-mark text-mark--metric">1억뷰</strong>를 넘은 사례라 <strong class="text-mark text-mark--signal">클릭률</strong>, <strong class="text-mark text-mark--signal">완주율</strong>, <strong class="text-mark text-mark--signal">반복 시청</strong>, <strong class="text-mark text-mark--signal">공유</strong> 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다</li></ul>
@@ -1761,12 +1818,12 @@
         <div class="short-body">
           <h2>When princesses playing &quot;Squid Game&quot; Challenge #bybacademy #thanhhuyennguyen #daotaonguoimau #5g</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">253,704,686</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">2,194,130</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">253,765,991</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">2,194,768</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">베트남</strong> 탭에서 <strong class="text-mark text-mark--metric">253,704,686 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">베트남</strong> 탭에서 <strong class="text-mark text-mark--metric">253,765,991 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong></li>
 <li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 <strong class="text-mark text-mark--signal">첫 프레임</strong>만으로 장르가 전달되고 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉽습니다</li>
 <li>이미 <strong class="text-mark text-mark--metric">1억뷰</strong>를 넘은 사례라 <strong class="text-mark text-mark--signal">클릭률</strong>, <strong class="text-mark text-mark--signal">완주율</strong>, <strong class="text-mark text-mark--signal">반복 시청</strong>, <strong class="text-mark text-mark--signal">공유</strong> 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다</li></ul>
@@ -1781,12 +1838,12 @@
         <div class="short-body">
           <h2>Unexpected ending in Left Right challenge #bybacademy #thanhhuyennguyen #daotaonguoimau #5g</h2>
           <div class="stats-row">
-            <span><b>조회수</b><strong class="text-mark text-mark--metric">9,529,757</strong></span>
-            <span><b>좋아요</b><strong class="text-mark text-mark--metric">120,068</strong></span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">9,619,765</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">121,464</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li><strong class="text-mark text-mark--region">베트남</strong> 탭에서 <strong class="text-mark text-mark--metric">9,529,757 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
+            <ul><li><strong class="text-mark text-mark--region">베트남</strong> 탭에서 <strong class="text-mark text-mark--metric">9,619,765 views</strong>로 확인된 <strong class="text-mark text-mark--signal">지역 탭 검토 후보</strong> 쇼츠</li>
 <li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong></li>
 <li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 <strong class="text-mark text-mark--signal">첫 프레임</strong>만으로 장르가 전달되고 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉽습니다</li>
 <li>현재는 지역·<strong class="text-mark text-mark--source">소스</strong> 단위의 <strong class="text-mark text-mark--signal">인기 신호</strong>가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
@@ -1816,24 +1873,25 @@
 <li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-france-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">프랑스</strong></a></li>
 <li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-philippines-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">필리핀</strong></a></li>
 <li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-worldwide-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> regional <strong class="text-mark text-mark--source">YouTube</strong> Shorts charts</a></li>
-<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=1&amp;type=VIEW" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> Top Shorts daily</a></li>
-<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=30&amp;type=VIEW" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> Top Shorts monthly</a></li>
-<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=7&amp;type=VIEW" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> Top Shorts weekly</a></li>
-<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> daily/weekly/monthly top Shorts</a></li>
-<li><a href="https://t1trend.com/" target="_blank" rel="noopener">Top1Trend <strong class="text-mark text-mark--source">YouTube</strong> Trending</a></li>
-<li><a href="https://www.trendsfox.com/trending-videos" target="_blank" rel="noopener">TrendsFox Trending Shorts</a></li>
+<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=1&amp;type=VIEW" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> <strong class="text-mark text-mark--source">Top Shorts</strong> daily</a></li>
+<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=30&amp;type=VIEW" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> <strong class="text-mark text-mark--source">Top Shorts</strong> monthly</a></li>
+<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=7&amp;type=VIEW" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> <strong class="text-mark text-mark--source">Top Shorts</strong> weekly</a></li>
+<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> daily/weekly/monthly <strong class="text-mark text-mark--source">top Shorts</strong></a></li>
+<li><a href="https://t1trend.com/" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Top1Trend</strong> <strong class="text-mark text-mark--source">YouTube</strong> Trending</a></li>
+<li><a href="https://www.trendsfox.com/trending-videos" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">TrendsFox</strong> Trending Shorts</a></li>
+<li><a href="https://www.tubetrending.com/?duration=shorts&amp;lang=en" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">TubeTrending</strong> Most Viewed New Shorts 48H</a></li>
 <li><a href="https://vidirun.com/format-short" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Vidirun</strong> Top 50 Short-Form Videos</a></li>
 <li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">멕시코</strong> <strong class="text-mark text-mark--signal">Comedy</strong></a></li>
 <li><a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">멕시코</strong> Entertainment</a></li>
 <li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">브라질</strong> <strong class="text-mark text-mark--signal">Comedy</strong></a></li>
-<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=ES&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">스페인</strong> <strong class="text-mark text-mark--signal">Comedy</strong></a></li>
+<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=AR&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">아르헨티나</strong> <strong class="text-mark text-mark--signal">Comedy</strong></a></li>
 <li><a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=AR&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">아르헨티나</strong> Entertainment</a></li>
 <li><a href="https://yttrack.com/" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> regional <strong class="text-mark text-mark--source">YouTube</strong> trending charts</a></li>
 <li><a href="https://www.youtube.com/results?search_query=%23shorts+dance+music+trend" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YouTube</strong> Shorts keyword searches</a></li></ul>
     </section>
     <div class="footer-update">업데이트 5/16 23:30</div>
   </main>
-  <script type="application/json" id="shorts-data">[{"id": "bMhgjlhIsjQ", "region": "global", "regionLabel": "글로벌", "title": "Sister Very Angry Bhai Aa Gaye 🤣🤩😅 ##funnyvideo #funny #comedyvideos #funnyshorts", "channel": "Vikram Singh Fitness", "category": "Sports", "shortsUrl": "https://www.youtube.com/shorts/bMhgjlhIsjQ", "thumbnail": "https://i.ytimg.com/vi/bMhgjlhIsjQ/hqdefault.jpg", "viewsGained": 22932373, "sourceRank": 32, "sourceWindow": "24H", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["core keyword: funny", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-11", "likeCount": 162030, "duration": 37, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "jBtyy-xQaB0", "title": "Reddington saved the people in the convenience store.#shortvideo#theblacklist #series #shorts", "channel": "Movie- serendipity", "category": "Entertainment", "shortsUrl": "https://www.youtube.com/shorts/jBtyy-xQaB0", "thumbnail": "https://i.ytimg.com/vi/jBtyy-xQaB0/hqdefault.jpg", "viewsGained": 19983960, "sourceRank": 5, "sourceWindow": "24H", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["core keyword: saved", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2026-05-14", "likeCount": 662227, "duration": 59, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "vHqQqFwhGuw", "region": "global", "regionLabel": "글로벌", "title": "SOAP BALL 🧼🫧⚾ #shorts #youtubeshorts #cricket #unboxing #ball #funny #boxofvengeance", "channel": "Box Of Vengeance", "category": "People &amp; Blogs", "shortsUrl": "https://www.youtube.com/shorts/vHqQqFwhGuw", "thumbnail": "https://i.ytimg.com/vi/vHqQqFwhGuw/hqdefault.jpg", "viewsGained": 9236595, "sourceRank": 21, "sourceWindow": "24H", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["core keyword: funny", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 407185, "duration": 36, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "4KyCA_Yt-zk", "title": "F1 스탑 챌린지 #f1 #formula1 #포뮬러1", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/4KyCA_Yt-zk", "thumbnail": "https://i.ytimg.com/vi/4KyCA_Yt-zk/hqdefault.jpg", "viewsGained": 40663355, "sourceRank": 11, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - KR", "sourceUrl": "https://playboard.co/en/video/4KyCA_Yt-zk?channelId=UCdvItLHXa6z2lfxYwz6PypA", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: 챌린지", "shorts text signal", "manual visual/audio check recommended"], "region": "kr", "regionLabel": "대한민국", "publishedAt": "2026-05-06", "likeCount": 246127, "duration": 4, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "VIxUZo6SZWE", "region": "us", "regionLabel": "미국", "title": "#music #fypシ #dance #shorts#youtubeshorts#viralvideo #shortvideo #trending #viral #foryou#fyp#dancer", "channel": "Dancer Piu official", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/VIxUZo6SZWE", "thumbnail": "https://i.ytimg.com/vi/VIxUZo6SZWE/hqdefault.jpg", "viewsGained": 2318, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=US+trending+shorts+dance+music", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YouTube search result", "core keyword: dance, dancer", "music/trend signal: music, trending", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-16", "likeCount": 84, "duration": 13, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "O373p-8q8W0", "region": "us", "regionLabel": "미국", "title": "#music #fypシ #dance #shorts#youtubeshorts#viralvideo #shortvideo #trending #viral #foryou#fyp#dancer", "channel": "Dancer Piu official", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/O373p-8q8W0", "thumbnail": "https://i.ytimg.com/vi/O373p-8q8W0/hqdefault.jpg", "viewsGained": 1912, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=US+trending+shorts+dance+music", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YouTube search result", "core keyword: dance, dancer", "music/trend signal: music, trending", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-16", "likeCount": 47, "duration": 15, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "ZdXwPHwdwhY", "region": "jp", "regionLabel": "일본", "title": "Saito09 funny video 😂😂😂 #shorts", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/ZdXwPHwdwhY", "thumbnail": "https://i.ytimg.com/vi/ZdXwPHwdwhY/hqdefault.jpg", "viewsGained": 193174684, "sourceRank": 15, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - JP", "sourceUrl": "https://playboard.co/en/video/ZdXwPHwdwhY?channelId=UCKLbzfmjFv_oalDX8sHxhkQ", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-02-14", "likeCount": 1420720, "duration": 47, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "5qPDtxngIzQ", "region": "jp", "regionLabel": "일본", "title": "プラスチックストローから笛の作り方🥤🪈💞#challenge#straw#flute", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/5qPDtxngIzQ", "thumbnail": "https://i.ytimg.com/vi/5qPDtxngIzQ/hqdefault.jpg", "viewsGained": 66703794, "sourceRank": 8, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - JP", "sourceUrl": "https://playboard.co/en/video/5qPDtxngIzQ?channelId=UCsW-2LeMgUNGdMloq5kPeLg", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: challenge", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-06", "likeCount": 485878, "duration": 28, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "MLo6POLpdSI", "region": "jp", "regionLabel": "일본", "title": "プレゼント🎁for you #shorts #funny #comedy", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/MLo6POLpdSI", "thumbnail": "https://i.ytimg.com/vi/MLo6POLpdSI/hqdefault.jpg", "viewsGained": 13919436, "sourceRank": 16, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - JP", "sourceUrl": "https://playboard.co/en/video/MLo6POLpdSI?channelId=UCjJjOBHEQVKZhbbuVqpVgDw", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-08", "likeCount": null, "duration": 22, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "ffl0gvGSv9s", "region": "jp", "regionLabel": "일본", "title": "Mbappé, Haaland, and Yamal Are Too Funny 😂🔥 #football #haaland #parody", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/ffl0gvGSv9s", "thumbnail": "https://i.ytimg.com/vi/ffl0gvGSv9s/hqdefault.jpg", "viewsGained": 12807910, "sourceRank": 10, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - JP", "sourceUrl": "https://playboard.co/en/video/ffl0gvGSv9s?channelId=UC0Badcq36RBDHN-e3N1Papg", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-12", "likeCount": 47575, "duration": 7, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "9Egj8PiHiak", "region": "mx", "regionLabel": "멕시코", "title": "CHUPANDO DEDO #santi #santioficial #funny #comedy", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/9Egj8PiHiak", "thumbnail": "https://i.ytimg.com/vi/9Egj8PiHiak/hqdefault.jpg", "viewsGained": 141065469, "sourceRank": 5, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 멕시코", "sourceUrl": "https://playboard.co/en/video/9Egj8PiHiak?channelId=UCizBBt3xOHkXPKvnaEEUKAA", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2025-10-27", "likeCount": 477808, "duration": 9, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "2lvUxw1mNoE", "region": "mx", "regionLabel": "멕시코", "title": "#timelapse for entertainment , so cute funny family , new memes smc", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/2lvUxw1mNoE", "thumbnail": "https://i.ytimg.com/vi/2lvUxw1mNoE/hqdefault.jpg", "viewsGained": 13538978, "sourceRank": 19, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 멕시코", "sourceUrl": "https://playboard.co/en/video/2lvUxw1mNoE?channelId=UCMDrIhCljOfwVwvI0OWOdpQ", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: cute, funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-04", "likeCount": 26977, "duration": 5, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "oE_3ZBdOJzc", "region": "mx", "regionLabel": "멕시코", "title": "Cazador de Demonios a Cazadoras de los Sajaboys hay diferencia 🤣.#cosplay #humor #kpopdemonhunters", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/oE_3ZBdOJzc", "thumbnail": "https://i.ytimg.com/vi/oE_3ZBdOJzc/hqdefault.jpg", "viewsGained": 5709270, "sourceRank": 7, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 멕시코", "sourceUrl": "https://playboard.co/en/video/oE_3ZBdOJzc?channelId=UCYC_zK-AW6YL2MLNqgbexIQ", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: humor", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-12", "likeCount": 16675, "duration": 6, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "_eS8Xh4qH-k", "region": "mx", "regionLabel": "멕시코", "title": "ASÍ es como MICHAEL JACKSON DESAFIO la GRAVEDAD 😱 #michaeljackson #curiosidades #datoscuriosos", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/_eS8Xh4qH-k", "thumbnail": "https://i.ytimg.com/vi/_eS8Xh4qH-k/hqdefault.jpg", "viewsGained": 5624923, "sourceRank": 12, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 멕시코", "sourceUrl": "https://playboard.co/en/video/_eS8Xh4qH-k?channelId=UCJ3rhXt1uxgdrUGu03Cd5CQ", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: michael jackson", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 74322, "duration": 18, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "ZzWVQZ9nNqM", "region": "mx", "regionLabel": "멕시코", "title": "Mango limpio ? O sucio? #viral #humor #casosdefamilia #youtubeshorts #comedia #shortvideo", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/ZzWVQZ9nNqM", "thumbnail": "https://i.ytimg.com/vi/ZzWVQZ9nNqM/hqdefault.jpg", "viewsGained": 5264528, "sourceRank": 13, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 멕시코", "sourceUrl": "https://playboard.co/en/video/ZzWVQZ9nNqM?channelId=UC2nJBXaDf6KuWk7zMMKwxew", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: humor", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 38633, "duration": 38, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "IPK0M8cCt6o", "region": "mx", "regionLabel": "멕시코", "title": "Me perdía muy seguido 😩😂 #shorts #humor #tiktokvideo #comedia #funny #fyp", "channel": "Gabriela Flores Villar", "category": "Comedy", "shortsUrl": "https://www.youtube.com/shorts/IPK0M8cCt6o", "thumbnail": "https://i.ytimg.com/vi/IPK0M8cCt6o/hqdefault.jpg", "viewsGained": 7955031, "sourceRank": 2, "sourceWindow": "regional", "sourceName": "YTTrack Trending - 멕시코 Comedy", "sourceUrl": "https://yttrack.com/search.php?categoryId=23&amp;regionCode=MX&amp;maxResults=18", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YTTrack regional trending chart", "core keyword: funny, humor", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-15", "likeCount": 152550, "duration": 42, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "oNLPZ6zg2XY", "region": "mx", "regionLabel": "멕시코", "title": "Enganaron a LARIN JR😭🥺By:alfredolarin #humor #comedy #comedia #youtubeshorts #shortvideo", "channel": "JOLLYDOT", "category": "Entertainment", "shortsUrl": "https://www.youtube.com/shorts/oNLPZ6zg2XY", "thumbnail": "https://i.ytimg.com/vi/oNLPZ6zg2XY/hqdefault.jpg", "viewsGained": 6341367, "sourceRank": 10, "sourceWindow": "regional", "sourceName": "YTTrack Trending - 멕시코 Entertainment", "sourceUrl": "https://yttrack.com/search.php?categoryId=24&amp;regionCode=MX&amp;maxResults=18", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YTTrack regional trending chart", "core keyword: humor", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 47060, "duration": 18, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "GuquAiWY0WQ", "region": "mx", "regionLabel": "멕시코", "title": "POV: SE TE OLVIDAN LAS LLAVES ADENTRO DEL CARRO😭💀🚗 #humor #shorts #comedia #lospqliares", "channel": "Los PQliares", "category": "Comedy", "shortsUrl": "https://www.youtube.com/shorts/GuquAiWY0WQ", "thumbnail": "https://i.ytimg.com/vi/GuquAiWY0WQ/hqdefault.jpg", "viewsGained": 4702826, "sourceRank": 1, "sourceWindow": "regional", "sourceName": "YTTrack Trending - 멕시코 Comedy", "sourceUrl": "https://yttrack.com/search.php?categoryId=23&amp;regionCode=MX&amp;maxResults=18", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YTTrack regional trending chart", "core keyword: humor", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-15", "likeCount": 68962, "duration": 33, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "6BLmRFgePZc", "region": "br", "regionLabel": "브라질", "title": "Qual delas vocês gostaram mais #humor #piadascurtas #comedy #comedia #piadasrapidas #shorts", "channel": "ALINE.OFICIAL🧚‍♀️", "category": "Comedy", "shortsUrl": "https://www.youtube.com/shorts/6BLmRFgePZc", "thumbnail": "https://i.ytimg.com/vi/6BLmRFgePZc/hqdefault.jpg", "viewsGained": 4641920, "sourceRank": 16, "sourceWindow": "regional", "sourceName": "YTTrack Trending - 브라질 Comedy", "sourceUrl": "https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YTTrack regional trending chart", "core keyword: humor", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-10", "likeCount": 29176, "duration": 19, "width": 720, "height": 1280, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "50BQYtOS5FU", "region": "br", "regionLabel": "브라질", "title": "Truco na escola? 🤣🤣🤣 #humor #memes #shorts", "channel": "Canal Invlo", "category": "Comedy", "shortsUrl": "https://www.youtube.com/shorts/50BQYtOS5FU", "thumbnail": "https://i.ytimg.com/vi/50BQYtOS5FU/hqdefault.jpg", "viewsGained": 3524128, "sourceRank": 15, "sourceWindow": "regional", "sourceName": "YTTrack Trending - 브라질 Comedy", "sourceUrl": "https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YTTrack regional trending chart", "core keyword: humor", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-11", "likeCount": 29897, "duration": 13, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "FP1RlgSrod8", "region": "id", "regionLabel": "인도네시아", "title": "Gercep banget ini cewek😂 #couple #funny #shorts", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/FP1RlgSrod8", "thumbnail": "https://i.ytimg.com/vi/FP1RlgSrod8/hqdefault.jpg", "viewsGained": 6247597, "sourceRank": 18, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 인도네시아", "sourceUrl": "https://playboard.co/en/video/FP1RlgSrod8?channelId=UCFjAz1kIFc-MKqw4Fz4xkEA", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 29464, "duration": 14, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "GLrg5kBgOzI", "region": "id", "regionLabel": "인도네시아", "title": "“Senyum kalem dancer cantik joget asik depan sound horeg 💖” #karnaval #jogetkarnaval #viral #cantik", "channel": "Alesha", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/GLrg5kBgOzI", "thumbnail": "https://i.ytimg.com/vi/GLrg5kBgOzI/hqdefault.jpg", "viewsGained": 2322, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+joget+musik+viral+Indonesia", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YouTube search result", "core keyword: dancer, joget", "manual visual/audio check recommended"], "publishedAt": "2026-05-15", "likeCount": 19, "duration": 13, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "lWBlN0bUJis", "region": "ar", "regionLabel": "아르헨티나", "title": "Mission Impossible 😎 #humor #funny #comedy", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/lWBlN0bUJis", "thumbnail": "https://i.ytimg.com/vi/lWBlN0bUJis/hqdefault.jpg", "viewsGained": 5946953, "sourceRank": 18, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 아르헨티나", "sourceUrl": "https://playboard.co/en/video/lWBlN0bUJis?channelId=UCABKolAKTA29f03BYtvcERw", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny, humor", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-09", "likeCount": 23449, "duration": 18, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "0nPaRKaWm8g", "region": "ar", "regionLabel": "아르헨티나", "title": "Su reacción al saltar a agua fría fue ÉPICA #shorts #challenge", "channel": "Pablo Pol", "category": "Entertainment", "shortsUrl": "https://www.youtube.com/shorts/0nPaRKaWm8g", "thumbnail": "https://i.ytimg.com/vi/0nPaRKaWm8g/hqdefault.jpg", "viewsGained": 4559796, "sourceRank": 16, "sourceWindow": "regional", "sourceName": "YTTrack Trending - 아르헨티나 Entertainment", "sourceUrl": "https://yttrack.com/search.php?categoryId=24&amp;regionCode=AR&amp;maxResults=18", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YTTrack regional trending chart", "core keyword: challenge", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-13", "likeCount": 87925, "duration": 26, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "fhVxTjONxsA", "region": "ph", "regionLabel": "필리핀", "title": "Rush - Ayra Starr | Dance Challenge", "channel": "Ken Mat Thew", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/fhVxTjONxsA", "thumbnail": "https://i.ytimg.com/vi/fhVxTjONxsA/hqdefault.jpg", "viewsGained": 84332, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YouTube search result", "core keyword: challenge, dance", "manual visual/audio check recommended"], "publishedAt": "2023-08-19", "likeCount": 1177, "duration": 62, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "3sLY4XwJ9WM", "region": "es", "regionLabel": "스페인", "title": "New look, same love ❤️😂#shaving #beard #couple #challenge #fyp", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/3sLY4XwJ9WM", "thumbnail": "https://i.ytimg.com/vi/3sLY4XwJ9WM/hqdefault.jpg", "viewsGained": 37239446, "sourceRank": 15, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 스페인", "sourceUrl": "https://playboard.co/en/video/3sLY4XwJ9WM?channelId=UCX4eucShCWrUyhW6DZE_gPw", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: challenge", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-04-15", "likeCount": 619404, "duration": 60, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "sVvCEhqaHhw", "region": "es", "regionLabel": "스페인", "title": "Se lo juro mister #shorts #humor #comedia", "channel": "Dadytou", "category": "Comedy", "shortsUrl": "https://www.youtube.com/shorts/sVvCEhqaHhw", "thumbnail": "https://i.ytimg.com/vi/sVvCEhqaHhw/hqdefault.jpg", "viewsGained": 3187817, "sourceRank": 2, "sourceWindow": "regional", "sourceName": "YTTrack Trending - 스페인 Comedy", "sourceUrl": "https://yttrack.com/search.php?categoryId=23&amp;regionCode=ES&amp;maxResults=18", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YTTrack regional trending chart", "core keyword: humor", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 125153, "duration": 24, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "O_Z4t9iwWW4", "region": "es", "regionLabel": "스페인", "title": "PRACTICANDO #POLEDANCE | ¿TE GUSTARÍA APRENDER? | ARIANN MUSIC #SHORTS BAILANDO #BAILE #DANCE", "channel": "Moderadores Arianners", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/O_Z4t9iwWW4", "thumbnail": "https://i.ytimg.com/vi/O_Z4t9iwWW4/hqdefault.jpg", "viewsGained": 4172, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+baile+musica+tendencia+Espana", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YouTube search result", "core keyword: baile, dance", "music/trend signal: music", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2022-04-12", "likeCount": 181, "duration": 58, "width": 480, "height": 854, "aspectRatio": 0.5621, "isShort9x16": true}, {"id": "DTYue9Ajo9Q", "region": "it", "regionLabel": "이탈리아", "title": "Nobody Knows Rowan Atkinson Was Actually a Punk #comedy #celebrity #funny", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/DTYue9Ajo9Q", "thumbnail": "https://i.ytimg.com/vi/DTYue9Ajo9Q/hqdefault.jpg", "viewsGained": 9461572, "sourceRank": 20, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 이탈리아", "sourceUrl": "https://playboard.co/en/video/DTYue9Ajo9Q?channelId=UCwYDrqBJ7id82pQ1KxKYHLQ", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-04-09", "likeCount": 75629, "duration": 22, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "YsLPyexmGXg", "region": "it", "regionLabel": "이탈리아", "title": "TUTORIAL magic Gif #TREND 😳🍆🤮#trend #magic #backstage #creative #lol #shorts#tutorial", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/YsLPyexmGXg", "thumbnail": "https://i.ytimg.com/vi/YsLPyexmGXg/hqdefault.jpg", "viewsGained": 2332730, "sourceRank": 7, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 이탈리아", "sourceUrl": "https://playboard.co/en/video/YsLPyexmGXg?channelId=UCF0e4oTaZk9qr0f2qT-dzhw", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: backstage, magic", "music/trend signal: trend", "shorts text signal", "excluded signal: tutorial", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 11419, "duration": 11, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "l91lVPMcoCs", "region": "fr", "regionLabel": "프랑스", "title": "#funny #comedy #india", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/l91lVPMcoCs", "thumbnail": "https://i.ytimg.com/vi/l91lVPMcoCs/hqdefault.jpg", "viewsGained": 4000757, "sourceRank": 10, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 프랑스", "sourceUrl": "https://playboard.co/en/video/l91lVPMcoCs?channelId=UC_rTbuXWDcJ-_-OhutBwuXg", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-13", "likeCount": 34673, "duration": 61, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "I_CqHrNzKIY", "region": "fr", "regionLabel": "프랑스", "title": "Que se passe-t-il si vous renversez de l'eau partout ? 💦 #shorts #prank", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/I_CqHrNzKIY", "thumbnail": "https://i.ytimg.com/vi/I_CqHrNzKIY/hqdefault.jpg", "viewsGained": 2724713, "sourceRank": 6, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 프랑스", "sourceUrl": "https://playboard.co/en/video/I_CqHrNzKIY?channelId=UCcjlkShNTeqpll27KF6rY7A", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: prank", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 12756, "duration": 16, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "tgOQlzCqc0M", "region": "kz", "regionLabel": "카자흐스탄", "title": "ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY NEON DANCE !! 🔥🔥", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/tgOQlzCqc0M", "thumbnail": "https://i.ytimg.com/vi/tgOQlzCqc0M/hqdefault.jpg", "viewsGained": 399630284, "sourceRank": 5, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 카자흐스탄", "sourceUrl": "https://playboard.co/en/video/tgOQlzCqc0M?channelId=UCVRqK0tS3B8pVog1HwCR4pg", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: dance", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-02-10", "likeCount": 2790631, "duration": 26, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "mtMKcJTQfTA", "region": "kz", "regionLabel": "카자흐스탄", "title": "Wednesday Addams Dance |KAZAKHSTAN || New Dance Challenge!!!", "channel": "АiLiNkA", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/mtMKcJTQfTA", "thumbnail": "https://i.ytimg.com/vi/mtMKcJTQfTA/hqdefault.jpg", "viewsGained": 241, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=Kazakhstan+dance+challenge+shorts+music", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YouTube search result", "core keyword: challenge, dance", "manual visual/audio check recommended"], "publishedAt": "2022-12-07", "likeCount": 2, "duration": 108, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "FWMyxmIu1Ss", "region": "vn", "regionLabel": "베트남", "title": "When princesses playing \"Squid Game\" Challenge #bybacademy #thanhhuyennguyen #daotaonguoimau #5g", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/FWMyxmIu1Ss", "thumbnail": "https://i.ytimg.com/vi/FWMyxmIu1Ss/hqdefault.jpg", "viewsGained": 253704686, "sourceRank": 20, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 베트남", "sourceUrl": "https://playboard.co/en/video/FWMyxmIu1Ss?channelId=UC0DHkN8GvXGXRf3SA2PKKcg", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: challenge", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-01-27", "likeCount": 2194130, "duration": 46, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "jc1IZpdsJjM", "region": "vn", "regionLabel": "베트남", "title": "Unexpected ending in Left Right challenge #bybacademy #thanhhuyennguyen #daotaonguoimau #5g", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/jc1IZpdsJjM", "thumbnail": "https://i.ytimg.com/vi/jc1IZpdsJjM/hqdefault.jpg", "viewsGained": 9529757, "sourceRank": 11, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 베트남", "sourceUrl": "https://playboard.co/en/video/jc1IZpdsJjM?channelId=UC0DHkN8GvXGXRf3SA2PKKcg", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: challenge", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 120068, "duration": 60, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "HsKltJyJ-UI", "title": "When did Ermao learn to do magic？ #funny #comedy", "channel": "FatSongsong and ThinErmao", "category": "Howto &amp; Style", "shortsUrl": "https://www.youtube.com/shorts/HsKltJyJ-UI", "thumbnail": "https://i.ytimg.com/vi/HsKltJyJ-UI/hqdefault.jpg", "viewsGained": 118572269, "sourceRank": 28, "sourceWindow": "24H", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-16T22:12:45+09:00", "matchNotes": ["core keyword: magic", "preferred category", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2026-05-05", "likeCount": 990757, "duration": 34, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "vWdr3dETkqY", "title": "They’ll never know what happened💀 | Now you see me 3 (2025) - 4k Edit | MATADORA (Slowed)", "channel": "LaughTrack", "category": "Entertainment", "shortsUrl": "https://www.youtube.com/shorts/vWdr3dETkqY", "thumbnail": "https://i.ytimg.com/vi/vWdr3dETkqY/hqdefault.jpg", "viewsGained": 20999019, "sourceRank": 34, "sourceWindow": "24H", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-16T22:12:45+09:00", "matchNotes": ["core keyword: happened", "music/trend signal: edit, slowed", "preferred category", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2026-05-10", "likeCount": 383808, "duration": 46, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "RBw24AV7HzU", "region": "kr", "regionLabel": "대한민국", "title": "Starting the day : 😄 Smile #DancingYoonji #Soomile #Challenge #Shorts #Dance #kpop #DancingBear #...", "channel": "춤추는윤지", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/RBw24AV7HzU", "thumbnail": "https://i.ytimg.com/vi/RBw24AV7HzU/hqdefault.jpg", "viewsGained": 3902, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=%ED%95%9C%EA%B5%AD+%EC%87%BC%EC%B8%A0+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%ED%8A%B8%EB%A0%8C%EB%93%9C", "collectedAt": "2026-05-16T22:10:37+09:00", "matchNotes": ["source: YouTube search result", "core keyword: challenge, dance, dancing", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-15", "likeCount": 112, "duration": 15, "width": 4320, "height": 7680, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "UrWUtZiFD08", "region": "kr", "regionLabel": "대한민국", "title": "추억의 띵곡 댄스 챌린지 #shorts", "channel": "댄스코드 DANCE CODE", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/UrWUtZiFD08", "thumbnail": "https://i.ytimg.com/vi/UrWUtZiFD08/hqdefault.jpg", "viewsGained": 379, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80", "collectedAt": "2026-05-16T22:10:37+09:00", "matchNotes": ["source: YouTube search result", "core keyword: 댄스, 챌린지", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2021-10-10", "likeCount": 11, "duration": 76, "width": 720, "height": 1280, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "pu5NE-nABcI", "title": "Michael Jackson Moonwalk with Skates Part 2", "channel": "Meowfia Empire", "category": "Comedy", "shortsUrl": "https://www.youtube.com/shorts/pu5NE-nABcI", "thumbnail": "https://i.ytimg.com/vi/pu5NE-nABcI/hqdefault.jpg", "viewsGained": 63508670, "sourceRank": 35, "sourceWindow": "24H", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-16T22:07:51+09:00", "matchNotes": ["core keyword: michael jackson, moonwalk", "preferred category", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2026-04-30", "likeCount": null, "duration": 24, "width": 720, "height": 1280, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "CkaFGiLhk9U", "title": "Backstage vs Result cute dance 😊🧸", "channel": "Andrey Grechka", "category": "Entertainment", "shortsUrl": "https://www.youtube.com/shorts/CkaFGiLhk9U", "thumbnail": "https://i.ytimg.com/vi/CkaFGiLhk9U/hqdefault.jpg", "viewsGained": 99458918, "sourceRank": 26, "sourceWindow": "7D", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-16T21:59:57+09:00", "matchNotes": ["core keyword: backstage, cute, dance", "preferred category", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2026-05-03", "likeCount": 410073, "duration": 9, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "BKFhBNgoG_M", "title": "BTS REVEAL! 🎬 Jasmin is defying gravity… 😱 #shorts #michaeljackson", "channel": "Jasmin and James", "category": "Entertainment", "shortsUrl": "https://www.youtube.com/shorts/BKFhBNgoG_M", "thumbnail": "https://i.ytimg.com/vi/BKFhBNgoG_M/hqdefault.jpg", "viewsGained": 34888819, "sourceRank": 33, "sourceWindow": "7D", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-16T21:59:57+09:00", "matchNotes": ["core keyword: defying", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2026-05-09", "likeCount": 210228, "duration": 11, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "e5XUL2p3HjU", "title": "요청💘) 아무래도난 튜토리얼 [거울모드 mirrored]/ 릴스 틱톡 쇼츠 댄스 챌린지 / tiktok reels short dance challenge", "channel": "정지안이당", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/e5XUL2p3HjU", "thumbnail": "https://i.ytimg.com/vi/e5XUL2p3HjU/hqdefault.jpg", "viewsGained": 17241, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80", "collectedAt": "2026-05-16T21:56:41+09:00", "matchNotes": ["source: YouTube search result", "core keyword: challenge, dance", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2022-06-30", "likeCount": 151, "duration": 73, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "gaofbq_8cAQ", "title": "Turning anime into reality", "channel": "Jordi Koalitic", "category": "Education", "shortsUrl": "https://www.youtube.com/shorts/gaofbq_8cAQ", "thumbnail": "https://i.ytimg.com/vi/gaofbq_8cAQ/hqdefault.jpg", "viewsGained": 19531673, "sourceRank": 9, "sourceWindow": "24H", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-16T21:11:43+09:00", "matchNotes": ["visual situation/performance candidate", "high 24h trend rank", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2026-05-13", "likeCount": 335853, "duration": 19, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}]</script>
+  <script type="application/json" id="shorts-data">[{"id": "pu5NE-nABcI", "title": "Michael Jackson Moonwalk with Skates Part 2", "channel": "Meowfia Empire", "category": "Comedy", "shortsUrl": "https://www.youtube.com/shorts/pu5NE-nABcI", "thumbnail": "https://i.ytimg.com/vi/pu5NE-nABcI/hqdefault.jpg", "viewsGained": 63584729, "sourceRank": 35, "sourceWindow": "24H", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["core keyword: michael jackson, moonwalk", "preferred category", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2026-04-30", "likeCount": null, "duration": 24, "width": 720, "height": 1280, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "bMhgjlhIsjQ", "region": "global", "regionLabel": "글로벌", "title": "Sister Very Angry Bhai Aa Gaye 🤣🤩😅 ##funnyvideo #funny #comedyvideos #funnyshorts", "channel": "Vikram Singh Fitness", "category": "Sports", "shortsUrl": "https://www.youtube.com/shorts/bMhgjlhIsjQ", "thumbnail": "https://i.ytimg.com/vi/bMhgjlhIsjQ/hqdefault.jpg", "viewsGained": 22956060, "sourceRank": 32, "sourceWindow": "24H", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["core keyword: funny", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-11", "likeCount": 162296, "duration": 37, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "vWdr3dETkqY", "title": "They’ll never know what happened💀 | Now you see me 3 (2025) - 4k Edit | MATADORA (Slowed)", "channel": "LaughTrack", "category": "Entertainment", "shortsUrl": "https://www.youtube.com/shorts/vWdr3dETkqY", "thumbnail": "https://i.ytimg.com/vi/vWdr3dETkqY/hqdefault.jpg", "viewsGained": 21087821, "sourceRank": 34, "sourceWindow": "24H", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["core keyword: happened", "music/trend signal: edit, slowed", "preferred category", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2026-05-10", "likeCount": 385539, "duration": 46, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "jBtyy-xQaB0", "title": "Reddington saved the people in the convenience store.#shortvideo#theblacklist #series #shorts", "channel": "Movie- serendipity", "category": "Entertainment", "shortsUrl": "https://www.youtube.com/shorts/jBtyy-xQaB0", "thumbnail": "https://i.ytimg.com/vi/jBtyy-xQaB0/hqdefault.jpg", "viewsGained": 20192254, "sourceRank": 5, "sourceWindow": "24H", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["core keyword: saved", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2026-05-14", "likeCount": 668471, "duration": 59, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "FK-2XVp0w90", "region": "global", "regionLabel": "글로벌", "title": "Tillu vs Generator⚡️🤣#shorts #comedy #funny #olidavines", "channel": "OLIDA Vlogs and Vines", "category": "Comedy", "shortsUrl": "https://www.youtube.com/shorts/FK-2XVp0w90", "thumbnail": "https://i.ytimg.com/vi/FK-2XVp0w90/hqdefault.jpg", "viewsGained": 16190655, "likeCount": 106504, "sourceRank": 42, "sourceWindow": "24H", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-17T00:53:19+09:00", "publishedAt": "2026-05-13", "matchNotes": ["core keyword: funny", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "isShort9x16": true, "duration": 35, "width": 2160, "height": 3840, "aspectRatio": 0.5625}, {"id": "vHqQqFwhGuw", "region": "global", "regionLabel": "글로벌", "title": "SOAP BALL 🧼🫧⚾ #shorts #youtubeshorts #cricket #unboxing #ball #funny #boxofvengeance", "channel": "Box Of Vengeance", "category": "People &amp; Blogs", "shortsUrl": "https://www.youtube.com/shorts/vHqQqFwhGuw", "thumbnail": "https://i.ytimg.com/vi/vHqQqFwhGuw/hqdefault.jpg", "viewsGained": 9290172, "sourceRank": 21, "sourceWindow": "24H", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["core keyword: funny", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 409427, "duration": 36, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "CkaFGiLhk9U", "title": "Backstage vs Result cute dance 😊🧸", "channel": "Andrey Grechka", "category": "Entertainment", "shortsUrl": "https://www.youtube.com/shorts/CkaFGiLhk9U", "thumbnail": "https://i.ytimg.com/vi/CkaFGiLhk9U/hqdefault.jpg", "viewsGained": 99463253, "sourceRank": 26, "sourceWindow": "7D", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["core keyword: backstage, cute, dance", "preferred category", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2026-05-03", "likeCount": 410208, "duration": 9, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "BKFhBNgoG_M", "title": "BTS REVEAL! 🎬 Jasmin is defying gravity… 😱 #shorts #michaeljackson", "channel": "Jasmin and James", "category": "Entertainment", "shortsUrl": "https://www.youtube.com/shorts/BKFhBNgoG_M", "thumbnail": "https://i.ytimg.com/vi/BKFhBNgoG_M/hqdefault.jpg", "viewsGained": 34890432, "sourceRank": 33, "sourceWindow": "7D", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["core keyword: defying", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2026-05-09", "likeCount": 210234, "duration": 11, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "4KyCA_Yt-zk", "title": "F1 스탑 챌린지 #f1 #formula1 #포뮬러1", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/4KyCA_Yt-zk", "thumbnail": "https://i.ytimg.com/vi/4KyCA_Yt-zk/hqdefault.jpg", "viewsGained": 40774337, "sourceRank": 11, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 대한민국", "sourceUrl": "https://playboard.co/en/video/4KyCA_Yt-zk?channelId=UCdvItLHXa6z2lfxYwz6PypA", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: 챌린지", "shorts text signal", "manual visual/audio check recommended"], "region": "kr", "regionLabel": "대한민국", "publishedAt": "2026-05-06", "likeCount": 246692, "duration": 4, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "RBw24AV7HzU", "region": "kr", "regionLabel": "대한민국", "title": "Starting the day : 😄 Smile #DancingYoonji #Soomile #Challenge #Shorts #Dance #kpop #DancingBear #...", "channel": "춤추는윤지", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/RBw24AV7HzU", "thumbnail": "https://i.ytimg.com/vi/RBw24AV7HzU/hqdefault.jpg", "viewsGained": 3897, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=%ED%95%9C%EA%B5%AD+%EC%87%BC%EC%B8%A0+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%ED%8A%B8%EB%A0%8C%EB%93%9C", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: YouTube search result", "core keyword: challenge, dance", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-15", "likeCount": 112, "duration": 15, "width": 4320, "height": 7680, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "UrWUtZiFD08", "region": "kr", "regionLabel": "대한민국", "title": "추억의 띵곡 댄스 챌린지 #shorts", "channel": "댄스코드 DANCE CODE", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/UrWUtZiFD08", "thumbnail": "https://i.ytimg.com/vi/UrWUtZiFD08/hqdefault.jpg", "viewsGained": 379, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: YouTube search result", "core keyword: 댄스, 챌린지", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2021-10-10", "likeCount": 11, "duration": 76, "width": 720, "height": 1280, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "ZdXwPHwdwhY", "region": "jp", "regionLabel": "일본", "title": "Saito09 funny video 😂😂😂 #shorts", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/ZdXwPHwdwhY", "thumbnail": "https://i.ytimg.com/vi/ZdXwPHwdwhY/hqdefault.jpg", "viewsGained": 193270263, "sourceRank": 15, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 일본", "sourceUrl": "https://playboard.co/en/video/ZdXwPHwdwhY?channelId=UCKLbzfmjFv_oalDX8sHxhkQ", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-02-14", "likeCount": 1421559, "duration": 47, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "5qPDtxngIzQ", "region": "jp", "regionLabel": "일본", "title": "プラスチックストローから笛の作り方🥤🪈💞#challenge#straw#flute", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/5qPDtxngIzQ", "thumbnail": "https://i.ytimg.com/vi/5qPDtxngIzQ/hqdefault.jpg", "viewsGained": 66818844, "sourceRank": 8, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 일본", "sourceUrl": "https://playboard.co/en/video/5qPDtxngIzQ?channelId=UCsW-2LeMgUNGdMloq5kPeLg", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: challenge", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-06", "likeCount": 486277, "duration": 28, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "MLo6POLpdSI", "region": "jp", "regionLabel": "일본", "title": "プレゼント🎁for you #shorts #funny #comedy", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/MLo6POLpdSI", "thumbnail": "https://i.ytimg.com/vi/MLo6POLpdSI/hqdefault.jpg", "viewsGained": 13926162, "sourceRank": 16, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 일본", "sourceUrl": "https://playboard.co/en/video/MLo6POLpdSI?channelId=UCjJjOBHEQVKZhbbuVqpVgDw", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-08", "likeCount": null, "duration": 22, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "ffl0gvGSv9s", "region": "jp", "regionLabel": "일본", "title": "Mbappé, Haaland, and Yamal Are Too Funny 😂🔥 #football #haaland #parody", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/ffl0gvGSv9s", "thumbnail": "https://i.ytimg.com/vi/ffl0gvGSv9s/hqdefault.jpg", "viewsGained": 12833846, "sourceRank": 10, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 일본", "sourceUrl": "https://playboard.co/en/video/ffl0gvGSv9s?channelId=UC0Badcq36RBDHN-e3N1Papg", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-12", "likeCount": 47611, "duration": 7, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "9Egj8PiHiak", "region": "mx", "regionLabel": "멕시코", "title": "CHUPANDO DEDO #santi #santioficial #funny #comedy", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/9Egj8PiHiak", "thumbnail": "https://i.ytimg.com/vi/9Egj8PiHiak/hqdefault.jpg", "viewsGained": 141184582, "sourceRank": 5, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 멕시코", "sourceUrl": "https://playboard.co/en/video/9Egj8PiHiak?channelId=UCizBBt3xOHkXPKvnaEEUKAA", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2025-10-27", "likeCount": 478120, "duration": 9, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "2lvUxw1mNoE", "region": "mx", "regionLabel": "멕시코", "title": "#timelapse for entertainment , so cute funny family , new memes smc", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/2lvUxw1mNoE", "thumbnail": "https://i.ytimg.com/vi/2lvUxw1mNoE/hqdefault.jpg", "viewsGained": 13568247, "sourceRank": 19, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 멕시코", "sourceUrl": "https://playboard.co/en/video/2lvUxw1mNoE?channelId=UCMDrIhCljOfwVwvI0OWOdpQ", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: cute, funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-04", "likeCount": 27025, "duration": 5, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "oE_3ZBdOJzc", "region": "mx", "regionLabel": "멕시코", "title": "Cazador de Demonios a Cazadoras de los Sajaboys hay diferencia 🤣.#cosplay #humor #kpopdemonhunters", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/oE_3ZBdOJzc", "thumbnail": "https://i.ytimg.com/vi/oE_3ZBdOJzc/hqdefault.jpg", "viewsGained": 5714523, "sourceRank": 7, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 멕시코", "sourceUrl": "https://playboard.co/en/video/oE_3ZBdOJzc?channelId=UCYC_zK-AW6YL2MLNqgbexIQ", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: humor", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-12", "likeCount": 16679, "duration": 6, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "_eS8Xh4qH-k", "region": "mx", "regionLabel": "멕시코", "title": "ASÍ es como MICHAEL JACKSON DESAFIO la GRAVEDAD 😱 #michaeljackson #curiosidades #datoscuriosos", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/_eS8Xh4qH-k", "thumbnail": "https://i.ytimg.com/vi/_eS8Xh4qH-k/hqdefault.jpg", "viewsGained": 5637737, "sourceRank": 12, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 멕시코", "sourceUrl": "https://playboard.co/en/video/_eS8Xh4qH-k?channelId=UCJ3rhXt1uxgdrUGu03Cd5CQ", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: michael jackson", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 74576, "duration": 18, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "ZzWVQZ9nNqM", "region": "mx", "regionLabel": "멕시코", "title": "Mango limpio ? O sucio? #viral #humor #casosdefamilia #youtubeshorts #comedia #shortvideo", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/ZzWVQZ9nNqM", "thumbnail": "https://i.ytimg.com/vi/ZzWVQZ9nNqM/hqdefault.jpg", "viewsGained": 5309834, "sourceRank": 13, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 멕시코", "sourceUrl": "https://playboard.co/en/video/ZzWVQZ9nNqM?channelId=UC2nJBXaDf6KuWk7zMMKwxew", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: humor", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 39076, "duration": 38, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "IPK0M8cCt6o", "region": "mx", "regionLabel": "멕시코", "title": "Me perdía muy seguido 😩😂 #shorts #humor #tiktokvideo #comedia #funny #fyp", "channel": "Gabriela Flores Villar", "category": "Comedy", "shortsUrl": "https://www.youtube.com/shorts/IPK0M8cCt6o", "thumbnail": "https://i.ytimg.com/vi/IPK0M8cCt6o/hqdefault.jpg", "viewsGained": 8073847, "sourceRank": 2, "sourceWindow": "regional", "sourceName": "YTTrack Trending - 멕시코 Comedy", "sourceUrl": "https://yttrack.com/search.php?categoryId=23&amp;regionCode=MX&amp;maxResults=18", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: YTTrack regional trending chart", "core keyword: funny, humor", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-15", "likeCount": 153775, "duration": 42, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "oNLPZ6zg2XY", "region": "mx", "regionLabel": "멕시코", "title": "Enganaron a LARIN JR😭🥺By:alfredolarin #humor #comedy #comedia #youtubeshorts #shortvideo", "channel": "JOLLYDOT", "category": "Entertainment", "shortsUrl": "https://www.youtube.com/shorts/oNLPZ6zg2XY", "thumbnail": "https://i.ytimg.com/vi/oNLPZ6zg2XY/hqdefault.jpg", "viewsGained": 6430233, "sourceRank": 10, "sourceWindow": "regional", "sourceName": "YTTrack Trending - 멕시코 Entertainment", "sourceUrl": "https://yttrack.com/search.php?categoryId=24&amp;regionCode=MX&amp;maxResults=18", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: YTTrack regional trending chart", "core keyword: humor", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 47865, "duration": 18, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "GuquAiWY0WQ", "region": "mx", "regionLabel": "멕시코", "title": "POV: SE TE OLVIDAN LAS LLAVES ADENTRO DEL CARRO😭💀🚗 #humor #shorts #comedia #lospqliares", "channel": "Los PQliares", "category": "Comedy", "shortsUrl": "https://www.youtube.com/shorts/GuquAiWY0WQ", "thumbnail": "https://i.ytimg.com/vi/GuquAiWY0WQ/hqdefault.jpg", "viewsGained": 4756505, "sourceRank": 1, "sourceWindow": "regional", "sourceName": "YTTrack Trending - 멕시코 Comedy", "sourceUrl": "https://yttrack.com/search.php?categoryId=23&amp;regionCode=MX&amp;maxResults=18", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: YTTrack regional trending chart", "core keyword: humor", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-15", "likeCount": 69752, "duration": 33, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "6BLmRFgePZc", "region": "br", "regionLabel": "브라질", "title": "Qual delas vocês gostaram mais #humor #piadascurtas #comedy #comedia #piadasrapidas #shorts", "channel": "ALINE.OFICIAL🧚‍♀️", "category": "Comedy", "shortsUrl": "https://www.youtube.com/shorts/6BLmRFgePZc", "thumbnail": "https://i.ytimg.com/vi/6BLmRFgePZc/hqdefault.jpg", "viewsGained": 4660632, "sourceRank": 16, "sourceWindow": "regional", "sourceName": "YTTrack Trending - 브라질 Comedy", "sourceUrl": "https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: YTTrack regional trending chart", "core keyword: humor", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-10", "likeCount": 29385, "duration": 19, "width": 720, "height": 1280, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "50BQYtOS5FU", "region": "br", "regionLabel": "브라질", "title": "Truco na escola? 🤣🤣🤣 #humor #memes #shorts", "channel": "Canal Invlo", "category": "Comedy", "shortsUrl": "https://www.youtube.com/shorts/50BQYtOS5FU", "thumbnail": "https://i.ytimg.com/vi/50BQYtOS5FU/hqdefault.jpg", "viewsGained": 3527445, "sourceRank": 15, "sourceWindow": "regional", "sourceName": "YTTrack Trending - 브라질 Comedy", "sourceUrl": "https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: YTTrack regional trending chart", "core keyword: humor", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-11", "likeCount": 29912, "duration": 13, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "FP1RlgSrod8", "region": "id", "regionLabel": "인도네시아", "title": "Gercep banget ini cewek😂 #couple #funny #shorts", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/FP1RlgSrod8", "thumbnail": "https://i.ytimg.com/vi/FP1RlgSrod8/hqdefault.jpg", "viewsGained": 6260985, "sourceRank": 18, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 인도네시아", "sourceUrl": "https://playboard.co/en/video/FP1RlgSrod8?channelId=UCFjAz1kIFc-MKqw4Fz4xkEA", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 29487, "duration": 14, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "GLrg5kBgOzI", "region": "id", "regionLabel": "인도네시아", "title": "“Senyum kalem dancer cantik joget asik depan sound horeg 💖” #karnaval #jogetkarnaval #viral #cantik", "channel": "Alesha", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/GLrg5kBgOzI", "thumbnail": "https://i.ytimg.com/vi/GLrg5kBgOzI/hqdefault.jpg", "viewsGained": 2322, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+joget+musik+viral+Indonesia", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: YouTube search result", "core keyword: dancer, joget", "manual visual/audio check recommended"], "publishedAt": "2026-05-15", "likeCount": 19, "duration": 13, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "lWBlN0bUJis", "region": "ar", "regionLabel": "아르헨티나", "title": "Mission Impossible 😎 #humor #funny #comedy", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/lWBlN0bUJis", "thumbnail": "https://i.ytimg.com/vi/lWBlN0bUJis/hqdefault.jpg", "viewsGained": 5952690, "sourceRank": 18, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 아르헨티나", "sourceUrl": "https://playboard.co/en/video/lWBlN0bUJis?channelId=UCABKolAKTA29f03BYtvcERw", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny, humor", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-09", "likeCount": 23459, "duration": 18, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "sVvCEhqaHhw", "region": "ar", "regionLabel": "아르헨티나", "title": "Se lo juro mister #shorts #humor #comedia", "channel": "Dadytou", "category": "Comedy", "shortsUrl": "https://www.youtube.com/shorts/sVvCEhqaHhw", "thumbnail": "https://i.ytimg.com/vi/sVvCEhqaHhw/hqdefault.jpg", "viewsGained": 3274104, "sourceRank": 18, "sourceWindow": "regional", "sourceName": "YTTrack Trending - 아르헨티나 Comedy", "sourceUrl": "https://yttrack.com/search.php?categoryId=23&amp;regionCode=AR&amp;maxResults=18", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: YTTrack regional trending chart", "core keyword: humor", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 126888, "duration": 24, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "fhVxTjONxsA", "region": "ph", "regionLabel": "필리핀", "title": "Rush - Ayra Starr | Dance Challenge", "channel": "Ken Mat Thew", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/fhVxTjONxsA", "thumbnail": "https://i.ytimg.com/vi/fhVxTjONxsA/hqdefault.jpg", "viewsGained": 84332, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: YouTube search result", "core keyword: challenge, dance", "manual visual/audio check recommended"], "publishedAt": "2023-08-19", "likeCount": 1177, "duration": 62, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "3sLY4XwJ9WM", "region": "es", "regionLabel": "스페인", "title": "New look, same love ❤️😂#shaving #beard #couple #challenge #fyp", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/3sLY4XwJ9WM", "thumbnail": "https://i.ytimg.com/vi/3sLY4XwJ9WM/hqdefault.jpg", "viewsGained": 37282208, "sourceRank": 15, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 스페인", "sourceUrl": "https://playboard.co/en/video/3sLY4XwJ9WM?channelId=UCX4eucShCWrUyhW6DZE_gPw", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: challenge", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-04-15", "likeCount": 619916, "duration": 60, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "O_Z4t9iwWW4", "region": "es", "regionLabel": "스페인", "title": "PRACTICANDO #POLEDANCE | ¿TE GUSTARÍA APRENDER? | ARIANN MUSIC #SHORTS BAILANDO #BAILE #DANCE", "channel": "Moderadores Arianners", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/O_Z4t9iwWW4", "thumbnail": "https://i.ytimg.com/vi/O_Z4t9iwWW4/hqdefault.jpg", "viewsGained": 4172, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+baile+musica+tendencia+Espana", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: YouTube search result", "core keyword: baile, dance", "music/trend signal: music", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2022-04-12", "likeCount": 181, "duration": 58, "width": 480, "height": 854, "aspectRatio": 0.5621, "isShort9x16": true}, {"id": "DTYue9Ajo9Q", "region": "it", "regionLabel": "이탈리아", "title": "Nobody Knows Rowan Atkinson Was Actually a Punk #comedy #celebrity #funny", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/DTYue9Ajo9Q", "thumbnail": "https://i.ytimg.com/vi/DTYue9Ajo9Q/hqdefault.jpg", "viewsGained": 9475880, "sourceRank": 20, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 이탈리아", "sourceUrl": "https://playboard.co/en/video/DTYue9Ajo9Q?channelId=UCwYDrqBJ7id82pQ1KxKYHLQ", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-04-09", "likeCount": 75739, "duration": 22, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "YsLPyexmGXg", "region": "it", "regionLabel": "이탈리아", "title": "TUTORIAL magic Gif #TREND 😳🍆🤮#trend #magic #backstage #creative #lol #shorts#tutorial", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/YsLPyexmGXg", "thumbnail": "https://i.ytimg.com/vi/YsLPyexmGXg/hqdefault.jpg", "viewsGained": 2351930, "sourceRank": 7, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 이탈리아", "sourceUrl": "https://playboard.co/en/video/YsLPyexmGXg?channelId=UCF0e4oTaZk9qr0f2qT-dzhw", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: backstage, magic", "music/trend signal: trend", "shorts text signal", "excluded signal: tutorial", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 11490, "duration": 11, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "l91lVPMcoCs", "region": "fr", "regionLabel": "프랑스", "title": "#funny #comedy #india", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/l91lVPMcoCs", "thumbnail": "https://i.ytimg.com/vi/l91lVPMcoCs/hqdefault.jpg", "viewsGained": 4007407, "sourceRank": 10, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 프랑스", "sourceUrl": "https://playboard.co/en/video/l91lVPMcoCs?channelId=UC_rTbuXWDcJ-_-OhutBwuXg", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: funny", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-13", "likeCount": 34730, "duration": 61, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "I_CqHrNzKIY", "region": "fr", "regionLabel": "프랑스", "title": "Que se passe-t-il si vous renversez de l'eau partout ? 💦 #shorts #prank", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/I_CqHrNzKIY", "thumbnail": "https://i.ytimg.com/vi/I_CqHrNzKIY/hqdefault.jpg", "viewsGained": 2726648, "sourceRank": 6, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 프랑스", "sourceUrl": "https://playboard.co/en/video/I_CqHrNzKIY?channelId=UCcjlkShNTeqpll27KF6rY7A", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: prank", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 12762, "duration": 16, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "tgOQlzCqc0M", "region": "kz", "regionLabel": "카자흐스탄", "title": "ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY NEON DANCE !! 🔥🔥", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/tgOQlzCqc0M", "thumbnail": "https://i.ytimg.com/vi/tgOQlzCqc0M/hqdefault.jpg", "viewsGained": 399695283, "sourceRank": 5, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 카자흐스탄", "sourceUrl": "https://playboard.co/en/video/tgOQlzCqc0M?channelId=UCVRqK0tS3B8pVog1HwCR4pg", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: dance", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-02-10", "likeCount": 2791055, "duration": 26, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "mtMKcJTQfTA", "region": "kz", "regionLabel": "카자흐스탄", "title": "Wednesday Addams Dance |KAZAKHSTAN || New Dance Challenge!!!", "channel": "АiLiNkA", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/mtMKcJTQfTA", "thumbnail": "https://i.ytimg.com/vi/mtMKcJTQfTA/hqdefault.jpg", "viewsGained": 241, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=Kazakhstan+dance+challenge+shorts+music", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: YouTube search result", "core keyword: challenge, dance", "manual visual/audio check recommended"], "publishedAt": "2022-12-07", "likeCount": 2, "duration": 108, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "FWMyxmIu1Ss", "region": "vn", "regionLabel": "베트남", "title": "When princesses playing \"Squid Game\" Challenge #bybacademy #thanhhuyennguyen #daotaonguoimau #5g", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/FWMyxmIu1Ss", "thumbnail": "https://i.ytimg.com/vi/FWMyxmIu1Ss/hqdefault.jpg", "viewsGained": 253765991, "sourceRank": 20, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 베트남", "sourceUrl": "https://playboard.co/en/video/FWMyxmIu1Ss?channelId=UC0DHkN8GvXGXRf3SA2PKKcg", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: challenge", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-01-27", "likeCount": 2194768, "duration": 46, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "jc1IZpdsJjM", "region": "vn", "regionLabel": "베트남", "title": "Unexpected ending in Left Right challenge #bybacademy #thanhhuyennguyen #daotaonguoimau #5g", "channel": "", "category": "Playboard Shorts Chart", "shortsUrl": "https://www.youtube.com/shorts/jc1IZpdsJjM", "thumbnail": "https://i.ytimg.com/vi/jc1IZpdsJjM/hqdefault.jpg", "viewsGained": 9619765, "sourceRank": 11, "sourceWindow": "daily", "sourceName": "Playboard Shorts Daily - 베트남", "sourceUrl": "https://playboard.co/en/video/jc1IZpdsJjM?channelId=UC0DHkN8GvXGXRf3SA2PKKcg", "collectedAt": "2026-05-17T00:53:19+09:00", "matchNotes": ["source: Playboard regional shorts chart", "core keyword: challenge", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-14", "likeCount": 121464, "duration": 60, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "VIxUZo6SZWE", "region": "us", "regionLabel": "미국", "title": "#music #fypシ #dance #shorts#youtubeshorts#viralvideo #shortvideo #trending #viral #foryou#fyp#dancer", "channel": "Dancer Piu official", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/VIxUZo6SZWE", "thumbnail": "https://i.ytimg.com/vi/VIxUZo6SZWE/hqdefault.jpg", "viewsGained": 2525, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=US+trending+shorts+dance+music", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YouTube search result", "core keyword: dance, dancer", "music/trend signal: music, trending", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-16", "likeCount": 92, "duration": 13, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "O373p-8q8W0", "region": "us", "regionLabel": "미국", "title": "#music #fypシ #dance #shorts#youtubeshorts#viralvideo #shortvideo #trending #viral #foryou#fyp#dancer", "channel": "Dancer Piu official", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/O373p-8q8W0", "thumbnail": "https://i.ytimg.com/vi/O373p-8q8W0/hqdefault.jpg", "viewsGained": 2089, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=US+trending+shorts+dance+music", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YouTube search result", "core keyword: dance, dancer", "music/trend signal: music, trending", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-16", "likeCount": 53, "duration": 15, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "0nPaRKaWm8g", "region": "ar", "regionLabel": "아르헨티나", "title": "Su reacción al saltar a agua fría fue ÉPICA #shorts #challenge", "channel": "Pablo Pol", "category": "Entertainment", "shortsUrl": "https://www.youtube.com/shorts/0nPaRKaWm8g", "thumbnail": "https://i.ytimg.com/vi/0nPaRKaWm8g/hqdefault.jpg", "viewsGained": 4559796, "sourceRank": 16, "sourceWindow": "regional", "sourceName": "YTTrack Trending - 아르헨티나 Entertainment", "sourceUrl": "https://yttrack.com/search.php?categoryId=24&amp;regionCode=AR&amp;maxResults=18", "collectedAt": "2026-05-16T22:51:58+09:00", "matchNotes": ["source: YTTrack regional trending chart", "core keyword: challenge", "preferred category", "shorts text signal", "manual visual/audio check recommended"], "publishedAt": "2026-05-13", "likeCount": 87925, "duration": 26, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "HsKltJyJ-UI", "title": "When did Ermao learn to do magic？ #funny #comedy", "channel": "FatSongsong and ThinErmao", "category": "Howto &amp; Style", "shortsUrl": "https://www.youtube.com/shorts/HsKltJyJ-UI", "thumbnail": "https://i.ytimg.com/vi/HsKltJyJ-UI/hqdefault.jpg", "viewsGained": 118572269, "sourceRank": 28, "sourceWindow": "24H", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-16T22:12:45+09:00", "matchNotes": ["core keyword: magic", "preferred category", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2026-05-05", "likeCount": 990757, "duration": 34, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "e5XUL2p3HjU", "title": "요청💘) 아무래도난 튜토리얼 [거울모드 mirrored]/ 릴스 틱톡 쇼츠 댄스 챌린지 / tiktok reels short dance challenge", "channel": "정지안이당", "category": "YouTube Search", "shortsUrl": "https://www.youtube.com/shorts/e5XUL2p3HjU", "thumbnail": "https://i.ytimg.com/vi/e5XUL2p3HjU/hqdefault.jpg", "viewsGained": 17241, "sourceRank": 0, "sourceWindow": "search", "sourceName": "YouTube keyword search", "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80", "collectedAt": "2026-05-16T21:56:41+09:00", "matchNotes": ["source: YouTube search result", "core keyword: challenge, dance", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2022-06-30", "likeCount": 151, "duration": 73, "width": 2160, "height": 3840, "aspectRatio": 0.5625, "isShort9x16": true}, {"id": "gaofbq_8cAQ", "title": "Turning anime into reality", "channel": "Jordi Koalitic", "category": "Education", "shortsUrl": "https://www.youtube.com/shorts/gaofbq_8cAQ", "thumbnail": "https://i.ytimg.com/vi/gaofbq_8cAQ/hqdefault.jpg", "viewsGained": 19531673, "sourceRank": 9, "sourceWindow": "24H", "sourceName": "Vidirun Top 50 Short-Form Videos", "sourceUrl": "https://vidirun.com/format-short", "collectedAt": "2026-05-16T21:11:43+09:00", "matchNotes": ["visual situation/performance candidate", "high 24h trend rank", "manual visual/audio check recommended"], "region": "global", "regionLabel": "글로벌", "publishedAt": "2026-05-13", "likeCount": 335853, "duration": 19, "width": 1080, "height": 1920, "aspectRatio": 0.5625, "isShort9x16": true}]</script>
   <script>
     const buttons = Array.from(document.querySelectorAll("[data-region-tab]"));
     const panelsByRegion = new Map(Array.from(document.querySelectorAll("[data-region-panel]")).map((panel) => [panel.dataset.regionPanel, panel]));

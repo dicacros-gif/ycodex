@@ -191,6 +191,14 @@ REDTOOLBOX_SOURCES = [
     },
 ]
 
+TUBETRENDING_SOURCES = [
+    {
+        "name": "TubeTrending Most Viewed New Shorts",
+        "page": "https://www.tubetrending.com/?duration=shorts&lang=en",
+        "window": "48H",
+    },
+]
+
 YTTRACK_REGION_CODES = {
     "kr": "KR",
     "us": "US",
@@ -871,6 +879,61 @@ def collect_redtoolbox(collected_at: str) -> list[dict[str, Any]]:
     return candidates
 
 
+def collect_tubetrending(collected_at: str) -> list[dict[str, Any]]:
+    candidates: list[dict[str, Any]] = []
+    for source in TUBETRENDING_SOURCES:
+        try:
+            html = fetch_text(source["page"])
+        except Exception as exc:
+            print(f"warning: failed to fetch {source['page']}: {exc}", file=sys.stderr)
+            continue
+
+        rows: list[dict[str, Any]] = []
+        for script in re.findall(r'<script[^>]+type="application/ld\+json"[^>]*>(.*?)</script>', html, flags=re.S | re.I):
+            try:
+                payload = json.loads(unescape(script).strip())
+            except Exception:
+                continue
+            if isinstance(payload, dict) and payload.get("@type") == "ItemList":
+                raw_rows = payload.get("itemListElement") or []
+                rows.extend(raw for raw in raw_rows if isinstance(raw, dict))
+
+        if not rows:
+            for rank, video_id, title in re.findall(
+                r'"position"\s*:\s*(\d+).*?"url"\s*:\s*"https://www\.youtube\.com/watch\?v=([A-Za-z0-9_-]{11})".*?"name"\s*:\s*"([^"]+)"',
+                html,
+                flags=re.S | re.I,
+            ):
+                rows.append({"position": rank, "url": f"https://www.youtube.com/watch?v={video_id}", "name": title})
+
+        seen: set[str] = set()
+        for raw in rows:
+            video_id = video_id_from_any(str(raw.get("url") or ""))
+            if not video_id or video_id in seen:
+                continue
+            seen.add(video_id)
+            item = make_candidate(
+                region="global",
+                video_id=video_id,
+                title=clean_text(str(raw.get("name") or "")),
+                channel="",
+                category="TubeTrending Shorts 48H",
+                views_gained=0,
+                source_rank=parse_int(raw.get("position")),
+                source_window=source["window"],
+                source_name=source["name"],
+                source_url=source["page"],
+                collected_at=collected_at,
+                extra_notes=["source: TubeTrending most viewed new videos shorts filter"],
+                min_score=-2,
+            )
+            if item:
+                candidates.append(item)
+                if len(seen) >= RANKING_SOURCE_LIMIT:
+                    break
+    return candidates
+
+
 def collect_trendsfox(collected_at: str) -> list[dict[str, Any]]:
     source = HTML_SOURCES[0]
     try:
@@ -1058,6 +1121,7 @@ def collect_html_sources(collected_at: str) -> list[dict[str, Any]]:
     for collector in (
         collect_playboard,
         collect_redtoolbox,
+        collect_tubetrending,
         collect_yttrack,
         collect_chartika,
         collect_trendsfox,
@@ -1323,17 +1387,58 @@ def source_priority(item: dict[str, Any]) -> int:
         return 1
     if "RedToolBox" in name:
         return 2
-    if "YTTrack" in name:
+    if "TubeTrending" in name:
         return 3
-    if "Chartika" in name:
+    if "YTTrack" in name:
         return 4
-    if "TrendsFox" in name:
+    if "Chartika" in name:
         return 5
-    if "Top1Trend" in name:
+    if "TrendsFox" in name:
         return 6
+    if "Top1Trend" in name:
+        return 7
     if "YouTube Search" in name:
         return 9
-    return 7
+    return 8
+
+
+SOURCE_FAMILY_LABELS = {
+    "Vidirun": "Vidirun 24H/7D 숏폼 랭킹",
+    "Playboard": "Playboard 지역별 Shorts Daily",
+    "RedToolBox": "RedToolBox 일/주/월 Top Shorts",
+    "TubeTrending": "TubeTrending 48H 신규 Shorts",
+    "YTTrack": "YTTrack 지역·카테고리 트렌드",
+    "Chartika": "Chartika 지역 차트",
+    "TrendsFox": "TrendsFox 라이브 트렌딩",
+    "Top1Trend": "Top1Trend YouTube Trending",
+    "YouTube": "YouTube 검색 보강",
+    "Other": "기타 공개 소스",
+}
+
+GLOBAL_CRAWL_SOURCE_LABELS = [
+    "Vidirun",
+    "Playboard",
+    "RedToolBox",
+    "TubeTrending",
+    "YTTrack",
+    "Chartika",
+    "TrendsFox",
+    "Top1Trend",
+]
+
+
+def source_family(item: dict[str, Any]) -> str:
+    name = str(item.get("sourceName") or "")
+    for family in GLOBAL_CRAWL_SOURCE_LABELS:
+        if family.lower() in name.lower():
+            return family
+    if "youtube" in name.lower():
+        return "YouTube"
+    return "Other"
+
+
+def source_family_label(family: str) -> str:
+    return SOURCE_FAMILY_LABELS.get(family, family)
 
 
 def is_displayable(item: dict[str, Any]) -> bool:
@@ -1378,6 +1483,8 @@ def source_links(items: list[dict[str, Any]]) -> list[tuple[str, str]]:
     for source in PLAYBOARD_SOURCES:
         pairs.add((source["name"], source["page"]))
     for source in REDTOOLBOX_SOURCES:
+        pairs.add((f"{source['name']} {source['window']}", source["page"]))
+    for source in TUBETRENDING_SOURCES:
         pairs.add((f"{source['name']} {source['window']}", source["page"]))
     pairs.add(("Playboard regional YouTube Shorts charts", "https://playboard.co/chart/short/most-viewed-all-videos-in-worldwide-daily"))
     pairs.add(("RedToolBox daily/weekly/monthly top Shorts", "https://www.redtoolbox.io/toplist/topShorts.jsp"))
@@ -1743,12 +1850,22 @@ HIGHLIGHT_TERMS: list[tuple[str, str]] = [
     ("source", "Playboard"),
     ("source", "Vidirun"),
     ("source", "RedToolBox"),
+    ("source", "TubeTrending"),
     ("source", "YTTrack"),
     ("source", "Chartika"),
+    ("source", "TrendsFox"),
+    ("source", "Top1Trend"),
     ("source", "YouTube"),
     ("source", "랭킹"),
     ("source", "트렌드"),
     ("source", "소스"),
+    ("source", "공개 랭킹"),
+    ("source", "글로벌 크롤링"),
+    ("source", "크롤링"),
+    ("source", "검색 보강"),
+    ("source", "교차 확인"),
+    ("source", "라이브 트렌딩"),
+    ("source", "Top Shorts"),
     ("signal", "상황형 코미디·짧은 사건"),
     ("signal", "댄스·음악 챌린지"),
     ("signal", "편집·슬로우드 사운드"),
@@ -1997,6 +2114,69 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
     </section>"""
 
 
+def render_global_source_insights(items: list[dict[str, Any]], analysis_base: list[dict[str, Any]]) -> str:
+    visible_items = unique_content_items([item for item in items if is_displayable(item)])
+    if not visible_items:
+        return ""
+
+    groups: dict[str, list[dict[str, Any]]] = {}
+    for item in visible_items:
+        family = source_family(item)
+        groups.setdefault(family, []).append(item)
+
+    ranking_families = [family for family in GLOBAL_CRAWL_SOURCE_LABELS if groups.get(family)]
+    ranking_family_text = ", ".join(source_family_label(family) for family in ranking_families[:5])
+    if len(ranking_families) > 5:
+        ranking_family_text += f" 외 {len(ranking_families) - 5}개"
+    configured_text = ", ".join(source_family_label(family) for family in GLOBAL_CRAWL_SOURCE_LABELS)
+
+    notes = [
+        f"글로벌 크롤링은 {configured_text}를 매일 확인하고, 9:16·3천뷰 이상·중복 제거를 통과한 영상만 분석에 반영합니다.",
+    ]
+    if ranking_family_text:
+        notes.append(f"현재 표시 데이터는 {ranking_family_text}에서 실제 랭킹 신호가 잡혔고, 검색 보강보다 공개 랭킹 출처를 우선합니다.")
+    else:
+        notes.append("현재 표시 데이터는 랭킹 출처 통과분이 적어 검색 보강 후보를 함께 보되, 다음 업데이트에서 랭킹 교차 확인을 다시 시도합니다.")
+
+    source_rows = sorted(
+        ((family, rows) for family, rows in groups.items()),
+        key=lambda pair: (source_priority(pair[1][0]), -len(pair[1]), -max(parse_int(item.get("viewsGained")) for item in pair[1])),
+    )
+    for family, rows in source_rows[:5]:
+        top_item = max(rows, key=lambda item: parse_int(item.get("viewsGained")))
+        cluster_text = ", ".join(cluster_label(key) for key in item_cluster_keys(top_item)[:2] if key != "other") or "복합 포맷"
+        windows = sorted({clean_text(str(item.get("sourceWindow") or "")) for item in rows if item.get("sourceWindow")})
+        window_text = "/".join(windows[:3]) if windows else "라이브"
+        regions: dict[str, int] = {}
+        for item in rows:
+            label = item_region_label(item)
+            regions[label] = regions.get(label, 0) + 1
+        region_text = ", ".join(
+            f"{label} {count}개"
+            for label, count in sorted(regions.items(), key=lambda pair: pair[1], reverse=True)[:3]
+        )
+        notes.append(
+            f"{source_family_label(family)}: {len(rows)}개 표시, {window_text} 기준에서 {region_text or '여러 지역'} 신호가 잡혔고 대표 사례는 {compact_title(str(top_item.get('title', '')), 42)} ({fmt_int(top_item.get('viewsGained'))} views), {cluster_text} 성격이 강합니다."
+        )
+
+    source_counts = cluster_counts(analysis_base)
+    leading = [
+        f"{cluster_label(key)} {count}개"
+        for key, count in sorted(source_counts.items(), key=lambda pair: pair[1], reverse=True)
+        if count and key != "other"
+    ][:3]
+    if leading:
+        notes.append(f"소스별 랭킹을 합쳐 보면 {', '.join(leading)}가 글로벌 탭의 핵심 관찰 포인트입니다.")
+    if groups.get("YouTube"):
+        notes.append("YouTube 검색 보강은 랭킹 사이트가 부족한 지역을 채우는 보조 단계이며, 같은 영상 ID와 같은 제목은 전체 탭에서 한 번만 남깁니다.")
+
+    return f"""
+      <div class="trend-source-insights">
+        <strong>글로벌 크롤링 인사이트</strong>
+        <ul>{render_points(notes)}</ul>
+      </div>"""
+
+
 def render_trend_analysis(items: list[dict[str, Any]]) -> str:
     dated_items = [(item, parse_date(item.get("publishedAt"))) for item in items]
     dated_items = [(item, published) for item, published in dated_items if published]
@@ -2047,6 +2227,7 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
     ]
 
     note_items = render_points(notes)
+    source_insights = render_global_source_insights(items, analysis_base)
     top_badges = "\n".join(
         f"<li>{highlight_text(f'{cluster_label(key)} {count}')}</li>"
         for key, count in sorted(recent_counts.items(), key=lambda pair: pair[1], reverse=True)[:4]
@@ -2063,6 +2244,7 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
       </div>
       <ul class="trend-badges">{top_badges}</ul>
       <ul class="trend-notes">{note_items}</ul>
+{source_insights}
     </section>"""
 
 
@@ -2412,6 +2594,31 @@ def render_index(items: list[dict[str, Any]]) -> str:
       color: #344054;
       font-size: 13px;
       line-height: 1.55;
+    }}
+    .trend-source-insights {{
+      margin-top: 14px;
+      padding: 14px;
+      border: 1px solid rgba(220, 38, 38, 0.16);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ffffff 0%, #fff7f7 100%);
+    }}
+    .trend-source-insights > strong {{
+      display: block;
+      margin-bottom: 8px;
+      color: #7f1d1d;
+      font-size: 14px;
+      line-height: 1.3;
+      font-weight: 900;
+    }}
+    .trend-source-insights ul {{
+      margin: 0;
+      padding-left: 18px;
+      color: #344054;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }}
+    .trend-source-insights li + li {{
+      margin-top: 6px;
     }}
     .mega-panel {{
       background: transparent;
