@@ -1764,7 +1764,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     a {{ color: inherit; }}
     .shell {{
-      width: min(1500px, calc(100% - 32px));
+      width: min(1840px, calc(100% - 28px));
       margin: 0 auto;
     }}
     header {{
@@ -1981,8 +1981,8 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     .grid {{
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
+      gap: 18px;
       align-items: stretch;
     }}
     .region-panel {{
