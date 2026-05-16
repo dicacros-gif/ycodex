@@ -39,6 +39,30 @@
       overflow-x: hidden;
     }
     a { color: inherit; }
+    .text-mark {
+      display: inline;
+      border-radius: 5px;
+      padding: 0 3px;
+      font-weight: 900;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+    .text-mark--metric {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+    .text-mark--region {
+      background: #ccfbf1;
+      color: #0f766e;
+    }
+    .text-mark--source {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+    .text-mark--signal {
+      background: #fef3c7;
+      color: #a16207;
+    }
     .shell {
       width: calc(100% - 28px);
       max-width: 100%;
@@ -126,7 +150,7 @@
       gap: 12px;
       margin-bottom: 10px;
     }
-    .trend-heading strong {
+    .trend-heading > strong {
       font-size: 15px;
       line-height: 1.3;
     }
@@ -202,7 +226,7 @@
     .mega-hero-points li + li {
       margin-top: 3px;
     }
-    .mega-hero strong {
+    .mega-hero > strong {
       min-width: 48px;
       border-radius: 8px;
       background: var(--ink);
@@ -296,6 +320,16 @@
       font-weight: 800;
       line-height: 1;
       white-space: nowrap;
+    }
+    .mega-case-meta b {
+      margin-right: 4px;
+      color: #7f1d1d;
+    }
+    .mega-case-meta .text-mark,
+    .stats-row .text-mark {
+      background: transparent;
+      color: var(--tab-red-dark);
+      padding: 0;
     }
     .mega-case-source {
       display: inline-block;
@@ -527,7 +561,7 @@
       padding: 7px 8px;
       display: block;
     }
-    .popularity strong {
+    .popularity > strong {
       display: block;
       color: #b45309;
       background: transparent;
@@ -557,7 +591,7 @@
       color: var(--muted);
       font-size: 13px;
     }
-    .source-panel strong {
+    .source-panel > strong {
       display: block;
       color: #344054;
       font-size: 13px;
@@ -634,27 +668,27 @@
       <div class="trend-heading">
         <strong>트렌드 분석</strong>
         <ul class="trend-meta">
-          <li>101개 표시 영상</li>
-          <li>3,000뷰 이상</li>
+          <li><strong class="text-mark text-mark--metric">101개</strong> 표시 영상</li>
+          <li><strong class="text-mark text-mark--metric">3,000뷰</strong> 이상</li>
         </ul>
       </div>
-      <ul class="trend-badges"><li>상황형 코미디·짧은 사건 23</li>
-<li>댄스·음악 챌린지 11</li>
-<li>편집·슬로우드 사운드 7</li>
-<li>스포츠·퍼포먼스 순간 4</li></ul>
-      <ul class="trend-notes"><li>최근 2026-05-09~2026-05-15 게시 영상 32개 기준으로 상황형 코미디·짧은 사건 신호가 가장 큽니다.</li>
-<li>이전 누적 대비 상황형 코미디·짧은 사건 비중이 약 56%p 높아졌습니다.</li>
-<li>지역별로는 글로벌 9개, 멕시코 6개, 브라질 4개에서 새 게시물이 많이 잡히며, 지역 탭마다 코미디·댄스·편집형 비중이 다르게 나타납니다.</li>
-<li>조회수 상위 최근 사례는 Jackie Chan Saved The Day 🥶🔥 | The Shadow&#x27;s E... (37,433,286 views)이며, 댄스·음악 챌린지, 편집·슬로우드 사운드 쪽 신호가 강합니다.</li></ul>
+      <ul class="trend-badges"><li><strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 23</li>
+<li><strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong> 11</li>
+<li><strong class="text-mark text-mark--signal">편집·슬로우드 사운드</strong> 7</li>
+<li><strong class="text-mark text-mark--signal">스포츠·퍼포먼스 순간</strong> 4</li></ul>
+      <ul class="trend-notes"><li>최근 2026-05-09~2026-05-15 게시 영상 <strong class="text-mark text-mark--metric">32개</strong> 기준으로 <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 신호가 가장 큽니다.</li>
+<li>이전 누적 대비 <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 비중이 약 <strong class="text-mark text-mark--metric">56%p</strong> 높아졌습니다.</li>
+<li>지역별로는 <strong class="text-mark text-mark--region">글로벌</strong> <strong class="text-mark text-mark--metric">9개</strong>, <strong class="text-mark text-mark--region">멕시코</strong> <strong class="text-mark text-mark--metric">6개</strong>, <strong class="text-mark text-mark--region">브라질</strong> <strong class="text-mark text-mark--metric">4개</strong>에서 새 게시물이 많이 잡히며, 지역 탭마다 <strong class="text-mark text-mark--signal">코미디</strong>·<strong class="text-mark text-mark--signal">댄스</strong>·편집형 비중이 다르게 나타납니다.</li>
+<li><strong class="text-mark text-mark--metric">조회수</strong> 상위 최근 사례는 Jackie Chan Saved The Day 🥶🔥 | The Shadow&#x27;s E... (<strong class="text-mark text-mark--metric">37,433,286 views</strong>)이며, <strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong>, <strong class="text-mark text-mark--signal">편집·슬로우드 사운드</strong> 쪽 신호가 강합니다.</li></ul>
     </section>
 
     <section class="region-panel mega-panel" data-region-panel="mega" aria-label="1억뷰 분석">
       <div class="mega-hero">
         <div>
           <h2>1억뷰 분석</h2>
-          <ul class="mega-hero-points"><li>현재 표시 영상 중 5개가 1억뷰 이상입니다.</li>
-<li>가장 강한 사례는 ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY N... (399,519,222 views)입니다.</li>
-<li>현재 데이터에서는 상황형 코미디·짧은 사건, 댄스·음악 챌린지 신호가 특히 강합니다.</li></ul>
+          <ul class="mega-hero-points"><li>현재 표시 영상 중 <strong class="text-mark text-mark--metric">5개</strong>가 <strong class="text-mark text-mark--metric">1억뷰</strong> 이상입니다.</li>
+<li>가장 강한 사례는 ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY N... (<strong class="text-mark text-mark--metric">399,519,222 views</strong>)입니다.</li>
+<li>현재 데이터에서는 <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong>, <strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong> 신호가 특히 강합니다.</li></ul>
         </div>
         <strong>5</strong>
       </div>
@@ -662,7 +696,7 @@
       <div class="mega-case-section">
         <div class="mega-section-heading">
           <h3>최근 1억뷰 달성 사례</h3>
-          <ul class="mega-heading-points"><li>공개 랭킹과 YouTube 메타데이터에서 1억뷰 이상으로 확인된 최신 업로드를 먼저 봅니다.</li></ul>
+          <ul class="mega-heading-points"><li>공개 <strong class="text-mark text-mark--source">랭킹</strong>과 <strong class="text-mark text-mark--source">YouTube</strong> 메타데이터에서 <strong class="text-mark text-mark--metric">1억뷰</strong> 이상으로 확인된 최신 업로드를 먼저 봅니다.</li></ul>
         </div>
         <div class="mega-case-list">
         <article class="mega-case-card">
@@ -672,14 +706,14 @@
           <div class="mega-case-body">
             <h3><a href="https://www.youtube.com/shorts/HsKltJyJ-UI" target="_blank" rel="noopener">When did Ermao learn to do magic？ #funny #comedy</a></h3>
             <div class="mega-case-meta">
-              <span>조회수 118,256,281</span>
-              <span>좋아요 988,256</span>
+              <span><b>조회수</b><strong class="text-mark text-mark--metric">118,256,281</strong></span>
+              <span><b>좋아요</b><strong class="text-mark text-mark--metric">988,256</strong></span>
             </div>
-            <a class="mega-case-source" href="https://vidirun.com/format-short" target="_blank" rel="noopener">근거: Vidirun Top 50 Short-Form Videos 24H rank 28</a>
-            <ul class="mega-case-points"><li>최근 업로드 후 1억뷰를 넘긴 사례로, 제목이 바로 질문을 던져 결과를 확인하고 싶게 만듭니다.</li>
-<li>마술·코미디·두 인물 관계가 한 장면 안에서 이해되어 언어 장벽 없이 글로벌 피드로 확장되기 쉽습니다.</li>
-<li>손동작과 반전 결과가 핵심이라 첫 시청 후에도 다시 보며 트릭을 확인하는 반복 시청이 발생합니다.</li>
-<li>funny/comedy 태그가 기대값을 명확히 만들고, 짧은 상황극 구조가 끝까지 보는 완주율 신호를 만듭니다.</li></ul>
+            <a class="mega-case-source" href="https://vidirun.com/format-short" target="_blank" rel="noopener">근거: <strong class="text-mark text-mark--source">Vidirun</strong> Top 50 Short-Form Videos 24H rank 28</a>
+            <ul class="mega-case-points"><li>최근 업로드 후 <strong class="text-mark text-mark--metric">1억뷰</strong>를 넘긴 사례로, 제목이 바로 질문을 던져 결과를 확인하고 싶게 만듭니다.</li>
+<li>마술·<strong class="text-mark text-mark--signal">코미디</strong>·두 인물 관계가 한 장면 안에서 이해되어 언어 장벽 없이 <strong class="text-mark text-mark--region">글로벌</strong> 피드로 확장되기 쉽습니다.</li>
+<li>손동작과 반전 결과가 핵심이라 첫 시청 후에도 다시 보며 트릭을 확인하는 <strong class="text-mark text-mark--signal">반복 시청</strong>이 발생합니다.</li>
+<li><strong class="text-mark text-mark--signal">funny</strong>/<strong class="text-mark text-mark--signal">comedy</strong> 태그가 기대값을 명확히 만들고, 짧은 상황극 구조가 끝까지 보는 <strong class="text-mark text-mark--signal">완주율</strong> 신호를 만듭니다.</li></ul>
           </div>
         </article>
 
@@ -690,13 +724,13 @@
           <div class="mega-case-body">
             <h3><a href="https://www.youtube.com/shorts/ZdXwPHwdwhY" target="_blank" rel="noopener">Saito09 funny video 😂😂😂 #shorts</a></h3>
             <div class="mega-case-meta">
-              <span>조회수 193,019,444</span>
-              <span>좋아요 1,419,234</span>
+              <span><b>조회수</b><strong class="text-mark text-mark--metric">193,019,444</strong></span>
+              <span><b>좋아요</b><strong class="text-mark text-mark--metric">1,419,234</strong></span>
             </div>
-            <a class="mega-case-source" href="https://playboard.co/en/video/ZdXwPHwdwhY?channelId=UCKLbzfmjFv_oalDX8sHxhkQ" target="_blank" rel="noopener">근거: Playboard Shorts Daily - JP daily rank 15</a>
-            <ul class="mega-case-points"><li>일본 탭에서 1억뷰를 넘긴 코미디 사례로, 표정과 행동 중심의 짧은 상황이 언어 없이도 바로 전달됩니다.</li>
-<li>제목의 funny 신호가 클릭 전 기대를 낮은 비용으로 설명하고, 결과 확인형 장면이 이탈을 줄입니다.</li>
-<li>복잡한 배경보다 인물 반응이 중심이라 모바일 화면에서 즉시 읽히고, 공유할 때 맥락 설명이 거의 필요 없습니다.</li>
+            <a class="mega-case-source" href="https://playboard.co/en/video/ZdXwPHwdwhY?channelId=UCKLbzfmjFv_oalDX8sHxhkQ" target="_blank" rel="noopener">근거: <strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">JP</strong> daily rank 15</a>
+            <ul class="mega-case-points"><li>일본 탭에서 <strong class="text-mark text-mark--metric">1억뷰</strong>를 넘긴 <strong class="text-mark text-mark--signal">코미디</strong> 사례로, 표정과 행동 중심의 짧은 상황이 언어 없이도 바로 전달됩니다.</li>
+<li>제목의 <strong class="text-mark text-mark--signal">funny</strong> 신호가 클릭 전 기대를 낮은 비용으로 설명하고, 결과 확인형 장면이 이탈을 줄입니다.</li>
+<li>복잡한 배경보다 인물 반응이 중심이라 모바일 화면에서 즉시 읽히고, <strong class="text-mark text-mark--signal">공유</strong>할 때 맥락 설명이 거의 필요 없습니다.</li>
 <li>웃음 포인트가 짧고 반복 가능해 같은 장면을 다시 보거나 주변 사람에게 보여 주는 행동으로 이어지기 좋습니다.</li></ul>
           </div>
         </article>
@@ -708,14 +742,14 @@
           <div class="mega-case-body">
             <h3><a href="https://www.youtube.com/shorts/tgOQlzCqc0M" target="_blank" rel="noopener">ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY NEON DANCE !! 🔥🔥</a></h3>
             <div class="mega-case-meta">
-              <span>조회수 399,519,222</span>
-              <span>좋아요 2,789,683</span>
+              <span><b>조회수</b><strong class="text-mark text-mark--metric">399,519,222</strong></span>
+              <span><b>좋아요</b><strong class="text-mark text-mark--metric">2,789,683</strong></span>
             </div>
-            <a class="mega-case-source" href="https://playboard.co/en/video/tgOQlzCqc0M?channelId=UCVRqK0tS3B8pVog1HwCR4pg" target="_blank" rel="noopener">근거: Playboard Shorts Daily - 카자흐스탄 daily rank 5</a>
-            <ul class="mega-case-points"><li>Astronomia 사운드와 셔플 동작이 결합된 1억뷰 이상 댄스 사례로, 음악 훅이 시작 즉시 장르를 알려 줍니다.</li>
+            <a class="mega-case-source" href="https://playboard.co/en/video/tgOQlzCqc0M?channelId=UCVRqK0tS3B8pVog1HwCR4pg" target="_blank" rel="noopener">근거: <strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">카자흐스탄</strong> daily rank 5</a>
+            <ul class="mega-case-points"><li>Astronomia 사운드와 셔플 동작이 결합된 <strong class="text-mark text-mark--metric">1억뷰</strong> 이상 <strong class="text-mark text-mark--signal">댄스</strong> 사례로, <strong class="text-mark text-mark--signal">음악</strong> 훅이 시작 즉시 장르를 알려 줍니다.</li>
 <li>아이·네온·셔플이라는 시각 대비가 강해 썸네일만으로도 궁금증을 만들고 첫 프레임 흡입력이 큽니다.</li>
-<li>동작이 루프 구조와 잘 맞아 다시 보기, 따라 하기, 리믹스 가능성이 동시에 열립니다.</li>
-<li>대사보다 음악과 몸동작이 핵심이라 지역 탭을 넘어 글로벌 추천 피드에서 소비되기 쉽습니다.</li></ul>
+<li>동작이 루프 구조와 잘 맞아 다시 보기, 따라 하기, <strong class="text-mark text-mark--signal">리믹스</strong> 가능성이 동시에 열립니다.</li>
+<li>대사보다 <strong class="text-mark text-mark--signal">음악</strong>과 몸동작이 핵심이라 지역 탭을 넘어 <strong class="text-mark text-mark--region">글로벌</strong> 추천 피드에서 소비되기 쉽습니다.</li></ul>
           </div>
         </article></div>
       </div>
@@ -723,10 +757,10 @@
         <div class="mega-block">
           <h3>왜 1억뷰가 나오는가</h3>
           <ul><li>초반 1초 안에 무슨 일이 벌어지는지 보여 주고, 설명 없이도 이해되는 장면이 유리합니다.</li>
-<li>댄스·마술·스턴트·짧은 갈등처럼 끝을 확인하고 싶은 구조가 반복 시청을 만듭니다.</li>
-<li>슬로우드 사운드, 펑크, 익숙한 음악, 강한 리듬은 같은 영상을 여러 번 보게 만드는 접착제 역할을 합니다.</li>
-<li>자막이나 언어 의존도가 낮을수록 국가별 탭을 넘어 글로벌 피드에서 확장되기 쉽습니다.</li>
-<li>1억뷰는 조회수 하나의 폭발보다 클릭 유지율, 반복 시청, 공유, 리믹스 가능성이 동시에 맞을 때 나옵니다.</li></ul>
+<li><strong class="text-mark text-mark--signal">댄스</strong>·마술·스턴트·짧은 갈등처럼 끝을 확인하고 싶은 구조가 <strong class="text-mark text-mark--signal">반복 시청</strong>을 만듭니다.</li>
+<li>슬로우드 사운드, 펑크, 익숙한 <strong class="text-mark text-mark--signal">음악</strong>, 강한 리듬은 같은 영상을 여러 번 보게 만드는 접착제 역할을 합니다.</li>
+<li>자막이나 언어 의존도가 낮을수록 국가별 탭을 넘어 <strong class="text-mark text-mark--region">글로벌</strong> 피드에서 확장되기 쉽습니다.</li>
+<li><strong class="text-mark text-mark--metric">1억뷰</strong>는 <strong class="text-mark text-mark--metric">조회수</strong> 하나의 폭발보다 <strong class="text-mark text-mark--signal">클릭 유지율</strong>, <strong class="text-mark text-mark--signal">반복 시청</strong>, <strong class="text-mark text-mark--signal">공유</strong>, <strong class="text-mark text-mark--signal">리믹스</strong> 가능성이 동시에 맞을 때 나옵니다.</li></ul>
         </div>
         <div class="mega-block">
           <h3>현재 데이터의 1억뷰·근접 사례</h3>
@@ -737,11 +771,11 @@
           </a>
           <div class="mega-example-body">
             <a class="mega-example-title" href="https://www.youtube.com/shorts/HsKltJyJ-UI" target="_blank" rel="noopener">When did Ermao learn to do magic？ #funny #comedy</a>
-            <span>118,256,281 views</span>
-            <ul><li>글로벌 탭에서 118,256,281 views로 확인된 1억뷰 돌파형 쇼츠</li>
-<li>Vidirun Top 50 Short-Form Videos 24H rank 28에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li>
-<li>감지 키워드: magic</li>
-<li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li></ul>
+            <span><strong class="text-mark text-mark--metric">118,256,281 views</strong></span>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">118,256,281 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
+<li><strong class="text-mark text-mark--source">Vidirun</strong> Top 50 Short-Form Videos 24H rank 28에 포착되어 단순 검색보다 <strong class="text-mark text-mark--source">랭킹</strong>·<strong class="text-mark text-mark--source">트렌드</strong> 출처의 반응 신호가 있음</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">magic</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li></ul>
           </div>
         </article>
 
@@ -751,11 +785,11 @@
           </a>
           <div class="mega-example-body">
             <a class="mega-example-title" href="https://www.youtube.com/shorts/ZdXwPHwdwhY" target="_blank" rel="noopener">Saito09 funny video 😂😂😂 #shorts</a>
-            <span>193,019,444 views</span>
-            <ul><li>JP 탭에서 193,019,444 views로 확인된 1억뷰 돌파형 쇼츠</li>
-<li>Playboard Shorts Daily - JP daily rank 15에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li>
-<li>감지 키워드: funny</li>
-<li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li></ul>
+            <span><strong class="text-mark text-mark--metric">193,019,444 views</strong></span>
+            <ul><li><strong class="text-mark text-mark--region">JP</strong> 탭에서 <strong class="text-mark text-mark--metric">193,019,444 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
+<li><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">JP</strong> daily rank 15에 포착되어 단순 검색보다 <strong class="text-mark text-mark--source">랭킹</strong>·<strong class="text-mark text-mark--source">트렌드</strong> 출처의 반응 신호가 있음</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li></ul>
           </div>
         </article>
 
@@ -765,11 +799,11 @@
           </a>
           <div class="mega-example-body">
             <a class="mega-example-title" href="https://www.youtube.com/shorts/9Egj8PiHiak" target="_blank" rel="noopener">CHUPANDO DEDO #santi #santioficial #funny #comedy</a>
-            <span>140,864,096 views</span>
-            <ul><li>멕시코 탭에서 140,864,096 views로 확인된 1억뷰 돌파형 쇼츠</li>
-<li>Playboard Shorts Daily - 멕시코 daily rank 5에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li>
-<li>감지 키워드: funny</li>
-<li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li></ul>
+            <span><strong class="text-mark text-mark--metric">140,864,096 views</strong></span>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">140,864,096 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
+<li><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">멕시코</strong> daily rank 5에 포착되어 단순 검색보다 <strong class="text-mark text-mark--source">랭킹</strong>·<strong class="text-mark text-mark--source">트렌드</strong> 출처의 반응 신호가 있음</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li></ul>
           </div>
         </article>
 
@@ -779,11 +813,11 @@
           </a>
           <div class="mega-example-body">
             <a class="mega-example-title" href="https://www.youtube.com/shorts/tgOQlzCqc0M" target="_blank" rel="noopener">ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY NEON DANCE...</a>
-            <span>399,519,222 views</span>
-            <ul><li>카자흐스탄 탭에서 399,519,222 views로 확인된 1억뷰 돌파형 쇼츠</li>
-<li>Playboard Shorts Daily - 카자흐스탄 daily rank 5에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li>
-<li>감지 키워드: dance</li>
-<li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li></ul>
+            <span><strong class="text-mark text-mark--metric">399,519,222 views</strong></span>
+            <ul><li><strong class="text-mark text-mark--region">카자흐스탄</strong> 탭에서 <strong class="text-mark text-mark--metric">399,519,222 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
+<li><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">카자흐스탄</strong> daily rank 5에 포착되어 단순 검색보다 <strong class="text-mark text-mark--source">랭킹</strong>·<strong class="text-mark text-mark--source">트렌드</strong> 출처의 반응 신호가 있음</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li></ul>
           </div>
         </article>
 
@@ -793,11 +827,11 @@
           </a>
           <div class="mega-example-body">
             <a class="mega-example-title" href="https://www.youtube.com/shorts/FWMyxmIu1Ss" target="_blank" rel="noopener">When princesses playing &quot;Squid Game&quot; Challenge #bybacademy #tha...</a>
-            <span>253,589,299 views</span>
-            <ul><li>베트남 탭에서 253,589,299 views로 확인된 1억뷰 돌파형 쇼츠</li>
-<li>Playboard Shorts Daily - 베트남 daily rank 20에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li>
-<li>감지 키워드: challenge</li>
-<li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li></ul>
+            <span><strong class="text-mark text-mark--metric">253,589,299 views</strong></span>
+            <ul><li><strong class="text-mark text-mark--region">베트남</strong> 탭에서 <strong class="text-mark text-mark--metric">253,589,299 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
+<li><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">베트남</strong> daily rank 20에 포착되어 단순 검색보다 <strong class="text-mark text-mark--source">랭킹</strong>·<strong class="text-mark text-mark--source">트렌드</strong> 출처의 반응 신호가 있음</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li></ul>
           </div>
         </article></div>
         </div>
@@ -813,12 +847,15 @@
         <div class="short-body">
           <h2>Jackie Chan Saved The Day 🥶🔥 | The Shadow&#x27;s Edge | FUNK ABNORMAL (Slowed) #trending #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>37,433,286</span>
-            <span><b>좋아요</b>1,256,866</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">37,433,286</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">1,256,866</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 37,433,286 views로 확인된 1억뷰 근접 대형 확산권 쇼츠</li><li>감지 키워드: saved, funk, slowed, trending</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">37,433,286 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 대형 확산권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: saved, funk, <strong class="text-mark text-mark--signal">slowed</strong>, trending</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 추천 노출이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -830,12 +867,15 @@
         <div class="short-body">
           <h2>Sister Very Angry Bhai Aa Gaye 🤣🤩😅 ##funnyvideo #funny #comedyvideos #funnyshorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>22,899,433</span>
-            <span><b>좋아요</b>161,559</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">22,899,433</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">161,559</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 22,899,433 views로 확인된 중대형 급상승권 쇼츠</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>게시 후 6일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">22,899,433 views</strong>로 확인된 중대형 급상승권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>게시 후 6일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -847,12 +887,15 @@
         <div class="short-body">
           <h2>Argentina 🇦🇷 vs Portugal 🇵🇹 Dance Battle 🔥#football #worldcup#shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>21,047,390</span>
-            <span><b>좋아요</b>232,836</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">21,047,390</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">232,836</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 21,047,390 views로 확인된 중대형 급상승권 쇼츠</li><li>감지 키워드: battle, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>게시 후 9일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">21,047,390 views</strong>로 확인된 중대형 급상승권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: battle, <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>게시 후 9일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -864,12 +907,15 @@
         <div class="short-body">
           <h2>Reddington saved the people in the convenience store.#shortvideo#theblacklist #series #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>19,584,785</span>
-            <span><b>좋아요</b>650,772</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">19,584,785</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">650,772</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 19,584,785 views로 확인된 중대형 급상승권 쇼츠</li><li>감지 키워드: saved</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>게시 후 3일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">19,584,785 views</strong>로 확인된 중대형 급상승권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: saved</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>게시 후 3일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -881,12 +927,15 @@
         <div class="short-body">
           <h2>BEST SURPRISE EVER! ❤️‍🩹 | Headlights feat. KIDDO (Slowed)</h2>
           <div class="stats-row">
-            <span><b>조회수</b>18,686,296</span>
-            <span><b>좋아요</b>확인 필요</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">18,686,296</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">확인 필요</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 18,686,296 views로 확인된 중대형 급상승권 쇼츠</li><li>감지 키워드: surprise, slowed</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>게시 후 4일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">18,686,296 views</strong>로 확인된 중대형 급상승권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: surprise, <strong class="text-mark text-mark--signal">slowed</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>게시 후 4일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -898,12 +947,15 @@
         <div class="short-body">
           <h2>He Couldn’t Stop Himself | 27 Dresses | HEAVENLY JUMPSTYLE (Slowed) #edit #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>12,751,835</span>
-            <span><b>좋아요</b>398,938</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">12,751,835</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">398,938</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 12,751,835 views로 확인된 중대형 급상승권 쇼츠</li><li>감지 키워드: couldn, jumpstyle, edit, slowed</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>게시 후 5일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">12,751,835 views</strong>로 확인된 중대형 급상승권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: couldn, jumpstyle, <strong class="text-mark text-mark--signal">edit</strong>, <strong class="text-mark text-mark--signal">slowed</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>게시 후 5일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -915,12 +967,15 @@
         <div class="short-body">
           <h2>SOAP BALL 🧼🫧⚾ #shorts #youtubeshorts #cricket #unboxing #ball #funny #boxofvengeance</h2>
           <div class="stats-row">
-            <span><b>조회수</b>9,152,945</span>
-            <span><b>좋아요</b>402,945</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">9,152,945</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">402,945</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 9,152,945 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>24H 랭킹 출처에서 잡힌 항목이라 최신 피드 반응은 있지만, 장기 확산 여부는 다음 업데이트에서 확인해야 합니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">9,152,945 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>24H <strong class="text-mark text-mark--source">랭킹</strong> 출처에서 잡힌 항목이라 최신 피드 반응은 있지만, 장기 확산 여부는 다음 업데이트에서 확인해야 합니다</li></ul>
           </div>
         </div>
       </article>
@@ -932,12 +987,15 @@
         <div class="short-body">
           <h2>When did Ermao learn to do magic？ #funny #comedy</h2>
           <div class="stats-row">
-            <span><b>조회수</b>118,256,281</span>
-            <span><b>좋아요</b>988,256</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">118,256,281</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">988,256</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 118,256,281 views로 확인된 1억뷰 돌파형 쇼츠</li><li>감지 키워드: magic</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>이미 1억뷰를 넘은 사례라 클릭률, 완주율, 반복 시청, 공유 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">118,256,281 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">magic</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>이미 <strong class="text-mark text-mark--metric">1억뷰</strong>를 넘은 사례라 <strong class="text-mark text-mark--signal">클릭률</strong>, <strong class="text-mark text-mark--signal">완주율</strong>, <strong class="text-mark text-mark--signal">반복 시청</strong>, <strong class="text-mark text-mark--signal">공유</strong> 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다</li></ul>
           </div>
         </div>
       </article>
@@ -949,12 +1007,15 @@
         <div class="short-body">
           <h2>They’ll never know what happened💀 | Now you see me 3 (2025) - 4k Edit | MATADORA (Slowed)</h2>
           <div class="stats-row">
-            <span><b>조회수</b>20,804,981</span>
-            <span><b>좋아요</b>379,916</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">20,804,981</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">379,916</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 20,804,981 views로 확인된 중대형 급상승권 쇼츠</li><li>감지 키워드: happened, edit, slowed</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>게시 후 7일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">20,804,981 views</strong>로 확인된 중대형 급상승권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: happened, <strong class="text-mark text-mark--signal">edit</strong>, <strong class="text-mark text-mark--signal">slowed</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>게시 후 7일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -966,12 +1027,15 @@
         <div class="short-body">
           <h2>Michael Jackson Moonwalk with Skates Part 2</h2>
           <div class="stats-row">
-            <span><b>조회수</b>63,383,370</span>
-            <span><b>좋아요</b>확인 필요</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">63,383,370</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">확인 필요</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 63,383,370 views로 확인된 1억뷰 근접 대형 확산권 쇼츠</li><li>감지 키워드: michael jackson, moonwalk</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">63,383,370 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 대형 확산권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: michael jackson, moonwalk</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 추천 노출이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -983,12 +1047,15 @@
         <div class="short-body">
           <h2>Backstage vs Result cute dance 😊🧸</h2>
           <div class="stats-row">
-            <span><b>조회수</b>99,452,815</span>
-            <span><b>좋아요</b>409,911</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">99,452,815</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">409,911</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 99,452,815 views로 확인된 1억뷰 근접 대형 확산권 쇼츠</li><li>감지 키워드: backstage, cute, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">99,452,815 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 대형 확산권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: backstage, cute, <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 추천 노출이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1000,12 +1067,15 @@
         <div class="short-body">
           <h2>BTS REVEAL! 🎬 Jasmin is defying gravity… 😱 #shorts #michaeljackson</h2>
           <div class="stats-row">
-            <span><b>조회수</b>34,886,846</span>
-            <span><b>좋아요</b>210,211</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">34,886,846</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">210,211</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 34,886,846 views로 확인된 1억뷰 근접 대형 확산권 쇼츠</li><li>감지 키워드: defying</li><li>퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li><li>3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">34,886,846 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 대형 확산권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: defying</li>
+<li>퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li>
+<li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 추천 노출이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1017,12 +1087,15 @@
         <div class="short-body">
           <h2>Salish Matter’s EXTREME Street Stunt!😱 #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>32,318,504</span>
-            <span><b>좋아요</b>501,800</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">32,318,504</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">501,800</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 32,318,504 views로 확인된 1억뷰 근접 대형 확산권 쇼츠</li><li>감지 키워드: stunt</li><li>퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li><li>3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">32,318,504 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 대형 확산권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: stunt</li>
+<li>퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li>
+<li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 추천 노출이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1034,12 +1107,15 @@
         <div class="short-body">
           <h2>방탄소년단과 함께 #PermissiontoDance 챌린지에 참여하세요</h2>
           <div class="stats-row">
-            <span><b>조회수</b>4,634,633</span>
-            <span><b>좋아요</b>11,502</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">4,634,633</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">11,502</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 4,634,633 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">4,634,633 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, <strong class="text-mark text-mark--signal">챌린지</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1051,12 +1127,15 @@
         <div class="short-body">
           <h2>PEE DANCE!?! WHY do I PEE SO MUCH??? #PEE #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>2,405,939</span>
-            <span><b>좋아요</b>6,840</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">2,405,939</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">6,840</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 2,405,939 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">2,405,939 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1068,12 +1147,15 @@
         <div class="short-body">
           <h2>dancin (krono remix) - Anime Dance Mix [Edit/AMV]</h2>
           <div class="stats-row">
-            <span><b>조회수</b>2,047,421</span>
-            <span><b>좋아요</b>83,435</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">2,047,421</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">83,435</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 2,047,421 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, edit</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">2,047,421 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, <strong class="text-mark text-mark--signal">edit</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1085,12 +1167,15 @@
         <div class="short-body">
           <h2>One Dance Instrumental Best Part (Slowed to Perfection)</h2>
           <div class="stats-row">
-            <span><b>조회수</b>613,651</span>
-            <span><b>좋아요</b>13,662</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">613,651</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">13,662</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 613,651 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, slowed</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">613,651 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, <strong class="text-mark text-mark--signal">slowed</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1102,12 +1187,15 @@
         <div class="short-body">
           <h2>Funny Rat Song, Top Rats, Dance Music Pop Songs, This Video Has No Dislikes!</h2>
           <div class="stats-row">
-            <span><b>조회수</b>442,528</span>
-            <span><b>좋아요</b>1,457</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">442,528</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">1,457</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 442,528 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, music</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">442,528 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, music</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1119,12 +1207,15 @@
         <div class="short-body">
           <h2>Spiderman Funny Dance Original and Edit | Velocity Edit #shorts #trending #short</h2>
           <div class="stats-row">
-            <span><b>조회수</b>109,315</span>
-            <span><b>좋아요</b>2,496</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">109,315</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">2,496</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 109,315 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, edit, trend, trending</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">109,315 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, <strong class="text-mark text-mark--signal">edit</strong>, trend, trending</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1136,12 +1227,15 @@
         <div class="short-body">
           <h2>Booty Music - Git Fresh | Dance Cover by BoBoDanceStudio</h2>
           <div class="stats-row">
-            <span><b>조회수</b>90,077</span>
-            <span><b>좋아요</b>634</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">90,077</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">634</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 90,077 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, music</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">90,077 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, music</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1153,12 +1247,15 @@
         <div class="short-body">
           <h2>Mariah Carey - All I Want For Christmas Is You / TIKTOK dance challenge 홍대댄스학원</h2>
           <div class="stats-row">
-            <span><b>조회수</b>741,528</span>
-            <span><b>좋아요</b>13,102</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">741,528</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">13,102</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 741,528 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">741,528 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1170,12 +1267,15 @@
         <div class="short-body">
           <h2>요청💘) 아무래도난 튜토리얼 [거울모드 mirrored]/ 릴스 틱톡 쇼츠 댄스 챌린지 / tiktok reels short dance challenge</h2>
           <div class="stats-row">
-            <span><b>조회수</b>17,241</span>
-            <span><b>좋아요</b>151</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">17,241</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">151</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 17,241 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">17,241 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1187,12 +1287,15 @@
         <div class="short-body">
           <h2>Turning anime into reality</h2>
           <div class="stats-row">
-            <span><b>조회수</b>18,799,671</span>
-            <span><b>좋아요</b>328,040</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">18,799,671</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">328,040</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>글로벌 탭에서 18,799,671 views로 확인된 중대형 급상승권 쇼츠</li><li>감지 키워드: 제목·소스 신호 중심</li><li>짧은 제목과 시각적 상황이 결합되어 스크롤 중 멈춰 볼 가능성이 있습니다</li><li>게시 후 4일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong> 탭에서 <strong class="text-mark text-mark--metric">18,799,671 views</strong>로 확인된 중대형 급상승권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: 제목·소스 신호 중심</li>
+<li>짧은 제목과 시각적 상황이 결합되어 스크롤 중 멈춰 볼 가능성이 있습니다</li>
+<li>게시 후 4일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1208,12 +1311,15 @@
         <div class="short-body">
           <h2>F1 스탑 챌린지 #f1 #formula1 #포뮬러1</h2>
           <div class="stats-row">
-            <span><b>조회수</b>40,480,409</span>
-            <span><b>좋아요</b>245,007</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">40,480,409</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">245,007</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>KR 탭에서 40,480,409 views로 확인된 1억뷰 근접 대형 확산권 쇼츠</li><li>감지 키워드: 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">KR</strong> 탭에서 <strong class="text-mark text-mark--metric">40,480,409 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 대형 확산권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">챌린지</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 추천 노출이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1225,12 +1331,15 @@
         <div class="short-body">
           <h2>[우주22댄스챌린지]💃🕺스우파 가비 X 솔로지옥 차현승💘 우주22댄스 배우고 Galaxy S22 득템🦄</h2>
           <div class="stats-row">
-            <span><b>조회수</b>1,986,479</span>
-            <span><b>좋아요</b>306</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">1,986,479</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">306</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>KR 탭에서 1,986,479 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: 댄스, 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">KR</strong> 탭에서 <strong class="text-mark text-mark--metric">1,986,479 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">댄스</strong>, <strong class="text-mark text-mark--signal">챌린지</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1242,12 +1351,15 @@
         <div class="short-body">
           <h2>2024 인기 댄스챌린지 모음ㅣ2024 Dance Challenge Compilation</h2>
           <div class="stats-row">
-            <span><b>조회수</b>768,986</span>
-            <span><b>좋아요</b>2,050</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">768,986</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">2,050</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>KR 탭에서 768,986 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge, dance, 댄스, 챌린지, compilation</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">KR</strong> 탭에서 <strong class="text-mark text-mark--metric">768,986 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong>, <strong class="text-mark text-mark--signal">댄스</strong>, <strong class="text-mark text-mark--signal">챌린지</strong>, compilation</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1259,12 +1371,15 @@
         <div class="short-body">
           <h2>춤짱들의 댄스 챌린지 #송형준 #이채연 #크래비티</h2>
           <div class="stats-row">
-            <span><b>조회수</b>144,791</span>
-            <span><b>좋아요</b>2,941</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">144,791</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">2,941</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>KR 탭에서 144,791 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: 댄스, 챌린지, 춤</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">KR</strong> 탭에서 <strong class="text-mark text-mark--metric">144,791 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">댄스</strong>, <strong class="text-mark text-mark--signal">챌린지</strong>, 춤</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1276,12 +1391,15 @@
         <div class="short-body">
           <h2>TOCA TOCA(토카토카) 챌린지안무/ 다이어트댄스</h2>
           <div class="stats-row">
-            <span><b>조회수</b>19,881</span>
-            <span><b>좋아요</b>90</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">19,881</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">90</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>KR 탭에서 19,881 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: 댄스, 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">KR</strong> 탭에서 <strong class="text-mark text-mark--metric">19,881 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">댄스</strong>, <strong class="text-mark text-mark--signal">챌린지</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1293,12 +1411,15 @@
         <div class="short-body">
           <h2>🖇️릴스 600만뷰 찍은 댄스챌린지 모음 #저스트비크루</h2>
           <div class="stats-row">
-            <span><b>조회수</b>18,344</span>
-            <span><b>좋아요</b>77</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">18,344</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">77</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>KR 탭에서 18,344 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: 댄스, 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">KR</strong> 탭에서 <strong class="text-mark text-mark--metric">18,344 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">댄스</strong>, <strong class="text-mark text-mark--signal">챌린지</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1310,12 +1431,15 @@
         <div class="short-body">
           <h2>[KOSHA X OH MY GIRL] 안전댄스 챌린지 START! &quot;아이패드 필요한 사람 드루와~&quot;</h2>
           <div class="stats-row">
-            <span><b>조회수</b>7,104</span>
-            <span><b>좋아요</b>295</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">7,104</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">295</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>KR 탭에서 7,104 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: 댄스, 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">KR</strong> 탭에서 <strong class="text-mark text-mark--metric">7,104 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">댄스</strong>, <strong class="text-mark text-mark--signal">챌린지</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1327,12 +1451,15 @@
         <div class="short-body">
           <h2>[NZ 챌린지] 칼각 댄스 영상</h2>
           <div class="stats-row">
-            <span><b>조회수</b>6,608</span>
-            <span><b>좋아요</b>88</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">6,608</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">88</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>KR 탭에서 6,608 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: 댄스, 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">KR</strong> 탭에서 <strong class="text-mark text-mark--metric">6,608 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">댄스</strong>, <strong class="text-mark text-mark--signal">챌린지</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1344,12 +1471,15 @@
         <div class="short-body">
           <h2>시니어를 위한 셔플댄스 입문 10가지 스텝 #시니어셔플댄스 #춤선생simba #한국셔플댄스협회</h2>
           <div class="stats-row">
-            <span><b>조회수</b>686,930</span>
-            <span><b>좋아요</b>5,577</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">686,930</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">5,577</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>KR 탭에서 686,930 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: 댄스, 춤</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">KR</strong> 탭에서 <strong class="text-mark text-mark--metric">686,930 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">댄스</strong>, 춤</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1361,12 +1491,15 @@
         <div class="short-body">
           <h2>BTS is awesome #dancingnayul #kpop #music #dance #shorts #challenge #AFstarz #dancingbeardol #dre...</h2>
           <div class="stats-row">
-            <span><b>조회수</b>3,916</span>
-            <span><b>좋아요</b>119</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">3,916</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">119</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>KR 탭에서 3,916 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge, dance, music</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">KR</strong> 탭에서 <strong class="text-mark text-mark--metric">3,916 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong>, music</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1378,12 +1511,15 @@
         <div class="short-body">
           <h2>[우주22댄스챌린지] 빵먹다살찐떡, 강예찬도 참여한 바로 그 챌린지! 🕺🏼✨ Galaxy S22, Galaxy Tab S8 받아가세요!🥰</h2>
           <div class="stats-row">
-            <span><b>조회수</b>295,580</span>
-            <span><b>좋아요</b>37</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">295,580</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">37</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>KR 탭에서 295,580 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: 댄스, 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">KR</strong> 탭에서 <strong class="text-mark text-mark--metric">295,580 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">댄스</strong>, <strong class="text-mark text-mark--signal">챌린지</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1395,12 +1531,15 @@
         <div class="short-body">
           <h2>Starting the day : 😄 Smile #DancingYoonji #Soomile #Challenge #Shorts #Dance #kpop #DancingBear #...</h2>
           <div class="stats-row">
-            <span><b>조회수</b>3,629</span>
-            <span><b>좋아요</b>103</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">3,629</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">103</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>KR 탭에서 3,629 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge, dance, dancing</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">KR</strong> 탭에서 <strong class="text-mark text-mark--metric">3,629 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong>, dancing</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1416,12 +1555,15 @@
         <div class="short-body">
           <h2>She’s lucky to have such a good sister #movie #edit #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>8,137,487</span>
-            <span><b>좋아요</b>171,253</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">8,137,487</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">171,253</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>US 탭에서 8,137,487 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: edit</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">US</strong> 탭에서 <strong class="text-mark text-mark--metric">8,137,487 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">edit</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1433,12 +1575,15 @@
         <div class="short-body">
           <h2>That Was Wild 💀 | Fresh Off The Boat | Song - Montagem Alquimia (Slowed) #edit #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>6,034,236</span>
-            <span><b>좋아요</b>확인 필요</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">6,034,236</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">확인 필요</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>US 탭에서 6,034,236 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: edit, slowed</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">US</strong> 탭에서 <strong class="text-mark text-mark--metric">6,034,236 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">edit</strong>, <strong class="text-mark text-mark--signal">slowed</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1450,12 +1595,15 @@
         <div class="short-body">
           <h2>Chris Brown and Snoop Dogg Dances to Amapiano South African Music</h2>
           <div class="stats-row">
-            <span><b>조회수</b>5,177,537</span>
-            <span><b>좋아요</b>30,045</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">5,177,537</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">30,045</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>US 탭에서 5,177,537 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, music</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">US</strong> 탭에서 <strong class="text-mark text-mark--metric">5,177,537 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, music</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1467,12 +1615,15 @@
         <div class="short-body">
           <h2>[아두] Earth, Wind &amp; Fire - September | 커버댄스 Dance Cover | Choreography by Jisoo Yu &amp; David Hart</h2>
           <div class="stats-row">
-            <span><b>조회수</b>4,209,837</span>
-            <span><b>좋아요</b>88,004</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">4,209,837</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">88,004</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>US 탭에서 4,209,837 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, 댄스</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">US</strong> 탭에서 <strong class="text-mark text-mark--metric">4,209,837 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, <strong class="text-mark text-mark--signal">댄스</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1488,12 +1639,15 @@
         <div class="short-body">
           <h2>Saito09 funny video 😂😂😂 #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>193,019,444</span>
-            <span><b>좋아요</b>1,419,234</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">193,019,444</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">1,419,234</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>JP 탭에서 193,019,444 views로 확인된 1억뷰 돌파형 쇼츠</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>이미 1억뷰를 넘은 사례라 클릭률, 완주율, 반복 시청, 공유 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">JP</strong> 탭에서 <strong class="text-mark text-mark--metric">193,019,444 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>이미 <strong class="text-mark text-mark--metric">1억뷰</strong>를 넘은 사례라 <strong class="text-mark text-mark--signal">클릭률</strong>, <strong class="text-mark text-mark--signal">완주율</strong>, <strong class="text-mark text-mark--signal">반복 시청</strong>, <strong class="text-mark text-mark--signal">공유</strong> 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다</li></ul>
           </div>
         </div>
       </article>
@@ -1505,12 +1659,15 @@
         <div class="short-body">
           <h2>プラスチックストローから笛の作り方🥤🪈💞#challenge#straw#flute</h2>
           <div class="stats-row">
-            <span><b>조회수</b>66,527,397</span>
-            <span><b>좋아요</b>485,034</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">66,527,397</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">485,034</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>JP 탭에서 66,527,397 views로 확인된 1억뷰 근접 대형 확산권 쇼츠</li><li>감지 키워드: challenge</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">JP</strong> 탭에서 <strong class="text-mark text-mark--metric">66,527,397 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 대형 확산권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 추천 노출이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1522,12 +1679,15 @@
         <div class="short-body">
           <h2>プレゼント🎁for you #shorts #funny #comedy</h2>
           <div class="stats-row">
-            <span><b>조회수</b>13,908,137</span>
-            <span><b>좋아요</b>확인 필요</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">13,908,137</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">확인 필요</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>JP 탭에서 13,908,137 views로 확인된 중대형 급상승권 쇼츠</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>게시 후 9일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">JP</strong> 탭에서 <strong class="text-mark text-mark--metric">13,908,137 views</strong>로 확인된 중대형 급상승권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>게시 후 9일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1539,12 +1699,15 @@
         <div class="short-body">
           <h2>Mbappé, Haaland, and Yamal Are Too Funny 😂🔥 #football #haaland #parody</h2>
           <div class="stats-row">
-            <span><b>조회수</b>12,763,188</span>
-            <span><b>좋아요</b>47,475</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">12,763,188</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">47,475</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>JP 탭에서 12,763,188 views로 확인된 중대형 급상승권 쇼츠</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>게시 후 5일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">JP</strong> 탭에서 <strong class="text-mark text-mark--metric">12,763,188 views</strong>로 확인된 중대형 급상승권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>게시 후 5일 안에 <strong class="text-mark text-mark--metric">1천만뷰</strong> 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1556,12 +1719,15 @@
         <div class="short-body">
           <h2>NO BATIDÃO Group Dance Trend That Broke TikTok</h2>
           <div class="stats-row">
-            <span><b>조회수</b>8,276,454</span>
-            <span><b>좋아요</b>확인 필요</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">8,276,454</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">확인 필요</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>JP 탭에서 8,276,454 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, trend</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">JP</strong> 탭에서 <strong class="text-mark text-mark--metric">8,276,454 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, trend</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1573,12 +1739,15 @@
         <div class="short-body">
           <h2>Top 10 Most Viral Dance Phonk Music On TikTok</h2>
           <div class="stats-row">
-            <span><b>조회수</b>2,405,661</span>
-            <span><b>좋아요</b>확인 필요</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">2,405,661</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">확인 필요</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>JP 탭에서 2,405,661 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, music, phonk</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">JP</strong> 탭에서 <strong class="text-mark text-mark--metric">2,405,661 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, music, phonk</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1590,12 +1759,15 @@
         <div class="short-body">
           <h2>Anime [amv]- Toca Toca Official Music Video 4K (Dance Template)</h2>
           <div class="stats-row">
-            <span><b>조회수</b>4,700,596</span>
-            <span><b>좋아요</b>26,610</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">4,700,596</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">26,610</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>JP 탭에서 4,700,596 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, music</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">JP</strong> 탭에서 <strong class="text-mark text-mark--metric">4,700,596 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, music</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1611,12 +1783,15 @@
         <div class="short-body">
           <h2>CHUPANDO DEDO #santi #santioficial #funny #comedy</h2>
           <div class="stats-row">
-            <span><b>조회수</b>140,864,096</span>
-            <span><b>좋아요</b>477,215</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">140,864,096</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">477,215</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>멕시코 탭에서 140,864,096 views로 확인된 1억뷰 돌파형 쇼츠</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>이미 1억뷰를 넘은 사례라 클릭률, 완주율, 반복 시청, 공유 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">140,864,096 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>이미 <strong class="text-mark text-mark--metric">1억뷰</strong>를 넘은 사례라 <strong class="text-mark text-mark--signal">클릭률</strong>, <strong class="text-mark text-mark--signal">완주율</strong>, <strong class="text-mark text-mark--signal">반복 시청</strong>, <strong class="text-mark text-mark--signal">공유</strong> 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다</li></ul>
           </div>
         </div>
       </article>
@@ -1628,12 +1803,15 @@
         <div class="short-body">
           <h2>#timelapse for entertainment , so cute funny family , new memes smc</h2>
           <div class="stats-row">
-            <span><b>조회수</b>13,490,885</span>
-            <span><b>좋아요</b>26,909</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">13,490,885</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">26,909</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>멕시코 탭에서 13,490,885 views로 확인된 중대형 급상승권 쇼츠</li><li>감지 키워드: cute, funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">13,490,885 views</strong>로 확인된 중대형 급상승권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: cute, <strong class="text-mark text-mark--signal">funny</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1645,12 +1823,15 @@
         <div class="short-body">
           <h2>Cazador de Demonios a Cazadoras de los Sajaboys hay diferencia 🤣.#cosplay #humor #kpopdemonhunters</h2>
           <div class="stats-row">
-            <span><b>조회수</b>5,697,908</span>
-            <span><b>좋아요</b>16,658</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">5,697,908</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">16,658</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>멕시코 탭에서 5,697,908 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">5,697,908 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: humor</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1662,12 +1843,15 @@
         <div class="short-body">
           <h2>ASÍ es como MICHAEL JACKSON DESAFIO la GRAVEDAD 😱 #michaeljackson #curiosidades #datoscuriosos</h2>
           <div class="stats-row">
-            <span><b>조회수</b>5,606,432</span>
-            <span><b>좋아요</b>73,850</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">5,606,432</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">73,850</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>멕시코 탭에서 5,606,432 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: michael jackson</li><li>퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">5,606,432 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: michael jackson</li>
+<li>퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1679,12 +1863,15 @@
         <div class="short-body">
           <h2>Mango limpio ? O sucio? #viral #humor #casosdefamilia #youtubeshorts #comedia #shortvideo</h2>
           <div class="stats-row">
-            <span><b>조회수</b>5,199,256</span>
-            <span><b>좋아요</b>37,914</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">5,199,256</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">37,914</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>멕시코 탭에서 5,199,256 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">5,199,256 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: humor</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1696,12 +1883,15 @@
         <div class="short-body">
           <h2>Me perdía muy seguido 😩😂 #shorts #humor #tiktokvideo #comedia #funny #fyp</h2>
           <div class="stats-row">
-            <span><b>조회수</b>7,779,933</span>
-            <span><b>좋아요</b>150,258</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">7,779,933</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">150,258</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>멕시코 탭에서 7,779,933 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: funny, humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">7,779,933 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong>, humor</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1713,12 +1903,15 @@
         <div class="short-body">
           <h2>Enganaron a LARIN JR😭🥺By:alfredolarin #humor #comedy #comedia #youtubeshorts #shortvideo</h2>
           <div class="stats-row">
-            <span><b>조회수</b>6,223,277</span>
-            <span><b>좋아요</b>45,444</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">6,223,277</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">45,444</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>멕시코 탭에서 6,223,277 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">6,223,277 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: humor</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1730,12 +1923,15 @@
         <div class="short-body">
           <h2>POV: SE TE OLVIDAN LAS LLAVES ADENTRO DEL CARRO😭💀🚗 #humor #shorts #comedia #lospqliares</h2>
           <div class="stats-row">
-            <span><b>조회수</b>4,634,640</span>
-            <span><b>좋아요</b>67,490</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">4,634,640</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">67,490</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>멕시코 탭에서 4,634,640 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">4,634,640 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: humor</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1747,12 +1943,15 @@
         <div class="short-body">
           <h2>Rasputin Boney M Janaki and Naveen Star magic Flowers channel viral dance Rasputin flowers</h2>
           <div class="stats-row">
-            <span><b>조회수</b>2,029,361</span>
-            <span><b>좋아요</b>25,015</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">2,029,361</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">25,015</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>멕시코 탭에서 2,029,361 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, magic</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">2,029,361 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, <strong class="text-mark text-mark--signal">magic</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1764,12 +1963,15 @@
         <div class="short-body">
           <h2>El baile viral del momento la culebritica. #musica #music 🤪🤪🤪 #bailesdetiktok #viralshorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>52,799</span>
-            <span><b>좋아요</b>590</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">52,799</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">590</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>멕시코 탭에서 52,799 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: baile, music, musica</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">멕시코</strong> 탭에서 <strong class="text-mark text-mark--metric">52,799 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: baile, music, musica</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1785,12 +1987,15 @@
         <div class="short-body">
           <h2>Alien dance | Funny Alien | Dame Tu Cosita | Funny alien dance | Green alien dance | Dance song</h2>
           <div class="stats-row">
-            <span><b>조회수</b>1,594,481</span>
-            <span><b>좋아요</b>1,083</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">1,594,481</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">1,083</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>독일 탭에서 1,594,481 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">독일</strong> 탭에서 <strong class="text-mark text-mark--metric">1,594,481 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, <strong class="text-mark text-mark--signal">funny</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1802,12 +2007,15 @@
         <div class="short-body">
           <h2>Jerusalema Dance Challenge Austrian Airlines HD✈️✈️ #Dance #JerusalemaDanceChallenge</h2>
           <div class="stats-row">
-            <span><b>조회수</b>270,463</span>
-            <span><b>좋아요</b>3,018</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">270,463</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">3,018</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>독일 탭에서 270,463 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">독일</strong> 탭에서 <strong class="text-mark text-mark--metric">270,463 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1819,12 +2027,15 @@
         <div class="short-body">
           <h2>After Hours Three 💖stunning 💫girls dance 💙 christina 💤Trending Reels #trending #shorts #dance #viral</h2>
           <div class="stats-row">
-            <span><b>조회수</b>18,443</span>
-            <span><b>좋아요</b>239</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">18,443</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">239</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>독일 탭에서 18,443 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, trending</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">독일</strong> 탭에서 <strong class="text-mark text-mark--metric">18,443 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, trending</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1836,12 +2047,15 @@
         <div class="short-body">
           <h2>Komm Tanzen? - Ich Will Nicht --- TikTok Trend --- Dancing Wolf</h2>
           <div class="stats-row">
-            <span><b>조회수</b>9,953</span>
-            <span><b>좋아요</b>143</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">9,953</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">143</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>독일 탭에서 9,953 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dancing, trend</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">독일</strong> 탭에서 <strong class="text-mark text-mark--metric">9,953 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: dancing, trend</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1853,12 +2067,15 @@
         <div class="short-body">
           <h2>Handsome Dancer - Coincidance</h2>
           <div class="stats-row">
-            <span><b>조회수</b>22,366,997</span>
-            <span><b>좋아요</b>526,671</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">22,366,997</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">526,671</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>독일 탭에서 22,366,997 views로 확인된 중대형 급상승권 쇼츠</li><li>감지 키워드: dance, dancer</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">독일</strong> 탭에서 <strong class="text-mark text-mark--metric">22,366,997 views</strong>로 확인된 중대형 급상승권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, dancer</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1874,12 +2091,15 @@
         <div class="short-body">
           <h2>o professor brigou com a sala inteira kkkkk l #engraçado #escola #humor #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>4,548,485</span>
-            <span><b>좋아요</b>122,566</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">4,548,485</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">122,566</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>브라질 탭에서 4,548,485 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">브라질</strong> 탭에서 <strong class="text-mark text-mark--metric">4,548,485 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: humor</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1891,12 +2111,15 @@
         <div class="short-body">
           <h2>VOCÊ COMEU MEU BOLO | #humor #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>9,033,958</span>
-            <span><b>좋아요</b>240,073</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">9,033,958</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">240,073</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>브라질 탭에서 9,033,958 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">브라질</strong> 탭에서 <strong class="text-mark text-mark--metric">9,033,958 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: humor</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1908,12 +2131,15 @@
         <div class="short-body">
           <h2>Qual delas vocês gostaram mais #humor #piadascurtas #comedy #comedia #piadasrapidas #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>4,615,803</span>
-            <span><b>좋아요</b>28,812</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">4,615,803</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">28,812</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>브라질 탭에서 4,615,803 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">브라질</strong> 탭에서 <strong class="text-mark text-mark--metric">4,615,803 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: humor</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1925,12 +2151,15 @@
         <div class="short-body">
           <h2>Truco na escola? 🤣🤣🤣 #humor #memes #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>3,518,444</span>
-            <span><b>좋아요</b>29,856</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">3,518,444</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">29,856</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>브라질 탭에서 3,518,444 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">브라질</strong> 탭에서 <strong class="text-mark text-mark--metric">3,518,444 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: humor</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1942,12 +2171,15 @@
         <div class="short-body">
           <h2>Original vs Edit 🔥 | Gozalo | Bailalo Gozalo | Gozalo Dance | Gonzalo | Gonzalo Dance 😍✨#funk #edit</h2>
           <div class="stats-row">
-            <span><b>조회수</b>323,487</span>
-            <span><b>좋아요</b>확인 필요</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">323,487</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">확인 필요</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>브라질 탭에서 323,487 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, edit, funk</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">브라질</strong> 탭에서 <strong class="text-mark text-mark--metric">323,487 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, <strong class="text-mark text-mark--signal">edit</strong>, funk</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1959,12 +2191,15 @@
         <div class="short-body">
           <h2>Tomato Tomato Tomato 🕺 New Trend 📸 #dance #dancecover #trend #trending #brazil #phonk #djarana</h2>
           <div class="stats-row">
-            <span><b>조회수</b>44,944</span>
-            <span><b>좋아요</b>410</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">44,944</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">410</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>브라질 탭에서 44,944 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, phonk, trend, trending</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">브라질</strong> 탭에서 <strong class="text-mark text-mark--metric">44,944 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, phonk, trend, trending</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1976,12 +2211,15 @@
         <div class="short-body">
           <h2>PAQUETA DANCE EDIT | BRAZIL CELEBRATION | 4K ULTRA HD</h2>
           <div class="stats-row">
-            <span><b>조회수</b>2,423,277</span>
-            <span><b>좋아요</b>11,597</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">2,423,277</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">11,597</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>브라질 탭에서 2,423,277 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, edit</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">브라질</strong> 탭에서 <strong class="text-mark text-mark--metric">2,423,277 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, <strong class="text-mark text-mark--signal">edit</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -1993,12 +2231,15 @@
         <div class="short-body">
           <h2>Best TikTok challenges 2026 - Brazil Alencarzão and Arthur Lima - brazil dance tiktok</h2>
           <div class="stats-row">
-            <span><b>조회수</b>798,362</span>
-            <span><b>좋아요</b>2,136</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">798,362</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">2,136</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>브라질 탭에서 798,362 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">브라질</strong> 탭에서 <strong class="text-mark text-mark--metric">798,362 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2010,12 +2251,15 @@
         <div class="short-body">
           <h2>DANCING FUNK-DJ Javi26, Zyas ---- JUJUTSU KAISEN EDIT</h2>
           <div class="stats-row">
-            <span><b>조회수</b>5,181,849</span>
-            <span><b>좋아요</b>44,584</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">5,181,849</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">44,584</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>브라질 탭에서 5,181,849 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dancing, edit, funk</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">브라질</strong> 탭에서 <strong class="text-mark text-mark--metric">5,181,849 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: dancing, <strong class="text-mark text-mark--signal">edit</strong>, funk</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2031,12 +2275,15 @@
         <div class="short-body">
           <h2>Mainan Kardus PRANK kaget lucu #kreatif #toys #prank #funny #lol</h2>
           <div class="stats-row">
-            <span><b>조회수</b>7,081,233</span>
-            <span><b>좋아요</b>확인 필요</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">7,081,233</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">확인 필요</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>인도네시아 탭에서 7,081,233 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: funny, prank, toys</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">인도네시아</strong> 탭에서 <strong class="text-mark text-mark--metric">7,081,233 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong>, prank, toys</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2048,12 +2295,15 @@
         <div class="short-body">
           <h2>Gercep banget ini cewek😂 #couple #funny #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>6,216,705</span>
-            <span><b>좋아요</b>29,382</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">6,216,705</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">29,382</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>인도네시아 탭에서 6,216,705 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">인도네시아</strong> 탭에서 <strong class="text-mark text-mark--metric">6,216,705 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2065,12 +2315,15 @@
         <div class="short-body">
           <h2>Tarian afrika keren #shorts</h2>
           <div class="stats-row">
-            <span><b>조회수</b>109,256</span>
-            <span><b>좋아요</b>205</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">109,256</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">205</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>인도네시아 탭에서 109,256 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: tari</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">인도네시아</strong> 탭에서 <strong class="text-mark text-mark--metric">109,256 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: tari</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2086,12 +2339,15 @@
         <div class="short-body">
           <h2>Mission Impossible 😎 #humor #funny #comedy</h2>
           <div class="stats-row">
-            <span><b>조회수</b>5,929,807</span>
-            <span><b>좋아요</b>23,425</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">5,929,807</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">23,425</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>아르헨티나 탭에서 5,929,807 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: funny, humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">아르헨티나</strong> 탭에서 <strong class="text-mark text-mark--metric">5,929,807 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong>, humor</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2103,12 +2359,15 @@
         <div class="short-body">
           <h2>Su reacción al saltar a agua fría fue ÉPICA #shorts #challenge</h2>
           <div class="stats-row">
-            <span><b>조회수</b>4,557,130</span>
-            <span><b>좋아요</b>87,730</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">4,557,130</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">87,730</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>아르헨티나 탭에서 4,557,130 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">아르헨티나</strong> 탭에서 <strong class="text-mark text-mark--metric">4,557,130 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2120,12 +2379,15 @@
         <div class="short-body">
           <h2>Daddy Yankee &amp; Snow - con calma | jyoti choreography | #concalma #dance #choreography #trending</h2>
           <div class="stats-row">
-            <span><b>조회수</b>1,895,458</span>
-            <span><b>좋아요</b>15,288</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">1,895,458</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">15,288</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>아르헨티나 탭에서 1,895,458 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, trending</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">아르헨티나</strong> 탭에서 <strong class="text-mark text-mark--metric">1,895,458 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, trending</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2137,12 +2399,15 @@
         <div class="short-body">
           <h2>Viral Dance Challenge: Scott West Dance of the Gold Condor (Buenos Aires) Van Gogh Starry Night</h2>
           <div class="stats-row">
-            <span><b>조회수</b>321,190</span>
-            <span><b>좋아요</b>5</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">321,190</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">5</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>아르헨티나 탭에서 321,190 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">아르헨티나</strong> 탭에서 <strong class="text-mark text-mark--metric">321,190 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2158,12 +2423,15 @@
         <div class="short-body">
           <h2>EENIE MEENIE DANCE CHALLENGE BY HYPERKATZ</h2>
           <div class="stats-row">
-            <span><b>조회수</b>567,157</span>
-            <span><b>좋아요</b>9,358</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">567,157</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">9,358</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>필리핀 탭에서 567,157 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">필리핀</strong> 탭에서 <strong class="text-mark text-mark--metric">567,157 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2175,12 +2443,15 @@
         <div class="short-body">
           <h2>Maymay Entrata - Tsada Mahigugma | New Dance Challenge By Zambosur Dance Company | Trend Tiktok</h2>
           <div class="stats-row">
-            <span><b>조회수</b>149,005</span>
-            <span><b>좋아요</b>819</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">149,005</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">819</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>필리핀 탭에서 149,005 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge, dance, trend</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">필리핀</strong> 탭에서 <strong class="text-mark text-mark--metric">149,005 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong>, trend</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2192,12 +2463,15 @@
         <div class="short-body">
           <h2>GENTO DANCE CHALLENGE by SB19 | The Prime Moverz and Primera Hija</h2>
           <div class="stats-row">
-            <span><b>조회수</b>140,987</span>
-            <span><b>좋아요</b>513</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">140,987</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">513</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>필리핀 탭에서 140,987 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">필리핀</strong> 탭에서 <strong class="text-mark text-mark--metric">140,987 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2209,12 +2483,15 @@
         <div class="short-body">
           <h2>Rush - Ayra Starr | Dance Challenge</h2>
           <div class="stats-row">
-            <span><b>조회수</b>84,332</span>
-            <span><b>좋아요</b>1,177</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">84,332</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">1,177</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>필리핀 탭에서 84,332 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">필리핀</strong> 탭에서 <strong class="text-mark text-mark--metric">84,332 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2226,12 +2503,15 @@
         <div class="short-body">
           <h2>Mood 24kgoldn TikTok Speed Dance Challenge</h2>
           <div class="stats-row">
-            <span><b>조회수</b>3,626</span>
-            <span><b>좋아요</b>75</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">3,626</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">75</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>필리핀 탭에서 3,626 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">필리핀</strong> 탭에서 <strong class="text-mark text-mark--metric">3,626 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2247,12 +2527,15 @@
         <div class="short-body">
           <h2>New look, same love ❤️😂#shaving #beard #couple #challenge #fyp</h2>
           <div class="stats-row">
-            <span><b>조회수</b>37,144,691</span>
-            <span><b>좋아요</b>618,359</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">37,144,691</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">618,359</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>스페인 탭에서 37,144,691 views로 확인된 1억뷰 근접 대형 확산권 쇼츠</li><li>감지 키워드: challenge</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">스페인</strong> 탭에서 <strong class="text-mark text-mark--metric">37,144,691 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 근접 대형 확산권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li><strong class="text-mark text-mark--metric">3천만뷰</strong> 이상이면 <strong class="text-mark text-mark--metric">1억뷰</strong> 후보군으로 볼 수 있으며, 추가 추천 노출이나 <strong class="text-mark text-mark--signal">리믹스</strong>가 붙을 때 더 크게 확장될 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2264,12 +2547,15 @@
         <div class="short-body">
           <h2>Se lo juro mister #shorts #humor #comedia</h2>
           <div class="stats-row">
-            <span><b>조회수</b>3,076,236</span>
-            <span><b>좋아요</b>121,364</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">3,076,236</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">121,364</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>스페인 탭에서 3,076,236 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">스페인</strong> 탭에서 <strong class="text-mark text-mark--metric">3,076,236 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: humor</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2281,12 +2567,15 @@
         <div class="short-body">
           <h2>PRACTICANDO #POLEDANCE | ¿TE GUSTARÍA APRENDER? | ARIANN MUSIC #SHORTS BAILANDO #BAILE #DANCE</h2>
           <div class="stats-row">
-            <span><b>조회수</b>4,172</span>
-            <span><b>좋아요</b>181</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">4,172</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">181</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>스페인 탭에서 4,172 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: baile, dance, music</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">스페인</strong> 탭에서 <strong class="text-mark text-mark--metric">4,172 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: baile, <strong class="text-mark text-mark--signal">dance</strong>, music</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2302,12 +2591,15 @@
         <div class="short-body">
           <h2>Nobody Knows Rowan Atkinson Was Actually a Punk #comedy #celebrity #funny</h2>
           <div class="stats-row">
-            <span><b>조회수</b>9,432,857</span>
-            <span><b>좋아요</b>75,390</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">9,432,857</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">75,390</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>이탈리아 탭에서 9,432,857 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">이탈리아</strong> 탭에서 <strong class="text-mark text-mark--metric">9,432,857 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2319,12 +2611,15 @@
         <div class="short-body">
           <h2>TUTORIAL magic Gif #TREND 😳🍆🤮#trend #magic #backstage #creative #lol #shorts#tutorial</h2>
           <div class="stats-row">
-            <span><b>조회수</b>2,299,381</span>
-            <span><b>좋아요</b>11,276</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">2,299,381</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">11,276</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>이탈리아 탭에서 2,299,381 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: backstage, magic, trend, tutorial</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">이탈리아</strong> 탭에서 <strong class="text-mark text-mark--metric">2,299,381 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: backstage, <strong class="text-mark text-mark--signal">magic</strong>, trend, tutorial</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2336,12 +2631,15 @@
         <div class="short-body">
           <h2>Fuego Dance Crew - Gasolina Routine (Official Video) #gasolinachallenge</h2>
           <div class="stats-row">
-            <span><b>조회수</b>25,241,825</span>
-            <span><b>좋아요</b>388,915</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">25,241,825</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">388,915</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>이탈리아 탭에서 25,241,825 views로 확인된 중대형 급상승권 쇼츠</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">이탈리아</strong> 탭에서 <strong class="text-mark text-mark--metric">25,241,825 views</strong>로 확인된 중대형 급상승권 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2357,12 +2655,15 @@
         <div class="short-body">
           <h2>#funny #comedy #india</h2>
           <div class="stats-row">
-            <span><b>조회수</b>3,989,431</span>
-            <span><b>좋아요</b>34,589</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">3,989,431</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">34,589</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>프랑스 탭에서 3,989,431 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">프랑스</strong> 탭에서 <strong class="text-mark text-mark--metric">3,989,431 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">funny</strong></li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2374,12 +2675,15 @@
         <div class="short-body">
           <h2>Que se passe-t-il si vous renversez de l&#x27;eau partout ? 💦 #shorts #prank</h2>
           <div class="stats-row">
-            <span><b>조회수</b>2,720,709</span>
-            <span><b>좋아요</b>12,760</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">2,720,709</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">12,760</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>프랑스 탭에서 2,720,709 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: prank</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">프랑스</strong> 탭에서 <strong class="text-mark text-mark--metric">2,720,709 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: prank</li>
+<li>상황·반전·<strong class="text-mark text-mark--signal">코미디</strong> 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2391,12 +2695,15 @@
         <div class="short-body">
           <h2>Papaoutai (Afro Soul) - ​Stromae | Mikeeysmind | Tiktok Trending Version | Dance Cover | @DjValka</h2>
           <div class="stats-row">
-            <span><b>조회수</b>237,181</span>
-            <span><b>좋아요</b>4,687</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">237,181</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">4,687</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>프랑스 탭에서 237,181 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, trending</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">프랑스</strong> 탭에서 <strong class="text-mark text-mark--metric">237,181 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, trending</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2408,12 +2715,15 @@
         <div class="short-body">
           <h2>F2 DANCE X AMBRE_DANCER - S1 - CLIP VIDEO / TAL /Le temps qu&#x27;il faut/ STREET DANCE/ KIDS</h2>
           <div class="stats-row">
-            <span><b>조회수</b>588,958</span>
-            <span><b>좋아요</b>1,448</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">588,958</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">1,448</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>프랑스 탭에서 588,958 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, dancer</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">프랑스</strong> 탭에서 <strong class="text-mark text-mark--metric">588,958 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, dancer</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2429,12 +2739,15 @@
         <div class="short-body">
           <h2>Arthur lima dance 🕺#YouTube #dance #brazil #arthurlima #shorts #tiktok #Ethiopia #uzbekistan #india</h2>
           <div class="stats-row">
-            <span><b>조회수</b>13,893</span>
-            <span><b>좋아요</b>159</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">13,893</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">159</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>우즈베키스탄 탭에서 13,893 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">우즈베키스탄</strong> 탭에서 <strong class="text-mark text-mark--metric">13,893 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2446,12 +2759,15 @@
         <div class="short-body">
           <h2>Uzbekistan Viral Girl &amp; Boy Dance Bollywood Songs ￼￼Performance ￼</h2>
           <div class="stats-row">
-            <span><b>조회수</b>946,705</span>
-            <span><b>좋아요</b>9,554</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">946,705</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">9,554</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>우즈베키스탄 탭에서 946,705 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: dance, performance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">우즈베키스탄</strong> 탭에서 <strong class="text-mark text-mark--metric">946,705 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong>, performance</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2463,12 +2779,15 @@
         <div class="short-body">
           <h2>Xit Musiqalar 👍 Qizlardan Xit Ashulaga raqs Shunaqa Gaplar</h2>
           <div class="stats-row">
-            <span><b>조회수</b>15,540</span>
-            <span><b>좋아요</b>12</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">15,540</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">12</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>우즈베키스탄 탭에서 15,540 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: raqs, musiqa</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">우즈베키스탄</strong> 탭에서 <strong class="text-mark text-mark--metric">15,540 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: raqs, musiqa</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2484,12 +2803,15 @@
         <div class="short-body">
           <h2>#اكسبلور #lifeisbutadream #كيدراما #kdrama #اكسبلور #اعتني #music #explore #edit #fyp #ot7</h2>
           <div class="stats-row">
-            <span><b>조회수</b>1,063,386</span>
-            <span><b>좋아요</b>18,028</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">1,063,386</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">18,028</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>알제리 탭에서 1,063,386 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: edit, music</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">알제리</strong> 탭에서 <strong class="text-mark text-mark--metric">1,063,386 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">edit</strong>, music</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2505,12 +2827,15 @@
         <div class="short-body">
           <h2>ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY NEON DANCE !! 🔥🔥</h2>
           <div class="stats-row">
-            <span><b>조회수</b>399,519,222</span>
-            <span><b>좋아요</b>2,789,683</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">399,519,222</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">2,789,683</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>카자흐스탄 탭에서 399,519,222 views로 확인된 1억뷰 돌파형 쇼츠</li><li>감지 키워드: dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>이미 1억뷰를 넘은 사례라 클릭률, 완주율, 반복 시청, 공유 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">카자흐스탄</strong> 탭에서 <strong class="text-mark text-mark--metric">399,519,222 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">dance</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>이미 <strong class="text-mark text-mark--metric">1억뷰</strong>를 넘은 사례라 <strong class="text-mark text-mark--signal">클릭률</strong>, <strong class="text-mark text-mark--signal">완주율</strong>, <strong class="text-mark text-mark--signal">반복 시청</strong>, <strong class="text-mark text-mark--signal">공유</strong> 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다</li></ul>
           </div>
         </div>
       </article>
@@ -2522,12 +2847,15 @@
         <div class="short-body">
           <h2>challenge - Aigul Fatalieva Belly Dancer - Kazakhstan Russia#bellyladyagainstcorona .</h2>
           <div class="stats-row">
-            <span><b>조회수</b>3,075</span>
-            <span><b>좋아요</b>43</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">3,075</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">43</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>카자흐스탄 탭에서 3,075 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge, dancer</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">카자흐스탄</strong> 탭에서 <strong class="text-mark text-mark--metric">3,075 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong>, dancer</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2543,12 +2871,15 @@
         <div class="short-body">
           <h2>When princesses playing &quot;Squid Game&quot; Challenge #bybacademy #thanhhuyennguyen #daotaonguoimau #5g</h2>
           <div class="stats-row">
-            <span><b>조회수</b>253,589,299</span>
-            <span><b>좋아요</b>2,192,978</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">253,589,299</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">2,192,978</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>베트남 탭에서 253,589,299 views로 확인된 1억뷰 돌파형 쇼츠</li><li>감지 키워드: challenge</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>이미 1억뷰를 넘은 사례라 클릭률, 완주율, 반복 시청, 공유 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">베트남</strong> 탭에서 <strong class="text-mark text-mark--metric">253,589,299 views</strong>로 확인된 <strong class="text-mark text-mark--metric">1억뷰</strong> 돌파형 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>이미 <strong class="text-mark text-mark--metric">1억뷰</strong>를 넘은 사례라 <strong class="text-mark text-mark--signal">클릭률</strong>, <strong class="text-mark text-mark--signal">완주율</strong>, <strong class="text-mark text-mark--signal">반복 시청</strong>, <strong class="text-mark text-mark--signal">공유</strong> 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다</li></ul>
           </div>
         </div>
       </article>
@@ -2560,12 +2891,15 @@
         <div class="short-body">
           <h2>Unexpected ending in Left Right challenge #bybacademy #thanhhuyennguyen #daotaonguoimau #5g</h2>
           <div class="stats-row">
-            <span><b>조회수</b>9,346,206</span>
-            <span><b>좋아요</b>117,792</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">9,346,206</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">117,792</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>베트남 탭에서 9,346,206 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: challenge</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">베트남</strong> 탭에서 <strong class="text-mark text-mark--metric">9,346,206 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: <strong class="text-mark text-mark--signal">challenge</strong></li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2577,12 +2911,15 @@
         <div class="short-body">
           <h2>5 anh trung quốc nhảy nhạc Hồ Quang Hiếu cực khớp trend tiktok nhạc nào cũng khớp</h2>
           <div class="stats-row">
-            <span><b>조회수</b>770,071</span>
-            <span><b>좋아요</b>3,232</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">770,071</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">3,232</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
-            <ul><li>베트남 탭에서 770,071 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>감지 키워드: nhảy, nhạc, trend</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li></ul>
+            <ul><li><strong class="text-mark text-mark--region">베트남</strong> 탭에서 <strong class="text-mark text-mark--metric">770,071 views</strong>로 확인된 지역 탭 검토 후보 쇼츠</li>
+<li><strong class="text-mark text-mark--signal">감지 키워드</strong>: nhảy, nhạc, trend</li>
+<li><strong class="text-mark text-mark--signal">음악</strong>과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li>
+<li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 <strong class="text-mark text-mark--signal">반복 시청</strong>이 붙어야 더 큰 <strong class="text-mark text-mark--metric">조회수</strong>로 커질 수 있습니다</li></ul>
           </div>
         </div>
       </article>
@@ -2590,40 +2927,40 @@
     </section>
     <section class="source-panel" aria-label="sources">
       <strong>연결 소스</strong>
-      <ul class="source-links"><li><a href="https://chartika.com/" target="_blank" rel="noopener">Chartika regional YouTube charts</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-japan-daily" target="_blank" rel="noopener">Playboard Shorts Daily - JP</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-south-korea-daily" target="_blank" rel="noopener">Playboard Shorts Daily - KR</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-united-states-daily" target="_blank" rel="noopener">Playboard Shorts Daily - US</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-worldwide-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 글로벌</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-germany-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 독일</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-mexico-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 멕시코</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-viet-nam-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 베트남</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-brazil-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 브라질</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-spain-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 스페인</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-argentina-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 아르헨티나</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-algeria-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 알제리</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-uzbekistan-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 우즈베키스탄</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-italy-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 이탈리아</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-indonesia-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 인도네시아</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-kazakhstan-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 카자흐스탄</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-france-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 프랑스</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-philippines-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 필리핀</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-worldwide-daily" target="_blank" rel="noopener">Playboard regional YouTube Shorts charts</a></li>
-<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=1&amp;type=VIEW" target="_blank" rel="noopener">RedToolBox Top Shorts daily</a></li>
-<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=30&amp;type=VIEW" target="_blank" rel="noopener">RedToolBox Top Shorts monthly</a></li>
-<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=7&amp;type=VIEW" target="_blank" rel="noopener">RedToolBox Top Shorts weekly</a></li>
-<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp" target="_blank" rel="noopener">RedToolBox daily/weekly/monthly top Shorts</a></li>
-<li><a href="https://t1trend.com/" target="_blank" rel="noopener">Top1Trend YouTube Trending</a></li>
+      <ul class="source-links"><li><a href="https://chartika.com/" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Chartika</strong> regional <strong class="text-mark text-mark--source">YouTube</strong> charts</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-japan-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">JP</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-south-korea-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">KR</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-united-states-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">US</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-worldwide-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">글로벌</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-germany-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">독일</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-mexico-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">멕시코</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-viet-nam-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">베트남</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-brazil-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">브라질</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-spain-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">스페인</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-argentina-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">아르헨티나</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-algeria-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">알제리</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-uzbekistan-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">우즈베키스탄</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-italy-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">이탈리아</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-indonesia-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">인도네시아</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-kazakhstan-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">카자흐스탄</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-france-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">프랑스</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-philippines-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">필리핀</strong></a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-worldwide-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> regional <strong class="text-mark text-mark--source">YouTube</strong> Shorts charts</a></li>
+<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=1&amp;type=VIEW" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> Top Shorts daily</a></li>
+<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=30&amp;type=VIEW" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> Top Shorts monthly</a></li>
+<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=7&amp;type=VIEW" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> Top Shorts weekly</a></li>
+<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> daily/weekly/monthly top Shorts</a></li>
+<li><a href="https://t1trend.com/" target="_blank" rel="noopener">Top1Trend <strong class="text-mark text-mark--source">YouTube</strong> Trending</a></li>
 <li><a href="https://www.trendsfox.com/trending-videos" target="_blank" rel="noopener">TrendsFox Trending Shorts</a></li>
-<li><a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a></li>
-<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=US&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - US Comedy</a></li>
-<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 멕시코 Comedy</a></li>
-<li><a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 멕시코 Entertainment</a></li>
-<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 브라질 Comedy</a></li>
-<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=ES&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 스페인 Comedy</a></li>
-<li><a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=AR&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 아르헨티나 Entertainment</a></li>
-<li><a href="https://yttrack.com/" target="_blank" rel="noopener">YTTrack regional YouTube trending charts</a></li>
-<li><a href="https://www.youtube.com/results?search_query=%23shorts+dance+music+trend" target="_blank" rel="noopener">YouTube Shorts keyword searches</a></li></ul>
+<li><a href="https://vidirun.com/format-short" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Vidirun</strong> Top 50 Short-Form Videos</a></li>
+<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=US&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">US</strong> <strong class="text-mark text-mark--signal">Comedy</strong></a></li>
+<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">멕시코</strong> <strong class="text-mark text-mark--signal">Comedy</strong></a></li>
+<li><a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">멕시코</strong> Entertainment</a></li>
+<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">브라질</strong> <strong class="text-mark text-mark--signal">Comedy</strong></a></li>
+<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=ES&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">스페인</strong> <strong class="text-mark text-mark--signal">Comedy</strong></a></li>
+<li><a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=AR&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">아르헨티나</strong> Entertainment</a></li>
+<li><a href="https://yttrack.com/" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> regional <strong class="text-mark text-mark--source">YouTube</strong> trending charts</a></li>
+<li><a href="https://www.youtube.com/results?search_query=%23shorts+dance+music+trend" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YouTube</strong> Shorts keyword searches</a></li></ul>
     </section>
     <div class="footer-update">업데이트 5/16 23:30</div>
   </main>

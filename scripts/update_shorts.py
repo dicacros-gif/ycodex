@@ -1549,8 +1549,109 @@ def mega_case_points(item: dict[str, Any]) -> list[str]:
     return points[:4]
 
 
+HIGHLIGHT_TERMS: list[tuple[str, str]] = [
+    ("metric", "1억뷰"),
+    ("metric", "3천만뷰"),
+    ("metric", "1천만뷰"),
+    ("metric", "조회수"),
+    ("metric", "좋아요"),
+    ("metric", "views"),
+    ("region", "글로벌"),
+    ("region", "멕시코"),
+    ("region", "독일"),
+    ("region", "브라질"),
+    ("region", "인도네시아"),
+    ("region", "아르헨티나"),
+    ("region", "필리핀"),
+    ("region", "스페인"),
+    ("region", "이탈리아"),
+    ("region", "프랑스"),
+    ("region", "우즈베키스탄"),
+    ("region", "알제리"),
+    ("region", "카자흐스탄"),
+    ("region", "베트남"),
+    ("region", "KR"),
+    ("region", "US"),
+    ("region", "JP"),
+    ("source", "Playboard"),
+    ("source", "Vidirun"),
+    ("source", "RedToolBox"),
+    ("source", "YTTrack"),
+    ("source", "Chartika"),
+    ("source", "YouTube"),
+    ("source", "랭킹"),
+    ("source", "트렌드"),
+    ("signal", "상황형 코미디·짧은 사건"),
+    ("signal", "댄스·음악 챌린지"),
+    ("signal", "편집·슬로우드 사운드"),
+    ("signal", "스포츠·퍼포먼스 순간"),
+    ("signal", "K-pop·아이돌 안무"),
+    ("signal", "감지 키워드"),
+    ("signal", "핵심 패턴"),
+    ("signal", "분석 패턴"),
+    ("signal", "반복 시청"),
+    ("signal", "완주율"),
+    ("signal", "공유"),
+    ("signal", "리믹스"),
+    ("signal", "클릭률"),
+    ("signal", "클릭 유지율"),
+    ("signal", "지역 확장"),
+    ("signal", "댄스"),
+    ("signal", "음악"),
+    ("signal", "챌린지"),
+    ("signal", "코미디"),
+    ("signal", "magic"),
+    ("signal", "dance"),
+    ("signal", "challenge"),
+    ("signal", "funny"),
+    ("signal", "comedy"),
+    ("signal", "slowed"),
+    ("signal", "edit"),
+]
+
+HIGHLIGHT_NUMBER_RE = re.compile(r"\d{1,3}(?:,\d{3})+(?:\s*(?:views|뷰))?|\d+(?:%p|개|뷰)")
+
+
+def highlight_term_pattern(term: str) -> str:
+    pattern = re.escape(escape(term))
+    if term.isascii() and any(char.isalpha() for char in term):
+        return rf"(?<![A-Za-z0-9]){pattern}(?![A-Za-z0-9])"
+    return pattern
+
+
+def highlight_text(text: Any) -> str:
+    safe = escape(str(text))
+    spans: list[tuple[int, int, str]] = []
+    for class_name, term in HIGHLIGHT_TERMS:
+        term_pattern = highlight_term_pattern(term)
+        for match in re.finditer(term_pattern, safe, flags=re.I):
+            spans.append((match.start(), match.end(), class_name))
+    for match in HIGHLIGHT_NUMBER_RE.finditer(safe):
+        spans.append((match.start(), match.end(), "metric"))
+
+    selected: list[tuple[int, int, str]] = []
+    occupied_until = -1
+    for start, end, class_name in sorted(spans, key=lambda span: (span[0], -(span[1] - span[0]))):
+        if start < occupied_until:
+            continue
+        selected.append((start, end, class_name))
+        occupied_until = end
+
+    if not selected:
+        return safe
+
+    output: list[str] = []
+    cursor = 0
+    for start, end, class_name in selected:
+        output.append(safe[cursor:start])
+        output.append(f'<strong class="text-mark text-mark--{class_name}">{safe[start:end]}</strong>')
+        cursor = end
+    output.append(safe[cursor:])
+    return "".join(output)
+
+
 def render_points(points: list[str]) -> str:
-    return "\n".join(f"<li>{escape(point)}</li>" for point in points)
+    return "\n".join(f"<li>{highlight_text(point)}</li>" for point in points)
 
 
 def source_label(item: dict[str, Any]) -> str:
@@ -1574,10 +1675,10 @@ def render_mega_case_card(item: dict[str, Any]) -> str:
           <div class="mega-case-body">
             <h3><a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">{escape(compact_title(str(item.get('title', '')), 72))}</a></h3>
             <div class="mega-case-meta">
-              <span>조회수 {fmt_int(item.get('viewsGained'))}</span>
-              <span>좋아요 {fmt_count(item.get('likeCount'))}</span>
+              <span><b>조회수</b><strong class="text-mark text-mark--metric">{fmt_int(item.get('viewsGained'))}</strong></span>
+              <span><b>좋아요</b><strong class="text-mark text-mark--metric">{fmt_count(item.get('likeCount'))}</strong></span>
             </div>
-            <a class="mega-case-source" href="{escape(source_url)}" target="_blank" rel="noopener">근거: {escape(source_label(item))}</a>
+            <a class="mega-case-source" href="{escape(source_url)}" target="_blank" rel="noopener">{highlight_text('근거: ' + source_label(item))}</a>
             <ul class="mega-case-points">{render_points(mega_case_points(item))}</ul>
           </div>
         </article>"""
@@ -1619,7 +1720,7 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
         "자막이나 언어 의존도가 낮을수록 국가별 탭을 넘어 글로벌 피드에서 확장되기 쉽습니다.",
         "1억뷰는 조회수 하나의 폭발보다 클릭 유지율, 반복 시청, 공유, 리믹스 가능성이 동시에 맞을 때 나옵니다.",
     ]
-    principle_items = "\n".join(f"<li>{escape(item)}</li>" for item in principles)
+    principle_items = render_points(principles)
     hero_points = [mega_summary]
     if top_line:
         hero_points.append(top_line)
@@ -1656,7 +1757,7 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
           </a>
           <div class="mega-example-body">
             <a class="mega-example-title" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">{escape(compact_title(str(item.get('title', '')), 64))}</a>
-            <span>{fmt_int(item.get('viewsGained'))} views</span>
+            <span>{highlight_text(f"{fmt_int(item.get('viewsGained'))} views")}</span>
             <ul>{render_points(popularity_reason_points(item)[:4])}</ul>
           </div>
         </article>"""
@@ -1735,9 +1836,9 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
         f"조회수 상위 최근 사례는 {compact_title(str(top_view_item.get('title', '')))} ({fmt_int(top_view_item.get('viewsGained'))} views)이며, {top_view_clusters} 쪽 신호가 강합니다.",
     ]
 
-    note_items = "\n".join(f"<li>{escape(note)}</li>" for note in notes)
+    note_items = render_points(notes)
     top_badges = "\n".join(
-        f"<li>{escape(cluster_label(key))} {count}</li>"
+        f"<li>{highlight_text(f'{cluster_label(key)} {count}')}</li>"
         for key, count in sorted(recent_counts.items(), key=lambda pair: pair[1], reverse=True)[:4]
         if count
     )
@@ -1746,8 +1847,8 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
       <div class="trend-heading">
         <strong>트렌드 분석</strong>
         <ul class="trend-meta">
-          <li>{len(items)}개 표시 영상</li>
-          <li>{MIN_DISPLAY_VIEWS:,}뷰 이상</li>
+          <li>{highlight_text(f'{len(items)}개 표시 영상')}</li>
+          <li>{highlight_text(f'{MIN_DISPLAY_VIEWS:,}뷰 이상')}</li>
         </ul>
       </div>
       <ul class="trend-badges">{top_badges}</ul>
@@ -1756,7 +1857,7 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
 
 
 def render_card(item: dict[str, Any], index: int) -> str:
-    reason_items = "".join(f"<li>{escape(point)}</li>" for point in card_popularity_points(item))
+    reason_items = render_points(card_popularity_points(item))
     return f"""
       <article class="short-card">
         <a class="thumb-link" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener" aria-label="Open {escape(item['title'])} on YouTube Shorts">
@@ -1766,8 +1867,8 @@ def render_card(item: dict[str, Any], index: int) -> str:
         <div class="short-body">
           <h2>{escape(item['title'])}</h2>
           <div class="stats-row">
-            <span><b>조회수</b>{fmt_count(item.get('viewsGained'))}</span>
-            <span><b>좋아요</b>{fmt_count(item.get('likeCount'))}</span>
+            <span><b>조회수</b><strong class="text-mark text-mark--metric">{fmt_count(item.get('viewsGained'))}</strong></span>
+            <span><b>좋아요</b><strong class="text-mark text-mark--metric">{fmt_count(item.get('likeCount'))}</strong></span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
@@ -1821,7 +1922,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
         )
 
     links = "\n".join(
-        f'<li><a href="{escape(url)}" target="_blank" rel="noopener">{escape(name)}</a></li>'
+        f'<li><a href="{escape(url)}" target="_blank" rel="noopener">{highlight_text(name)}</a></li>'
         for name, url in source_links(display_items)
     )
 
@@ -1868,6 +1969,30 @@ def render_index(items: list[dict[str, Any]]) -> str:
       overflow-x: hidden;
     }}
     a {{ color: inherit; }}
+    .text-mark {{
+      display: inline;
+      border-radius: 5px;
+      padding: 0 3px;
+      font-weight: 900;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }}
+    .text-mark--metric {{
+      background: #fee2e2;
+      color: #b91c1c;
+    }}
+    .text-mark--region {{
+      background: #ccfbf1;
+      color: #0f766e;
+    }}
+    .text-mark--source {{
+      background: #dbeafe;
+      color: #1d4ed8;
+    }}
+    .text-mark--signal {{
+      background: #fef3c7;
+      color: #a16207;
+    }}
     .shell {{
       width: calc(100% - 28px);
       max-width: 100%;
@@ -1955,7 +2080,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
       gap: 12px;
       margin-bottom: 10px;
     }}
-    .trend-heading strong {{
+    .trend-heading > strong {{
       font-size: 15px;
       line-height: 1.3;
     }}
@@ -2031,7 +2156,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
     .mega-hero-points li + li {{
       margin-top: 3px;
     }}
-    .mega-hero strong {{
+    .mega-hero > strong {{
       min-width: 48px;
       border-radius: 8px;
       background: var(--ink);
@@ -2125,6 +2250,16 @@ def render_index(items: list[dict[str, Any]]) -> str:
       font-weight: 800;
       line-height: 1;
       white-space: nowrap;
+    }}
+    .mega-case-meta b {{
+      margin-right: 4px;
+      color: #7f1d1d;
+    }}
+    .mega-case-meta .text-mark,
+    .stats-row .text-mark {{
+      background: transparent;
+      color: var(--tab-red-dark);
+      padding: 0;
     }}
     .mega-case-source {{
       display: inline-block;
@@ -2356,7 +2491,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
       padding: 7px 8px;
       display: block;
     }}
-    .popularity strong {{
+    .popularity > strong {{
       display: block;
       color: #b45309;
       background: transparent;
@@ -2386,7 +2521,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
       color: var(--muted);
       font-size: 13px;
     }}
-    .source-panel strong {{
+    .source-panel > strong {{
       display: block;
       color: #344054;
       font-size: 13px;
