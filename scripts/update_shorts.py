@@ -1500,6 +1500,88 @@ def card_popularity_points(item: dict[str, Any]) -> list[str]:
     return selected[:4]
 
 
+RECENT_MEGA_CASE_NOTES: dict[str, list[str]] = {
+    "HsKltJyJ-UI": [
+        "최근 업로드 후 1억뷰를 넘긴 사례로, 제목이 바로 질문을 던져 결과를 확인하고 싶게 만듭니다.",
+        "마술·코미디·두 인물 관계가 한 장면 안에서 이해되어 언어 장벽 없이 글로벌 피드로 확장되기 쉽습니다.",
+        "손동작과 반전 결과가 핵심이라 첫 시청 후에도 다시 보며 트릭을 확인하는 반복 시청이 발생합니다.",
+        "funny/comedy 태그가 기대값을 명확히 만들고, 짧은 상황극 구조가 끝까지 보는 완주율 신호를 만듭니다.",
+    ],
+    "ZdXwPHwdwhY": [
+        "일본 탭에서 1억뷰를 넘긴 코미디 사례로, 표정과 행동 중심의 짧은 상황이 언어 없이도 바로 전달됩니다.",
+        "제목의 funny 신호가 클릭 전 기대를 낮은 비용으로 설명하고, 결과 확인형 장면이 이탈을 줄입니다.",
+        "복잡한 배경보다 인물 반응이 중심이라 모바일 화면에서 즉시 읽히고, 공유할 때 맥락 설명이 거의 필요 없습니다.",
+        "웃음 포인트가 짧고 반복 가능해 같은 장면을 다시 보거나 주변 사람에게 보여 주는 행동으로 이어지기 좋습니다.",
+    ],
+    "tgOQlzCqc0M": [
+        "Astronomia 사운드와 셔플 동작이 결합된 1억뷰 이상 댄스 사례로, 음악 훅이 시작 즉시 장르를 알려 줍니다.",
+        "아이·네온·셔플이라는 시각 대비가 강해 썸네일만으로도 궁금증을 만들고 첫 프레임 흡입력이 큽니다.",
+        "동작이 루프 구조와 잘 맞아 다시 보기, 따라 하기, 리믹스 가능성이 동시에 열립니다.",
+        "대사보다 음악과 몸동작이 핵심이라 지역 탭을 넘어 글로벌 추천 피드에서 소비되기 쉽습니다.",
+    ],
+    "FWMyxmIu1Ss": [
+        "Squid Game Challenge라는 글로벌 IP 신호와 공주 콘셉트의 대비가 첫 순간부터 상황을 이해시키는 사례입니다.",
+        "챌린지 포맷은 결과를 끝까지 보게 만들고, 익숙한 IP는 클릭 전 설명 비용을 크게 낮춥니다.",
+        "의상·게임 규칙·반응이 시각적으로 읽혀 자막이 없어도 장면의 긴장과 재미가 전달됩니다.",
+        "트렌드 IP를 짧은 퍼포먼스로 재가공해 검색·추천·공유에서 모두 발견될 접점을 넓혔습니다.",
+    ],
+    "9Egj8PiHiak": [
+        "멕시코 탭에서 1억뷰를 넘긴 코미디 사례로, 강한 행동 훅과 짧은 반응이 바로 시선을 붙잡습니다.",
+        "말보다 표정·행동 중심이라 문화권이 달라도 장면의 농담을 빠르게 이해할 수 있습니다.",
+        "짧은 상황형 코미디는 마지막 반응을 확인하려는 완주율과 다시 보는 행동을 동시에 만들기 쉽습니다.",
+        "funny/comedy 태그와 반복 가능한 캐릭터성이 결합해 추천 피드에서 다음 노출을 받을 근거를 만듭니다.",
+    ],
+}
+
+
+def mega_case_points(item: dict[str, Any]) -> list[str]:
+    custom = RECENT_MEGA_CASE_NOTES.get(str(item.get("id")))
+    if custom:
+        return custom
+
+    points = card_popularity_points(item)
+    clusters = [cluster_label(key) for key in item_cluster_keys(item) if key != "other"]
+    if clusters:
+        points.append(f"핵심 패턴은 {', '.join(clusters[:2])}이며, 첫 장면에서 장르와 기대 보상이 빠르게 전달됩니다.")
+    points.append("1억뷰 구간은 클릭률만으로 설명되기보다 완주율, 반복 시청, 공유, 지역 확장이 함께 맞물린 결과로 봐야 합니다.")
+    return points[:4]
+
+
+def render_points(points: list[str]) -> str:
+    return "\n".join(f"<li>{escape(point)}</li>" for point in points)
+
+
+def source_label(item: dict[str, Any]) -> str:
+    label = clean_text(str(item.get("sourceName") or "ranking source"))
+    window = clean_text(str(item.get("sourceWindow") or ""))
+    rank = item.get("sourceRank")
+    if window:
+        label += f" {window}"
+    if rank:
+        label += f" rank {rank}"
+    return label
+
+
+def render_mega_case_card(item: dict[str, Any]) -> str:
+    source_url = str(item.get("sourceUrl") or item.get("shortsUrl") or "#")
+    return f"""
+        <article class="mega-case-card">
+          <a class="mega-case-thumb" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">
+            <img src="{escape(item.get('thumbnail') or thumbnail_url(item['id']))}" alt="{escape(str(item.get('title', 'YouTube Shorts thumbnail')))}">
+          </a>
+          <div class="mega-case-body">
+            <h3><a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">{escape(compact_title(str(item.get('title', '')), 72))}</a></h3>
+            <div class="mega-case-meta">
+              <span>조회수 {fmt_int(item.get('viewsGained'))}</span>
+              <span>좋아요 {fmt_count(item.get('likeCount'))}</span>
+              <span>등록일 {escape(fmt_published(item.get('publishedAt')))}</span>
+            </div>
+            <a class="mega-case-source" href="{escape(source_url)}" target="_blank" rel="noopener">근거: {escape(source_label(item))}</a>
+            <ul class="mega-case-points">{render_points(mega_case_points(item))}</ul>
+          </div>
+        </article>"""
+
+
 def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
     mega_items = [item for item in items if parse_int(item.get("viewsGained")) >= VIRAL_VIEW_THRESHOLD]
     near_items = [
@@ -1538,12 +1620,31 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
     ]
     principle_items = "\n".join(f"<li>{escape(item)}</li>" for item in principles)
 
+    recent_mega_items = sorted(
+        mega_items,
+        key=lambda row: (parse_date(row.get("publishedAt")) or datetime.min.date(), parse_int(row.get("viewsGained"))),
+        reverse=True,
+    )[:3]
+    recent_case_cards = "\n".join(render_mega_case_card(item) for item in recent_mega_items)
+    recent_case_section = (
+        f"""
+      <div class="mega-case-section">
+        <div class="mega-section-heading">
+          <h3>최근 1억뷰 달성 사례</h3>
+          <p>공개 랭킹과 YouTube 메타데이터에서 1억뷰 이상으로 확인된 최신 업로드를 먼저 봅니다.</p>
+        </div>
+        <div class="mega-case-list">{recent_case_cards}</div>
+      </div>"""
+        if recent_case_cards
+        else ""
+    )
+
     examples = "\n".join(
         f"""
         <article class="mega-example">
           <a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">{escape(compact_title(str(item.get('title', '')), 64))}</a>
           <span>{fmt_int(item.get('viewsGained'))} views · 게시일 {escape(fmt_published(item.get('publishedAt')))}</span>
-          <p>{escape(popularity_reason(item))}</p>
+          <ul>{render_points(popularity_reason_points(item)[:4])}</ul>
         </article>"""
         for item in analysis_items
     )
@@ -1557,6 +1658,7 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
         </div>
         <strong>{len(mega_items)}</strong>
       </div>
+{recent_case_section}
       <div class="mega-grid">
         <div class="mega-block">
           <h3>왜 1억뷰가 나오는가</h3>
@@ -1923,6 +2025,112 @@ def render_index(items: list[dict[str, Any]]) -> str:
       font-size: 22px;
       line-height: 1;
     }}
+    .mega-case-section {{
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 14px;
+      margin-bottom: 12px;
+    }}
+    .mega-section-heading {{
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 12px;
+    }}
+    .mega-section-heading h3 {{
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.3;
+    }}
+    .mega-section-heading p {{
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.45;
+      text-align: right;
+    }}
+    .mega-case-list {{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 14px;
+    }}
+    .mega-case-card {{
+      display: grid;
+      grid-template-columns: 118px minmax(0, 1fr);
+      gap: 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 10px;
+    }}
+    .mega-case-thumb {{
+      display: block;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #dbe4ee;
+    }}
+    .mega-case-thumb img {{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }}
+    .mega-case-body h3 {{
+      margin: 0 0 8px;
+      font-size: 14px;
+      line-height: 1.35;
+    }}
+    .mega-case-body h3 a {{
+      color: var(--ink);
+      text-decoration: none;
+    }}
+    .mega-case-body h3 a:hover {{
+      color: var(--tab-red);
+      text-decoration: underline;
+    }}
+    .mega-case-meta {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 7px;
+    }}
+    .mega-case-meta span {{
+      border-radius: 999px;
+      background: var(--tab-red-wash);
+      color: var(--tab-red-dark);
+      padding: 4px 7px;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+    }}
+    .mega-case-source {{
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--focus);
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.35;
+      text-decoration: none;
+    }}
+    .mega-case-source:hover {{
+      text-decoration: underline;
+    }}
+    .mega-case-points {{
+      margin: 0;
+      padding-left: 17px;
+      color: #344054;
+      font-size: 12px;
+      line-height: 1.55;
+    }}
+    .mega-case-points li + li {{
+      margin-top: 4px;
+    }}
     .mega-grid {{
       display: grid;
       grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
@@ -1973,11 +2181,15 @@ def render_index(items: list[dict[str, Any]]) -> str:
       font-size: 11px;
       font-weight: 700;
     }}
-    .mega-example p {{
-      margin: 5px 0 0;
+    .mega-example ul {{
+      margin: 6px 0 0;
+      padding-left: 17px;
       color: #344054;
       font-size: 12px;
       line-height: 1.5;
+    }}
+    .mega-example li + li {{
+      margin-top: 3px;
     }}
     .grid {{
       display: grid;
@@ -2216,6 +2428,10 @@ def render_index(items: list[dict[str, Any]]) -> str:
       .trend-heading span {{ white-space: normal; }}
       .mega-grid {{ grid-template-columns: 1fr; }}
       .mega-hero {{ flex-direction: column; }}
+      .mega-section-heading {{ flex-direction: column; align-items: flex-start; gap: 5px; }}
+      .mega-section-heading p {{ text-align: left; }}
+      .mega-case-list {{ grid-template-columns: 1fr; }}
+      .mega-case-card {{ grid-template-columns: 96px minmax(0, 1fr); }}
       .grid {{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }}
       .short-body {{ padding: 8px; }}
     }}

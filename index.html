@@ -199,6 +199,112 @@
       font-size: 22px;
       line-height: 1;
     }
+    .mega-case-section {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .mega-section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .mega-section-heading h3 {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.3;
+    }
+    .mega-section-heading p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.45;
+      text-align: right;
+    }
+    .mega-case-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 14px;
+    }
+    .mega-case-card {
+      display: grid;
+      grid-template-columns: 118px minmax(0, 1fr);
+      gap: 13px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 10px;
+    }
+    .mega-case-thumb {
+      display: block;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #dbe4ee;
+    }
+    .mega-case-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .mega-case-body h3 {
+      margin: 0 0 8px;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    .mega-case-body h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .mega-case-body h3 a:hover {
+      color: var(--tab-red);
+      text-decoration: underline;
+    }
+    .mega-case-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 7px;
+    }
+    .mega-case-meta span {
+      border-radius: 999px;
+      background: var(--tab-red-wash);
+      color: var(--tab-red-dark);
+      padding: 4px 7px;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .mega-case-source {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--focus);
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+    .mega-case-source:hover {
+      text-decoration: underline;
+    }
+    .mega-case-points {
+      margin: 0;
+      padding-left: 17px;
+      color: #344054;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+    .mega-case-points li + li {
+      margin-top: 4px;
+    }
     .mega-grid {
       display: grid;
       grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
@@ -249,11 +355,15 @@
       font-size: 11px;
       font-weight: 700;
     }
-    .mega-example p {
-      margin: 5px 0 0;
+    .mega-example ul {
+      margin: 6px 0 0;
+      padding-left: 17px;
       color: #344054;
       font-size: 12px;
       line-height: 1.5;
+    }
+    .mega-example li + li {
+      margin-top: 3px;
     }
     .grid {
       display: grid;
@@ -492,6 +602,10 @@
       .trend-heading span { white-space: normal; }
       .mega-grid { grid-template-columns: 1fr; }
       .mega-hero { flex-direction: column; }
+      .mega-section-heading { flex-direction: column; align-items: flex-start; gap: 5px; }
+      .mega-section-heading p { text-align: left; }
+      .mega-case-list { grid-template-columns: 1fr; }
+      .mega-case-card { grid-template-columns: 96px minmax(0, 1fr); }
       .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
       .short-body { padding: 8px; }
     }
@@ -547,6 +661,70 @@
         </div>
         <strong>5</strong>
       </div>
+
+      <div class="mega-case-section">
+        <div class="mega-section-heading">
+          <h3>최근 1억뷰 달성 사례</h3>
+          <p>공개 랭킹과 YouTube 메타데이터에서 1억뷰 이상으로 확인된 최신 업로드를 먼저 봅니다.</p>
+        </div>
+        <div class="mega-case-list">
+        <article class="mega-case-card">
+          <a class="mega-case-thumb" href="https://www.youtube.com/shorts/HsKltJyJ-UI" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/HsKltJyJ-UI/hqdefault.jpg" alt="When did Ermao learn to do magic？ #funny #comedy">
+          </a>
+          <div class="mega-case-body">
+            <h3><a href="https://www.youtube.com/shorts/HsKltJyJ-UI" target="_blank" rel="noopener">When did Ermao learn to do magic？ #funny #comedy</a></h3>
+            <div class="mega-case-meta">
+              <span>조회수 118,256,281</span>
+              <span>좋아요 988,256</span>
+              <span>등록일 2026-05-05</span>
+            </div>
+            <a class="mega-case-source" href="https://vidirun.com/format-short" target="_blank" rel="noopener">근거: Vidirun Top 50 Short-Form Videos 24H rank 28</a>
+            <ul class="mega-case-points"><li>최근 업로드 후 1억뷰를 넘긴 사례로, 제목이 바로 질문을 던져 결과를 확인하고 싶게 만듭니다.</li>
+<li>마술·코미디·두 인물 관계가 한 장면 안에서 이해되어 언어 장벽 없이 글로벌 피드로 확장되기 쉽습니다.</li>
+<li>손동작과 반전 결과가 핵심이라 첫 시청 후에도 다시 보며 트릭을 확인하는 반복 시청이 발생합니다.</li>
+<li>funny/comedy 태그가 기대값을 명확히 만들고, 짧은 상황극 구조가 끝까지 보는 완주율 신호를 만듭니다.</li></ul>
+          </div>
+        </article>
+
+        <article class="mega-case-card">
+          <a class="mega-case-thumb" href="https://www.youtube.com/shorts/ZdXwPHwdwhY" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/ZdXwPHwdwhY/hqdefault.jpg" alt="Saito09 funny video 😂😂😂 #shorts">
+          </a>
+          <div class="mega-case-body">
+            <h3><a href="https://www.youtube.com/shorts/ZdXwPHwdwhY" target="_blank" rel="noopener">Saito09 funny video 😂😂😂 #shorts</a></h3>
+            <div class="mega-case-meta">
+              <span>조회수 193,019,444</span>
+              <span>좋아요 1,419,234</span>
+              <span>등록일 2026-02-14</span>
+            </div>
+            <a class="mega-case-source" href="https://playboard.co/en/video/ZdXwPHwdwhY?channelId=UCKLbzfmjFv_oalDX8sHxhkQ" target="_blank" rel="noopener">근거: Playboard Shorts Daily - JP daily rank 15</a>
+            <ul class="mega-case-points"><li>일본 탭에서 1억뷰를 넘긴 코미디 사례로, 표정과 행동 중심의 짧은 상황이 언어 없이도 바로 전달됩니다.</li>
+<li>제목의 funny 신호가 클릭 전 기대를 낮은 비용으로 설명하고, 결과 확인형 장면이 이탈을 줄입니다.</li>
+<li>복잡한 배경보다 인물 반응이 중심이라 모바일 화면에서 즉시 읽히고, 공유할 때 맥락 설명이 거의 필요 없습니다.</li>
+<li>웃음 포인트가 짧고 반복 가능해 같은 장면을 다시 보거나 주변 사람에게 보여 주는 행동으로 이어지기 좋습니다.</li></ul>
+          </div>
+        </article>
+
+        <article class="mega-case-card">
+          <a class="mega-case-thumb" href="https://www.youtube.com/shorts/tgOQlzCqc0M" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/tgOQlzCqc0M/hqdefault.jpg" alt="ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY NEON DANCE !! 🔥🔥">
+          </a>
+          <div class="mega-case-body">
+            <h3><a href="https://www.youtube.com/shorts/tgOQlzCqc0M" target="_blank" rel="noopener">ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY NEON DANCE !! 🔥🔥</a></h3>
+            <div class="mega-case-meta">
+              <span>조회수 399,519,222</span>
+              <span>좋아요 2,789,683</span>
+              <span>등록일 2026-02-10</span>
+            </div>
+            <a class="mega-case-source" href="https://playboard.co/en/video/tgOQlzCqc0M?channelId=UCVRqK0tS3B8pVog1HwCR4pg" target="_blank" rel="noopener">근거: Playboard Shorts Daily - 카자흐스탄 daily rank 5</a>
+            <ul class="mega-case-points"><li>Astronomia 사운드와 셔플 동작이 결합된 1억뷰 이상 댄스 사례로, 음악 훅이 시작 즉시 장르를 알려 줍니다.</li>
+<li>아이·네온·셔플이라는 시각 대비가 강해 썸네일만으로도 궁금증을 만들고 첫 프레임 흡입력이 큽니다.</li>
+<li>동작이 루프 구조와 잘 맞아 다시 보기, 따라 하기, 리믹스 가능성이 동시에 열립니다.</li>
+<li>대사보다 음악과 몸동작이 핵심이라 지역 탭을 넘어 글로벌 추천 피드에서 소비되기 쉽습니다.</li></ul>
+          </div>
+        </article></div>
+      </div>
       <div class="mega-grid">
         <div class="mega-block">
           <h3>왜 1억뷰가 나오는가</h3>
@@ -562,31 +740,46 @@
         <article class="mega-example">
           <a href="https://www.youtube.com/shorts/HsKltJyJ-UI" target="_blank" rel="noopener">When did Ermao learn to do magic？ #funny #comedy</a>
           <span>118,256,281 views · 게시일 2026-05-05</span>
-          <p>글로벌 탭에서 118,256,281 views로 확인된 1억뷰 돌파형 쇼츠 Vidirun Top 50 Short-Form Videos 24H rank 28에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음 감지 키워드: magic 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다 마술·구출·공개·놀라움 계열 키워드가 마지막 장면까지 보게 만드는 질문을 던집니다 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다 이미 1억뷰를 넘은 사례라 클릭률, 완주율, 반복 시청, 공유 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다 분석 패턴: 상황형 코미디·짧은 사건</p>
+          <ul><li>글로벌 탭에서 118,256,281 views로 확인된 1억뷰 돌파형 쇼츠</li>
+<li>Vidirun Top 50 Short-Form Videos 24H rank 28에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li>
+<li>감지 키워드: magic</li>
+<li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li></ul>
         </article>
 
         <article class="mega-example">
           <a href="https://www.youtube.com/shorts/ZdXwPHwdwhY" target="_blank" rel="noopener">Saito09 funny video 😂😂😂 #shorts</a>
           <span>193,019,444 views · 게시일 2026-02-14</span>
-          <p>JP 탭에서 193,019,444 views로 확인된 1억뷰 돌파형 쇼츠 Playboard Shorts Daily - JP daily rank 15에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음 감지 키워드: funny 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다 이미 1억뷰를 넘은 사례라 클릭률, 완주율, 반복 시청, 공유 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다 분석 패턴: 상황형 코미디·짧은 사건</p>
+          <ul><li>JP 탭에서 193,019,444 views로 확인된 1억뷰 돌파형 쇼츠</li>
+<li>Playboard Shorts Daily - JP daily rank 15에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li>
+<li>감지 키워드: funny</li>
+<li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li></ul>
         </article>
 
         <article class="mega-example">
           <a href="https://www.youtube.com/shorts/9Egj8PiHiak" target="_blank" rel="noopener">CHUPANDO DEDO #santi #santioficial #funny #comedy</a>
           <span>140,864,096 views · 게시일 2025-10-27</span>
-          <p>멕시코 탭에서 140,864,096 views로 확인된 1억뷰 돌파형 쇼츠 Playboard Shorts Daily - 멕시코 daily rank 5에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음 감지 키워드: funny 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다 이미 1억뷰를 넘은 사례라 클릭률, 완주율, 반복 시청, 공유 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다 분석 패턴: 상황형 코미디·짧은 사건</p>
+          <ul><li>멕시코 탭에서 140,864,096 views로 확인된 1억뷰 돌파형 쇼츠</li>
+<li>Playboard Shorts Daily - 멕시코 daily rank 5에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li>
+<li>감지 키워드: funny</li>
+<li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li></ul>
         </article>
 
         <article class="mega-example">
           <a href="https://www.youtube.com/shorts/tgOQlzCqc0M" target="_blank" rel="noopener">ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY NEON DANCE...</a>
           <span>399,519,222 views · 게시일 2026-02-10</span>
-          <p>카자흐스탄 탭에서 399,519,222 views로 확인된 1억뷰 돌파형 쇼츠 Playboard Shorts Daily - 카자흐스탄 daily rank 5에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음 감지 키워드: dance 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다 이미 1억뷰를 넘은 사례라 클릭률, 완주율, 반복 시청, 공유 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다 분석 패턴: 댄스·음악 챌린지</p>
+          <ul><li>카자흐스탄 탭에서 399,519,222 views로 확인된 1억뷰 돌파형 쇼츠</li>
+<li>Playboard Shorts Daily - 카자흐스탄 daily rank 5에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li>
+<li>감지 키워드: dance</li>
+<li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li></ul>
         </article>
 
         <article class="mega-example">
           <a href="https://www.youtube.com/shorts/FWMyxmIu1Ss" target="_blank" rel="noopener">When princesses playing &quot;Squid Game&quot; Challenge #bybacademy #tha...</a>
           <span>253,589,299 views · 게시일 2026-01-27</span>
-          <p>베트남 탭에서 253,589,299 views로 확인된 1억뷰 돌파형 쇼츠 Playboard Shorts Daily - 베트남 daily rank 20에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음 감지 키워드: challenge 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다 이미 1억뷰를 넘은 사례라 클릭률, 완주율, 반복 시청, 공유 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다 분석 패턴: 댄스·음악 챌린지</p>
+          <ul><li>베트남 탭에서 253,589,299 views로 확인된 1억뷰 돌파형 쇼츠</li>
+<li>Playboard Shorts Daily - 베트남 daily rank 20에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li>
+<li>감지 키워드: challenge</li>
+<li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li></ul>
         </article></div>
         </div>
       </div>
