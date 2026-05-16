@@ -131,6 +131,97 @@
       font-size: 13px;
       line-height: 1.55;
     }
+    .mega-panel {
+      background: transparent;
+    }
+    .mega-hero {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .mega-hero h2 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.25;
+    }
+    .mega-hero p {
+      margin: 0;
+      color: #344054;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .mega-hero strong {
+      min-width: 48px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-size: 22px;
+      line-height: 1;
+    }
+    .mega-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 12px;
+    }
+    .mega-block {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 14px;
+    }
+    .mega-block h3 {
+      margin: 0 0 10px;
+      font-size: 15px;
+      line-height: 1.3;
+    }
+    .mega-block ul {
+      margin: 0;
+      padding-left: 18px;
+      color: #344054;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .mega-examples {
+      display: grid;
+      gap: 10px;
+    }
+    .mega-example {
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }
+    .mega-example:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+    .mega-example a {
+      display: block;
+      color: var(--focus);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.35;
+      text-decoration: none;
+    }
+    .mega-example span {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .mega-example p {
+      margin: 5px 0 0;
+      color: #344054;
+      font-size: 12px;
+      line-height: 1.5;
+    }
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
@@ -220,6 +311,7 @@
     }
     .channel,
     .published,
+    .popularity,
     .video-url,
     .source {
       margin: 0;
@@ -230,6 +322,13 @@
     .published {
       color: #475467;
       font-weight: 700;
+    }
+    .popularity {
+      color: #344054;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     .video-url a {
       color: var(--focus);
@@ -265,6 +364,8 @@
       .tab-button span { min-width: 18px; padding: 1px 5px; font-size: 10px; }
       .trend-heading { align-items: flex-start; flex-direction: column; gap: 4px; }
       .trend-heading span { white-space: normal; }
+      .mega-grid { grid-template-columns: 1fr; }
+      .mega-hero { flex-direction: column; }
       .grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
       .thumb-link { flex-basis: 68px; width: 68px; }
     }
@@ -275,6 +376,7 @@
     <div class="shell">
       <nav class="tabs" aria-label="region tabs">
         <button class="tab-button active" type="button" data-region-tab="global">글로벌<span>23</span></button>
+<button class="tab-button" type="button" data-region-tab="mega">1억뷰 분석<span>1</span></button>
 <button class="tab-button" type="button" data-region-tab="kr">KR<span>12</span></button>
 <button class="tab-button" type="button" data-region-tab="us">US<span>4</span></button>
 <button class="tab-button" type="button" data-region-tab="jp">JP<span>7</span></button>
@@ -311,6 +413,34 @@
 <li>조회수 상위 최근 사례는 Jackie Chan Saved The Day 🥶🔥 | The Shadow&#x27;s E... (35,996,747 views)이며, 댄스·음악 챌린지, 편집·슬로우드 사운드 쪽 신호가 강합니다.</li></ul>
     </section>
 
+    <section class="region-panel mega-panel" data-region-panel="mega" aria-label="1억뷰 분석">
+      <div class="mega-hero">
+        <div>
+          <h2>1억뷰 분석</h2>
+          <p>현재 표시 영상 중 1개가 1억뷰 이상입니다. 가장 강한 사례는 When did Ermao learn to do magic？ #funny #comedy (118,115,270 views)입니다. 현재 데이터에서는 상황형 코미디·짧은 사건 신호가 특히 강합니다.</p>
+        </div>
+        <strong>1</strong>
+      </div>
+      <div class="mega-grid">
+        <div class="mega-block">
+          <h3>왜 1억뷰가 나오는가</h3>
+          <ul><li>초반 1초 안에 무슨 일이 벌어지는지 보여 주고, 설명 없이도 이해되는 장면이 유리합니다.</li>
+<li>댄스·마술·스턴트·짧은 갈등처럼 끝을 확인하고 싶은 구조가 반복 시청을 만듭니다.</li>
+<li>슬로우드 사운드, 펑크, 익숙한 음악, 강한 리듬은 같은 영상을 여러 번 보게 만드는 접착제 역할을 합니다.</li>
+<li>자막이나 언어 의존도가 낮을수록 국가별 탭을 넘어 글로벌 피드에서 확장되기 쉽습니다.</li>
+<li>1억뷰는 조회수 하나의 폭발보다 클릭 유지율, 반복 시청, 공유, 리믹스 가능성이 동시에 맞을 때 나옵니다.</li></ul>
+        </div>
+        <div class="mega-block">
+          <h3>현재 데이터의 1억뷰·근접 사례</h3>
+          <div class="mega-examples">
+        <article class="mega-example">
+          <a href="https://www.youtube.com/shorts/HsKltJyJ-UI" target="_blank" rel="noopener">When did Ermao learn to do magic？ #funny #comedy</a>
+          <span>118,115,270 views · 게시일 2026-05-05</span>
+          <p>인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 호기심을 여는 키워드가 있어 마지막 장면까지 보게 만듦 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
+        </article></div>
+        </div>
+      </div>
+    </section>
     <section class="region-panel active" data-region-panel="global" aria-label="글로벌 trending shorts">
       <div class="grid">
       <article class="short-card">
@@ -325,6 +455,7 @@
           </div>
           <h2>Jackie Chan Saved The Day 🥶🔥 | The Shadow&#x27;s Edge | FUNK ABNORMAL (Slowed) #trending #shorts</h2>
           <p class="published">게시일 2026-05-12</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/ChdXjc1nouk" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Riven-Edits</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 4</p>
@@ -343,6 +474,7 @@
           </div>
           <h2>Reddington saved the people in the convenience store.#shortvideo#theblacklist #series #shorts</h2>
           <p class="published">게시일 2026-05-14</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 호기심을 여는 키워드가 있어 마지막 장면까지 보게 만듦 · 게시 직후 짧은 기간에 높은 조회수를 만든 초기 확산 속도</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/jBtyy-xQaB0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Movie- serendipity</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 5</p>
@@ -361,6 +493,7 @@
           </div>
           <h2>SOAP BALL 🧼🫧⚾ #shorts #youtubeshorts #cricket #unboxing #ball #funny #boxofvengeance</h2>
           <p class="published">게시일 2026-05-14</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/vHqQqFwhGuw" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Box Of Vengeance</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 21</p>
@@ -379,6 +512,7 @@
           </div>
           <h2>He Couldn’t Stop Himself | 27 Dresses | HEAVENLY JUMPSTYLE (Slowed) #edit #shorts</h2>
           <p class="published">게시일 2026-05-12</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호 · 게시 직후 짧은 기간에 높은 조회수를 만든 초기 확산 속도</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/-eRo-q36q6w" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Rynex Edit</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 22</p>
@@ -397,6 +531,7 @@
           </div>
           <h2>Argentina 🇦🇷 vs Portugal 🇵🇹 Dance Battle 🔥#football #worldcup#shorts</h2>
           <p class="published">게시일 2026-05-08</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 스포츠·스턴트·무대 순간처럼 결과를 끝까지 확인하게 하는 장면 · 게시 직후 짧은 기간에 높은 조회수를 만든 초기 확산 속도</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/LGDz_hM078k" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">LinkouS Source</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 29</p>
@@ -415,6 +550,7 @@
           </div>
           <h2>BEST SURPRISE EVER! ❤️‍🩹 | Headlights feat. KIDDO (Slowed)</h2>
           <p class="published">게시일 2026-05-13</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/2574bgUga4M" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Sunnah Edit</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 30</p>
@@ -433,6 +569,7 @@
           </div>
           <h2>Sister Very Angry Bhai Aa Gaye 🤣🤩😅 ##funnyvideo #funny #comedyvideos #funnyshorts</h2>
           <p class="published">게시일 2026-05-11</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼 · 게시 직후 짧은 기간에 높은 조회수를 만든 초기 확산 속도</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/bMhgjlhIsjQ" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Vikram Singh Fitness</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 32</p>
@@ -451,6 +588,7 @@
           </div>
           <h2>When did Ermao learn to do magic？ #funny #comedy</h2>
           <p class="published">게시일 2026-05-05</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 호기심을 여는 키워드가 있어 마지막 장면까지 보게 만듦 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/HsKltJyJ-UI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">FatSongsong and ThinErmao</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 28</p>
@@ -469,6 +607,7 @@
           </div>
           <h2>They’ll never know what happened💀 | Now you see me 3 (2025) - 4k Edit | MATADORA (Slowed)</h2>
           <p class="published">게시일 2026-05-10</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/vWdr3dETkqY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">LaughTrack</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 34</p>
@@ -487,6 +626,7 @@
           </div>
           <h2>Michael Jackson Moonwalk with Skates Part 2</h2>
           <p class="published">게시일 2026-04-30</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 스포츠·스턴트·무대 순간처럼 결과를 끝까지 확인하게 하는 장면 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/pu5NE-nABcI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Meowfia Empire</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 35</p>
@@ -505,6 +645,7 @@
           </div>
           <h2>Salish Matter’s EXTREME Street Stunt!😱 #shorts</h2>
           <p class="published">게시일 2026-05-07</p>
+          <p class="popularity">인기 이유 스포츠·스턴트·무대 순간처럼 결과를 끝까지 확인하게 하는 장면 · 게시 직후 짧은 기간에 높은 조회수를 만든 초기 확산 속도 · 1억뷰 후보권에 가까운 대중적 훅과 재시청 신호가 있음</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/QeMFP_xkAjk" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">SaIish Zone</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 17</p>
@@ -523,6 +664,7 @@
           </div>
           <h2>Backstage vs Result cute dance 😊🧸</h2>
           <p class="published">게시일 2026-05-03</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 스포츠·스턴트·무대 순간처럼 결과를 끝까지 확인하게 하는 장면 · 1억뷰 후보권에 가까운 대중적 훅과 재시청 신호가 있음</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/CkaFGiLhk9U" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Andrey Grechka</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 26</p>
@@ -541,6 +683,7 @@
           </div>
           <h2>BTS REVEAL! 🎬 Jasmin is defying gravity… 😱 #shorts #michaeljackson</h2>
           <p class="published">게시일 2026-05-09</p>
+          <p class="popularity">인기 이유 스포츠·스턴트·무대 순간처럼 결과를 끝까지 확인하게 하는 장면 · K-pop·아이돌 팬덤과 챌린지 확산에 올라탈 수 있는 소재 · 호기심을 여는 키워드가 있어 마지막 장면까지 보게 만듦</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/BKFhBNgoG_M" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Jasmin and James</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 33</p>
@@ -559,6 +702,7 @@
           </div>
           <h2>방탄소년단과 함께 #PermissiontoDance 챌린지에 참여하세요</h2>
           <p class="published">게시일 2021-07-23</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · K-pop·아이돌 팬덤과 챌린지 확산에 올라탈 수 있는 소재</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/zvhzOby6c4g" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">YouTube Korea</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -577,6 +721,7 @@
           </div>
           <h2>PEE DANCE!?! WHY do I PEE SO MUCH??? #PEE #shorts</h2>
           <p class="published">게시일 2021-08-20</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/Xe__sN9YIAI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Yolanda Tsang PT - YO AND VAGINIA</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+cute+dance+one+person+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -595,6 +740,7 @@
           </div>
           <h2>dancin (krono remix) - Anime Dance Mix [Edit/AMV]</h2>
           <p class="published">게시일 2022-12-28</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/1L7mzyGhXCA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Zweng</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+slowed+dance+edit" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -613,6 +759,7 @@
           </div>
           <h2>One Dance Instrumental Best Part (Slowed to Perfection)</h2>
           <p class="published">게시일 2022-10-26</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/wKrPPA7G8Gs" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Joushi</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+slowed+dance+edit" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -631,6 +778,7 @@
           </div>
           <h2>Funny Rat Song, Top Rats, Dance Music Pop Songs, This Video Has No Dislikes!</h2>
           <p class="published">게시일 2014-12-01</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/18dJkoR-uzU" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">mike rayner videos</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+funny+situation+music+edit" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -649,6 +797,7 @@
           </div>
           <h2>Spiderman Funny Dance Original and Edit | Velocity Edit #shorts #trending #short</h2>
           <p class="published">게시일 2023-06-25</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/qrX7_rEIHMw" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">P4NK4Z.3DITX</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+funny+situation+music+edit" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -667,6 +816,7 @@
           </div>
           <h2>Booty Music - Git Fresh | Dance Cover by BoBoDanceStudio</h2>
           <p class="published">게시일 2024-03-12</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/8tYlQPTdJ1o" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">BoBo Dance Studio</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+KPOP+dance+music+trend" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -685,6 +835,7 @@
           </div>
           <h2>Mariah Carey - All I Want For Christmas Is You / TIKTOK dance challenge 홍대댄스학원</h2>
           <p class="published">게시일 2021-12-15</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/8Ffld_2OTe0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">EZ DANCE</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+trend" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -703,6 +854,7 @@
           </div>
           <h2>요청💘) 아무래도난 튜토리얼 [거울모드 mirrored]/ 릴스 틱톡 쇼츠 댄스 챌린지 / tiktok reels short dance challenge</h2>
           <p class="published">게시일 2022-06-30</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/e5XUL2p3HjU" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">정지안이당</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -721,6 +873,7 @@
           </div>
           <h2>Turning anime into reality</h2>
           <p class="published">게시일 2026-05-13</p>
+          <p class="popularity">인기 이유 게시 직후 짧은 기간에 높은 조회수를 만든 초기 확산 속도</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/gaofbq_8cAQ" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Jordi Koalitic</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 9</p>
@@ -743,6 +896,7 @@
           </div>
           <h2>F1 스탑 챌린지 #f1 #formula1 #포뮬러1</h2>
           <p class="published">게시일 2026-05-06</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 스포츠·스턴트·무대 순간처럼 결과를 끝까지 확인하게 하는 장면</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/4KyCA_Yt-zk" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/4KyCA_Yt-zk?channelId=UCdvItLHXa6z2lfxYwz6PypA" target="_blank" rel="noopener">Playboard Shorts Daily - KR</a> · rank 11</p>
@@ -761,6 +915,7 @@
           </div>
           <h2>[우주22댄스챌린지]💃🕺스우파 가비 X 솔로지옥 차현승💘 우주22댄스 배우고 Galaxy S22 득템🦄</h2>
           <p class="published">게시일 2022-02-25</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/hq9MjSpfE4s" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">SK telecom</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -779,6 +934,7 @@
           </div>
           <h2>2024 인기 댄스챌린지 모음ㅣ2024 Dance Challenge Compilation</h2>
           <p class="published">게시일 2024-08-06</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/7ZmiScVqqdA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">춤선생SIMBA</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -797,6 +953,7 @@
           </div>
           <h2>춤짱들의 댄스 챌린지 #송형준 #이채연 #크래비티</h2>
           <p class="published">게시일 2023-09-30</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/fcJ8U3J67s4" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">송강호우</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -815,6 +972,7 @@
           </div>
           <h2>TOCA TOCA(토카토카) 챌린지안무/ 다이어트댄스</h2>
           <p class="published">게시일 2023-05-12</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/JPZvnxL1BV8" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">매드댄스무브먼트협회</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -833,6 +991,7 @@
           </div>
           <h2>🖇️릴스 600만뷰 찍은 댄스챌린지 모음 #저스트비크루</h2>
           <p class="published">게시일 2023-02-17</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/64HFcmUso_c" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">저스트비크루 JUSTEVEE OFFICIAL</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -851,6 +1010,7 @@
           </div>
           <h2>[KOSHA X OH MY GIRL] 안전댄스 챌린지 START! &quot;아이패드 필요한 사람 드루와~&quot;</h2>
           <p class="published">게시일 2020-09-10</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/T4nPwDE4lIA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">안전보건공단</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -869,6 +1029,7 @@
           </div>
           <h2>[NZ 챌린지] 칼각 댄스 영상</h2>
           <p class="published">게시일 2022-07-04</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/jLi8WDXZD-w" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">한국에너지공단 : KEA(Korea Energy Agency)</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -887,6 +1048,7 @@
           </div>
           <h2>시니어를 위한 셔플댄스 입문 10가지 스텝 #시니어셔플댄스 #춤선생simba #한국셔플댄스협회</h2>
           <p class="published">게시일 2024-10-31</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/lQ53wEV5siM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">춤선생SIMBA</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%ED%95%9C%EA%B5%AD+%EC%87%BC%EC%B8%A0+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%ED%8A%B8%EB%A0%8C%EB%93%9C" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -905,6 +1067,7 @@
           </div>
           <h2>BTS is awesome #dancingnayul #kpop #music #dance #shorts #challenge #AFstarz #dancingbeardol #dre...</h2>
           <p class="published">게시일 2025-11-07</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · K-pop·아이돌 팬덤과 챌린지 확산에 올라탈 수 있는 소재</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/pncR4rTOUXE" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">춤추는나율(헤어날수없어 율♡)</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -923,6 +1086,7 @@
           </div>
           <h2>[우주22댄스챌린지] 빵먹다살찐떡, 강예찬도 참여한 바로 그 챌린지! 🕺🏼✨ Galaxy S22, Galaxy Tab S8 받아가세요!🥰</h2>
           <p class="published">게시일 2022-03-04</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/PiijOs9gJXM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">SK telecom</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -941,6 +1105,7 @@
           </div>
           <h2>Starting the day : 😄 Smile #DancingYoonji #Soomile #Challenge #Shorts #Dance #kpop #DancingBear #...</h2>
           <p class="published">게시일 2026-05-15</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · K-pop·아이돌 팬덤과 챌린지 확산에 올라탈 수 있는 소재</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/RBw24AV7HzU" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">춤추는윤지</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%ED%95%9C%EA%B5%AD+%EC%87%BC%EC%B8%A0+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%ED%8A%B8%EB%A0%8C%EB%93%9C" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -963,6 +1128,7 @@
           </div>
           <h2>She’s lucky to have such a good sister #movie #edit #shorts</h2>
           <p class="published">게시일 2026-05-13</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/vczVVT8IW3c" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">yymovie</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=US&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - US Comedy</a> · rank 4</p>
@@ -981,6 +1147,7 @@
           </div>
           <h2>That Was Wild 💀 | Fresh Off The Boat | Song - Montagem Alquimia (Slowed) #edit #shorts</h2>
           <p class="published">게시일 2026-05-14</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/SoCV6HyGE2A" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Maven-Edits</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=US&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - US Comedy</a> · rank 9</p>
@@ -999,6 +1166,7 @@
           </div>
           <h2>Chris Brown and Snoop Dogg Dances to Amapiano South African Music</h2>
           <p class="published">게시일 2023-04-30</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/6fCpQ_jNZys" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Jobartography</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+USA" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1017,6 +1185,7 @@
           </div>
           <h2>[아두] Earth, Wind &amp; Fire - September | 커버댄스 Dance Cover | Choreography by Jisoo Yu &amp; David Hart</h2>
           <p class="published">게시일 2020-05-04</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · K-pop·아이돌 팬덤과 챌린지 확산에 올라탈 수 있는 소재</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/o2amXB3yVWw" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">아두 Ahdoo [아름다운 두둠칫]</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=US+trending+shorts+dance+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1039,6 +1208,7 @@
           </div>
           <h2>プラスチックストローから笛の作り方🥤🪈💞#challenge#straw#flute</h2>
           <p class="published">게시일 2026-05-06</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/5qPDtxngIzQ" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/5qPDtxngIzQ?channelId=UCsW-2LeMgUNGdMloq5kPeLg" target="_blank" rel="noopener">Playboard Shorts Daily - JP</a> · rank 8</p>
@@ -1057,6 +1227,7 @@
           </div>
           <h2>Mbappé, Haaland, and Yamal Are Too Funny 😂🔥 #football #haaland #parody</h2>
           <p class="published">게시일 2026-05-13</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 스포츠·스턴트·무대 순간처럼 결과를 끝까지 확인하게 하는 장면 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/ffl0gvGSv9s" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/ffl0gvGSv9s?channelId=UC0Badcq36RBDHN-e3N1Papg" target="_blank" rel="noopener">Playboard Shorts Daily - JP</a> · rank 10</p>
@@ -1075,6 +1246,7 @@
           </div>
           <h2>Saito09 funny video 😂😂😂 #shorts</h2>
           <p class="published">게시일 2026-02-14</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/ZdXwPHwdwhY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/ZdXwPHwdwhY?channelId=UCKLbzfmjFv_oalDX8sHxhkQ" target="_blank" rel="noopener">Playboard Shorts Daily - JP</a> · rank 15</p>
@@ -1093,6 +1265,7 @@
           </div>
           <h2>プレゼント🎁for you #shorts #funny #comedy</h2>
           <p class="published">게시일 2026-05-08</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/MLo6POLpdSI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/MLo6POLpdSI?channelId=UCjJjOBHEQVKZhbbuVqpVgDw" target="_blank" rel="noopener">Playboard Shorts Daily - JP</a> · rank 16</p>
@@ -1111,6 +1284,7 @@
           </div>
           <h2>NO BATIDÃO Group Dance Trend That Broke TikTok</h2>
           <p class="published">게시일 2026-02-27</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/QRBHUE3kkqo" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">My Musify</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Japan+shorts+dance+challenge+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1129,6 +1303,7 @@
           </div>
           <h2>Top 10 Most Viral Dance Phonk Music On TikTok</h2>
           <p class="published">게시일 2025-08-25</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/M6T3PJnlvaI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">NS Seyat</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Japan+shorts+dance+challenge+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1147,6 +1322,7 @@
           </div>
           <h2>Anime [amv]- Toca Toca Official Music Video 4K (Dance Template)</h2>
           <p class="published">게시일 2023-04-22</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/2DFKIllyMOY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Ashwath Baskar</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Japan+shorts+dance+challenge+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1169,6 +1345,7 @@
           </div>
           <h2>CHUPANDO DEDO #santi #santioficial #funny #comedy</h2>
           <p class="published">게시일 2025-10-27</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/9Egj8PiHiak" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/9Egj8PiHiak?channelId=UCizBBt3xOHkXPKvnaEEUKAA" target="_blank" rel="noopener">Playboard Shorts Daily - 멕시코</a> · rank 5</p>
@@ -1187,6 +1364,7 @@
           </div>
           <h2>Cazador de Demonios a Cazadoras de los Sajaboys hay diferencia 🤣.#cosplay #humor #kpopdemonhunters</h2>
           <p class="published">게시일 2026-05-13</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/oE_3ZBdOJzc" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/oE_3ZBdOJzc?channelId=UCYC_zK-AW6YL2MLNqgbexIQ" target="_blank" rel="noopener">Playboard Shorts Daily - 멕시코</a> · rank 7</p>
@@ -1205,6 +1383,7 @@
           </div>
           <h2>ASÍ es como MICHAEL JACKSON DESAFIO la GRAVEDAD 😱 #michaeljackson #curiosidades #datoscuriosos</h2>
           <p class="published">게시일 2026-05-14</p>
+          <p class="popularity">인기 이유 스포츠·스턴트·무대 순간처럼 결과를 끝까지 확인하게 하는 장면</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/_eS8Xh4qH-k" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/_eS8Xh4qH-k?channelId=UCJ3rhXt1uxgdrUGu03Cd5CQ" target="_blank" rel="noopener">Playboard Shorts Daily - 멕시코</a> · rank 12</p>
@@ -1223,6 +1402,7 @@
           </div>
           <h2>Mango limpio ? O sucio? #viral #humor #casosdefamilia #youtubeshorts #comedia #shortvideo</h2>
           <p class="published">게시일 2026-05-14</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/ZzWVQZ9nNqM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/ZzWVQZ9nNqM?channelId=UC2nJBXaDf6KuWk7zMMKwxew" target="_blank" rel="noopener">Playboard Shorts Daily - 멕시코</a> · rank 13</p>
@@ -1241,6 +1421,7 @@
           </div>
           <h2>#timelapse for entertainment , so cute funny family , new memes smc</h2>
           <p class="published">게시일 2026-05-04</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/2lvUxw1mNoE" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/2lvUxw1mNoE?channelId=UCMDrIhCljOfwVwvI0OWOdpQ" target="_blank" rel="noopener">Playboard Shorts Daily - 멕시코</a> · rank 19</p>
@@ -1259,6 +1440,7 @@
           </div>
           <h2>Me perdía muy seguido 😩😂 #shorts #humor #tiktokvideo #comedia #funny #fyp</h2>
           <p class="published">게시일 2026-05-15</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/IPK0M8cCt6o" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Gabriela Flores Villar</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 멕시코 Comedy</a> · rank 2</p>
@@ -1277,6 +1459,7 @@
           </div>
           <h2>Enganaron a LARIN JR😭🥺By:alfredolarin #humor #comedy #comedia #youtubeshorts #shortvideo</h2>
           <p class="published">게시일 2026-05-14</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/oNLPZ6zg2XY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">JOLLYDOT</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 멕시코 Entertainment</a> · rank 10</p>
@@ -1295,6 +1478,7 @@
           </div>
           <h2>POV: SE TE OLVIDAN LAS LLAVES ADENTRO DEL CARRO😭💀🚗 #humor #shorts #comedia #lospqliares</h2>
           <p class="published">게시일 2026-05-15</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/GuquAiWY0WQ" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Los PQliares</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 멕시코 Comedy</a> · rank 1</p>
@@ -1313,6 +1497,7 @@
           </div>
           <h2>Rasputin Boney M Janaki and Naveen Star magic Flowers channel viral dance Rasputin flowers</h2>
           <p class="published">게시일 2021-04-23</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 호기심을 여는 키워드가 있어 마지막 장면까지 보게 만듦</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/qM70GqUROyk" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Donald Edits</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Mexico+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1331,6 +1516,7 @@
           </div>
           <h2>El baile viral del momento la culebritica. #musica #music 🤪🤪🤪 #bailesdetiktok #viralshorts</h2>
           <p class="published">게시일 2024-06-20</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/BaMLcfSquP0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Guitar 🎧</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+baile+musica+tendencia+Mexico" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1353,6 +1539,7 @@
           </div>
           <h2>Alien dance | Funny Alien | Dame Tu Cosita | Funny alien dance | Green alien dance | Dance song</h2>
           <p class="published">게시일 2022-06-12</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/t16xpbf2llY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Green Alien India</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+tanz+musik+trend+deutschland" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1371,6 +1558,7 @@
           </div>
           <h2>Jerusalema Dance Challenge Austrian Airlines HD✈️✈️ #Dance #JerusalemaDanceChallenge</h2>
           <p class="published">게시일 2021-03-11</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/h5Jh1MIzWOE" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">DancersStudioHD</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Germany+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1389,6 +1577,7 @@
           </div>
           <h2>After Hours Three 💖stunning 💫girls dance 💙 christina 💤Trending Reels #trending #shorts #dance #viral</h2>
           <p class="published">게시일 2024-06-09</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/B2VFVPDrhJc" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Guitar 🎧</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+tanz+musik+trend+deutschland" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1407,6 +1596,7 @@
           </div>
           <h2>Komm Tanzen? - Ich Will Nicht --- TikTok Trend --- Dancing Wolf</h2>
           <p class="published">게시일 2023-11-28</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/vLcJhv_gYlo" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">-=Joint197=-</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+tanz+musik+trend+deutschland" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1425,6 +1615,7 @@
           </div>
           <h2>Handsome Dancer - Coincidance</h2>
           <p class="published">게시일 2015-06-30</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/nBHkIWAJitg" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Handsome Dancer</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Germany+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1447,6 +1638,7 @@
           </div>
           <h2>o professor brigou com a sala inteira kkkkk l #engraçado #escola #humor #shorts</h2>
           <p class="published">게시일 2026-05-14</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/6zmSGoTN7-U" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/6zmSGoTN7-U?channelId=UCXGb2Xm77q1fzpH5kJuDouQ" target="_blank" rel="noopener">Playboard Shorts Daily - 브라질</a> · rank 12</p>
@@ -1465,6 +1657,7 @@
           </div>
           <h2>VOCÊ COMEU MEU BOLO | #humor #shorts</h2>
           <p class="published">게시일 2026-05-12</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/Dyq9ufEv21o" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Zero filtro corteseco</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 브라질 Comedy</a> · rank 3</p>
@@ -1483,6 +1676,7 @@
           </div>
           <h2>Qual delas vocês gostaram mais #humor #piadascurtas #comedy #comedia #piadasrapidas #shorts</h2>
           <p class="published">게시일 2026-05-10</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/6BLmRFgePZc" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">ALINE.OFICIAL🧚‍♀️</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 브라질 Comedy</a> · rank 16</p>
@@ -1501,6 +1695,7 @@
           </div>
           <h2>Truco na escola? 🤣🤣🤣 #humor #memes #shorts</h2>
           <p class="published">게시일 2026-05-11</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/50BQYtOS5FU" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Canal Invlo</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 브라질 Comedy</a> · rank 15</p>
@@ -1519,6 +1714,7 @@
           </div>
           <h2>Original vs Edit 🔥 | Gozalo | Bailalo Gozalo | Gozalo Dance | Gonzalo | Gonzalo Dance 😍✨#funk #edit</h2>
           <p class="published">게시일 2025-12-27</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/nWJdabiKpm0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Atco Editz</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+danca+musica+tendencia+Brasil" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1537,6 +1733,7 @@
           </div>
           <h2>Tomato Tomato Tomato 🕺 New Trend 📸 #dance #dancecover #trend #trending #brazil #phonk #djarana</h2>
           <p class="published">게시일 2023-06-02</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/tnSBKJxsWrY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Hot reaction on meme</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+danca+musica+tendencia+Brasil" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1555,6 +1752,7 @@
           </div>
           <h2>PAQUETA DANCE EDIT | BRAZIL CELEBRATION | 4K ULTRA HD</h2>
           <p class="published">게시일 2023-04-30</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/PExRCEPOCk4" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Football Legion</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+danca+musica+tendencia+Brasil" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1573,6 +1771,7 @@
           </div>
           <h2>Best TikTok challenges 2026 - Brazil Alencarzão and Arthur Lima - brazil dance tiktok</h2>
           <p class="published">게시일 2026-04-18</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/p2xTa1U2U5M" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Tiktok mix</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Brazil+dance+challenge+shorts+funk" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1591,6 +1790,7 @@
           </div>
           <h2>DANCING FUNK-DJ Javi26, Zyas ---- JUJUTSU KAISEN EDIT</h2>
           <p class="published">게시일 2025-12-12</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/v35j0LkQ1sM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Suha</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Brazil+dance+challenge+shorts+funk" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1613,6 +1813,7 @@
           </div>
           <h2>Mainan Kardus PRANK kaget lucu #kreatif #toys #prank #funny #lol</h2>
           <p class="published">게시일 2026-03-30</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/Axg9eTh24cA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/Axg9eTh24cA?channelId=UC3O-Y2r8vISaCK0V6do-B2g" target="_blank" rel="noopener">Playboard Shorts Daily - 인도네시아</a> · rank 6</p>
@@ -1631,6 +1832,7 @@
           </div>
           <h2>Gercep banget ini cewek😂 #couple #funny #shorts</h2>
           <p class="published">게시일 2026-05-14</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/FP1RlgSrod8" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/FP1RlgSrod8?channelId=UCFjAz1kIFc-MKqw4Fz4xkEA" target="_blank" rel="noopener">Playboard Shorts Daily - 인도네시아</a> · rank 18</p>
@@ -1649,6 +1851,7 @@
           </div>
           <h2>Tarian afrika keren #shorts</h2>
           <p class="published">게시일 2022-02-17</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/bFdwP0u8FD0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Masdet</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+joget+musik+viral+Indonesia" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1671,6 +1874,7 @@
           </div>
           <h2>Mission Impossible 😎 #humor #funny #comedy</h2>
           <p class="published">게시일 2026-05-10</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/lWBlN0bUJis" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/lWBlN0bUJis?channelId=UCABKolAKTA29f03BYtvcERw" target="_blank" rel="noopener">Playboard Shorts Daily - 아르헨티나</a> · rank 18</p>
@@ -1689,6 +1893,7 @@
           </div>
           <h2>Su reacción al saltar a agua fría fue ÉPICA #shorts #challenge</h2>
           <p class="published">게시일 2026-05-13</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/0nPaRKaWm8g" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Pablo Pol</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=AR&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 아르헨티나 Entertainment</a> · rank 16</p>
@@ -1707,6 +1912,7 @@
           </div>
           <h2>Daddy Yankee &amp; Snow - con calma | jyoti choreography | #concalma #dance #choreography #trending</h2>
           <p class="published">게시일 2024-04-29</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/j8kTzXjAyjY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Jyotikoli</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Argentina+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1725,6 +1931,7 @@
           </div>
           <h2>Viral Dance Challenge: Scott West Dance of the Gold Condor (Buenos Aires) Van Gogh Starry Night</h2>
           <p class="published">게시일 2026-04-10</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/9rfhgNmn2YE" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">SCOTT WEST</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Argentina+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1747,6 +1954,7 @@
           </div>
           <h2>EENIE MEENIE DANCE CHALLENGE BY HYPERKATZ</h2>
           <p class="published">게시일 2021-10-12</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/vokq7WZwGBc" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Patrickjohn T. Japos</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1765,6 +1973,7 @@
           </div>
           <h2>Maymay Entrata - Tsada Mahigugma | New Dance Challenge By Zambosur Dance Company | Trend Tiktok</h2>
           <p class="published">게시일 2023-10-12</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/dO4XRxSqU_c" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">ZamboSurDanceCompany - ZSDC</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1783,6 +1992,7 @@
           </div>
           <h2>GENTO DANCE CHALLENGE by SB19 | The Prime Moverz and Primera Hija</h2>
           <p class="published">게시일 2023-06-06</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/bNdQG6dB-M4" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">The Prime Moverz</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1801,6 +2011,7 @@
           </div>
           <h2>Rush - Ayra Starr | Dance Challenge</h2>
           <p class="published">게시일 2023-08-19</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/fhVxTjONxsA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Ken Mat Thew</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1819,6 +2030,7 @@
           </div>
           <h2>Mood 24kgoldn TikTok Speed Dance Challenge</h2>
           <p class="published">게시일 2021-07-26</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/GiX5agVLfR8" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Kuya Magik</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1841,6 +2053,7 @@
           </div>
           <h2>New look, same love ❤️😂#shaving #beard #couple #challenge #fyp</h2>
           <p class="published">게시일 2026-04-15</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/3sLY4XwJ9WM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/3sLY4XwJ9WM?channelId=UCX4eucShCWrUyhW6DZE_gPw" target="_blank" rel="noopener">Playboard Shorts Daily - 스페인</a> · rank 15</p>
@@ -1859,6 +2072,7 @@
           </div>
           <h2>Se lo juro mister #shorts #humor #comedia</h2>
           <p class="published">게시일 2026-05-14</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/sVvCEhqaHhw" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Dadytou</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=ES&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 스페인 Comedy</a> · rank 2</p>
@@ -1877,6 +2091,7 @@
           </div>
           <h2>PRACTICANDO #POLEDANCE | ¿TE GUSTARÍA APRENDER? | ARIANN MUSIC #SHORTS BAILANDO #BAILE #DANCE</h2>
           <p class="published">게시일 2022-04-12</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/O_Z4t9iwWW4" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Moderadores Arianners</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+baile+musica+tendencia+Espana" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1899,6 +2114,7 @@
           </div>
           <h2>TUTORIAL magic Gif #TREND 😳🍆🤮#trend #magic #backstage #creative #lol #shorts#tutorial</h2>
           <p class="published">게시일 2026-05-15</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 스포츠·스턴트·무대 순간처럼 결과를 끝까지 확인하게 하는 장면 · 호기심을 여는 키워드가 있어 마지막 장면까지 보게 만듦</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/YsLPyexmGXg" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/YsLPyexmGXg?channelId=UCF0e4oTaZk9qr0f2qT-dzhw" target="_blank" rel="noopener">Playboard Shorts Daily - 이탈리아</a> · rank 7</p>
@@ -1917,6 +2133,7 @@
           </div>
           <h2>Nobody Knows Rowan Atkinson Was Actually a Punk #comedy #celebrity #funny</h2>
           <p class="published">게시일 2026-04-10</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/DTYue9Ajo9Q" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/DTYue9Ajo9Q?channelId=UCwYDrqBJ7id82pQ1KxKYHLQ" target="_blank" rel="noopener">Playboard Shorts Daily - 이탈리아</a> · rank 20</p>
@@ -1935,6 +2152,7 @@
           </div>
           <h2>Fuego Dance Crew - Gasolina Routine (Official Video) #gasolinachallenge</h2>
           <p class="published">게시일 2019-12-11</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/Voiae2-E-7Y" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Fuego DanceCrew</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Italy+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1957,6 +2175,7 @@
           </div>
           <h2>Que se passe-t-il si vous renversez de l&#x27;eau partout ? 💦 #shorts #prank</h2>
           <p class="published">게시일 2026-05-15</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/I_CqHrNzKIY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/I_CqHrNzKIY?channelId=UCcjlkShNTeqpll27KF6rY7A" target="_blank" rel="noopener">Playboard Shorts Daily - 프랑스</a> · rank 6</p>
@@ -1975,6 +2194,7 @@
           </div>
           <h2>#funny #comedy #india</h2>
           <p class="published">게시일 2026-05-14</p>
+          <p class="popularity">인기 이유 첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷 · 언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/l91lVPMcoCs" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/l91lVPMcoCs?channelId=UC_rTbuXWDcJ-_-OhutBwuXg" target="_blank" rel="noopener">Playboard Shorts Daily - 프랑스</a> · rank 10</p>
@@ -1993,6 +2213,7 @@
           </div>
           <h2>Papaoutai (Afro Soul) - ​Stromae | Mikeeysmind | Tiktok Trending Version | Dance Cover | @DjValka</h2>
           <p class="published">게시일 2026-01-29</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/vBR1-dTbREo" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Cameroon Dance Academy</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=France+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2011,6 +2232,7 @@
           </div>
           <h2>F2 DANCE X AMBRE_DANCER - S1 - CLIP VIDEO / TAL /Le temps qu&#x27;il faut/ STREET DANCE/ KIDS</h2>
           <p class="published">게시일 2021-12-19</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/AiTkJix_Pvc" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">AMBRE_DANCER</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+danse+musique+tendance+France" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2033,6 +2255,7 @@
           </div>
           <h2>Arthur lima dance 🕺#YouTube #dance #brazil #arthurlima #shorts #tiktok #Ethiopia #uzbekistan #india</h2>
           <p class="published">게시일 2026-03-25</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/FF7ZGRjUMZ4" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">mr yared</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Uzbekistan+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2051,6 +2274,7 @@
           </div>
           <h2>Uzbekistan Viral Girl &amp; Boy Dance Bollywood Songs ￼￼Performance ￼</h2>
           <p class="published">게시일 2026-02-26</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/2l1ATQUqL2U" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">BawaBlaze TV</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Uzbekistan+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2069,6 +2293,7 @@
           </div>
           <h2>Xit Musiqalar 👍 Qizlardan Xit Ashulaga raqs Shunaqa Gaplar</h2>
           <p class="published">게시일 2022-05-11</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/doqbYCwm368" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Beruniy Shorts</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+raqs+musiqa+trend+Uzbekistan" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2091,6 +2316,7 @@
           </div>
           <h2>#اكسبلور #lifeisbutadream #كيدراما #kdrama #اكسبلور #اعتني #music #explore #edit #fyp #ot7</h2>
           <p class="published">게시일 2026-05-15</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조 · 슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/fkScHM7zCxE" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/fkScHM7zCxE?channelId=UC3VW62HDOwtCcVzKmNzMoGA" target="_blank" rel="noopener">Playboard Shorts Daily - 알제리</a> · rank 19</p>
@@ -2113,6 +2339,7 @@
           </div>
           <h2>ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY NEON DANCE !! 🔥🔥</h2>
           <p class="published">게시일 2026-02-10</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/tgOQlzCqc0M" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/tgOQlzCqc0M?channelId=UCVRqK0tS3B8pVog1HwCR4pg" target="_blank" rel="noopener">Playboard Shorts Daily - 카자흐스탄</a> · rank 5</p>
@@ -2131,6 +2358,7 @@
           </div>
           <h2>challenge - Aigul Fatalieva Belly Dancer - Kazakhstan Russia#bellyladyagainstcorona .</h2>
           <p class="published">게시일 2020-05-03</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/7IWj7mo-lEs" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Avihass</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Kazakhstan+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2153,6 +2381,7 @@
           </div>
           <h2>Unexpected ending in Left Right challenge #bybacademy #thanhhuyennguyen #daotaonguoimau #5g</h2>
           <p class="published">게시일 2026-05-15</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/jc1IZpdsJjM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/jc1IZpdsJjM?channelId=UC0DHkN8GvXGXRf3SA2PKKcg" target="_blank" rel="noopener">Playboard Shorts Daily - 베트남</a> · rank 11</p>
@@ -2171,6 +2400,7 @@
           </div>
           <h2>When princesses playing &quot;Squid Game&quot; Challenge #bybacademy #thanhhuyennguyen #daotaonguoimau #5g</h2>
           <p class="published">게시일 2026-01-27</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/FWMyxmIu1Ss" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/FWMyxmIu1Ss?channelId=UC0DHkN8GvXGXRf3SA2PKKcg" target="_blank" rel="noopener">Playboard Shorts Daily - 베트남</a> · rank 20</p>
@@ -2189,6 +2419,7 @@
           </div>
           <h2>5 anh trung quốc nhảy nhạc Hồ Quang Hiếu cực khớp trend tiktok nhạc nào cũng khớp</h2>
           <p class="published">게시일 2023-03-28</p>
+          <p class="popularity">인기 이유 음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조</p>
           <p class="video-url"><a href="https://www.youtube.com/shorts/XF4_mNgfmFs" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Lâm Xc</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+nhay+nhac+trend+Viet+Nam" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>

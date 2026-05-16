@@ -208,6 +208,7 @@ RANKING_SOURCE_LIMIT = int(os.environ.get("RANKING_SOURCE_LIMIT", "18"))
 YT_SEARCH_LIMIT = int(os.environ.get("YT_SEARCH_LIMIT", "12"))
 MIN_DISPLAY_VIEWS = int(os.environ.get("MIN_DISPLAY_VIEWS", "3000"))
 PUBLISHED_METADATA_LIMIT = int(os.environ.get("PUBLISHED_METADATA_LIMIT", "200"))
+VIRAL_VIEW_THRESHOLD = int(os.environ.get("VIRAL_VIEW_THRESHOLD", "100000000"))
 
 CORE_TERMS = {
     "dance",
@@ -1285,6 +1286,122 @@ def compact_title(title: str, limit: int = 46) -> str:
     return title[: limit - 1].rstrip() + "..."
 
 
+def published_age_days(item: dict[str, Any]) -> int | None:
+    published = parse_date(item.get("publishedAt"))
+    if not published:
+        return None
+    today = datetime.now(KST).date()
+    return max((today - published).days, 0)
+
+
+def popularity_reason(item: dict[str, Any]) -> str:
+    views = parse_int(item.get("viewsGained"))
+    clusters = item_cluster_keys(item)
+    labels = [cluster_label(key) for key in clusters if key != "other"]
+    text = item_text(item).lower()
+    reasons: list[str] = []
+
+    if "situation" in clusters:
+        reasons.append("첫 장면만 봐도 갈등이나 반전이 이해되는 상황형 포맷")
+    if "dance" in clusters:
+        reasons.append("음악·동작을 따라 하거나 다시 보기 쉬운 반복 구조")
+    if "edit" in clusters:
+        reasons.append("슬로우드/펑크/빠른 편집처럼 짧은 몰입감을 만드는 사운드 신호")
+    if "performance" in clusters:
+        reasons.append("스포츠·스턴트·무대 순간처럼 결과를 끝까지 확인하게 하는 장면")
+    if "kpop" in clusters:
+        reasons.append("K-pop·아이돌 팬덤과 챌린지 확산에 올라탈 수 있는 소재")
+    if any(term in text for term in ("magic", "surprise", "saved", "reveal", "defying", "wild")):
+        reasons.append("호기심을 여는 키워드가 있어 마지막 장면까지 보게 만듦")
+    if any(term in text for term in ("funny", "comedy", "humor", "prank")):
+        reasons.append("언어 장벽이 낮은 웃음 코드로 공유 가능성이 큼")
+
+    age = published_age_days(item)
+    if age is not None and age <= 10 and views >= 10_000_000:
+        reasons.append("게시 직후 짧은 기간에 높은 조회수를 만든 초기 확산 속도")
+    if views >= VIRAL_VIEW_THRESHOLD:
+        reasons.append("1억뷰 이상으로 확장될 만큼 국가·언어를 넘어서는 즉시성이 있음")
+    elif views >= 30_000_000:
+        reasons.append("1억뷰 후보권에 가까운 대중적 훅과 재시청 신호가 있음")
+
+    if not reasons and labels:
+        reasons.append(f"{', '.join(labels[:2])} 요소가 명확해 피드에서 빠르게 이해됨")
+    if not reasons:
+        reasons.append("짧은 제목과 시각적 상황이 결합되어 스크롤 중 멈춰 볼 가능성이 큼")
+
+    return "인기 이유 " + " · ".join(reasons[:3])
+
+
+def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
+    mega_items = [item for item in items if parse_int(item.get("viewsGained")) >= VIRAL_VIEW_THRESHOLD]
+    near_items = [
+        item
+        for item in sorted(items, key=lambda row: parse_int(row.get("viewsGained")), reverse=True)
+        if parse_int(item.get("viewsGained")) >= 30_000_000
+    ][:6]
+    analysis_items = mega_items or near_items or sorted(items, key=lambda row: parse_int(row.get("viewsGained")), reverse=True)[:6]
+    counts = cluster_counts(analysis_items)
+    top_patterns = [
+        cluster_label(key)
+        for key, count in sorted(counts.items(), key=lambda pair: pair[1], reverse=True)
+        if count and key != "other"
+    ][:3]
+    top_pattern_text = ", ".join(top_patterns) if top_patterns else "상황 이해가 빠른 짧은 장면"
+
+    mega_summary = (
+        f"현재 표시 영상 중 {len(mega_items)}개가 1억뷰 이상입니다."
+        if mega_items
+        else "현재 표시 영상에는 1억뷰 이상이 많지 않아, 3천만뷰 이상 근접 사례까지 함께 봅니다."
+    )
+    top_line = ""
+    if analysis_items:
+        top = max(analysis_items, key=lambda row: parse_int(row.get("viewsGained")))
+        top_line = (
+            f"가장 강한 사례는 {compact_title(str(top.get('title', '')), 54)}"
+            f" ({fmt_int(top.get('viewsGained'))} views)입니다."
+        )
+
+    principles = [
+        "초반 1초 안에 무슨 일이 벌어지는지 보여 주고, 설명 없이도 이해되는 장면이 유리합니다.",
+        "댄스·마술·스턴트·짧은 갈등처럼 끝을 확인하고 싶은 구조가 반복 시청을 만듭니다.",
+        "슬로우드 사운드, 펑크, 익숙한 음악, 강한 리듬은 같은 영상을 여러 번 보게 만드는 접착제 역할을 합니다.",
+        "자막이나 언어 의존도가 낮을수록 국가별 탭을 넘어 글로벌 피드에서 확장되기 쉽습니다.",
+        "1억뷰는 조회수 하나의 폭발보다 클릭 유지율, 반복 시청, 공유, 리믹스 가능성이 동시에 맞을 때 나옵니다.",
+    ]
+    principle_items = "\n".join(f"<li>{escape(item)}</li>" for item in principles)
+
+    examples = "\n".join(
+        f"""
+        <article class="mega-example">
+          <a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">{escape(compact_title(str(item.get('title', '')), 64))}</a>
+          <span>{fmt_int(item.get('viewsGained'))} views · 게시일 {escape(fmt_published(item.get('publishedAt')))}</span>
+          <p>{escape(popularity_reason(item))}</p>
+        </article>"""
+        for item in analysis_items
+    )
+
+    return f"""
+    <section class="region-panel mega-panel" data-region-panel="mega" aria-label="1억뷰 분석">
+      <div class="mega-hero">
+        <div>
+          <h2>1억뷰 분석</h2>
+          <p>{escape(mega_summary)} {escape(top_line)} 현재 데이터에서는 {escape(top_pattern_text)} 신호가 특히 강합니다.</p>
+        </div>
+        <strong>{len(mega_items)}</strong>
+      </div>
+      <div class="mega-grid">
+        <div class="mega-block">
+          <h3>왜 1억뷰가 나오는가</h3>
+          <ul>{principle_items}</ul>
+        </div>
+        <div class="mega-block">
+          <h3>현재 데이터의 1억뷰·근접 사례</h3>
+          <div class="mega-examples">{examples}</div>
+        </div>
+      </div>
+    </section>"""
+
+
 def render_trend_analysis(items: list[dict[str, Any]]) -> str:
     dated_items = [(item, parse_date(item.get("publishedAt"))) for item in items]
     dated_items = [(item, published) for item, published in dated_items if published]
@@ -1367,6 +1484,7 @@ def render_card(item: dict[str, Any], index: int) -> str:
           </div>
           <h2>{escape(item['title'])}</h2>
           <p class="published">게시일 {escape(fmt_published(item.get('publishedAt')))}</p>
+          <p class="popularity">{escape(popularity_reason(item))}</p>
           <p class="video-url"><a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">{escape(str(item.get('channel') or 'Unknown channel'))}</p>
           <p class="source">Source: <a href="{escape(str(item.get('sourceUrl') or '#'))}" target="_blank" rel="noopener">{escape(str(item.get('sourceName') or 'source'))}</a>{escape(source_rank)}</p>
@@ -1392,13 +1510,20 @@ def render_index(items: list[dict[str, Any]]) -> str:
     grouped = group_items_by_region(items)
     display_items = [item for region_items in grouped.values() for item in region_items]
     trend_analysis = render_trend_analysis(display_items)
+    mega_count = sum(1 for item in display_items if parse_int(item.get("viewsGained")) >= VIRAL_VIEW_THRESHOLD)
 
-    tab_buttons = "\n".join(
-        f"""<button class="tab-button{' active' if region['key'] == 'global' else ''}" type="button" data-region-tab="{region['key']}">{escape(region['label'])}<span>{len(grouped[region['key']])}</span></button>"""
-        for region in REGIONS
-    )
+    tab_parts = []
+    for region in REGIONS:
+        tab_parts.append(
+            f"""<button class="tab-button{' active' if region['key'] == 'global' else ''}" type="button" data-region-tab="{region['key']}">{escape(region['label'])}<span>{len(grouped[region['key']])}</span></button>"""
+        )
+        if region["key"] == "global":
+            tab_parts.append(
+                f"""<button class="tab-button" type="button" data-region-tab="mega">1억뷰 분석<span>{mega_count}</span></button>"""
+            )
+    tab_buttons = "\n".join(tab_parts)
 
-    panels = []
+    panels = [render_mega_view_analysis(display_items)]
     for region in REGIONS:
         region_cards = "".join(render_card(item, index) for index, item in enumerate(grouped[region["key"]], start=1))
         if not region_cards:
@@ -1551,6 +1676,97 @@ def render_index(items: list[dict[str, Any]]) -> str:
       font-size: 13px;
       line-height: 1.55;
     }}
+    .mega-panel {{
+      background: transparent;
+    }}
+    .mega-hero {{
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 16px;
+      margin-bottom: 12px;
+    }}
+    .mega-hero h2 {{
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.25;
+    }}
+    .mega-hero p {{
+      margin: 0;
+      color: #344054;
+      font-size: 14px;
+      line-height: 1.65;
+    }}
+    .mega-hero strong {{
+      min-width: 48px;
+      border-radius: 8px;
+      background: var(--ink);
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-size: 22px;
+      line-height: 1;
+    }}
+    .mega-grid {{
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+      gap: 12px;
+    }}
+    .mega-block {{
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--surface);
+      padding: 14px;
+    }}
+    .mega-block h3 {{
+      margin: 0 0 10px;
+      font-size: 15px;
+      line-height: 1.3;
+    }}
+    .mega-block ul {{
+      margin: 0;
+      padding-left: 18px;
+      color: #344054;
+      font-size: 13px;
+      line-height: 1.6;
+    }}
+    .mega-examples {{
+      display: grid;
+      gap: 10px;
+    }}
+    .mega-example {{
+      border-top: 1px solid var(--line);
+      padding-top: 10px;
+    }}
+    .mega-example:first-child {{
+      border-top: 0;
+      padding-top: 0;
+    }}
+    .mega-example a {{
+      display: block;
+      color: var(--focus);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.35;
+      text-decoration: none;
+    }}
+    .mega-example span {{
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+    }}
+    .mega-example p {{
+      margin: 5px 0 0;
+      color: #344054;
+      font-size: 12px;
+      line-height: 1.5;
+    }}
     .grid {{
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
@@ -1640,6 +1856,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     .channel,
     .published,
+    .popularity,
     .video-url,
     .source {{
       margin: 0;
@@ -1650,6 +1867,13 @@ def render_index(items: list[dict[str, Any]]) -> str:
     .published {{
       color: #475467;
       font-weight: 700;
+    }}
+    .popularity {{
+      color: #344054;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }}
     .video-url a {{
       color: var(--focus);
@@ -1685,6 +1909,8 @@ def render_index(items: list[dict[str, Any]]) -> str:
       .tab-button span {{ min-width: 18px; padding: 1px 5px; font-size: 10px; }}
       .trend-heading {{ align-items: flex-start; flex-direction: column; gap: 4px; }}
       .trend-heading span {{ white-space: normal; }}
+      .mega-grid {{ grid-template-columns: 1fr; }}
+      .mega-hero {{ flex-direction: column; }}
       .grid {{ grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }}
       .thumb-link {{ flex-basis: 68px; width: 68px; }}
     }}
