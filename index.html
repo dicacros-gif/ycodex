@@ -130,30 +130,38 @@
       font-size: 15px;
       line-height: 1.3;
     }
-    .trend-heading span {
+    .trend-meta {
+      margin: 0;
+      padding-left: 18px;
       color: var(--muted);
       font-size: 12px;
+      line-height: 1.45;
+      font-weight: 700;
+    }
+    .trend-meta li {
       white-space: nowrap;
     }
     .trend-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-bottom: 10px;
+      margin: 0 0 10px;
+      padding-left: 18px;
+      list-style: disc;
     }
-    .trend-badges span {
+    .trend-badges li {
       border: 1px solid var(--line);
       border-radius: 999px;
       background: var(--surface);
       color: #344054;
-      padding: 5px 8px;
+      padding: 5px 8px 5px 6px;
       font-size: 11px;
       font-weight: 700;
+      margin-left: 14px;
     }
     .trend-notes {
       margin: 0;
-      padding: 0;
-      list-style: none;
+      padding-left: 18px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 10px 14px;
@@ -177,18 +185,22 @@
       border-radius: 8px;
       background: var(--surface);
       padding: 16px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .mega-hero h2 {
       margin: 0 0 8px;
       font-size: 20px;
       line-height: 1.25;
     }
-    .mega-hero p {
+    .mega-hero-points {
       margin: 0;
+      padding-left: 18px;
       color: #344054;
       font-size: 14px;
       line-height: 1.65;
+    }
+    .mega-hero-points li + li {
+      margin-top: 3px;
     }
     .mega-hero strong {
       min-width: 48px;
@@ -219,13 +231,14 @@
       font-size: 16px;
       line-height: 1.3;
     }
-    .mega-section-heading p {
+    .mega-heading-points {
       margin: 0;
+      padding-left: 18px;
       color: var(--muted);
       font-size: 12px;
       font-weight: 700;
       line-height: 1.45;
-      text-align: right;
+      max-width: 520px;
     }
     .mega-case-list {
       display: grid;
@@ -541,11 +554,22 @@
       margin-top: 26px;
       border-top: 1px solid var(--line);
       padding-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
       color: var(--muted);
       font-size: 13px;
+    }
+    .source-panel strong {
+      display: block;
+      color: #344054;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .source-links {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 6px 18px;
     }
     .source-panel a {
       color: var(--focus);
@@ -567,11 +591,10 @@
       .tab-button { padding: 6px 8px; font-size: 11px; gap: 5px; }
       .tab-button span { min-width: 18px; padding: 1px 5px; font-size: 10px; }
       .trend-heading { align-items: flex-start; flex-direction: column; gap: 4px; }
-      .trend-heading span { white-space: normal; }
+      .trend-meta li { white-space: normal; }
       .mega-grid { grid-template-columns: 1fr; }
       .mega-hero { flex-direction: column; }
       .mega-section-heading { flex-direction: column; align-items: flex-start; gap: 5px; }
-      .mega-section-heading p { text-align: left; }
       .mega-case-list { grid-template-columns: 1fr; }
       .mega-case-card { grid-template-columns: 96px minmax(0, 1fr); }
       .mega-example { grid-template-columns: 78px minmax(0, 1fr); gap: 10px; }
@@ -610,12 +633,15 @@
     <section class="trend-brief" aria-label="trend analysis">
       <div class="trend-heading">
         <strong>트렌드 분석</strong>
-        <span>101개 표시 영상 · 3,000뷰 이상</span>
+        <ul class="trend-meta">
+          <li>101개 표시 영상</li>
+          <li>3,000뷰 이상</li>
+        </ul>
       </div>
-      <div class="trend-badges"><span>상황형 코미디·짧은 사건 23</span>
-<span>댄스·음악 챌린지 11</span>
-<span>편집·슬로우드 사운드 7</span>
-<span>스포츠·퍼포먼스 순간 4</span></div>
+      <ul class="trend-badges"><li>상황형 코미디·짧은 사건 23</li>
+<li>댄스·음악 챌린지 11</li>
+<li>편집·슬로우드 사운드 7</li>
+<li>스포츠·퍼포먼스 순간 4</li></ul>
       <ul class="trend-notes"><li>최근 2026-05-09~2026-05-15 게시 영상 32개 기준으로 상황형 코미디·짧은 사건 신호가 가장 큽니다.</li>
 <li>이전 누적 대비 상황형 코미디·짧은 사건 비중이 약 56%p 높아졌습니다.</li>
 <li>지역별로는 글로벌 9개, 멕시코 6개, 브라질 4개에서 새 게시물이 많이 잡히며, 지역 탭마다 코미디·댄스·편집형 비중이 다르게 나타납니다.</li>
@@ -626,7 +652,9 @@
       <div class="mega-hero">
         <div>
           <h2>1억뷰 분석</h2>
-          <p>현재 표시 영상 중 5개가 1억뷰 이상입니다. 가장 강한 사례는 ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY N... (399,519,222 views)입니다. 현재 데이터에서는 상황형 코미디·짧은 사건, 댄스·음악 챌린지 신호가 특히 강합니다.</p>
+          <ul class="mega-hero-points"><li>현재 표시 영상 중 5개가 1억뷰 이상입니다.</li>
+<li>가장 강한 사례는 ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY N... (399,519,222 views)입니다.</li>
+<li>현재 데이터에서는 상황형 코미디·짧은 사건, 댄스·음악 챌린지 신호가 특히 강합니다.</li></ul>
         </div>
         <strong>5</strong>
       </div>
@@ -634,7 +662,7 @@
       <div class="mega-case-section">
         <div class="mega-section-heading">
           <h3>최근 1억뷰 달성 사례</h3>
-          <p>공개 랭킹과 YouTube 메타데이터에서 1억뷰 이상으로 확인된 최신 업로드를 먼저 봅니다.</p>
+          <ul class="mega-heading-points"><li>공개 랭킹과 YouTube 메타데이터에서 1억뷰 이상으로 확인된 최신 업로드를 먼저 봅니다.</li></ul>
         </div>
         <div class="mega-case-list">
         <article class="mega-case-card">
@@ -2561,41 +2589,41 @@
       </div>
     </section>
     <section class="source-panel" aria-label="sources">
-      <span>Connected sources:</span>
-      <a href="https://chartika.com/" target="_blank" rel="noopener">Chartika regional YouTube charts</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-japan-daily" target="_blank" rel="noopener">Playboard Shorts Daily - JP</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-south-korea-daily" target="_blank" rel="noopener">Playboard Shorts Daily - KR</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-united-states-daily" target="_blank" rel="noopener">Playboard Shorts Daily - US</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-worldwide-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 글로벌</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-germany-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 독일</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-mexico-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 멕시코</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-viet-nam-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 베트남</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-brazil-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 브라질</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-spain-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 스페인</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-argentina-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 아르헨티나</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-algeria-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 알제리</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-uzbekistan-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 우즈베키스탄</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-italy-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 이탈리아</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-indonesia-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 인도네시아</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-kazakhstan-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 카자흐스탄</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-france-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 프랑스</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-philippines-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 필리핀</a>
-<a href="https://playboard.co/chart/short/most-viewed-all-videos-in-worldwide-daily" target="_blank" rel="noopener">Playboard regional YouTube Shorts charts</a>
-<a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=1&amp;type=VIEW" target="_blank" rel="noopener">RedToolBox Top Shorts daily</a>
-<a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=30&amp;type=VIEW" target="_blank" rel="noopener">RedToolBox Top Shorts monthly</a>
-<a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=7&amp;type=VIEW" target="_blank" rel="noopener">RedToolBox Top Shorts weekly</a>
-<a href="https://www.redtoolbox.io/toplist/topShorts.jsp" target="_blank" rel="noopener">RedToolBox daily/weekly/monthly top Shorts</a>
-<a href="https://t1trend.com/" target="_blank" rel="noopener">Top1Trend YouTube Trending</a>
-<a href="https://www.trendsfox.com/trending-videos" target="_blank" rel="noopener">TrendsFox Trending Shorts</a>
-<a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a>
-<a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=US&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - US Comedy</a>
-<a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 멕시코 Comedy</a>
-<a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 멕시코 Entertainment</a>
-<a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 브라질 Comedy</a>
-<a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=ES&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 스페인 Comedy</a>
-<a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=AR&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 아르헨티나 Entertainment</a>
-<a href="https://yttrack.com/" target="_blank" rel="noopener">YTTrack regional YouTube trending charts</a>
-<a href="https://www.youtube.com/results?search_query=%23shorts+dance+music+trend" target="_blank" rel="noopener">YouTube Shorts keyword searches</a>
+      <strong>연결 소스</strong>
+      <ul class="source-links"><li><a href="https://chartika.com/" target="_blank" rel="noopener">Chartika regional YouTube charts</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-japan-daily" target="_blank" rel="noopener">Playboard Shorts Daily - JP</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-south-korea-daily" target="_blank" rel="noopener">Playboard Shorts Daily - KR</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-united-states-daily" target="_blank" rel="noopener">Playboard Shorts Daily - US</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-worldwide-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 글로벌</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-germany-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 독일</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-mexico-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 멕시코</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-viet-nam-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 베트남</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-brazil-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 브라질</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-spain-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 스페인</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-argentina-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 아르헨티나</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-algeria-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 알제리</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-uzbekistan-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 우즈베키스탄</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-italy-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 이탈리아</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-indonesia-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 인도네시아</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-kazakhstan-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 카자흐스탄</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-france-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 프랑스</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-philippines-daily" target="_blank" rel="noopener">Playboard Shorts Daily - 필리핀</a></li>
+<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-worldwide-daily" target="_blank" rel="noopener">Playboard regional YouTube Shorts charts</a></li>
+<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=1&amp;type=VIEW" target="_blank" rel="noopener">RedToolBox Top Shorts daily</a></li>
+<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=30&amp;type=VIEW" target="_blank" rel="noopener">RedToolBox Top Shorts monthly</a></li>
+<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=7&amp;type=VIEW" target="_blank" rel="noopener">RedToolBox Top Shorts weekly</a></li>
+<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp" target="_blank" rel="noopener">RedToolBox daily/weekly/monthly top Shorts</a></li>
+<li><a href="https://t1trend.com/" target="_blank" rel="noopener">Top1Trend YouTube Trending</a></li>
+<li><a href="https://www.trendsfox.com/trending-videos" target="_blank" rel="noopener">TrendsFox Trending Shorts</a></li>
+<li><a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a></li>
+<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=US&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - US Comedy</a></li>
+<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 멕시코 Comedy</a></li>
+<li><a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 멕시코 Entertainment</a></li>
+<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 브라질 Comedy</a></li>
+<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=ES&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 스페인 Comedy</a></li>
+<li><a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=AR&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 아르헨티나 Entertainment</a></li>
+<li><a href="https://yttrack.com/" target="_blank" rel="noopener">YTTrack regional YouTube trending charts</a></li>
+<li><a href="https://www.youtube.com/results?search_query=%23shorts+dance+music+trend" target="_blank" rel="noopener">YouTube Shorts keyword searches</a></li></ul>
     </section>
     <div class="footer-update">업데이트 5/16 23:30</div>
   </main>

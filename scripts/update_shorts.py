@@ -1620,6 +1620,14 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
         "1억뷰는 조회수 하나의 폭발보다 클릭 유지율, 반복 시청, 공유, 리믹스 가능성이 동시에 맞을 때 나옵니다.",
     ]
     principle_items = "\n".join(f"<li>{escape(item)}</li>" for item in principles)
+    hero_points = [mega_summary]
+    if top_line:
+        hero_points.append(top_line)
+    hero_points.append(f"현재 데이터에서는 {top_pattern_text} 신호가 특히 강합니다.")
+    hero_point_items = render_points(hero_points)
+    recent_heading_items = render_points(
+        ["공개 랭킹과 YouTube 메타데이터에서 1억뷰 이상으로 확인된 최신 업로드를 먼저 봅니다."]
+    )
 
     recent_mega_items = sorted(
         mega_items,
@@ -1632,7 +1640,7 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
       <div class="mega-case-section">
         <div class="mega-section-heading">
           <h3>최근 1억뷰 달성 사례</h3>
-          <p>공개 랭킹과 YouTube 메타데이터에서 1억뷰 이상으로 확인된 최신 업로드를 먼저 봅니다.</p>
+          <ul class="mega-heading-points">{recent_heading_items}</ul>
         </div>
         <div class="mega-case-list">{recent_case_cards}</div>
       </div>"""
@@ -1660,7 +1668,7 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
       <div class="mega-hero">
         <div>
           <h2>1억뷰 분석</h2>
-          <p>{escape(mega_summary)} {escape(top_line)} 현재 데이터에서는 {escape(top_pattern_text)} 신호가 특히 강합니다.</p>
+          <ul class="mega-hero-points">{hero_point_items}</ul>
         </div>
         <strong>{len(mega_items)}</strong>
       </div>
@@ -1729,7 +1737,7 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
 
     note_items = "\n".join(f"<li>{escape(note)}</li>" for note in notes)
     top_badges = "\n".join(
-        f"<span>{escape(cluster_label(key))} {count}</span>"
+        f"<li>{escape(cluster_label(key))} {count}</li>"
         for key, count in sorted(recent_counts.items(), key=lambda pair: pair[1], reverse=True)[:4]
         if count
     )
@@ -1737,9 +1745,12 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
     <section class="trend-brief" aria-label="trend analysis">
       <div class="trend-heading">
         <strong>트렌드 분석</strong>
-        <span>{len(items)}개 표시 영상 · {MIN_DISPLAY_VIEWS:,}뷰 이상</span>
+        <ul class="trend-meta">
+          <li>{len(items)}개 표시 영상</li>
+          <li>{MIN_DISPLAY_VIEWS:,}뷰 이상</li>
+        </ul>
       </div>
-      <div class="trend-badges">{top_badges}</div>
+      <ul class="trend-badges">{top_badges}</ul>
       <ul class="trend-notes">{note_items}</ul>
     </section>"""
 
@@ -1810,7 +1821,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
         )
 
     links = "\n".join(
-        f'<a href="{escape(url)}" target="_blank" rel="noopener">{escape(name)}</a>'
+        f'<li><a href="{escape(url)}" target="_blank" rel="noopener">{escape(name)}</a></li>'
         for name, url in source_links(display_items)
     )
 
@@ -1948,30 +1959,38 @@ def render_index(items: list[dict[str, Any]]) -> str:
       font-size: 15px;
       line-height: 1.3;
     }}
-    .trend-heading span {{
+    .trend-meta {{
+      margin: 0;
+      padding-left: 18px;
       color: var(--muted);
       font-size: 12px;
+      line-height: 1.45;
+      font-weight: 700;
+    }}
+    .trend-meta li {{
       white-space: nowrap;
     }}
     .trend-badges {{
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
-      margin-bottom: 10px;
+      margin: 0 0 10px;
+      padding-left: 18px;
+      list-style: disc;
     }}
-    .trend-badges span {{
+    .trend-badges li {{
       border: 1px solid var(--line);
       border-radius: 999px;
       background: var(--surface);
       color: #344054;
-      padding: 5px 8px;
+      padding: 5px 8px 5px 6px;
       font-size: 11px;
       font-weight: 700;
+      margin-left: 14px;
     }}
     .trend-notes {{
       margin: 0;
-      padding: 0;
-      list-style: none;
+      padding-left: 18px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
       gap: 10px 14px;
@@ -1995,18 +2014,22 @@ def render_index(items: list[dict[str, Any]]) -> str:
       border-radius: 8px;
       background: var(--surface);
       padding: 16px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }}
     .mega-hero h2 {{
       margin: 0 0 8px;
       font-size: 20px;
       line-height: 1.25;
     }}
-    .mega-hero p {{
+    .mega-hero-points {{
       margin: 0;
+      padding-left: 18px;
       color: #344054;
       font-size: 14px;
       line-height: 1.65;
+    }}
+    .mega-hero-points li + li {{
+      margin-top: 3px;
     }}
     .mega-hero strong {{
       min-width: 48px;
@@ -2037,13 +2060,14 @@ def render_index(items: list[dict[str, Any]]) -> str:
       font-size: 16px;
       line-height: 1.3;
     }}
-    .mega-section-heading p {{
+    .mega-heading-points {{
       margin: 0;
+      padding-left: 18px;
       color: var(--muted);
       font-size: 12px;
       font-weight: 700;
       line-height: 1.45;
-      text-align: right;
+      max-width: 520px;
     }}
     .mega-case-list {{
       display: grid;
@@ -2359,11 +2383,22 @@ def render_index(items: list[dict[str, Any]]) -> str:
       margin-top: 26px;
       border-top: 1px solid var(--line);
       padding-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
       color: var(--muted);
       font-size: 13px;
+    }}
+    .source-panel strong {{
+      display: block;
+      color: #344054;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }}
+    .source-links {{
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 6px 18px;
     }}
     .source-panel a {{
       color: var(--focus);
@@ -2385,11 +2420,10 @@ def render_index(items: list[dict[str, Any]]) -> str:
       .tab-button {{ padding: 6px 8px; font-size: 11px; gap: 5px; }}
       .tab-button span {{ min-width: 18px; padding: 1px 5px; font-size: 10px; }}
       .trend-heading {{ align-items: flex-start; flex-direction: column; gap: 4px; }}
-      .trend-heading span {{ white-space: normal; }}
+      .trend-meta li {{ white-space: normal; }}
       .mega-grid {{ grid-template-columns: 1fr; }}
       .mega-hero {{ flex-direction: column; }}
       .mega-section-heading {{ flex-direction: column; align-items: flex-start; gap: 5px; }}
-      .mega-section-heading p {{ text-align: left; }}
       .mega-case-list {{ grid-template-columns: 1fr; }}
       .mega-case-card {{ grid-template-columns: 96px minmax(0, 1fr); }}
       .mega-example {{ grid-template-columns: 78px minmax(0, 1fr); gap: 10px; }}
@@ -2410,8 +2444,8 @@ def render_index(items: list[dict[str, Any]]) -> str:
 {trend_analysis}
 {''.join(panels)}
     <section class="source-panel" aria-label="sources">
-      <span>Connected sources:</span>
-      {links}
+      <strong>연결 소스</strong>
+      <ul class="source-links">{links}</ul>
     </section>
     <div class="footer-update">업데이트 {escape(fmt_footer_update(os.environ.get("SITE_UPDATED_AT")))}</div>
   </main>
