@@ -1063,10 +1063,10 @@ def render_card(item: dict[str, Any], index: int) -> str:
     source_rank = f" · rank {item.get('sourceRank')}" if item.get("sourceRank") else ""
     return f"""
       <article class="short-card">
-        <div class="thumb-link">
+        <a class="thumb-link" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener" aria-label="Open {escape(item['title'])} on YouTube Shorts">
           <img src="{escape(item['thumbnail'])}" alt="{escape(item['title'])} thumbnail" loading="lazy">
           <span class="rank">#{index}</span>
-        </div>
+        </a>
         <div class="short-body">
           <div class="meta-row">
             <span>{escape(str(item.get('regionLabel') or 'Global'))} · {escape(str(item.get('sourceWindow', 'trend')))}</span>
