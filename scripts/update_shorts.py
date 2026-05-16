@@ -11,7 +11,7 @@ from datetime import datetime, timezone, timedelta
 from html import escape, unescape
 from pathlib import Path
 from typing import Any
-from urllib.parse import quote_plus, urljoin
+from urllib.parse import quote_plus, urlencode, urljoin
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "shorts-data.json"
@@ -110,16 +110,6 @@ VIDIRUN_SOURCES = [
 
 HTML_SOURCES = [
     {
-        "name": "Playboard Most Viewed YouTube Shorts",
-        "page": "https://playboard.co/en/chart/short/",
-        "window": "daily",
-    },
-    {
-        "name": "RedToolBox Top Shorts",
-        "page": "https://www.redtoolbox.io/toplist/topShorts.jsp",
-        "window": "daily",
-    },
-    {
         "name": "TrendsFox Trending Shorts",
         "page": "https://www.trendsfox.com/trending-videos",
         "window": "live",
@@ -131,10 +121,96 @@ HTML_SOURCES = [
     },
 ]
 
+PLAYBOARD_REGION_SLUGS = {
+    "global": "worldwide",
+    "kr": "south-korea",
+    "us": "united-states",
+    "jp": "japan",
+    "mx": "mexico",
+    "de": "germany",
+    "br": "brazil",
+    "id": "indonesia",
+    "ar": "argentina",
+    "ph": "philippines",
+    "es": "spain",
+    "it": "italy",
+    "fr": "france",
+    "uz": "uzbekistan",
+    "dz": "algeria",
+    "kz": "kazakhstan",
+    "vn": "viet-nam",
+}
+
+PLAYBOARD_SOURCES = [
+    {
+        "name": f"Playboard Shorts Daily - {REGION_BY_KEY[region]['label']}",
+        "page": f"https://playboard.co/chart/short/most-viewed-all-videos-in-{slug}-daily",
+        "window": "daily",
+        "region": region,
+    }
+    for region, slug in PLAYBOARD_REGION_SLUGS.items()
+]
+
+REDTOOLBOX_SOURCES = [
+    {
+        "name": "RedToolBox Top Shorts",
+        "page": "https://www.redtoolbox.io/toplist/topShorts.jsp?day=1&type=VIEW",
+        "window": "daily",
+    },
+    {
+        "name": "RedToolBox Top Shorts",
+        "page": "https://www.redtoolbox.io/toplist/topShorts.jsp?day=7&type=VIEW",
+        "window": "weekly",
+    },
+    {
+        "name": "RedToolBox Top Shorts",
+        "page": "https://www.redtoolbox.io/toplist/topShorts.jsp?day=30&type=VIEW",
+        "window": "monthly",
+    },
+]
+
+YTTRACK_REGION_CODES = {
+    "kr": "KR",
+    "us": "US",
+    "mx": "MX",
+    "br": "BR",
+    "ar": "AR",
+    "es": "ES",
+}
+
+YTTRACK_CATEGORY_IDS = [
+    ("24", "Entertainment"),
+    ("23", "Comedy"),
+    ("10", "Music"),
+]
+
+CHARTIKA_REGION_IDS = {
+    "global": "gl",
+    "kr": "kr",
+    "us": "us",
+    "jp": "jp",
+    "mx": "mx",
+    "de": "de",
+    "br": "br",
+    "id": "id",
+    "ar": "ar",
+    "ph": "ph",
+    "es": "es",
+    "it": "it",
+    "fr": "fr",
+    "uz": "uz",
+    "dz": "dz",
+    "kz": "kz",
+    "vn": "vn",
+}
+
+RANKING_SOURCE_LIMIT = int(os.environ.get("RANKING_SOURCE_LIMIT", "18"))
 YT_SEARCH_LIMIT = int(os.environ.get("YT_SEARCH_LIMIT", "12"))
 
 CORE_TERMS = {
     "dance",
+    "dances",
+    "danced",
     "댄스",
     "춤",
     "baile",
@@ -158,7 +234,13 @@ CORE_TERMS = {
     "challenge",
     "챌린지",
     "performance",
+    "performing",
     "stunt",
+    "fail",
+    "funny",
+    "humor",
+    "reaction",
+    "react",
     "surprise",
     "서프라이즈",
     "situation",
@@ -207,11 +289,50 @@ EXCLUDE_TERMS = {
     "full movie",
     "audio",
     "song only",
+    "official video",
+    "music video",
+    "trailer",
     "shopping",
     "haul",
     "animal",
     "animals",
+    "cat",
+    "cats",
+    "dog",
+    "dogs",
+    "duck",
+    "puppy",
+    "pet",
+    "pets",
+    "강아지",
+    "고양이",
+    "food",
+    "street food",
+    "recipe",
+    "dessert",
+    "ice cream",
+    "lollipop",
+    "cocomelon",
+    "learn",
+    "learning",
+    "count",
+    "number",
+    "kids",
+    "children",
+    "criança",
+    "crianças",
+    "nursery",
+    "baby",
+    "toddler",
+    "toy",
+    "toys",
+    "asmr",
+    "아기",
+    "동요",
+    "동화",
     "gameplay",
+    "minecraft",
+    "roblox",
 }
 
 PREFERRED_CATEGORIES = {
@@ -240,8 +361,13 @@ def fetch_text(url: str) -> str:
     req = urllib.request.Request(
         url,
         headers={
-            "User-Agent": "Mozilla/5.0 ycodex-shorts-updater/1.0",
+            "User-Agent": (
+                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/123.0 Safari/537.36"
+            ),
             "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.9,ko;q=0.8",
         },
     )
     with urllib.request.urlopen(req, timeout=25) as response:
@@ -307,7 +433,16 @@ def thumbnail_url(video_id: str) -> str:
 
 def term_hits(text: str, terms: set[str]) -> list[str]:
     lower = text.lower()
-    return sorted(term for term in terms if term in lower)
+    hits = []
+    for term in terms:
+        term_lower = term.lower()
+        if re.fullmatch(r"[a-z0-9][a-z0-9\s'-]*", term_lower):
+            pattern = rf"(?<![a-z0-9]){re.escape(term_lower)}(?![a-z0-9])"
+            if re.search(pattern, lower):
+                hits.append(term)
+        elif term_lower in lower:
+            hits.append(term)
+    return sorted(hits)
 
 
 def clean_text(value: str) -> str:
@@ -340,7 +475,7 @@ def score_candidate(title: str, category: str = "") -> tuple[int, list[str]]:
         score += 1
     if "#shorts" in text or "shorts" in text:
         score += 1
-    score -= len(exclude_hits) * 3
+    score -= len(exclude_hits) * 5
 
     notes = []
     if core_hits:
@@ -437,83 +572,93 @@ def collect_vidirun(collected_at: str) -> list[dict[str, Any]]:
 
 
 def collect_playboard(collected_at: str) -> list[dict[str, Any]]:
-    source = HTML_SOURCES[0]
-    try:
-        html = fetch_text(source["page"])
-    except Exception as exc:
-        print(f"warning: failed to fetch {source['page']}: {exc}", file=sys.stderr)
-        return []
-
     candidates: list[dict[str, Any]] = []
-    seen: set[str] = set()
-    rank = 0
-    for match in re.finditer(r'<a[^>]+href="([^"]*/en/video/[^"]+)"[^>]*>(.*?)</a>', html, re.S):
-        href, label_html = match.groups()
-        title = clean_text(label_html)
-        video_id = video_id_from_any(href)
-        if not video_id or not title or video_id in seen:
+    for source in PLAYBOARD_SOURCES:
+        try:
+            html = fetch_text(source["page"])
+        except Exception as exc:
+            print(f"warning: failed to fetch {source['page']}: {exc}", file=sys.stderr)
             continue
-        seen.add(video_id)
-        rank += 1
-        item = make_candidate(
-            region="global",
-            video_id=video_id,
-            title=title,
-            channel="",
-            category="Playboard Shorts Chart",
-            views_gained=0,
-            source_rank=rank,
-            source_window=source["window"],
-            source_name=source["name"],
-            source_url=urljoin(source["page"], href),
-            collected_at=collected_at,
-            extra_notes=["source: Playboard shorts chart"],
-            min_score=3,
-        )
-        if item:
-            candidates.append(item)
+
+        seen: set[str] = set()
+        row_pattern = r'<tr class="chart__row"[^>]*>(.*?)(?=<tr class="chart__row"|</tbody>)'
+        for row in re.findall(row_pattern, html, flags=re.S | re.I):
+            video_id = video_id_from_any(row)
+            if not video_id or video_id in seen:
+                continue
+            seen.add(video_id)
+            rank_match = re.search(r'<div class="current"[^>]*>\s*(\d+)\s*</div>', row, flags=re.S | re.I)
+            title_match = re.search(r'class="title__label"[^>]*title="([^"]+)"', row, flags=re.S | re.I)
+            if not title_match:
+                title_match = re.search(r'<td class="thumbnail"[^>]*>.*?title="([^"]+)"', row, flags=re.S | re.I)
+            channel_match = re.search(r'class="channel__wrapper"[^>]*title="([^"]+)"', row, flags=re.S | re.I)
+            views_match = re.search(r'<td class="score"[^>]*>.*?>([\d,]+)\s*</span>', row, flags=re.S | re.I)
+            href_match = re.search(r'href="([^"]*/video/[A-Za-z0-9_-]{11}[^"]*)"', row, flags=re.S | re.I)
+            item = make_candidate(
+                region=source["region"],
+                video_id=video_id,
+                title=clean_text(title_match.group(1) if title_match else ""),
+                channel=clean_text(channel_match.group(1) if channel_match else ""),
+                category="Playboard Shorts Chart",
+                views_gained=parse_int(views_match.group(1) if views_match else 0),
+                source_rank=parse_int(rank_match.group(1) if rank_match else 0),
+                source_window=source["window"],
+                source_name=source["name"],
+                source_url=urljoin(source["page"], href_match.group(1) if href_match else source["page"]),
+                collected_at=collected_at,
+                extra_notes=["source: Playboard regional shorts chart"],
+                min_score=0,
+            )
+            if item:
+                candidates.append(item)
+                if len(seen) >= RANKING_SOURCE_LIMIT:
+                    break
     return candidates
 
 
 def collect_redtoolbox(collected_at: str) -> list[dict[str, Any]]:
-    source = HTML_SOURCES[1]
-    try:
-        html = fetch_text(source["page"])
-    except Exception as exc:
-        print(f"warning: failed to fetch {source['page']}: {exc}", file=sys.stderr)
-        return []
-
     candidates: list[dict[str, Any]] = []
-    for row in re.findall(r"<tr[^>]*>(.*?)</tr>", html, flags=re.S | re.I):
-        video_id = video_id_from_any(row)
-        if not video_id:
+    for source in REDTOOLBOX_SOURCES:
+        try:
+            html = fetch_text(source["page"])
+        except Exception as exc:
+            print(f"warning: failed to fetch {source['page']}: {exc}", file=sys.stderr)
             continue
-        rank_match = re.search(r'class="rank">\s*(\d+)', row, flags=re.I)
-        title_match = re.search(r'<td class="title">\s*<a[^>]*>(.*?)</a>', row, flags=re.S | re.I)
-        channel_match = re.search(r'<span class="channel">\s*<a[^>]*>(.*?)</a>', row, flags=re.S | re.I)
-        growth_match = re.search(r"<font[^>]*>\s*\+?([\d,]+)\s*</font>", row, flags=re.S | re.I)
-        item = make_candidate(
-            region="global",
-            video_id=video_id,
-            title=clean_text(title_match.group(1) if title_match else ""),
-            channel=clean_text(channel_match.group(1) if channel_match else ""),
-            category="RedToolBox Top Shorts",
-            views_gained=parse_int(growth_match.group(1) if growth_match else 0),
-            source_rank=parse_int(rank_match.group(1) if rank_match else 0),
-            source_window=source["window"],
-            source_name=source["name"],
-            source_url=source["page"],
-            collected_at=collected_at,
-            extra_notes=["source: RedToolBox top shorts"],
-            min_score=3,
-        )
-        if item:
-            candidates.append(item)
+
+        count = 0
+        for row in re.findall(r"<tr[^>]*>(.*?)</tr>", html, flags=re.S | re.I):
+            video_id = video_id_from_any(row)
+            if not video_id:
+                continue
+            rank_match = re.search(r'class="rank">\s*(\d+)', row, flags=re.I)
+            title_match = re.search(r'<td class="title">\s*<a[^>]*>(.*?)</a>', row, flags=re.S | re.I)
+            channel_match = re.search(r'<span class="channel">\s*<a[^>]*>(.*?)</a>', row, flags=re.S | re.I)
+            growth_match = re.search(r"<font[^>]*>\s*\+?([\d,]+)\s*</font>", row, flags=re.S | re.I)
+            item = make_candidate(
+                region="global",
+                video_id=video_id,
+                title=clean_text(title_match.group(1) if title_match else ""),
+                channel=clean_text(channel_match.group(1) if channel_match else ""),
+                category="RedToolBox Top Shorts",
+                views_gained=parse_int(growth_match.group(1) if growth_match else 0),
+                source_rank=parse_int(rank_match.group(1) if rank_match else 0),
+                source_window=source["window"],
+                source_name=source["name"],
+                source_url=source["page"],
+                collected_at=collected_at,
+                extra_notes=[f"source: RedToolBox top shorts {source['window']} chart"],
+                min_score=0,
+            )
+            if item:
+                candidates.append(item)
+                count += 1
+                if count >= RANKING_SOURCE_LIMIT:
+                    break
     return candidates
 
 
 def collect_trendsfox(collected_at: str) -> list[dict[str, Any]]:
-    source = HTML_SOURCES[2]
+    source = HTML_SOURCES[0]
     try:
         html = fetch_text(source["page"])
     except Exception as exc:
@@ -553,7 +698,7 @@ def collect_trendsfox(collected_at: str) -> list[dict[str, Any]]:
 
 
 def collect_top1trend(collected_at: str) -> list[dict[str, Any]]:
-    source = HTML_SOURCES[3]
+    source = HTML_SOURCES[1]
     try:
         html = fetch_text(source["page"])
     except Exception as exc:
@@ -588,9 +733,118 @@ def collect_top1trend(collected_at: str) -> list[dict[str, Any]]:
     return candidates
 
 
+def collect_yttrack(collected_at: str) -> list[dict[str, Any]]:
+    candidates: list[dict[str, Any]] = []
+    for region, region_code in YTTRACK_REGION_CODES.items():
+        for category_id, category_name in YTTRACK_CATEGORY_IDS:
+            params = urlencode(
+                {
+                    "categoryId": category_id,
+                    "regionCode": region_code,
+                    "maxResults": str(RANKING_SOURCE_LIMIT),
+                }
+            )
+            page = f"https://yttrack.com/search.php?{params}"
+            try:
+                html = fetch_text(page)
+            except Exception as exc:
+                print(f"warning: failed to fetch {page}: {exc}", file=sys.stderr)
+                continue
+
+            row_pattern = r"<tr><th scope='row'>\s*(\d+)\s*</th>(.*?)(?=<tr><th scope='row'>|</tbody>)"
+            for rank_text, row in re.findall(row_pattern, html, flags=re.S | re.I):
+                cells = re.findall(r"<td>(.*?)</td>", row, flags=re.S | re.I)
+                if len(cells) < 4:
+                    continue
+                video_id = video_id_from_any(cells[0])
+                title = clean_text(cells[2])
+                if not video_id or not title or "short" not in f"{title} {row}".lower():
+                    continue
+                channel = clean_text(cells[1])
+                item = make_candidate(
+                    region=region,
+                    video_id=video_id,
+                    title=title,
+                    channel=channel,
+                    category=category_name,
+                    views_gained=parse_int(cells[3]),
+                    source_rank=parse_int(rank_text),
+                    source_window="regional",
+                    source_name=f"YTTrack Trending - {REGION_BY_KEY[region]['label']} {category_name}",
+                    source_url=page,
+                    collected_at=collected_at,
+                    extra_notes=["source: YTTrack regional trending chart"],
+                    min_score=0,
+                )
+                if item:
+                    candidates.append(item)
+    return candidates
+
+
+def collect_chartika(collected_at: str) -> list[dict[str, Any]]:
+    candidates: list[dict[str, Any]] = []
+    local_date = collected_at[:10]
+    for region, chartika_region in CHARTIKA_REGION_IDS.items():
+        for chapter_id, category_name in (("main", "Entertainment"), ("music", "Music")):
+            params = urlencode(
+                {
+                    "method": "getChart",
+                    "region_id": chartika_region,
+                    "chapter_id": chapter_id,
+                    "period_type": "day",
+                    "start_date": local_date,
+                    "end_date": local_date,
+                    "local_date": local_date,
+                }
+            )
+            api_url = f"https://api.chartika.com/api.php?{params}"
+            page = f"https://chartika.com/{chartika_region}/{chapter_id}"
+            try:
+                payload = fetch_json(api_url)
+            except Exception as exc:
+                print(f"warning: failed to fetch {api_url}: {exc}", file=sys.stderr)
+                continue
+
+            rows = (payload.get("data") or {}).get("items") or []
+            count = 0
+            for raw in rows:
+                video_id = str(raw.get("video_id") or "")
+                duration = parse_int(raw.get("duration"))
+                if not video_id or duration <= 0 or duration > 180:
+                    continue
+                item = make_candidate(
+                    region=region,
+                    video_id=video_id,
+                    title=str(raw.get("title") or ""),
+                    channel=str(raw.get("channel_title") or ""),
+                    category=category_name,
+                    views_gained=parse_int(raw.get("points")),
+                    source_rank=parse_int(raw.get("position")),
+                    source_window="chart-day",
+                    source_name=f"Chartika {REGION_BY_KEY[region]['label']} {category_name} Chart",
+                    source_url=page,
+                    collected_at=collected_at,
+                    extra_notes=[f"source: Chartika regional chart", f"duration: {duration}s"],
+                    min_score=3,
+                )
+                if item:
+                    candidates.append(item)
+                    count += 1
+                    if count >= RANKING_SOURCE_LIMIT:
+                        break
+    return candidates
+
+
 def collect_html_sources(collected_at: str) -> list[dict[str, Any]]:
     candidates: list[dict[str, Any]] = []
-    for collector in (collect_playboard, collect_redtoolbox, collect_trendsfox, collect_top1trend):
+    for collector in (
+        collect_playboard,
+        collect_redtoolbox,
+        collect_yttrack,
+        collect_chartika,
+        collect_trendsfox,
+        collect_top1trend,
+    ):
         candidates.extend(collector(collected_at))
     return candidates
 
@@ -644,9 +898,11 @@ def from_ytdlp_item(raw: dict[str, Any], query: str, region: str, collected_at: 
     )
 
 
-def collect_youtube_search(collected_at: str) -> list[dict[str, Any]]:
+def collect_youtube_search(collected_at: str, region_keys: set[str] | None = None) -> list[dict[str, Any]]:
     candidates: list[dict[str, Any]] = []
     for region in REGIONS:
+        if region_keys is not None and region["key"] not in region_keys:
+            continue
         for text_query in region["queries"]:
             query = f"ytsearch{YT_SEARCH_LIMIT}:{text_query}"
             for raw in run_yt_search(query):
@@ -725,9 +981,47 @@ def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]],
     return fresh + tail
 
 
+def regions_needing_search(candidates: list[dict[str, Any]], max_new: int) -> set[str]:
+    counts = {region["key"]: 0 for region in REGIONS}
+    seen: set[str] = set()
+    for item in sorted(candidates, key=rank_item):
+        video_id = item.get("id")
+        if not video_id or video_id in seen:
+            continue
+        seen.add(video_id)
+        region = item.get("region") or "global"
+        if region not in counts:
+            region = "global"
+        if counts[region] < max_new:
+            counts[region] += 1
+    return {region for region, count in counts.items() if count < max_new}
+
+
+def source_priority(item: dict[str, Any]) -> int:
+    name = str(item.get("sourceName") or "")
+    if "Vidirun" in name:
+        return 0
+    if "Playboard" in name:
+        return 1
+    if "RedToolBox" in name:
+        return 2
+    if "YTTrack" in name:
+        return 3
+    if "Chartika" in name:
+        return 4
+    if "TrendsFox" in name:
+        return 5
+    if "Top1Trend" in name:
+        return 6
+    if "YouTube Search" in name:
+        return 9
+    return 7
+
+
 def rank_item(item: dict[str, Any]) -> tuple[Any, ...]:
     return (
         REGIONS.index(REGION_BY_KEY.get(item.get("region") or "global", REGION_BY_KEY["global"])),
+        source_priority(item),
         item.get("sourceWindow") != "24H",
         -(item.get("viewsGained") or 0),
         item.get("sourceRank") or 9999,
@@ -745,6 +1039,14 @@ def source_links(items: list[dict[str, Any]]) -> list[tuple[str, str]]:
     pairs: set[tuple[str, str]] = set()
     for source in VIDIRUN_SOURCES:
         pairs.add((source["name"], source["page"]))
+    for source in PLAYBOARD_SOURCES:
+        pairs.add((source["name"], source["page"]))
+    for source in REDTOOLBOX_SOURCES:
+        pairs.add((f"{source['name']} {source['window']}", source["page"]))
+    pairs.add(("Playboard regional YouTube Shorts charts", "https://playboard.co/chart/short/most-viewed-all-videos-in-worldwide-daily"))
+    pairs.add(("RedToolBox daily/weekly/monthly top Shorts", "https://www.redtoolbox.io/toplist/topShorts.jsp"))
+    pairs.add(("YTTrack regional YouTube trending charts", "https://yttrack.com/"))
+    pairs.add(("Chartika regional YouTube charts", "https://chartika.com/"))
     for source in HTML_SOURCES:
         pairs.add((source["name"], source["page"]))
     pairs.add(("YouTube Shorts keyword searches", "https://www.youtube.com/results?search_query=%23shorts+dance+music+trend"))
@@ -1080,12 +1382,21 @@ def main() -> int:
         collected_at = datetime.now(KST).replace(microsecond=0).isoformat()
         candidates = collect_vidirun(collected_at)
         candidates.extend(collect_html_sources(collected_at))
+        needed_regions = regions_needing_search(candidates, args.max_new)
         try:
             import yt_dlp  # noqa: F401
         except Exception:
             print("warning: yt-dlp is not installed; skipping YouTube search queries", file=sys.stderr)
         else:
-            candidates.extend(collect_youtube_search(collected_at))
+            if needed_regions:
+                print(
+                    "ranking sources need YouTube search fallback for: "
+                    + ", ".join(region["label"] for region in REGIONS if region["key"] in needed_regions),
+                    file=sys.stderr,
+                )
+                candidates.extend(collect_youtube_search(collected_at, needed_regions))
+            else:
+                print("ranking sources filled every region; skipping YouTube search fallback", file=sys.stderr)
         merged = merge_items(existing, candidates, args.max_new)
         write_data(merged)
 
