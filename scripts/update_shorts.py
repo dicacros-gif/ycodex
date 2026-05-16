@@ -1726,9 +1726,6 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
         hero_points.append(top_line)
     hero_points.append(f"현재 데이터에서는 {top_pattern_text} 신호가 특히 강합니다.")
     hero_point_items = render_points(hero_points)
-    recent_heading_items = render_points(
-        ["공개 랭킹과 YouTube 메타데이터에서 1억뷰 이상으로 확인된 최신 업로드를 먼저 봅니다."]
-    )
 
     recent_mega_items = sorted(
         mega_items,
@@ -1741,7 +1738,6 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
       <div class="mega-case-section">
         <div class="mega-section-heading">
           <h3>최근 1억뷰 달성 사례</h3>
-          <ul class="mega-heading-points">{recent_heading_items}</ul>
         </div>
         <div class="mega-case-list">{recent_case_cards}</div>
       </div>"""
@@ -2184,15 +2180,6 @@ def render_index(items: list[dict[str, Any]]) -> str:
       margin: 0;
       font-size: 16px;
       line-height: 1.3;
-    }}
-    .mega-heading-points {{
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 12px;
-      font-weight: 700;
-      line-height: 1.45;
-      max-width: 520px;
     }}
     .mega-case-list {{
       display: grid;
