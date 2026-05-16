@@ -43,6 +43,7 @@ jobs:
           from html.parser import HTMLParser
           from pathlib import Path
           import json
+          from datetime import datetime, timezone
 
           class CardCounter(HTMLParser):
               def __init__(self):
@@ -93,6 +94,15 @@ jobs:
           data = json.loads(Path("shorts-data.json").read_text(encoding="utf-8"))
           by_id = {item["id"]: item for item in data}
           visible = [by_id[video_id] for video_id in video_ids]
+          def parse_collected_at(item):
+              value = item.get("collectedAt")
+              if not value:
+                  return datetime(1970, 1, 1, tzinfo=timezone.utc)
+              parsed = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+              if parsed.tzinfo is None:
+                  parsed = parsed.replace(tzinfo=timezone.utc)
+              return parsed.astimezone(timezone.utc)
+          collected_order = [parse_collected_at(item) for item in data]
           detailed_popularity = [
               text for text in parser.popularity_text
               if len(text) >= 250 and "views" in text
@@ -109,6 +119,10 @@ jobs:
               or "trend-brief" not in html
               or "mega-panel" not in html
               or "popularity" not in html
+              or any(
+                  collected_order[index] < collected_order[index + 1]
+                  for index in range(len(collected_order) - 1)
+              )
               or any((item.get("viewsGained") or 0) < 3000 for item in visible)
               or any(not item.get("publishedAt") for item in visible)
           ):
@@ -123,6 +137,7 @@ jobs:
               "detailed_popularity": len(detailed_popularity),
               "all_short_links": len(parser.short_links),
               "unique_short_ids": len(set(video_ids)),
+              "newest_data_first": True,
           })
           PY
 

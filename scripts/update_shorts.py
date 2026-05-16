@@ -400,7 +400,32 @@ def normalize_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return normalized
 
 
+def parse_collected_at(value: Any) -> datetime:
+    if not value:
+        return datetime(1970, 1, 1, tzinfo=timezone.utc)
+    try:
+        collected = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except ValueError:
+        return datetime(1970, 1, 1, tzinfo=timezone.utc)
+    if collected.tzinfo is None:
+        collected = collected.replace(tzinfo=KST)
+    return collected.astimezone(timezone.utc)
+
+
+def newest_first_key(item: dict[str, Any]) -> tuple[Any, ...]:
+    return (
+        -parse_collected_at(item.get("collectedAt")).timestamp(),
+        *rank_item(item),
+        item.get("id") or "",
+    )
+
+
+def order_items_newest_first(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return sorted(normalize_items(items), key=newest_first_key)
+
+
 def write_data(items: list[dict[str, Any]]) -> None:
+    items = order_items_newest_first(items)
     DATA_PATH.write_text(
         json.dumps(items, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
@@ -1078,7 +1103,7 @@ def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]],
             continue
         seen_ids.add(video_id)
         tail.append(item)
-    return fresh + tail
+    return order_items_newest_first(fresh + tail)
 
 
 def regions_needing_search(candidates: list[dict[str, Any]], max_new: int) -> set[str]:
@@ -1588,7 +1613,7 @@ def render_card(item: dict[str, Any], index: int) -> str:
 def group_items_by_region(items: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
     grouped = {region["key"]: [] for region in REGIONS}
     seen: set[str] = set()
-    for item in normalize_items(items):
+    for item in order_items_newest_first(items):
         video_id = item.get("id")
         if not video_id or video_id in seen or not is_displayable(item):
             continue
@@ -1598,7 +1623,7 @@ def group_items_by_region(items: list[dict[str, Any]]) -> dict[str, list[dict[st
 
 
 def render_index(items: list[dict[str, Any]]) -> str:
-    items = normalize_items(items)
+    items = order_items_newest_first(items)
     grouped = group_items_by_region(items)
     display_items = [item for region_items in grouped.values() for item in region_items]
     trend_analysis = render_trend_analysis(display_items)
