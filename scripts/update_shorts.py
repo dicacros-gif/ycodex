@@ -1574,7 +1574,6 @@ def render_mega_case_card(item: dict[str, Any]) -> str:
             <div class="mega-case-meta">
               <span>조회수 {fmt_int(item.get('viewsGained'))}</span>
               <span>좋아요 {fmt_count(item.get('likeCount'))}</span>
-              <span>등록일 {escape(fmt_published(item.get('publishedAt')))}</span>
             </div>
             <a class="mega-case-source" href="{escape(source_url)}" target="_blank" rel="noopener">근거: {escape(source_label(item))}</a>
             <ul class="mega-case-points">{render_points(mega_case_points(item))}</ul>
@@ -1643,7 +1642,7 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
         f"""
         <article class="mega-example">
           <a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">{escape(compact_title(str(item.get('title', '')), 64))}</a>
-          <span>{fmt_int(item.get('viewsGained'))} views · 게시일 {escape(fmt_published(item.get('publishedAt')))}</span>
+          <span>{fmt_int(item.get('viewsGained'))} views</span>
           <ul>{render_points(popularity_reason_points(item)[:4])}</ul>
         </article>"""
         for item in analysis_items
@@ -1758,10 +1757,6 @@ def render_card(item: dict[str, Any], index: int) -> str:
           <div class="stats-row">
             <span><b>조회수</b>{fmt_count(item.get('viewsGained'))}</span>
             <span><b>좋아요</b>{fmt_count(item.get('likeCount'))}</span>
-          </div>
-          <div class="date-row">
-            <span>게시일 {escape(fmt_published(item.get('publishedAt')))}</span>
-            <span>등록일 {escape(fmt_registered(item.get('collectedAt')))}</span>
           </div>
           <div class="popularity" aria-label="인기 이유">
             <strong>인기 이유</strong>
@@ -2300,7 +2295,6 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     .channel,
     .stats-row,
-    .date-row,
     .video-url,
     .source {{
       margin: 0;
@@ -2335,19 +2329,6 @@ def render_index(items: list[dict[str, Any]]) -> str:
       font-size: 10px;
       line-height: 1.15;
       margin-right: 3px;
-    }}
-    .date-row {{
-      color: #475467;
-      font-weight: 700;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px 6px;
-    }}
-    .date-row span {{
-      border-radius: 999px;
-      background: #f8fafc;
-      border: 1px solid var(--line);
-      padding: 1px 6px;
     }}
     .popularity {{
       color: #92400e;
