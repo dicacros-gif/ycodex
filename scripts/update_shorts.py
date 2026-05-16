@@ -1909,9 +1909,11 @@ def render_index(items: list[dict[str, Any]]) -> str:
         region_cards = "".join(render_card(item, index) for index, item in enumerate(grouped[region["key"]], start=1))
         if not region_cards:
             region_cards = '<div class="empty-state">No matching Shorts collected for this region yet.</div>'
+        panel_intro = trend_analysis if region["key"] == "global" else ""
         panels.append(
             f"""
     <section class="region-panel{' active' if region['key'] == 'global' else ''}" data-region-panel="{region['key']}" aria-label="{escape(region['label'])} trending shorts">
+{panel_intro}
       <div class="grid">{region_cards}
       </div>
     </section>"""
@@ -2563,7 +2565,6 @@ def render_index(items: list[dict[str, Any]]) -> str:
     </div>
   </header>
   <main class="shell">
-{trend_analysis}
 {''.join(panels)}
     <section class="source-panel" aria-label="sources">
       <strong>연결 소스</strong>
