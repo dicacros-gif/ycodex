@@ -137,8 +137,9 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 9px;
+      align-items: stretch;
     }
     .region-panel {
       display: none;
@@ -162,12 +163,14 @@
       border-radius: 8px;
       overflow: hidden;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       min-height: 100%;
     }
     .thumb-link {
       position: relative;
       display: block;
+      flex: 0 0 74px;
+      width: 74px;
       aspect-ratio: 9 / 16;
       background: #dbe4ee;
       overflow: hidden;
@@ -180,33 +183,38 @@
     }
     .rank {
       position: absolute;
-      top: 8px;
-      left: 8px;
+      top: 5px;
+      left: 5px;
       background: rgba(24, 33, 47, 0.86);
       color: white;
       border-radius: 999px;
-      padding: 4px 8px;
-      font-size: 12px;
+      padding: 3px 6px;
+      font-size: 10px;
       font-weight: 700;
     }
     .short-body {
-      padding: 13px;
+      min-width: 0;
+      padding: 8px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 5px;
     }
     .meta-row {
       display: flex;
       justify-content: space-between;
       gap: 10px;
       color: var(--accent-2);
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 700;
     }
     .short-card h2 {
       margin: 0;
-      font-size: 16px;
-      line-height: 1.35;
+      font-size: 13px;
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     .short-card h2 a {
       text-decoration: none;
@@ -219,8 +227,8 @@
     .source {
       margin: 0;
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.45;
+      font-size: 11px;
+      line-height: 1.35;
     }
     .video-url a {
       color: var(--focus);
@@ -232,11 +240,7 @@
       text-decoration: none;
     }
     .notes {
-      margin: 2px 0 0;
-      padding-left: 18px;
-      color: #475467;
-      font-size: 12px;
-      line-height: 1.45;
+      display: none;
     }
     .source-panel {
       margin-top: 26px;
@@ -262,7 +266,8 @@
     @media (max-width: 720px) {
       .topbar { align-items: stretch; flex-direction: column; }
       .status { min-width: 0; }
-      .grid { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }
+      .grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+      .thumb-link { flex-basis: 68px; width: 68px; }
     }
   </style>
 </head>
@@ -325,7 +330,7 @@
             <span>6,222,589 views</span>
           </div>
           <h2>Jackie Chan Saved The Day 🥶🔥 | The Shadow&#x27;s Edge | FUNK ABNORMAL (Slowed) #trending #shorts</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/ChdXjc1nouk" target="_blank" rel="noopener">https://www.youtube.com/shorts/ChdXjc1nouk</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/ChdXjc1nouk" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Riven-Edits</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 4</p>
           <ul class="notes"><li>core keyword: saved</li><li>music/trend signal: funk, slowed, trend</li><li>preferred category</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -342,7 +347,7 @@
             <span>6,123,186 views</span>
           </div>
           <h2>Reddington saved the people in the convenience store.#shortvideo#theblacklist #series #shorts</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/jBtyy-xQaB0" target="_blank" rel="noopener">https://www.youtube.com/shorts/jBtyy-xQaB0</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/jBtyy-xQaB0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Movie- serendipity</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 5</p>
           <ul class="notes"><li>core keyword: saved</li><li>preferred category</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -359,7 +364,7 @@
             <span>3,876,062 views</span>
           </div>
           <h2>amayra ka pink balloon #funny #whowillbemylifepartnerta #comedyfilms #comedy</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/S-8KzSs5jeU" target="_blank" rel="noopener">https://www.youtube.com/shorts/S-8KzSs5jeU</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/S-8KzSs5jeU" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Thefunnychacha123</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 12</p>
           <ul class="notes"><li>core keyword: ballo</li><li>preferred category</li><li>manual visual/audio check recommended</li></ul>
@@ -376,7 +381,7 @@
             <span>2,499,944 views</span>
           </div>
           <h2>He Couldn’t Stop Himself | 27 Dresses | HEAVENLY JUMPSTYLE (Slowed) #edit #shorts</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/-eRo-q36q6w" target="_blank" rel="noopener">https://www.youtube.com/shorts/-eRo-q36q6w</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/-eRo-q36q6w" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Rynex Edit</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 22</p>
           <ul class="notes"><li>core keyword: couldn, jumpstyle</li><li>music/trend signal: edit, slowed</li><li>preferred category</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -393,7 +398,7 @@
             <span>2,248,390 views</span>
           </div>
           <h2>When did Ermao learn to do magic？ #funny #comedy</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/HsKltJyJ-UI" target="_blank" rel="noopener">https://www.youtube.com/shorts/HsKltJyJ-UI</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/HsKltJyJ-UI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">FatSongsong and ThinErmao</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 28</p>
           <ul class="notes"><li>core keyword: magic</li><li>preferred category</li><li>manual visual/audio check recommended</li></ul>
@@ -410,7 +415,7 @@
             <span>2,244,971 views</span>
           </div>
           <h2>Argentina 🇦🇷 vs Portugal 🇵🇹 Dance Battle 🔥#football #worldcup#shorts</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/LGDz_hM078k" target="_blank" rel="noopener">https://www.youtube.com/shorts/LGDz_hM078k</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/LGDz_hM078k" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">LinkouS Source</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 29</p>
           <ul class="notes"><li>core keyword: battle, dance</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -427,7 +432,7 @@
             <span>2,198,351 views</span>
           </div>
           <h2>BEST SURPRISE EVER! ❤️‍🩹 | Headlights feat. KIDDO (Slowed)</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/2574bgUga4M" target="_blank" rel="noopener">https://www.youtube.com/shorts/2574bgUga4M</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/2574bgUga4M" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Sunnah Edit</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 30</p>
           <ul class="notes"><li>core keyword: surprise</li><li>music/trend signal: slowed</li><li>preferred category</li><li>manual visual/audio check recommended</li></ul>
@@ -444,7 +449,7 @@
             <span>2,137,116 views</span>
           </div>
           <h2>They’ll never know what happened💀 | Now you see me 3 (2025) - 4k Edit | MATADORA (Slowed)</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/vWdr3dETkqY" target="_blank" rel="noopener">https://www.youtube.com/shorts/vWdr3dETkqY</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/vWdr3dETkqY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">LaughTrack</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 34</p>
           <ul class="notes"><li>core keyword: happened</li><li>music/trend signal: edit, slowed</li><li>preferred category</li><li>manual visual/audio check recommended</li></ul>
@@ -461,7 +466,7 @@
             <span>2,080,863 views</span>
           </div>
           <h2>Michael Jackson Moonwalk with Skates Part 2</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/pu5NE-nABcI" target="_blank" rel="noopener">https://www.youtube.com/shorts/pu5NE-nABcI</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/pu5NE-nABcI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Meowfia Empire</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 35</p>
           <ul class="notes"><li>core keyword: michael jackson, moonwalk</li><li>preferred category</li><li>manual visual/audio check recommended</li></ul>
@@ -478,7 +483,7 @@
             <span>14,950,308 views</span>
           </div>
           <h2>Salish Matter’s EXTREME Street Stunt!😱 #shorts</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/QeMFP_xkAjk" target="_blank" rel="noopener">https://www.youtube.com/shorts/QeMFP_xkAjk</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/QeMFP_xkAjk" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">SaIish Zone</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 17</p>
           <ul class="notes"><li>core keyword: stunt</li><li>preferred category</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -495,7 +500,7 @@
             <span>10,391,815 views</span>
           </div>
           <h2>Backstage vs Result cute dance 😊🧸</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/CkaFGiLhk9U" target="_blank" rel="noopener">https://www.youtube.com/shorts/CkaFGiLhk9U</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/CkaFGiLhk9U" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Andrey Grechka</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 26</p>
           <ul class="notes"><li>core keyword: backstage, cute, dance</li><li>preferred category</li><li>manual visual/audio check recommended</li></ul>
@@ -512,7 +517,7 @@
             <span>9,323,896 views</span>
           </div>
           <h2>BTS REVEAL! 🎬 Jasmin is defying gravity… 😱 #shorts #michaeljackson</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/BKFhBNgoG_M" target="_blank" rel="noopener">https://www.youtube.com/shorts/BKFhBNgoG_M</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/BKFhBNgoG_M" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Jasmin and James</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 33</p>
           <ul class="notes"><li>core keyword: defying</li><li>preferred category</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -529,7 +534,7 @@
             <span>4,634,633 views</span>
           </div>
           <h2>방탄소년단과 함께 #PermissiontoDance 챌린지에 참여하세요</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/zvhzOby6c4g" target="_blank" rel="noopener">https://www.youtube.com/shorts/zvhzOby6c4g</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/zvhzOby6c4g" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">YouTube Korea</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance, 챌린지</li><li>manual visual/audio check recommended</li></ul>
@@ -546,7 +551,7 @@
             <span>2,405,718 views</span>
           </div>
           <h2>PEE DANCE!?! WHY do I PEE SO MUCH??? #PEE #shorts</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/Xe__sN9YIAI" target="_blank" rel="noopener">https://www.youtube.com/shorts/Xe__sN9YIAI</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/Xe__sN9YIAI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Yolanda Tsang PT - YO AND VAGINIA</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+cute+dance+one+person+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -563,7 +568,7 @@
             <span>2,047,335 views</span>
           </div>
           <h2>dancin (krono remix) - Anime Dance Mix [Edit/AMV]</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/1L7mzyGhXCA" target="_blank" rel="noopener">https://www.youtube.com/shorts/1L7mzyGhXCA</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/1L7mzyGhXCA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Zweng</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+slowed+dance+edit" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: edit</li><li>manual visual/audio check recommended</li></ul>
@@ -580,7 +585,7 @@
             <span>1,986,479 views</span>
           </div>
           <h2>[우주22댄스챌린지]💃🕺스우파 가비 X 솔로지옥 차현승💘 우주22댄스 배우고 Galaxy S22 득템🦄</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/hq9MjSpfE4s" target="_blank" rel="noopener">https://www.youtube.com/shorts/hq9MjSpfE4s</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/hq9MjSpfE4s" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">SK telecom</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: 댄스, 챌린지</li><li>manual visual/audio check recommended</li></ul>
@@ -597,7 +602,7 @@
             <span>613,597 views</span>
           </div>
           <h2>One Dance Instrumental Best Part (Slowed to Perfection)</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/wKrPPA7G8Gs" target="_blank" rel="noopener">https://www.youtube.com/shorts/wKrPPA7G8Gs</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/wKrPPA7G8Gs" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Joushi</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+slowed+dance+edit" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: slowed</li><li>manual visual/audio check recommended</li></ul>
@@ -614,7 +619,7 @@
             <span>442,528 views</span>
           </div>
           <h2>Funny Rat Song, Top Rats, Dance Music Pop Songs, This Video Has No Dislikes!</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/18dJkoR-uzU" target="_blank" rel="noopener">https://www.youtube.com/shorts/18dJkoR-uzU</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/18dJkoR-uzU" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">mike rayner videos</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+funny+situation+music+edit" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: music</li><li>manual visual/audio check recommended</li></ul>
@@ -631,7 +636,7 @@
             <span>0 views</span>
           </div>
           <h2>F1 스탑 챌린지 #f1 #formula1 #포뮬러1</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/4KyCA_Yt-zk" target="_blank" rel="noopener">https://www.youtube.com/shorts/4KyCA_Yt-zk</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/4KyCA_Yt-zk" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/4KyCA_Yt-zk?channelId=UCdvItLHXa6z2lfxYwz6PypA" target="_blank" rel="noopener">Playboard Most Viewed YouTube Shorts</a> · rank 11</p>
           <ul class="notes"><li>source: Playboard shorts chart</li><li>core keyword: 챌린지</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -648,7 +653,7 @@
             <span>109,315 views</span>
           </div>
           <h2>Spiderman Funny Dance Original and Edit | Velocity Edit #shorts #trending #short</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/qrX7_rEIHMw" target="_blank" rel="noopener">https://www.youtube.com/shorts/qrX7_rEIHMw</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/qrX7_rEIHMw" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">P4NK4Z.3DITX</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+funny+situation+music+edit" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: edit, trend, trending</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -665,7 +670,7 @@
             <span>90,068 views</span>
           </div>
           <h2>Booty Music - Git Fresh | Dance Cover by BoBoDanceStudio</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/8tYlQPTdJ1o" target="_blank" rel="noopener">https://www.youtube.com/shorts/8tYlQPTdJ1o</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/8tYlQPTdJ1o" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">BoBo Dance Studio</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+KPOP+dance+music+trend" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: music</li><li>manual visual/audio check recommended</li></ul>
@@ -682,7 +687,7 @@
             <span>741,528 views</span>
           </div>
           <h2>Mariah Carey - All I Want For Christmas Is You / TIKTOK dance challenge 홍대댄스학원</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/8Ffld_2OTe0" target="_blank" rel="noopener">https://www.youtube.com/shorts/8Ffld_2OTe0</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/8Ffld_2OTe0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">EZ DANCE</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+trend" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance</li><li>manual visual/audio check recommended</li></ul>
@@ -699,7 +704,7 @@
             <span>1,997 views</span>
           </div>
           <h2>광주시청 캐릭터 총출동 ㅣ퍼미션투댄스 챌린지 #shorts #PermissiontoDance #BTS</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/0gebJ2RU1x0" target="_blank" rel="noopener">https://www.youtube.com/shorts/0gebJ2RU1x0</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/0gebJ2RU1x0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">광주시</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -716,7 +721,7 @@
             <span>780 views</span>
           </div>
           <h2>[ Dance Challenge ] 지수 - 🌼&#x27;꽃&#x27; 챌린지 | 원데이수업촬영 | 오전 K.POP댄스반*월수금</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/nO0bX920h24" target="_blank" rel="noopener">https://www.youtube.com/shorts/nO0bX920h24</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/nO0bX920h24" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">SP댄스창원점</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance</li><li>manual visual/audio check recommended</li></ul>
@@ -733,7 +738,7 @@
             <span>17,241 views</span>
           </div>
           <h2>요청💘) 아무래도난 튜토리얼 [거울모드 mirrored]/ 릴스 틱톡 쇼츠 댄스 챌린지 / tiktok reels short dance challenge</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/e5XUL2p3HjU" target="_blank" rel="noopener">https://www.youtube.com/shorts/e5XUL2p3HjU</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/e5XUL2p3HjU" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">정지안이당</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance</li><li>manual visual/audio check recommended</li></ul>
@@ -750,7 +755,7 @@
             <span>4,295,510 views</span>
           </div>
           <h2>Turning anime into reality</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/gaofbq_8cAQ" target="_blank" rel="noopener">https://www.youtube.com/shorts/gaofbq_8cAQ</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/gaofbq_8cAQ" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Jordi Koalitic</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 9</p>
           <ul class="notes"><li>visual situation/performance candidate</li><li>high 24h trend rank</li><li>manual visual/audio check recommended</li></ul>
@@ -771,7 +776,7 @@
             <span>768,979 views</span>
           </div>
           <h2>2024 인기 댄스챌린지 모음ㅣ2024 Dance Challenge Compilation</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/7ZmiScVqqdA" target="_blank" rel="noopener">https://www.youtube.com/shorts/7ZmiScVqqdA</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/7ZmiScVqqdA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">춤선생SIMBA</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance, 댄스, 챌린지</li><li>excluded signal: compilation</li><li>manual visual/audio check recommended</li></ul>
@@ -788,7 +793,7 @@
             <span>686,712 views</span>
           </div>
           <h2>시니어를 위한 셔플댄스 입문 10가지 스텝 #시니어셔플댄스 #춤선생simba #한국셔플댄스협회</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/lQ53wEV5siM" target="_blank" rel="noopener">https://www.youtube.com/shorts/lQ53wEV5siM</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/lQ53wEV5siM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">춤선생SIMBA</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%ED%95%9C%EA%B5%AD+%EC%87%BC%EC%B8%A0+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%ED%8A%B8%EB%A0%8C%EB%93%9C" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: 댄스, 춤</li><li>manual visual/audio check recommended</li></ul>
@@ -805,7 +810,7 @@
             <span>295,580 views</span>
           </div>
           <h2>[우주22댄스챌린지] 빵먹다살찐떡, 강예찬도 참여한 바로 그 챌린지! 🕺🏼✨ Galaxy S22, Galaxy Tab S8 받아가세요!🥰</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/PiijOs9gJXM" target="_blank" rel="noopener">https://www.youtube.com/shorts/PiijOs9gJXM</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/PiijOs9gJXM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">SK telecom</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: 댄스, 챌린지</li><li>manual visual/audio check recommended</li></ul>
@@ -822,7 +827,7 @@
             <span>144,787 views</span>
           </div>
           <h2>춤짱들의 댄스 챌린지 #송형준 #이채연 #크래비티</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/fcJ8U3J67s4" target="_blank" rel="noopener">https://www.youtube.com/shorts/fcJ8U3J67s4</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/fcJ8U3J67s4" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">송강호우</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: 댄스, 챌린지, 춤</li><li>manual visual/audio check recommended</li></ul>
@@ -839,7 +844,7 @@
             <span>19,881 views</span>
           </div>
           <h2>TOCA TOCA(토카토카) 챌린지안무/ 다이어트댄스</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/JPZvnxL1BV8" target="_blank" rel="noopener">https://www.youtube.com/shorts/JPZvnxL1BV8</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/JPZvnxL1BV8" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">매드댄스무브먼트협회</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: 댄스, 챌린지</li><li>manual visual/audio check recommended</li></ul>
@@ -856,7 +861,7 @@
             <span>18,344 views</span>
           </div>
           <h2>🖇️릴스 600만뷰 찍은 댄스챌린지 모음 #저스트비크루</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/64HFcmUso_c" target="_blank" rel="noopener">https://www.youtube.com/shorts/64HFcmUso_c</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/64HFcmUso_c" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">저스트비크루 JUSTEVEE OFFICIAL</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: 댄스, 챌린지</li><li>manual visual/audio check recommended</li></ul>
@@ -873,7 +878,7 @@
             <span>7,104 views</span>
           </div>
           <h2>[KOSHA X OH MY GIRL] 안전댄스 챌린지 START! &quot;아이패드 필요한 사람 드루와~&quot;</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/T4nPwDE4lIA" target="_blank" rel="noopener">https://www.youtube.com/shorts/T4nPwDE4lIA</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/T4nPwDE4lIA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">안전보건공단</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: 댄스, 챌린지</li><li>manual visual/audio check recommended</li></ul>
@@ -890,7 +895,7 @@
             <span>6,608 views</span>
           </div>
           <h2>[NZ 챌린지] 칼각 댄스 영상</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/jLi8WDXZD-w" target="_blank" rel="noopener">https://www.youtube.com/shorts/jLi8WDXZD-w</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/jLi8WDXZD-w" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">한국에너지공단 : KEA(Korea Energy Agency)</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: 댄스, 챌린지</li><li>manual visual/audio check recommended</li></ul>
@@ -907,7 +912,7 @@
             <span>3,916 views</span>
           </div>
           <h2>BTS is awesome #dancingnayul #kpop #music #dance #shorts #challenge #AFstarz #dancingbeardol #dre...</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/pncR4rTOUXE" target="_blank" rel="noopener">https://www.youtube.com/shorts/pncR4rTOUXE</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/pncR4rTOUXE" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">춤추는나율(헤어날수없어 율♡)</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance, dancing</li><li>music/trend signal: music</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -924,7 +929,7 @@
             <span>3,291 views</span>
           </div>
           <h2>Starting the day : 😄 Smile #DancingYoonji #Soomile #Challenge #Shorts #Dance #kpop #DancingBear #...</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/RBw24AV7HzU" target="_blank" rel="noopener">https://www.youtube.com/shorts/RBw24AV7HzU</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/RBw24AV7HzU" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">춤추는윤지</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%ED%95%9C%EA%B5%AD+%EC%87%BC%EC%B8%A0+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%ED%8A%B8%EB%A0%8C%EB%93%9C" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance, dancing</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -941,7 +946,7 @@
             <span>644 views</span>
           </div>
           <h2>뮤직뮤직 챌린지 #kpop #dance #댄스챌린지 #씨스타 #바빠 #숏츠 #toxic #dancechallenge #shorts #music #musicchallenge</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/ZAtmenu4ybo" target="_blank" rel="noopener">https://www.youtube.com/shorts/ZAtmenu4ybo</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/ZAtmenu4ybo" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">권제니</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance, 댄스, 챌린지</li><li>music/trend signal: music</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -958,7 +963,7 @@
             <span>548 views</span>
           </div>
           <h2>NEW JEANS(뉴진스) - SUPER SHY(슈퍼사이) | 커버댄스 | challenge | 챌린지 | 안무 | 화목걸스키즈저학년 TEAM B #shorts [와와댄스마포본점]</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/RWKnzN6dt6Q" target="_blank" rel="noopener">https://www.youtube.com/shorts/RWKnzN6dt6Q</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/RWKnzN6dt6Q" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">WAWA DANCE ACADEMY</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, 댄스, 챌린지</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -975,7 +980,7 @@
             <span>385 views</span>
           </div>
           <h2>[랩토커 9기] 트렌디한 숏폼 만드는 방법! ver.댄스챌린지</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/vitqEboQOCE" target="_blank" rel="noopener">https://www.youtube.com/shorts/vitqEboQOCE</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/vitqEboQOCE" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">경북콘텐츠코리아랩</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: 댄스, 챌린지</li><li>manual visual/audio check recommended</li></ul>
@@ -992,7 +997,7 @@
             <span>379 views</span>
           </div>
           <h2>추억의 띵곡 댄스 챌린지 #shorts</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/UrWUtZiFD08" target="_blank" rel="noopener">https://www.youtube.com/shorts/UrWUtZiFD08</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/UrWUtZiFD08" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">댄스코드 DANCE CODE</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: 댄스, 챌린지</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -1013,7 +1018,7 @@
             <span>5,177,490 views</span>
           </div>
           <h2>Chris Brown and Snoop Dogg Dances to Amapiano South African Music</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/6fCpQ_jNZys" target="_blank" rel="noopener">https://www.youtube.com/shorts/6fCpQ_jNZys</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/6fCpQ_jNZys" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Jobartography</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+USA" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: music</li><li>manual visual/audio check recommended</li></ul>
@@ -1030,7 +1035,7 @@
             <span>4,209,755 views</span>
           </div>
           <h2>[아두] Earth, Wind &amp; Fire - September | 커버댄스 Dance Cover | Choreography by Jisoo Yu &amp; David Hart</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/o2amXB3yVWw" target="_blank" rel="noopener">https://www.youtube.com/shorts/o2amXB3yVWw</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/o2amXB3yVWw" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">아두 Ahdoo [아름다운 두둠칫]</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=US+trending+shorts+dance+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance, 댄스</li><li>manual visual/audio check recommended</li></ul>
@@ -1047,7 +1052,7 @@
             <span>1,650 views</span>
           </div>
           <h2>#music #fypシ #dance #shorts#youtubeshorts#viralvideo #shortvideo #trending #viral #foryou#fyp#dancer</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/VIxUZo6SZWE" target="_blank" rel="noopener">https://www.youtube.com/shorts/VIxUZo6SZWE</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/VIxUZo6SZWE" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Dancer Piu official</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=US+trending+shorts+dance+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance, dancer</li><li>music/trend signal: music, trend, trending</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -1064,7 +1069,7 @@
             <span>1,412 views</span>
           </div>
           <h2>#music #fypシ #dance #shorts#youtubeshorts#viralvideo #shortvideo #trending #viral #foryou#fyp#dancer</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/O373p-8q8W0" target="_blank" rel="noopener">https://www.youtube.com/shorts/O373p-8q8W0</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/O373p-8q8W0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Dancer Piu official</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=US+trending+shorts+dance+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance, dancer</li><li>music/trend signal: music, trend, trending</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -1085,7 +1090,7 @@
             <span>8,265,037 views</span>
           </div>
           <h2>NO BATIDÃO Group Dance Trend That Broke TikTok</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/QRBHUE3kkqo" target="_blank" rel="noopener">https://www.youtube.com/shorts/QRBHUE3kkqo</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/QRBHUE3kkqo" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">My Musify</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Japan+shorts+dance+challenge+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: trend</li><li>manual visual/audio check recommended</li></ul>
@@ -1102,7 +1107,7 @@
             <span>4,700,491 views</span>
           </div>
           <h2>Anime [amv]- Toca Toca Official Music Video 4K (Dance Template)</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/2DFKIllyMOY" target="_blank" rel="noopener">https://www.youtube.com/shorts/2DFKIllyMOY</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/2DFKIllyMOY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Ashwath Baskar</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Japan+shorts+dance+challenge+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: music</li><li>manual visual/audio check recommended</li></ul>
@@ -1119,7 +1124,7 @@
             <span>2,405,466 views</span>
           </div>
           <h2>Top 10 Most Viral Dance Phonk Music On TikTok</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/M6T3PJnlvaI" target="_blank" rel="noopener">https://www.youtube.com/shorts/M6T3PJnlvaI</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/M6T3PJnlvaI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">NS Seyat</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Japan+shorts+dance+challenge+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: music, phonk</li><li>manual visual/audio check recommended</li></ul>
@@ -1140,7 +1145,7 @@
             <span>2,029,219 views</span>
           </div>
           <h2>Rasputin Boney M Janaki and Naveen Star magic Flowers channel viral dance Rasputin flowers</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/qM70GqUROyk" target="_blank" rel="noopener">https://www.youtube.com/shorts/qM70GqUROyk</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/qM70GqUROyk" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Donald Edits</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Mexico+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance, magic</li><li>manual visual/audio check recommended</li></ul>
@@ -1157,7 +1162,7 @@
             <span>1,895,357 views</span>
           </div>
           <h2>Daddy Yankee &amp; Snow - con calma | jyoti choreography | #concalma #dance #choreography #trending</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/j8kTzXjAyjY" target="_blank" rel="noopener">https://www.youtube.com/shorts/j8kTzXjAyjY</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/j8kTzXjAyjY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Jyotikoli</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Mexico+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: trend, trending</li><li>manual visual/audio check recommended</li></ul>
@@ -1174,7 +1179,7 @@
             <span>52,798 views</span>
           </div>
           <h2>El baile viral del momento la culebritica. #musica #music 🤪🤪🤪 #bailesdetiktok #viralshorts</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/BaMLcfSquP0" target="_blank" rel="noopener">https://www.youtube.com/shorts/BaMLcfSquP0</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/BaMLcfSquP0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Guitar 🎧</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+baile+musica+tendencia+Mexico" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: baile</li><li>music/trend signal: music, musica</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -1191,7 +1196,7 @@
             <span>194 views</span>
           </div>
           <h2>Break dance. #breakdance #musica #elbailebailecallejero #videoviral #viral #baile #shorts #amazing</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/y157CxC50lw" target="_blank" rel="noopener">https://www.youtube.com/shorts/y157CxC50lw</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/y157CxC50lw" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Shorts</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+baile+musica+tendencia+Mexico" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: baile, dance</li><li>music/trend signal: music, musica</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -1212,7 +1217,7 @@
             <span>22,366,868 views</span>
           </div>
           <h2>Handsome Dancer - Coincidance</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/nBHkIWAJitg" target="_blank" rel="noopener">https://www.youtube.com/shorts/nBHkIWAJitg</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/nBHkIWAJitg" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Handsome Dancer</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Germany+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance, dancer</li><li>manual visual/audio check recommended</li></ul>
@@ -1229,7 +1234,7 @@
             <span>270,453 views</span>
           </div>
           <h2>Jerusalema Dance Challenge Austrian Airlines HD✈️✈️ #Dance #JerusalemaDanceChallenge</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/h5Jh1MIzWOE" target="_blank" rel="noopener">https://www.youtube.com/shorts/h5Jh1MIzWOE</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/h5Jh1MIzWOE" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">DancersStudioHD</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Germany+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance</li><li>manual visual/audio check recommended</li></ul>
@@ -1246,7 +1251,7 @@
             <span>1,047 views</span>
           </div>
           <h2>Vu Dieu Chat Thit (TikTok Dance Chopping Song) #Shorts​ Challenge</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/7bG8fjfDCnM" target="_blank" rel="noopener">https://www.youtube.com/shorts/7bG8fjfDCnM</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/7bG8fjfDCnM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Olha Germany</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+tanz+musik+trend+deutschland" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -1263,7 +1268,7 @@
             <span>476 views</span>
           </div>
           <h2>Pushpa: Saami Saami |#shorts | Dance cover by Burla Sisters | Allu Arjun, Rashmika Mandanna |DSP|Hit</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/Aczxhnwh_Oc" target="_blank" rel="noopener">https://www.youtube.com/shorts/Aczxhnwh_Oc</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/Aczxhnwh_Oc" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Mridini Laasya</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+tanz+musik+trend+deutschland" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -1280,7 +1285,7 @@
             <span>18,443 views</span>
           </div>
           <h2>After Hours Three 💖stunning 💫girls dance 💙 christina 💤Trending Reels #trending #shorts #dance #viral</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/B2VFVPDrhJc" target="_blank" rel="noopener">https://www.youtube.com/shorts/B2VFVPDrhJc</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/B2VFVPDrhJc" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Guitar 🎧</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+tanz+musik+trend+deutschland" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: trend, trending</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -1297,7 +1302,7 @@
             <span>9,953 views</span>
           </div>
           <h2>Komm Tanzen? - Ich Will Nicht --- TikTok Trend --- Dancing Wolf</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/vLcJhv_gYlo" target="_blank" rel="noopener">https://www.youtube.com/shorts/vLcJhv_gYlo</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/vLcJhv_gYlo" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">-=Joint197=-</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+tanz+musik+trend+deutschland" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dancing, tanz</li><li>music/trend signal: trend</li><li>manual visual/audio check recommended</li></ul>
@@ -1314,7 +1319,7 @@
             <span>246 views</span>
           </div>
           <h2>Party Rock Anthem Dance Music Boys Group 男團體舞蹈表演 #dance #aidance #ai #shorts #trend #90smusic</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/GW6x-kmp8Nw" target="_blank" rel="noopener">https://www.youtube.com/shorts/GW6x-kmp8Nw</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/GW6x-kmp8Nw" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">KellyAI Dancer</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+tanz+musik+trend+deutschland" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: music, trend</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -1335,7 +1340,7 @@
             <span>2,422,708 views</span>
           </div>
           <h2>PAQUETA DANCE EDIT | BRAZIL CELEBRATION | 4K ULTRA HD</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/PExRCEPOCk4" target="_blank" rel="noopener">https://www.youtube.com/shorts/PExRCEPOCk4</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/PExRCEPOCk4" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Football Legion</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+danca+musica+tendencia+Brasil" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: edit</li><li>manual visual/audio check recommended</li></ul>
@@ -1352,7 +1357,7 @@
             <span>793,076 views</span>
           </div>
           <h2>Best TikTok challenges 2026 - Brazil Alencarzão and Arthur Lima - brazil dance tiktok</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/p2xTa1U2U5M" target="_blank" rel="noopener">https://www.youtube.com/shorts/p2xTa1U2U5M</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/p2xTa1U2U5M" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Tiktok mix</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Brazil+dance+challenge+shorts+funk" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance</li><li>manual visual/audio check recommended</li></ul>
@@ -1369,7 +1374,7 @@
             <span>323,418 views</span>
           </div>
           <h2>Original vs Edit 🔥 | Gozalo | Bailalo Gozalo | Gozalo Dance | Gonzalo | Gonzalo Dance 😍✨#funk #edit</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/nWJdabiKpm0" target="_blank" rel="noopener">https://www.youtube.com/shorts/nWJdabiKpm0</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/nWJdabiKpm0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Atco Editz</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+danca+musica+tendencia+Brasil" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: edit, funk</li><li>manual visual/audio check recommended</li></ul>
@@ -1386,7 +1391,7 @@
             <span>44,944 views</span>
           </div>
           <h2>Tomato Tomato Tomato 🕺 New Trend 📸 #dance #dancecover #trend #trending #brazil #phonk #djarana</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/tnSBKJxsWrY" target="_blank" rel="noopener">https://www.youtube.com/shorts/tnSBKJxsWrY</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/tnSBKJxsWrY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Hot reaction on meme</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+danca+musica+tendencia+Brasil" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: phonk, trend, trending</li><li>manual visual/audio check recommended</li></ul>
@@ -1403,7 +1408,7 @@
             <span>5,180,550 views</span>
           </div>
           <h2>DANCING FUNK-DJ Javi26, Zyas ---- JUJUTSU KAISEN EDIT</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/v35j0LkQ1sM" target="_blank" rel="noopener">https://www.youtube.com/shorts/v35j0LkQ1sM</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/v35j0LkQ1sM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Suha</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Brazil+dance+challenge+shorts+funk" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dancing</li><li>music/trend signal: edit, funk</li><li>manual visual/audio check recommended</li></ul>
@@ -1424,7 +1429,7 @@
             <span>109,250 views</span>
           </div>
           <h2>Tarian afrika keren #shorts</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/bFdwP0u8FD0" target="_blank" rel="noopener">https://www.youtube.com/shorts/bFdwP0u8FD0</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/bFdwP0u8FD0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Masdet</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+joget+musik+viral+Indonesia" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: tari</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -1441,7 +1446,7 @@
             <span>2,302 views</span>
           </div>
           <h2>“Senyum kalem dancer cantik joget asik depan sound horeg 💖” #karnaval #jogetkarnaval #viral #cantik</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/GLrg5kBgOzI" target="_blank" rel="noopener">https://www.youtube.com/shorts/GLrg5kBgOzI</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/GLrg5kBgOzI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Alesha</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+joget+musik+viral+Indonesia" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance, dancer</li><li>manual visual/audio check recommended</li></ul>
@@ -1462,7 +1467,7 @@
             <span>321,190 views</span>
           </div>
           <h2>Viral Dance Challenge: Scott West Dance of the Gold Condor (Buenos Aires) Van Gogh Starry Night</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/9rfhgNmn2YE" target="_blank" rel="noopener">https://www.youtube.com/shorts/9rfhgNmn2YE</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/9rfhgNmn2YE" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">SCOTT WEST</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Argentina+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance</li><li>manual visual/audio check recommended</li></ul>
@@ -1483,7 +1488,7 @@
             <span>567,151 views</span>
           </div>
           <h2>EENIE MEENIE DANCE CHALLENGE BY HYPERKATZ</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/vokq7WZwGBc" target="_blank" rel="noopener">https://www.youtube.com/shorts/vokq7WZwGBc</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/vokq7WZwGBc" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Patrickjohn T. Japos</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance</li><li>manual visual/audio check recommended</li></ul>
@@ -1500,7 +1505,7 @@
             <span>149,005 views</span>
           </div>
           <h2>Maymay Entrata - Tsada Mahigugma | New Dance Challenge By Zambosur Dance Company | Trend Tiktok</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/dO4XRxSqU_c" target="_blank" rel="noopener">https://www.youtube.com/shorts/dO4XRxSqU_c</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/dO4XRxSqU_c" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">ZamboSurDanceCompany - ZSDC</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance</li><li>music/trend signal: trend</li><li>manual visual/audio check recommended</li></ul>
@@ -1517,7 +1522,7 @@
             <span>140,990 views</span>
           </div>
           <h2>GENTO DANCE CHALLENGE by SB19 | The Prime Moverz and Primera Hija</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/bNdQG6dB-M4" target="_blank" rel="noopener">https://www.youtube.com/shorts/bNdQG6dB-M4</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/bNdQG6dB-M4" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">The Prime Moverz</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance</li><li>manual visual/audio check recommended</li></ul>
@@ -1534,7 +1539,7 @@
             <span>84,323 views</span>
           </div>
           <h2>Rush - Ayra Starr | Dance Challenge</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/fhVxTjONxsA" target="_blank" rel="noopener">https://www.youtube.com/shorts/fhVxTjONxsA</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/fhVxTjONxsA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Ken Mat Thew</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance</li><li>manual visual/audio check recommended</li></ul>
@@ -1551,7 +1556,7 @@
             <span>3,626 views</span>
           </div>
           <h2>Mood 24kgoldn TikTok Speed Dance Challenge</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/GiX5agVLfR8" target="_blank" rel="noopener">https://www.youtube.com/shorts/GiX5agVLfR8</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/GiX5agVLfR8" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Kuya Magik</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance</li><li>manual visual/audio check recommended</li></ul>
@@ -1572,7 +1577,7 @@
             <span>4,172 views</span>
           </div>
           <h2>PRACTICANDO #POLEDANCE | ¿TE GUSTARÍA APRENDER? | ARIANN MUSIC #SHORTS BAILANDO #BAILE #DANCE</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/O_Z4t9iwWW4" target="_blank" rel="noopener">https://www.youtube.com/shorts/O_Z4t9iwWW4</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/O_Z4t9iwWW4" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Moderadores Arianners</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+baile+musica+tendencia+Espana" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: baile, dance</li><li>music/trend signal: music</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -1593,7 +1598,7 @@
             <span>143,119 views</span>
           </div>
           <h2>Mercoledì Addams Ballo - Dance Scena Netflix</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/SzXiNmMnLYI" target="_blank" rel="noopener">https://www.youtube.com/shorts/SzXiNmMnLYI</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/SzXiNmMnLYI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">AudioWave</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+ballo+musica+tendenza+Italia" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: ballo, dance</li><li>manual visual/audio check recommended</li></ul>
@@ -1610,7 +1615,7 @@
             <span>25,241,740 views</span>
           </div>
           <h2>Fuego Dance Crew - Gasolina Routine (Official Video) #gasolinachallenge</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/Voiae2-E-7Y" target="_blank" rel="noopener">https://www.youtube.com/shorts/Voiae2-E-7Y</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/Voiae2-E-7Y" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Fuego DanceCrew</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Italy+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance</li><li>manual visual/audio check recommended</li></ul>
@@ -1631,7 +1636,7 @@
             <span>588,915 views</span>
           </div>
           <h2>F2 DANCE X AMBRE_DANCER - S1 - CLIP VIDEO / TAL /Le temps qu&#x27;il faut/ STREET DANCE/ KIDS</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/AiTkJix_Pvc" target="_blank" rel="noopener">https://www.youtube.com/shorts/AiTkJix_Pvc</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/AiTkJix_Pvc" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">AMBRE_DANCER</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+danse+musique+tendance+France" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance, dancer</li><li>manual visual/audio check recommended</li></ul>
@@ -1648,7 +1653,7 @@
             <span>236,923 views</span>
           </div>
           <h2>Papaoutai (Afro Soul) - ​Stromae | Mikeeysmind | Tiktok Trending Version | Dance Cover | @DjValka</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/vBR1-dTbREo" target="_blank" rel="noopener">https://www.youtube.com/shorts/vBR1-dTbREo</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/vBR1-dTbREo" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Cameroon Dance Academy</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=France+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: trend, trending</li><li>manual visual/audio check recommended</li></ul>
@@ -1669,7 +1674,7 @@
             <span>15,540 views</span>
           </div>
           <h2>Xit Musiqalar 👍 Qizlardan Xit Ashulaga raqs Shunaqa Gaplar</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/doqbYCwm368" target="_blank" rel="noopener">https://www.youtube.com/shorts/doqbYCwm368</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/doqbYCwm368" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Beruniy Shorts</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+raqs+musiqa+trend+Uzbekistan" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: raqs</li><li>music/trend signal: musiqa</li><li>manual visual/audio check recommended</li></ul>
@@ -1686,7 +1691,7 @@
             <span>13,886 views</span>
           </div>
           <h2>Arthur lima dance 🕺#YouTube #dance #brazil #arthurlima #shorts #tiktok #Ethiopia #uzbekistan #india</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/FF7ZGRjUMZ4" target="_blank" rel="noopener">https://www.youtube.com/shorts/FF7ZGRjUMZ4</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/FF7ZGRjUMZ4" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">mr yared</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Uzbekistan+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -1703,7 +1708,7 @@
             <span>119 views</span>
           </div>
           <h2>Parizoda Usmonova raqslari Tojik musiclarida. #subscribe #dance #tajik</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/RFwguM5M1Vw" target="_blank" rel="noopener">https://www.youtube.com/shorts/RFwguM5M1Vw</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/RFwguM5M1Vw" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Turlicha tv</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+raqs+musiqa+trend+Uzbekistan" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: music</li><li>manual visual/audio check recommended</li></ul>
@@ -1724,7 +1729,7 @@
             <span>566 views</span>
           </div>
           <h2>Algerian Wedding - Attractive Beauty Dancing Video | Traditional Music &amp; Elegant Outfit</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/gZaITAsc6ng" target="_blank" rel="noopener">https://www.youtube.com/shorts/gZaITAsc6ng</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/gZaITAsc6ng" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Wedding Vibes</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+danse+musique+Algerie" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dancing</li><li>music/trend signal: music</li><li>manual visual/audio check recommended</li></ul>
@@ -1741,7 +1746,7 @@
             <span>118 views</span>
           </div>
           <h2>Hip Hop Dancer from Algeria dancing to &quot;Crown on Me&quot;</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/7Trl73ZmhOA" target="_blank" rel="noopener">https://www.youtube.com/shorts/7Trl73ZmhOA</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/7Trl73ZmhOA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">KINGS DONT DIE</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+danse+musique+Algerie" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance, dancer, dancing</li><li>manual visual/audio check recommended</li></ul>
@@ -1758,7 +1763,7 @@
             <span>56 views</span>
           </div>
           <h2>Jerusalema #shorts #jerusalema #viral #dance</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/1K2Ejir7Yn8" target="_blank" rel="noopener">https://www.youtube.com/shorts/1K2Ejir7Yn8</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/1K2Ejir7Yn8" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">FEB Shorts</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Algeria+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -1775,7 +1780,7 @@
             <span>23 views</span>
           </div>
           <h2>Dance TikTok Hbaaaal #shorts</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/ecgWbqllNsc" target="_blank" rel="noopener">https://www.youtube.com/shorts/ecgWbqllNsc</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/ecgWbqllNsc" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Top TikTok</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+danse+musique+Algerie" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -1796,7 +1801,7 @@
             <span>3,075 views</span>
           </div>
           <h2>challenge - Aigul Fatalieva Belly Dancer - Kazakhstan Russia#bellyladyagainstcorona .</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/7IWj7mo-lEs" target="_blank" rel="noopener">https://www.youtube.com/shorts/7IWj7mo-lEs</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/7IWj7mo-lEs" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Avihass</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Kazakhstan+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance, dancer</li><li>manual visual/audio check recommended</li></ul>
@@ -1813,7 +1818,7 @@
             <span>2,805 views</span>
           </div>
           <h2>[KOCIS X KOCOWEEK X Kazakhstan] Dance Challenge (ENG SUB)</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/xDXJjJa4eyQ" target="_blank" rel="noopener">https://www.youtube.com/shorts/xDXJjJa4eyQ</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/xDXJjJa4eyQ" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">KoreanCulturalCenterKazakhstan</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Kazakhstan+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance</li><li>manual visual/audio check recommended</li></ul>
@@ -1830,7 +1835,7 @@
             <span>330 views</span>
           </div>
           <h2>DANCE WITH KAZAKHISTANI PEOPLE | KAZAKHISTAN DAY | KAZAKH MUSIC &amp; DANCE #shorts</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/RDSWI__gT40" target="_blank" rel="noopener">https://www.youtube.com/shorts/RDSWI__gT40</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/RDSWI__gT40" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">The Saleem Show</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Kazakhstan+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: dance</li><li>music/trend signal: music</li><li>shorts text signal</li><li>manual visual/audio check recommended</li></ul>
@@ -1847,7 +1852,7 @@
             <span>241 views</span>
           </div>
           <h2>Wednesday Addams Dance |KAZAKHSTAN || New Dance Challenge!!!</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/mtMKcJTQfTA" target="_blank" rel="noopener">https://www.youtube.com/shorts/mtMKcJTQfTA</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/mtMKcJTQfTA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">АiLiNkA</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Kazakhstan+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: challenge, dance</li><li>manual visual/audio check recommended</li></ul>
@@ -1868,7 +1873,7 @@
             <span>769,997 views</span>
           </div>
           <h2>5 anh trung quốc nhảy nhạc Hồ Quang Hiếu cực khớp trend tiktok nhạc nào cũng khớp</h2>
-          <p class="video-url"><a href="https://www.youtube.com/shorts/XF4_mNgfmFs" target="_blank" rel="noopener">https://www.youtube.com/shorts/XF4_mNgfmFs</a></p>
+          <p class="video-url"><a href="https://www.youtube.com/shorts/XF4_mNgfmFs" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Lâm Xc</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+nhay+nhac+trend+Viet+Nam" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
           <ul class="notes"><li>source: YouTube search result</li><li>core keyword: nhảy</li><li>music/trend signal: nhạc, trend</li><li>manual visual/audio check recommended</li></ul>

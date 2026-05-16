@@ -771,7 +771,7 @@ def render_card(item: dict[str, Any], index: int) -> str:
             <span>{fmt_int(item.get('viewsGained'))} views</span>
           </div>
           <h2>{escape(item['title'])}</h2>
-          <p class="video-url"><a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">{escape(item['shortsUrl'])}</a></p>
+          <p class="video-url"><a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">{escape(str(item.get('channel') or 'Unknown channel'))}</p>
           <p class="source">Source: <a href="{escape(str(item.get('sourceUrl') or '#'))}" target="_blank" rel="noopener">{escape(str(item.get('sourceName') or 'source'))}</a>{escape(source_rank)}</p>
           <ul class="notes">{notes}</ul>
@@ -960,8 +960,9 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     .grid {{
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 9px;
+      align-items: stretch;
     }}
     .region-panel {{
       display: none;
@@ -985,12 +986,14 @@ def render_index(items: list[dict[str, Any]]) -> str:
       border-radius: 8px;
       overflow: hidden;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       min-height: 100%;
     }}
     .thumb-link {{
       position: relative;
       display: block;
+      flex: 0 0 74px;
+      width: 74px;
       aspect-ratio: 9 / 16;
       background: #dbe4ee;
       overflow: hidden;
@@ -1003,33 +1006,38 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     .rank {{
       position: absolute;
-      top: 8px;
-      left: 8px;
+      top: 5px;
+      left: 5px;
       background: rgba(24, 33, 47, 0.86);
       color: white;
       border-radius: 999px;
-      padding: 4px 8px;
-      font-size: 12px;
+      padding: 3px 6px;
+      font-size: 10px;
       font-weight: 700;
     }}
     .short-body {{
-      padding: 13px;
+      min-width: 0;
+      padding: 8px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 5px;
     }}
     .meta-row {{
       display: flex;
       justify-content: space-between;
       gap: 10px;
       color: var(--accent-2);
-      font-size: 12px;
+      font-size: 10px;
       font-weight: 700;
     }}
     .short-card h2 {{
       margin: 0;
-      font-size: 16px;
-      line-height: 1.35;
+      font-size: 13px;
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }}
     .short-card h2 a {{
       text-decoration: none;
@@ -1042,8 +1050,8 @@ def render_index(items: list[dict[str, Any]]) -> str:
     .source {{
       margin: 0;
       color: var(--muted);
-      font-size: 13px;
-      line-height: 1.45;
+      font-size: 11px;
+      line-height: 1.35;
     }}
     .video-url a {{
       color: var(--focus);
@@ -1055,11 +1063,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
       text-decoration: none;
     }}
     .notes {{
-      margin: 2px 0 0;
-      padding-left: 18px;
-      color: #475467;
-      font-size: 12px;
-      line-height: 1.45;
+      display: none;
     }}
     .source-panel {{
       margin-top: 26px;
@@ -1085,7 +1089,8 @@ def render_index(items: list[dict[str, Any]]) -> str:
     @media (max-width: 720px) {{
       .topbar {{ align-items: stretch; flex-direction: column; }}
       .status {{ min-width: 0; }}
-      .grid {{ grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); }}
+      .grid {{ grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }}
+      .thumb-link {{ flex-basis: 68px; width: 68px; }}
     }}
   </style>
 </head>
