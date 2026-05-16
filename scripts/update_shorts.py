@@ -519,6 +519,15 @@ def fmt_published(value: Any) -> str:
     return normalize_published_at(value) or "확인 필요"
 
 
+def fmt_registered(value: Any) -> str:
+    if not value:
+        return "확인 필요"
+    registered = parse_collected_at(value).astimezone(KST)
+    if registered.year == 1970:
+        return "확인 필요"
+    return registered.strftime("%Y-%m-%d %H:%M")
+
+
 def score_candidate(title: str, category: str = "") -> tuple[int, list[str]]:
     text = f"{title} {category}".lower()
     core_hits = term_hits(text, CORE_TERMS)
@@ -1374,7 +1383,7 @@ def match_note_terms(item: dict[str, Any]) -> list[str]:
     return terms[:5]
 
 
-def popularity_reason(item: dict[str, Any]) -> str:
+def popularity_reason_points(item: dict[str, Any]) -> list[str]:
     views = parse_int(item.get("viewsGained"))
     clusters = item_cluster_keys(item)
     labels = [cluster_label(key) for key in clusters if key != "other"]
@@ -1437,16 +1446,22 @@ def popularity_reason(item: dict[str, Any]) -> str:
     else:
         velocity = "현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다"
 
-    keyword_detail = f"감지 키워드는 {', '.join(terms)}입니다." if terms else ""
-    hook_detail = ". ".join(hook_parts[:3]) + "."
-    pattern_detail = f" 분석 패턴은 {', '.join(labels)}입니다." if labels else " 분석 패턴은 짧은 상황 이해와 시각적 훅 중심입니다."
+    keyword_detail = f"감지 키워드: {', '.join(terms)}" if terms else "감지 키워드: 제목·소스 신호 중심"
+    pattern_detail = f"분석 패턴: {', '.join(labels)}" if labels else "분석 패턴: 짧은 상황 이해와 시각적 훅 중심"
 
-    return (
-        f"인기 이유 분석: {region} 탭에서 {fmt_int(views)} views로 확인된 {tier} 쇼츠입니다. "
-        f"{source_detail}에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다."
-        f" {keyword_detail} {hook_detail} "
-        f"{retention}. {velocity}.{pattern_detail}"
-    )
+    return [
+        f"{region} 탭에서 {fmt_int(views)} views로 확인된 {tier} 쇼츠",
+        f"{source_detail}에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음",
+        keyword_detail,
+        *hook_parts[:3],
+        retention,
+        velocity,
+        pattern_detail,
+    ]
+
+
+def popularity_reason(item: dict[str, Any]) -> str:
+    return " ".join(popularity_reason_points(item))
 
 
 def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
@@ -1588,6 +1603,7 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
 def render_card(item: dict[str, Any], index: int) -> str:
     notes = "".join(f"<li>{escape(str(note))}</li>" for note in item.get("matchNotes", []))
     source_rank = f" · rank {item.get('sourceRank')}" if item.get("sourceRank") else ""
+    reason_items = "".join(f"<li>{escape(point)}</li>" for point in popularity_reason_points(item))
     return f"""
       <article class="short-card">
         <a class="thumb-link" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener" aria-label="Open {escape(item['title'])} on YouTube Shorts">
@@ -1600,8 +1616,14 @@ def render_card(item: dict[str, Any], index: int) -> str:
             <span>{fmt_int(item.get('viewsGained'))} views</span>
           </div>
           <h2>{escape(item['title'])}</h2>
-          <p class="published">게시일 {escape(fmt_published(item.get('publishedAt')))}</p>
-          <p class="popularity">{escape(popularity_reason(item))}</p>
+          <div class="date-row">
+            <span>게시일 {escape(fmt_published(item.get('publishedAt')))}</span>
+            <span>등록일 {escape(fmt_registered(item.get('collectedAt')))}</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul>{reason_items}</ul>
+          </div>
           <p class="video-url"><a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">{escape(str(item.get('channel') or 'Unknown channel'))}</p>
           <p class="source">Source: <a href="{escape(str(item.get('sourceUrl') or '#'))}" target="_blank" rel="noopener">{escape(str(item.get('sourceName') or 'source'))}</a>{escape(source_rank)}</p>
@@ -1667,7 +1689,15 @@ def render_index(items: list[dict[str, Any]]) -> str:
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shorts</title>
   <meta name="description" content="지역별 인기 YouTube Shorts 후보 모음">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
+    @font-face {{
+      font-family: "SOK500";
+      src: local("SamsungOneKorean500"), local("SamsungOneKorean 500");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }}
     :root {{
       color-scheme: light;
       --ink: #18212f;
@@ -1678,11 +1708,15 @@ def render_index(items: list[dict[str, Any]]) -> str:
       --accent: #0d9488;
       --accent-2: #c2410c;
       --focus: #1d4ed8;
+      --tab-red: #dc2626;
+      --tab-red-dark: #991b1b;
+      --tab-red-soft: #fee2e2;
+      --tab-red-wash: #fff5f5;
     }}
     * {{ box-sizing: border-box; }}
     body {{
       margin: 0;
-      font-family: Inter, Pretendard, "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Noto Sans KR", "SOK500", "Malgun Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--wash);
       color: var(--ink);
       letter-spacing: 0;
@@ -1694,8 +1728,8 @@ def render_index(items: list[dict[str, Any]]) -> str:
       margin: 0 auto;
     }}
     header {{
-      border-bottom: 1px solid var(--line);
-      background: #f9fbfd;
+      border-bottom: 1px solid #fecaca;
+      background: var(--tab-red-wash);
       position: sticky;
       top: 0;
       z-index: 10;
@@ -1708,36 +1742,57 @@ def render_index(items: list[dict[str, Any]]) -> str:
       padding: 10px 0;
     }}
     .tab-button {{
-      border: 1px solid var(--line);
+      border: 1px solid var(--tab-red);
       border-radius: 999px;
       background: var(--surface);
-      color: #344054;
+      color: var(--tab-red-dark);
       padding: 7px 9px;
       font: inherit;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       white-space: nowrap;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 7px;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
     }}
     .tab-button span {{
       min-width: 22px;
       padding: 2px 6px;
       border-radius: 999px;
-      background: #edf2f7;
-      color: #475467;
+      background: var(--tab-red-soft);
+      color: var(--tab-red-dark);
       font-size: 12px;
+      transition: background 0.18s ease, color 0.18s ease;
+    }}
+    .tab-button:hover {{
+      background: var(--tab-red-dark);
+      border-color: var(--tab-red-dark);
+      color: white;
+      box-shadow: 0 4px 14px rgba(220, 38, 38, 0.24);
+      transform: translateY(-1px);
+    }}
+    .tab-button:hover span {{
+      background: white;
+      color: var(--tab-red-dark);
     }}
     .tab-button.active {{
-      background: var(--ink);
-      border-color: var(--ink);
+      background: var(--tab-red);
+      border-color: var(--tab-red);
       color: white;
+    }}
+    .tab-button.active:hover {{
+      background: var(--tab-red-dark);
+      border-color: var(--tab-red-dark);
     }}
     .tab-button.active span {{
       background: rgba(255, 255, 255, 0.18);
       color: white;
+    }}
+    .tab-button.active:hover span {{
+      background: white;
+      color: var(--tab-red-dark);
     }}
     main {{
       padding: 14px 0 44px;
@@ -1972,8 +2027,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
       text-decoration: underline;
     }}
     .channel,
-    .published,
-    .popularity,
+    .date-row,
     .video-url,
     .source {{
       margin: 0;
@@ -1981,14 +2035,58 @@ def render_index(items: list[dict[str, Any]]) -> str:
       font-size: 11px;
       line-height: 1.35;
     }}
-    .published {{
+    .date-row {{
       color: #475467;
       font-weight: 700;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 7px;
+    }}
+    .date-row span {{
+      border-radius: 999px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      padding: 2px 6px;
     }}
     .popularity {{
       color: #344054;
+      border: 2px solid rgba(220, 38, 38, 0.38);
+      border-radius: 999px;
+      background: radial-gradient(circle at 22px 22px, rgba(254, 226, 226, 0.9), #fffafa 58%);
+      padding: 10px 14px 10px 12px;
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 9px;
+      align-items: start;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+    }}
+    .popularity strong {{
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--tab-red);
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 10px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: 0;
+    }}
+    .popularity ul {{
+      margin: 0;
+      padding-left: 15px;
       font-size: 11.5px;
       line-height: 1.48;
+    }}
+    .popularity li {{
+      margin: 0 0 4px;
+      padding-left: 1px;
+    }}
+    .popularity li:last-child {{
+      margin-bottom: 0;
     }}
     .video-url a {{
       color: var(--focus);
@@ -2028,6 +2126,8 @@ def render_index(items: list[dict[str, Any]]) -> str:
       .mega-hero {{ flex-direction: column; }}
       .grid {{ grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }}
       .thumb-link {{ flex-basis: 68px; width: 68px; }}
+      .popularity {{ grid-template-columns: 1fr; border-radius: 22px; padding: 10px 12px; }}
+      .popularity strong {{ width: auto; height: auto; border-radius: 999px; padding: 5px 9px; justify-self: start; }}
     }}
   </style>
 </head>

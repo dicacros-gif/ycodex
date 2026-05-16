@@ -56,6 +56,7 @@ jobs:
                   self.panels = 0
                   self.popularity = 0
                   self.popularity_text = []
+                  self.reason_items = 0
                   self._in_popularity = False
 
               def handle_starttag(self, tag, attrs):
@@ -74,17 +75,19 @@ jobs:
                       self.tabs += 1
                   if tag == "section" and attrs.get("data-region-panel"):
                       self.panels += 1
-                  if tag == "p" and "popularity" in classes:
+                  if tag in {"div", "p"} and "popularity" in classes:
                       self.popularity += 1
                       self.popularity_text.append("")
                       self._in_popularity = True
+                  if tag == "li" and self._in_popularity:
+                      self.reason_items += 1
 
               def handle_data(self, data):
                   if self._in_popularity:
                       self.popularity_text[-1] += data
 
               def handle_endtag(self, tag):
-                  if tag == "p" and self._in_popularity:
+                  if tag in {"div", "p"} and self._in_popularity:
                       self._in_popularity = False
 
           parser = CardCounter()
@@ -115,10 +118,13 @@ jobs:
               or parser.cards != len(parser.thumb_links)
               or parser.cards != parser.popularity
               or parser.cards != len(detailed_popularity)
+              or parser.reason_items < parser.cards * 5
               or len(video_ids) != len(set(video_ids))
               or "trend-brief" not in html
               or "mega-panel" not in html
               or "popularity" not in html
+              or "date-row" not in html
+              or "등록일" not in html
               or any(
                   collected_order[index] < collected_order[index + 1]
                   for index in range(len(collected_order) - 1)
@@ -135,6 +141,7 @@ jobs:
               "thumb_links": len(parser.thumb_links),
               "popularity": parser.popularity,
               "detailed_popularity": len(detailed_popularity),
+              "reason_items": parser.reason_items,
               "all_short_links": len(parser.short_links),
               "unique_short_ids": len(set(video_ids)),
               "newest_data_first": True,

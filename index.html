@@ -5,7 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shorts</title>
   <meta name="description" content="지역별 인기 YouTube Shorts 후보 모음">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: "SOK500";
+      src: local("SamsungOneKorean500"), local("SamsungOneKorean 500");
+      font-weight: 500;
+      font-style: normal;
+      font-display: swap;
+    }
     :root {
       color-scheme: light;
       --ink: #18212f;
@@ -16,11 +24,15 @@
       --accent: #0d9488;
       --accent-2: #c2410c;
       --focus: #1d4ed8;
+      --tab-red: #dc2626;
+      --tab-red-dark: #991b1b;
+      --tab-red-soft: #fee2e2;
+      --tab-red-wash: #fff5f5;
     }
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: Inter, Pretendard, "Noto Sans KR", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "Noto Sans KR", "SOK500", "Malgun Gothic", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--wash);
       color: var(--ink);
       letter-spacing: 0;
@@ -32,8 +44,8 @@
       margin: 0 auto;
     }
     header {
-      border-bottom: 1px solid var(--line);
-      background: #f9fbfd;
+      border-bottom: 1px solid #fecaca;
+      background: var(--tab-red-wash);
       position: sticky;
       top: 0;
       z-index: 10;
@@ -46,36 +58,57 @@
       padding: 10px 0;
     }
     .tab-button {
-      border: 1px solid var(--line);
+      border: 1px solid var(--tab-red);
       border-radius: 999px;
       background: var(--surface);
-      color: #344054;
+      color: var(--tab-red-dark);
       padding: 7px 9px;
       font: inherit;
       font-size: 12px;
-      font-weight: 700;
+      font-weight: 800;
       white-space: nowrap;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 7px;
+      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
     }
     .tab-button span {
       min-width: 22px;
       padding: 2px 6px;
       border-radius: 999px;
-      background: #edf2f7;
-      color: #475467;
+      background: var(--tab-red-soft);
+      color: var(--tab-red-dark);
       font-size: 12px;
+      transition: background 0.18s ease, color 0.18s ease;
+    }
+    .tab-button:hover {
+      background: var(--tab-red-dark);
+      border-color: var(--tab-red-dark);
+      color: white;
+      box-shadow: 0 4px 14px rgba(220, 38, 38, 0.24);
+      transform: translateY(-1px);
+    }
+    .tab-button:hover span {
+      background: white;
+      color: var(--tab-red-dark);
     }
     .tab-button.active {
-      background: var(--ink);
-      border-color: var(--ink);
+      background: var(--tab-red);
+      border-color: var(--tab-red);
       color: white;
+    }
+    .tab-button.active:hover {
+      background: var(--tab-red-dark);
+      border-color: var(--tab-red-dark);
     }
     .tab-button.active span {
       background: rgba(255, 255, 255, 0.18);
       color: white;
+    }
+    .tab-button.active:hover span {
+      background: white;
+      color: var(--tab-red-dark);
     }
     main {
       padding: 14px 0 44px;
@@ -310,8 +343,7 @@
       text-decoration: underline;
     }
     .channel,
-    .published,
-    .popularity,
+    .date-row,
     .video-url,
     .source {
       margin: 0;
@@ -319,14 +351,58 @@
       font-size: 11px;
       line-height: 1.35;
     }
-    .published {
+    .date-row {
       color: #475467;
       font-weight: 700;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 7px;
+    }
+    .date-row span {
+      border-radius: 999px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      padding: 2px 6px;
     }
     .popularity {
       color: #344054;
+      border: 2px solid rgba(220, 38, 38, 0.38);
+      border-radius: 999px;
+      background: radial-gradient(circle at 22px 22px, rgba(254, 226, 226, 0.9), #fffafa 58%);
+      padding: 10px 14px 10px 12px;
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 9px;
+      align-items: start;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+    }
+    .popularity strong {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--tab-red);
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 10px;
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+    .popularity ul {
+      margin: 0;
+      padding-left: 15px;
       font-size: 11.5px;
       line-height: 1.48;
+    }
+    .popularity li {
+      margin: 0 0 4px;
+      padding-left: 1px;
+    }
+    .popularity li:last-child {
+      margin-bottom: 0;
     }
     .video-url a {
       color: var(--focus);
@@ -366,6 +442,8 @@
       .mega-hero { flex-direction: column; }
       .grid { grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
       .thumb-link { flex-basis: 68px; width: 68px; }
+      .popularity { grid-template-columns: 1fr; border-radius: 22px; padding: 10px 12px; }
+      .popularity strong { width: auto; height: auto; border-radius: 999px; padding: 5px 9px; justify-self: start; }
     }
   </style>
 </head>
@@ -434,7 +512,7 @@
         <article class="mega-example">
           <a href="https://www.youtube.com/shorts/HsKltJyJ-UI" target="_blank" rel="noopener">When did Ermao learn to do magic？ #funny #comedy</a>
           <span>118,115,270 views · 게시일 2026-05-05</span>
-          <p>인기 이유 분석: 글로벌 탭에서 118,115,270 views로 확인된 1억뷰 돌파형 쇼츠입니다. Vidirun Top 50 Short-Form Videos 24H rank 28에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 magic입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 마술·구출·공개·놀라움 계열 키워드가 마지막 장면까지 보게 만드는 질문을 던집니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 이미 1억뷰를 넘은 사례라 클릭률, 완주율, 반복 시청, 공유 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <p>글로벌 탭에서 118,115,270 views로 확인된 1억뷰 돌파형 쇼츠 Vidirun Top 50 Short-Form Videos 24H rank 28에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음 감지 키워드: magic 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다 마술·구출·공개·놀라움 계열 키워드가 마지막 장면까지 보게 만드는 질문을 던집니다 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다 이미 1억뷰를 넘은 사례라 클릭률, 완주율, 반복 시청, 공유 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다 분석 패턴: 상황형 코미디·짧은 사건</p>
         </article></div>
         </div>
       </div>
@@ -452,8 +530,14 @@
             <span>35,996,747 views</span>
           </div>
           <h2>Jackie Chan Saved The Day 🥶🔥 | The Shadow&#x27;s Edge | FUNK ABNORMAL (Slowed) #trending #shorts</h2>
-          <p class="published">게시일 2026-05-12</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 35,996,747 views로 확인된 1억뷰 근접 대형 확산권 쇼츠입니다. Vidirun Top 50 Short-Form Videos 24H rank 4에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 saved, funk, slowed, trending입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 편집·슬로우드 사운드, 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-12</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 35,996,747 views로 확인된 1억뷰 근접 대형 확산권 쇼츠</li><li>Vidirun Top 50 Short-Form Videos 24H rank 4에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: saved, funk, slowed, trending</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 편집·슬로우드 사운드, 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/ChdXjc1nouk" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Riven-Edits</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 4</p>
@@ -471,8 +555,14 @@
             <span>22,881,458 views</span>
           </div>
           <h2>Sister Very Angry Bhai Aa Gaye 🤣🤩😅 ##funnyvideo #funny #comedyvideos #funnyshorts</h2>
-          <p class="published">게시일 2026-05-11</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 22,881,458 views로 확인된 중대형 급상승권 쇼츠입니다. Vidirun Top 50 Short-Form Videos 24H rank 32에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 funny입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 게시 후 5일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-11</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 22,881,458 views로 확인된 중대형 급상승권 쇼츠</li><li>Vidirun Top 50 Short-Form Videos 24H rank 32에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>게시 후 5일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/bMhgjlhIsjQ" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Vikram Singh Fitness</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 32</p>
@@ -490,8 +580,14 @@
             <span>21,029,439 views</span>
           </div>
           <h2>Argentina 🇦🇷 vs Portugal 🇵🇹 Dance Battle 🔥#football #worldcup#shorts</h2>
-          <p class="published">게시일 2026-05-08</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 21,029,439 views로 확인된 중대형 급상승권 쇼츠입니다. Vidirun Top 50 Short-Form Videos 24H rank 29에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 battle, dance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 게시 후 8일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 스포츠·퍼포먼스 순간입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-08</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 21,029,439 views로 확인된 중대형 급상승권 쇼츠</li><li>Vidirun Top 50 Short-Form Videos 24H rank 29에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: battle, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>게시 후 8일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 스포츠·퍼포먼스 순간</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/LGDz_hM078k" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">LinkouS Source</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 29</p>
@@ -509,8 +605,14 @@
             <span>19,352,523 views</span>
           </div>
           <h2>Reddington saved the people in the convenience store.#shortvideo#theblacklist #series #shorts</h2>
-          <p class="published">게시일 2026-05-14</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 19,352,523 views로 확인된 중대형 급상승권 쇼츠입니다. Vidirun Top 50 Short-Form Videos 24H rank 5에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 saved입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 마술·구출·공개·놀라움 계열 키워드가 마지막 장면까지 보게 만드는 질문을 던집니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 게시 후 2일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-14</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 19,352,523 views로 확인된 중대형 급상승권 쇼츠</li><li>Vidirun Top 50 Short-Form Videos 24H rank 5에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: saved</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>마술·구출·공개·놀라움 계열 키워드가 마지막 장면까지 보게 만드는 질문을 던집니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>게시 후 2일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/jBtyy-xQaB0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Movie- serendipity</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 5</p>
@@ -528,8 +630,14 @@
             <span>18,576,466 views</span>
           </div>
           <h2>BEST SURPRISE EVER! ❤️‍🩹 | Headlights feat. KIDDO (Slowed)</h2>
-          <p class="published">게시일 2026-05-13</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 18,576,466 views로 확인된 중대형 급상승권 쇼츠입니다. Vidirun Top 50 Short-Form Videos 24H rank 30에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 surprise, slowed입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 게시 후 3일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 편집·슬로우드 사운드, 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-13</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 18,576,466 views로 확인된 중대형 급상승권 쇼츠</li><li>Vidirun Top 50 Short-Form Videos 24H rank 30에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: surprise, slowed</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>게시 후 3일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 편집·슬로우드 사운드, 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/2574bgUga4M" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Sunnah Edit</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 30</p>
@@ -547,8 +655,14 @@
             <span>12,606,430 views</span>
           </div>
           <h2>He Couldn’t Stop Himself | 27 Dresses | HEAVENLY JUMPSTYLE (Slowed) #edit #shorts</h2>
-          <p class="published">게시일 2026-05-12</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 12,606,430 views로 확인된 중대형 급상승권 쇼츠입니다. Vidirun Top 50 Short-Form Videos 24H rank 22에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 couldn, jumpstyle, edit, slowed입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 게시 후 4일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 편집·슬로우드 사운드입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-12</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 12,606,430 views로 확인된 중대형 급상승권 쇼츠</li><li>Vidirun Top 50 Short-Form Videos 24H rank 22에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: couldn, jumpstyle, edit, slowed</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>게시 후 4일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 편집·슬로우드 사운드</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/-eRo-q36q6w" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Rynex Edit</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 22</p>
@@ -566,8 +680,14 @@
             <span>9,110,900 views</span>
           </div>
           <h2>SOAP BALL 🧼🫧⚾ #shorts #youtubeshorts #cricket #unboxing #ball #funny #boxofvengeance</h2>
-          <p class="published">게시일 2026-05-14</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 9,110,900 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Vidirun Top 50 Short-Form Videos 24H rank 21에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 funny입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 24H 랭킹 출처에서 잡힌 항목이라 최신 피드 반응은 있지만, 장기 확산 여부는 다음 업데이트에서 확인해야 합니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-14</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 9,110,900 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Vidirun Top 50 Short-Form Videos 24H rank 21에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>24H 랭킹 출처에서 잡힌 항목이라 최신 피드 반응은 있지만, 장기 확산 여부는 다음 업데이트에서 확인해야 합니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/vHqQqFwhGuw" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Box Of Vengeance</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 21</p>
@@ -585,8 +705,14 @@
             <span>118,115,270 views</span>
           </div>
           <h2>When did Ermao learn to do magic？ #funny #comedy</h2>
-          <p class="published">게시일 2026-05-05</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 118,115,270 views로 확인된 1억뷰 돌파형 쇼츠입니다. Vidirun Top 50 Short-Form Videos 24H rank 28에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 magic입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 마술·구출·공개·놀라움 계열 키워드가 마지막 장면까지 보게 만드는 질문을 던집니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 이미 1억뷰를 넘은 사례라 클릭률, 완주율, 반복 시청, 공유 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-05</span>
+            <span>등록일 2026-05-16 22:12</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 118,115,270 views로 확인된 1억뷰 돌파형 쇼츠</li><li>Vidirun Top 50 Short-Form Videos 24H rank 28에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: magic</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>마술·구출·공개·놀라움 계열 키워드가 마지막 장면까지 보게 만드는 질문을 던집니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>이미 1억뷰를 넘은 사례라 클릭률, 완주율, 반복 시청, 공유 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/HsKltJyJ-UI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">FatSongsong and ThinErmao</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 28</p>
@@ -604,8 +730,14 @@
             <span>20,697,872 views</span>
           </div>
           <h2>They’ll never know what happened💀 | Now you see me 3 (2025) - 4k Edit | MATADORA (Slowed)</h2>
-          <p class="published">게시일 2026-05-10</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 20,697,872 views로 확인된 중대형 급상승권 쇼츠입니다. Vidirun Top 50 Short-Form Videos 24H rank 34에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 happened, edit, slowed입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 게시 후 6일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 편집·슬로우드 사운드, 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-10</span>
+            <span>등록일 2026-05-16 22:12</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 20,697,872 views로 확인된 중대형 급상승권 쇼츠</li><li>Vidirun Top 50 Short-Form Videos 24H rank 34에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: happened, edit, slowed</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>게시 후 6일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 편집·슬로우드 사운드, 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/vWdr3dETkqY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">LaughTrack</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 34</p>
@@ -623,8 +755,14 @@
             <span>63,329,296 views</span>
           </div>
           <h2>Michael Jackson Moonwalk with Skates Part 2</h2>
-          <p class="published">게시일 2026-04-30</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 63,329,296 views로 확인된 1억뷰 근접 대형 확산권 쇼츠입니다. Vidirun Top 50 Short-Form Videos 24H rank 35에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 michael jackson, moonwalk입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건, 스포츠·퍼포먼스 순간입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-04-30</span>
+            <span>등록일 2026-05-16 22:07</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 63,329,296 views로 확인된 1억뷰 근접 대형 확산권 쇼츠</li><li>Vidirun Top 50 Short-Form Videos 24H rank 35에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: michael jackson, moonwalk</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건, 스포츠·퍼포먼스 순간</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/pu5NE-nABcI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Meowfia Empire</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 35</p>
@@ -642,8 +780,14 @@
             <span>99,450,168 views</span>
           </div>
           <h2>Backstage vs Result cute dance 😊🧸</h2>
-          <p class="published">게시일 2026-05-03</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 99,450,168 views로 확인된 1억뷰 근접 대형 확산권 쇼츠입니다. Vidirun Top 50 Short-Form Videos 7D rank 26에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 backstage, cute, dance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 스포츠·퍼포먼스 순간입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-03</span>
+            <span>등록일 2026-05-16 21:59</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 99,450,168 views로 확인된 1억뷰 근접 대형 확산권 쇼츠</li><li>Vidirun Top 50 Short-Form Videos 7D rank 26에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: backstage, cute, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 스포츠·퍼포먼스 순간</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/CkaFGiLhk9U" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Andrey Grechka</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 26</p>
@@ -661,8 +805,14 @@
             <span>34,885,694 views</span>
           </div>
           <h2>BTS REVEAL! 🎬 Jasmin is defying gravity… 😱 #shorts #michaeljackson</h2>
-          <p class="published">게시일 2026-05-09</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 34,885,694 views로 확인된 1억뷰 근접 대형 확산권 쇼츠입니다. Vidirun Top 50 Short-Form Videos 7D rank 33에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 defying입니다. 퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다. K-pop·아이돌 파생 소재는 팬덤 반응과 챌린지 참여로 재확산되기 쉽습니다. 마술·구출·공개·놀라움 계열 키워드가 마지막 장면까지 보게 만드는 질문을 던집니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다. 분석 패턴은 스포츠·퍼포먼스 순간, K-pop·아이돌 파생입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-09</span>
+            <span>등록일 2026-05-16 21:59</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 34,885,694 views로 확인된 1억뷰 근접 대형 확산권 쇼츠</li><li>Vidirun Top 50 Short-Form Videos 7D rank 33에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: defying</li><li>퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li><li>K-pop·아이돌 파생 소재는 팬덤 반응과 챌린지 참여로 재확산되기 쉽습니다</li><li>마술·구출·공개·놀라움 계열 키워드가 마지막 장면까지 보게 만드는 질문을 던집니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다</li><li>분석 패턴: 스포츠·퍼포먼스 순간, K-pop·아이돌 파생</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/BKFhBNgoG_M" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Jasmin and James</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 33</p>
@@ -680,8 +830,14 @@
             <span>32,311,119 views</span>
           </div>
           <h2>Salish Matter’s EXTREME Street Stunt!😱 #shorts</h2>
-          <p class="published">게시일 2026-05-07</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 32,311,119 views로 확인된 1억뷰 근접 대형 확산권 쇼츠입니다. Vidirun Top 50 Short-Form Videos 7D rank 17에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 stunt입니다. 퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다. 분석 패턴은 스포츠·퍼포먼스 순간입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-07</span>
+            <span>등록일 2026-05-16 21:59</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 32,311,119 views로 확인된 1억뷰 근접 대형 확산권 쇼츠</li><li>Vidirun Top 50 Short-Form Videos 7D rank 17에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: stunt</li><li>퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다</li><li>분석 패턴: 스포츠·퍼포먼스 순간</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/QeMFP_xkAjk" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">SaIish Zone</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 17</p>
@@ -699,8 +855,14 @@
             <span>4,634,633 views</span>
           </div>
           <h2>방탄소년단과 함께 #PermissiontoDance 챌린지에 참여하세요</h2>
-          <p class="published">게시일 2021-07-23</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 4,634,633 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, 챌린지입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. K-pop·아이돌 파생 소재는 팬덤 반응과 챌린지 참여로 재확산되기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, K-pop·아이돌 파생입니다.</p>
+          <div class="date-row">
+            <span>게시일 2021-07-23</span>
+            <span>등록일 2026-05-16 21:59</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 4,634,633 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>K-pop·아이돌 파생 소재는 팬덤 반응과 챌린지 참여로 재확산되기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, K-pop·아이돌 파생</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/zvhzOby6c4g" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">YouTube Korea</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -718,8 +880,14 @@
             <span>2,405,900 views</span>
           </div>
           <h2>PEE DANCE!?! WHY do I PEE SO MUCH??? #PEE #shorts</h2>
-          <p class="published">게시일 2021-08-20</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 2,405,900 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2021-08-20</span>
+            <span>등록일 2026-05-16 21:59</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 2,405,900 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/Xe__sN9YIAI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Yolanda Tsang PT - YO AND VAGINIA</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+cute+dance+one+person+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -737,8 +905,14 @@
             <span>2,047,380 views</span>
           </div>
           <h2>dancin (krono remix) - Anime Dance Mix [Edit/AMV]</h2>
-          <p class="published">게시일 2022-12-28</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 2,047,380 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, edit입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 편집·슬로우드 사운드입니다.</p>
+          <div class="date-row">
+            <span>게시일 2022-12-28</span>
+            <span>등록일 2026-05-16 21:59</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 2,047,380 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, edit</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 편집·슬로우드 사운드</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/1L7mzyGhXCA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Zweng</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+slowed+dance+edit" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -756,8 +930,14 @@
             <span>613,627 views</span>
           </div>
           <h2>One Dance Instrumental Best Part (Slowed to Perfection)</h2>
-          <p class="published">게시일 2022-10-26</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 613,627 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, slowed입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 편집·슬로우드 사운드입니다.</p>
+          <div class="date-row">
+            <span>게시일 2022-10-26</span>
+            <span>등록일 2026-05-16 21:59</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 613,627 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, slowed</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 편집·슬로우드 사운드</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/wKrPPA7G8Gs" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Joushi</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+slowed+dance+edit" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -775,8 +955,14 @@
             <span>442,528 views</span>
           </div>
           <h2>Funny Rat Song, Top Rats, Dance Music Pop Songs, This Video Has No Dislikes!</h2>
-          <p class="published">게시일 2014-12-01</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 442,528 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, music입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2014-12-01</span>
+            <span>등록일 2026-05-16 21:59</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 442,528 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, music</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/18dJkoR-uzU" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">mike rayner videos</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+funny+situation+music+edit" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -794,8 +980,14 @@
             <span>109,315 views</span>
           </div>
           <h2>Spiderman Funny Dance Original and Edit | Velocity Edit #shorts #trending #short</h2>
-          <p class="published">게시일 2023-06-25</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 109,315 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, edit, trend, trending입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 편집·슬로우드 사운드, 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2023-06-25</span>
+            <span>등록일 2026-05-16 21:58</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 109,315 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, edit, trend, trending</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 편집·슬로우드 사운드, 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/qrX7_rEIHMw" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">P4NK4Z.3DITX</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+funny+situation+music+edit" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -813,8 +1005,14 @@
             <span>90,077 views</span>
           </div>
           <h2>Booty Music - Git Fresh | Dance Cover by BoBoDanceStudio</h2>
-          <p class="published">게시일 2024-03-12</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 90,077 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, music입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2024-03-12</span>
+            <span>등록일 2026-05-16 21:58</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 90,077 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, music</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/8tYlQPTdJ1o" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">BoBo Dance Studio</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+KPOP+dance+music+trend" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -832,8 +1030,14 @@
             <span>741,528 views</span>
           </div>
           <h2>Mariah Carey - All I Want For Christmas Is You / TIKTOK dance challenge 홍대댄스학원</h2>
-          <p class="published">게시일 2021-12-15</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 741,528 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge, dance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2021-12-15</span>
+            <span>등록일 2026-05-16 21:57</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 741,528 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/8Ffld_2OTe0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">EZ DANCE</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+trend" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -851,8 +1055,14 @@
             <span>17,241 views</span>
           </div>
           <h2>요청💘) 아무래도난 튜토리얼 [거울모드 mirrored]/ 릴스 틱톡 쇼츠 댄스 챌린지 / tiktok reels short dance challenge</h2>
-          <p class="published">게시일 2022-06-30</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 17,241 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge, dance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2022-06-30</span>
+            <span>등록일 2026-05-16 21:56</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 17,241 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/e5XUL2p3HjU" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">정지안이당</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -870,8 +1080,14 @@
             <span>18,368,759 views</span>
           </div>
           <h2>Turning anime into reality</h2>
-          <p class="published">게시일 2026-05-13</p>
-          <p class="popularity">인기 이유 분석: 글로벌 탭에서 18,368,759 views로 확인된 중대형 급상승권 쇼츠입니다. Vidirun Top 50 Short-Form Videos 24H rank 9에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다.  짧은 제목과 시각적 상황이 결합되어 스크롤 중 멈춰 볼 가능성이 있습니다. 핵심 장면을 빠르게 보여 주는 숏폼 문법이라 긴 설명 없이도 시청 판단이 가능합니다. 게시 후 3일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다. 분석 패턴은 짧은 상황 이해와 시각적 훅 중심입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-13</span>
+            <span>등록일 2026-05-16 21:11</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>글로벌 탭에서 18,368,759 views로 확인된 중대형 급상승권 쇼츠</li><li>Vidirun Top 50 Short-Form Videos 24H rank 9에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: 제목·소스 신호 중심</li><li>짧은 제목과 시각적 상황이 결합되어 스크롤 중 멈춰 볼 가능성이 있습니다</li><li>핵심 장면을 빠르게 보여 주는 숏폼 문법이라 긴 설명 없이도 시청 판단이 가능합니다</li><li>게시 후 3일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다</li><li>분석 패턴: 짧은 상황 이해와 시각적 훅 중심</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/gaofbq_8cAQ" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Jordi Koalitic</p>
           <p class="source">Source: <a href="https://vidirun.com/format-short" target="_blank" rel="noopener">Vidirun Top 50 Short-Form Videos</a> · rank 9</p>
@@ -893,8 +1109,14 @@
             <span>3,795,467 views</span>
           </div>
           <h2>F1 스탑 챌린지 #f1 #formula1 #포뮬러1</h2>
-          <p class="published">게시일 2026-05-06</p>
-          <p class="popularity">인기 이유 분석: KR 탭에서 3,795,467 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - KR daily rank 11에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 챌린지입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 스포츠·퍼포먼스 순간입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-06</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>KR 탭에서 3,795,467 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - KR daily rank 11에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 스포츠·퍼포먼스 순간</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/4KyCA_Yt-zk" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/4KyCA_Yt-zk?channelId=UCdvItLHXa6z2lfxYwz6PypA" target="_blank" rel="noopener">Playboard Shorts Daily - KR</a> · rank 11</p>
@@ -912,8 +1134,14 @@
             <span>1,986,479 views</span>
           </div>
           <h2>[우주22댄스챌린지]💃🕺스우파 가비 X 솔로지옥 차현승💘 우주22댄스 배우고 Galaxy S22 득템🦄</h2>
-          <p class="published">게시일 2022-02-25</p>
-          <p class="popularity">인기 이유 분석: KR 탭에서 1,986,479 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 댄스, 챌린지입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2022-02-25</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>KR 탭에서 1,986,479 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: 댄스, 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/hq9MjSpfE4s" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">SK telecom</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -931,8 +1159,14 @@
             <span>768,986 views</span>
           </div>
           <h2>2024 인기 댄스챌린지 모음ㅣ2024 Dance Challenge Compilation</h2>
-          <p class="published">게시일 2024-08-06</p>
-          <p class="popularity">인기 이유 분석: KR 탭에서 768,986 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge, dance, 댄스, 챌린지, compilation입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2024-08-06</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>KR 탭에서 768,986 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge, dance, 댄스, 챌린지, compilation</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/7ZmiScVqqdA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">춤선생SIMBA</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -950,8 +1184,14 @@
             <span>144,791 views</span>
           </div>
           <h2>춤짱들의 댄스 챌린지 #송형준 #이채연 #크래비티</h2>
-          <p class="published">게시일 2023-09-30</p>
-          <p class="popularity">인기 이유 분석: KR 탭에서 144,791 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 댄스, 챌린지, 춤입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2023-09-30</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>KR 탭에서 144,791 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: 댄스, 챌린지, 춤</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/fcJ8U3J67s4" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">송강호우</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -969,8 +1209,14 @@
             <span>19,881 views</span>
           </div>
           <h2>TOCA TOCA(토카토카) 챌린지안무/ 다이어트댄스</h2>
-          <p class="published">게시일 2023-05-12</p>
-          <p class="popularity">인기 이유 분석: KR 탭에서 19,881 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 댄스, 챌린지입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2023-05-12</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>KR 탭에서 19,881 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: 댄스, 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/JPZvnxL1BV8" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">매드댄스무브먼트협회</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -988,8 +1234,14 @@
             <span>18,344 views</span>
           </div>
           <h2>🖇️릴스 600만뷰 찍은 댄스챌린지 모음 #저스트비크루</h2>
-          <p class="published">게시일 2023-02-17</p>
-          <p class="popularity">인기 이유 분석: KR 탭에서 18,344 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 댄스, 챌린지입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2023-02-17</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>KR 탭에서 18,344 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: 댄스, 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/64HFcmUso_c" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">저스트비크루 JUSTEVEE OFFICIAL</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1007,8 +1259,14 @@
             <span>7,104 views</span>
           </div>
           <h2>[KOSHA X OH MY GIRL] 안전댄스 챌린지 START! &quot;아이패드 필요한 사람 드루와~&quot;</h2>
-          <p class="published">게시일 2020-09-10</p>
-          <p class="popularity">인기 이유 분석: KR 탭에서 7,104 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 댄스, 챌린지입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2020-09-10</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>KR 탭에서 7,104 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: 댄스, 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/T4nPwDE4lIA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">안전보건공단</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1026,8 +1284,14 @@
             <span>6,608 views</span>
           </div>
           <h2>[NZ 챌린지] 칼각 댄스 영상</h2>
-          <p class="published">게시일 2022-07-04</p>
-          <p class="popularity">인기 이유 분석: KR 탭에서 6,608 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 댄스, 챌린지입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2022-07-04</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>KR 탭에서 6,608 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: 댄스, 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/jLi8WDXZD-w" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">한국에너지공단 : KEA(Korea Energy Agency)</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1045,8 +1309,14 @@
             <span>686,814 views</span>
           </div>
           <h2>시니어를 위한 셔플댄스 입문 10가지 스텝 #시니어셔플댄스 #춤선생simba #한국셔플댄스협회</h2>
-          <p class="published">게시일 2024-10-31</p>
-          <p class="popularity">인기 이유 분석: KR 탭에서 686,814 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 댄스, 춤입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2024-10-31</span>
+            <span>등록일 2026-05-16 22:42</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>KR 탭에서 686,814 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: 댄스, 춤</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/lQ53wEV5siM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">춤선생SIMBA</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%ED%95%9C%EA%B5%AD+%EC%87%BC%EC%B8%A0+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%ED%8A%B8%EB%A0%8C%EB%93%9C" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1064,8 +1334,14 @@
             <span>3,916 views</span>
           </div>
           <h2>BTS is awesome #dancingnayul #kpop #music #dance #shorts #challenge #AFstarz #dancingbeardol #dre...</h2>
-          <p class="published">게시일 2025-11-07</p>
-          <p class="popularity">인기 이유 분석: KR 탭에서 3,916 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge, dance, music입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. K-pop·아이돌 파생 소재는 팬덤 반응과 챌린지 참여로 재확산되기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, K-pop·아이돌 파생입니다.</p>
+          <div class="date-row">
+            <span>게시일 2025-11-07</span>
+            <span>등록일 2026-05-16 22:42</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>KR 탭에서 3,916 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge, dance, music</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>K-pop·아이돌 파생 소재는 팬덤 반응과 챌린지 참여로 재확산되기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, K-pop·아이돌 파생</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/pncR4rTOUXE" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">춤추는나율(헤어날수없어 율♡)</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1083,8 +1359,14 @@
             <span>295,580 views</span>
           </div>
           <h2>[우주22댄스챌린지] 빵먹다살찐떡, 강예찬도 참여한 바로 그 챌린지! 🕺🏼✨ Galaxy S22, Galaxy Tab S8 받아가세요!🥰</h2>
-          <p class="published">게시일 2022-03-04</p>
-          <p class="popularity">인기 이유 분석: KR 탭에서 295,580 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 댄스, 챌린지입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2022-03-04</span>
+            <span>등록일 2026-05-16 22:12</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>KR 탭에서 295,580 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: 댄스, 챌린지</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/PiijOs9gJXM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">SK telecom</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1102,8 +1384,14 @@
             <span>3,443 views</span>
           </div>
           <h2>Starting the day : 😄 Smile #DancingYoonji #Soomile #Challenge #Shorts #Dance #kpop #DancingBear #...</h2>
-          <p class="published">게시일 2026-05-15</p>
-          <p class="popularity">인기 이유 분석: KR 탭에서 3,443 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge, dance, dancing입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. K-pop·아이돌 파생 소재는 팬덤 반응과 챌린지 참여로 재확산되기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, K-pop·아이돌 파생입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-15</span>
+            <span>등록일 2026-05-16 22:10</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>KR 탭에서 3,443 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge, dance, dancing</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>K-pop·아이돌 파생 소재는 팬덤 반응과 챌린지 참여로 재확산되기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, K-pop·아이돌 파생</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/RBw24AV7HzU" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">춤추는윤지</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%ED%95%9C%EA%B5%AD+%EC%87%BC%EC%B8%A0+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%ED%8A%B8%EB%A0%8C%EB%93%9C" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1125,8 +1413,14 @@
             <span>8,082,959 views</span>
           </div>
           <h2>She’s lucky to have such a good sister #movie #edit #shorts</h2>
-          <p class="published">게시일 2026-05-13</p>
-          <p class="popularity">인기 이유 분석: US 탭에서 8,082,959 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YTTrack Trending - US Comedy regional rank 4에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 edit입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 편집·슬로우드 사운드, 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-13</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>US 탭에서 8,082,959 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YTTrack Trending - US Comedy regional rank 4에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: edit</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 편집·슬로우드 사운드, 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/vczVVT8IW3c" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">yymovie</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=US&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - US Comedy</a> · rank 4</p>
@@ -1144,8 +1438,14 @@
             <span>5,940,344 views</span>
           </div>
           <h2>That Was Wild 💀 | Fresh Off The Boat | Song - Montagem Alquimia (Slowed) #edit #shorts</h2>
-          <p class="published">게시일 2026-05-14</p>
-          <p class="popularity">인기 이유 분석: US 탭에서 5,940,344 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YTTrack Trending - US Comedy regional rank 9에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 edit, slowed입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 편집·슬로우드 사운드, 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-14</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>US 탭에서 5,940,344 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YTTrack Trending - US Comedy regional rank 9에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: edit, slowed</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 편집·슬로우드 사운드, 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/SoCV6HyGE2A" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Maven-Edits</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=US&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - US Comedy</a> · rank 9</p>
@@ -1163,8 +1463,14 @@
             <span>5,177,527 views</span>
           </div>
           <h2>Chris Brown and Snoop Dogg Dances to Amapiano South African Music</h2>
-          <p class="published">게시일 2023-04-30</p>
-          <p class="popularity">인기 이유 분석: US 탭에서 5,177,527 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, music입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2023-04-30</span>
+            <span>등록일 2026-05-16 22:12</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>US 탭에서 5,177,527 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, music</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/6fCpQ_jNZys" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Jobartography</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+USA" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1182,8 +1488,14 @@
             <span>4,209,755 views</span>
           </div>
           <h2>[아두] Earth, Wind &amp; Fire - September | 커버댄스 Dance Cover | Choreography by Jisoo Yu &amp; David Hart</h2>
-          <p class="published">게시일 2020-05-04</p>
-          <p class="popularity">인기 이유 분석: US 탭에서 4,209,755 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, 댄스입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. K-pop·아이돌 파생 소재는 팬덤 반응과 챌린지 참여로 재확산되기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, K-pop·아이돌 파생입니다.</p>
+          <div class="date-row">
+            <span>게시일 2020-05-04</span>
+            <span>등록일 2026-05-16 22:12</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>US 탭에서 4,209,755 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, 댄스</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>K-pop·아이돌 파생 소재는 팬덤 반응과 챌린지 참여로 재확산되기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, K-pop·아이돌 파생</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/o2amXB3yVWw" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">아두 Ahdoo [아름다운 두둠칫]</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=US+trending+shorts+dance+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1205,8 +1517,14 @@
             <span>4,299,321 views</span>
           </div>
           <h2>プラスチックストローから笛の作り方🥤🪈💞#challenge#straw#flute</h2>
-          <p class="published">게시일 2026-05-06</p>
-          <p class="popularity">인기 이유 분석: JP 탭에서 4,299,321 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - JP daily rank 8에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-06</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>JP 탭에서 4,299,321 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - JP daily rank 8에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/5qPDtxngIzQ" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/5qPDtxngIzQ?channelId=UCsW-2LeMgUNGdMloq5kPeLg" target="_blank" rel="noopener">Playboard Shorts Daily - JP</a> · rank 8</p>
@@ -1224,8 +1542,14 @@
             <span>3,702,087 views</span>
           </div>
           <h2>Mbappé, Haaland, and Yamal Are Too Funny 😂🔥 #football #haaland #parody</h2>
-          <p class="published">게시일 2026-05-13</p>
-          <p class="popularity">인기 이유 분석: JP 탭에서 3,702,087 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - JP daily rank 10에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 funny입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건, 스포츠·퍼포먼스 순간입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-13</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>JP 탭에서 3,702,087 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - JP daily rank 10에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건, 스포츠·퍼포먼스 순간</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/ffl0gvGSv9s" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/ffl0gvGSv9s?channelId=UC0Badcq36RBDHN-e3N1Papg" target="_blank" rel="noopener">Playboard Shorts Daily - JP</a> · rank 10</p>
@@ -1243,8 +1567,14 @@
             <span>2,805,781 views</span>
           </div>
           <h2>Saito09 funny video 😂😂😂 #shorts</h2>
-          <p class="published">게시일 2026-02-14</p>
-          <p class="popularity">인기 이유 분석: JP 탭에서 2,805,781 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - JP daily rank 15에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 funny입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-02-14</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>JP 탭에서 2,805,781 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - JP daily rank 15에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/ZdXwPHwdwhY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/ZdXwPHwdwhY?channelId=UCKLbzfmjFv_oalDX8sHxhkQ" target="_blank" rel="noopener">Playboard Shorts Daily - JP</a> · rank 15</p>
@@ -1262,8 +1592,14 @@
             <span>2,640,884 views</span>
           </div>
           <h2>プレゼント🎁for you #shorts #funny #comedy</h2>
-          <p class="published">게시일 2026-05-08</p>
-          <p class="popularity">인기 이유 분석: JP 탭에서 2,640,884 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - JP daily rank 16에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 funny입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-08</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>JP 탭에서 2,640,884 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - JP daily rank 16에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/MLo6POLpdSI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/MLo6POLpdSI?channelId=UCjJjOBHEQVKZhbbuVqpVgDw" target="_blank" rel="noopener">Playboard Shorts Daily - JP</a> · rank 16</p>
@@ -1281,8 +1617,14 @@
             <span>8,271,550 views</span>
           </div>
           <h2>NO BATIDÃO Group Dance Trend That Broke TikTok</h2>
-          <p class="published">게시일 2026-02-27</p>
-          <p class="popularity">인기 이유 분석: JP 탭에서 8,271,550 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, trend입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-02-27</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>JP 탭에서 8,271,550 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, trend</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/QRBHUE3kkqo" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">My Musify</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Japan+shorts+dance+challenge+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1300,8 +1642,14 @@
             <span>2,405,544 views</span>
           </div>
           <h2>Top 10 Most Viral Dance Phonk Music On TikTok</h2>
-          <p class="published">게시일 2025-08-25</p>
-          <p class="popularity">인기 이유 분석: JP 탭에서 2,405,544 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, music, phonk입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 편집·슬로우드 사운드입니다.</p>
+          <div class="date-row">
+            <span>게시일 2025-08-25</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>JP 탭에서 2,405,544 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, music, phonk</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 편집·슬로우드 사운드</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/M6T3PJnlvaI" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">NS Seyat</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Japan+shorts+dance+challenge+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1319,8 +1667,14 @@
             <span>4,700,546 views</span>
           </div>
           <h2>Anime [amv]- Toca Toca Official Music Video 4K (Dance Template)</h2>
-          <p class="published">게시일 2023-04-22</p>
-          <p class="popularity">인기 이유 분석: JP 탭에서 4,700,546 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, music입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2023-04-22</span>
+            <span>등록일 2026-05-16 22:12</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>JP 탭에서 4,700,546 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, music</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/2DFKIllyMOY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Ashwath Baskar</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Japan+shorts+dance+challenge+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1342,8 +1696,14 @@
             <span>3,104,340 views</span>
           </div>
           <h2>CHUPANDO DEDO #santi #santioficial #funny #comedy</h2>
-          <p class="published">게시일 2025-10-27</p>
-          <p class="popularity">인기 이유 분석: 멕시코 탭에서 3,104,340 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 멕시코 daily rank 5에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 funny입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2025-10-27</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>멕시코 탭에서 3,104,340 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 멕시코 daily rank 5에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/9Egj8PiHiak" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/9Egj8PiHiak?channelId=UCizBBt3xOHkXPKvnaEEUKAA" target="_blank" rel="noopener">Playboard Shorts Daily - 멕시코</a> · rank 5</p>
@@ -1361,8 +1721,14 @@
             <span>2,952,008 views</span>
           </div>
           <h2>Cazador de Demonios a Cazadoras de los Sajaboys hay diferencia 🤣.#cosplay #humor #kpopdemonhunters</h2>
-          <p class="published">게시일 2026-05-13</p>
-          <p class="popularity">인기 이유 분석: 멕시코 탭에서 2,952,008 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 멕시코 daily rank 7에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 humor입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-13</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>멕시코 탭에서 2,952,008 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 멕시코 daily rank 7에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/oE_3ZBdOJzc" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/oE_3ZBdOJzc?channelId=UCYC_zK-AW6YL2MLNqgbexIQ" target="_blank" rel="noopener">Playboard Shorts Daily - 멕시코</a> · rank 7</p>
@@ -1380,8 +1746,14 @@
             <span>2,413,132 views</span>
           </div>
           <h2>ASÍ es como MICHAEL JACKSON DESAFIO la GRAVEDAD 😱 #michaeljackson #curiosidades #datoscuriosos</h2>
-          <p class="published">게시일 2026-05-14</p>
-          <p class="popularity">인기 이유 분석: 멕시코 탭에서 2,413,132 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 멕시코 daily rank 12에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 michael jackson입니다. 퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 스포츠·퍼포먼스 순간입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-14</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>멕시코 탭에서 2,413,132 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 멕시코 daily rank 12에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: michael jackson</li><li>퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 스포츠·퍼포먼스 순간</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/_eS8Xh4qH-k" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/_eS8Xh4qH-k?channelId=UCJ3rhXt1uxgdrUGu03Cd5CQ" target="_blank" rel="noopener">Playboard Shorts Daily - 멕시코</a> · rank 12</p>
@@ -1399,8 +1771,14 @@
             <span>2,370,633 views</span>
           </div>
           <h2>Mango limpio ? O sucio? #viral #humor #casosdefamilia #youtubeshorts #comedia #shortvideo</h2>
-          <p class="published">게시일 2026-05-14</p>
-          <p class="popularity">인기 이유 분석: 멕시코 탭에서 2,370,633 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 멕시코 daily rank 13에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 humor입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-14</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>멕시코 탭에서 2,370,633 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 멕시코 daily rank 13에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/ZzWVQZ9nNqM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/ZzWVQZ9nNqM?channelId=UC2nJBXaDf6KuWk7zMMKwxew" target="_blank" rel="noopener">Playboard Shorts Daily - 멕시코</a> · rank 13</p>
@@ -1418,8 +1796,14 @@
             <span>2,046,187 views</span>
           </div>
           <h2>#timelapse for entertainment , so cute funny family , new memes smc</h2>
-          <p class="published">게시일 2026-05-04</p>
-          <p class="popularity">인기 이유 분석: 멕시코 탭에서 2,046,187 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 멕시코 daily rank 19에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 cute, funny입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-04</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>멕시코 탭에서 2,046,187 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 멕시코 daily rank 19에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: cute, funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/2lvUxw1mNoE" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/2lvUxw1mNoE?channelId=UCMDrIhCljOfwVwvI0OWOdpQ" target="_blank" rel="noopener">Playboard Shorts Daily - 멕시코</a> · rank 19</p>
@@ -1437,8 +1821,14 @@
             <span>7,706,144 views</span>
           </div>
           <h2>Me perdía muy seguido 😩😂 #shorts #humor #tiktokvideo #comedia #funny #fyp</h2>
-          <p class="published">게시일 2026-05-15</p>
-          <p class="popularity">인기 이유 분석: 멕시코 탭에서 7,706,144 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YTTrack Trending - 멕시코 Comedy regional rank 2에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 funny, humor입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-15</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>멕시코 탭에서 7,706,144 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YTTrack Trending - 멕시코 Comedy regional rank 2에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: funny, humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/IPK0M8cCt6o" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Gabriela Flores Villar</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 멕시코 Comedy</a> · rank 2</p>
@@ -1456,8 +1846,14 @@
             <span>6,180,779 views</span>
           </div>
           <h2>Enganaron a LARIN JR😭🥺By:alfredolarin #humor #comedy #comedia #youtubeshorts #shortvideo</h2>
-          <p class="published">게시일 2026-05-14</p>
-          <p class="popularity">인기 이유 분석: 멕시코 탭에서 6,180,779 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YTTrack Trending - 멕시코 Entertainment regional rank 10에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 humor입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-14</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>멕시코 탭에서 6,180,779 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YTTrack Trending - 멕시코 Entertainment regional rank 10에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/oNLPZ6zg2XY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">JOLLYDOT</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 멕시코 Entertainment</a> · rank 10</p>
@@ -1475,8 +1871,14 @@
             <span>4,599,128 views</span>
           </div>
           <h2>POV: SE TE OLVIDAN LAS LLAVES ADENTRO DEL CARRO😭💀🚗 #humor #shorts #comedia #lospqliares</h2>
-          <p class="published">게시일 2026-05-15</p>
-          <p class="popularity">인기 이유 분석: 멕시코 탭에서 4,599,128 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YTTrack Trending - 멕시코 Comedy regional rank 1에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 humor입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-15</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>멕시코 탭에서 4,599,128 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YTTrack Trending - 멕시코 Comedy regional rank 1에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/GuquAiWY0WQ" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Los PQliares</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 멕시코 Comedy</a> · rank 1</p>
@@ -1494,8 +1896,14 @@
             <span>2,029,204 views</span>
           </div>
           <h2>Rasputin Boney M Janaki and Naveen Star magic Flowers channel viral dance Rasputin flowers</h2>
-          <p class="published">게시일 2021-04-23</p>
-          <p class="popularity">인기 이유 분석: 멕시코 탭에서 2,029,204 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, magic입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 마술·구출·공개·놀라움 계열 키워드가 마지막 장면까지 보게 만드는 질문을 던집니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2021-04-23</span>
+            <span>등록일 2026-05-16 22:12</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>멕시코 탭에서 2,029,204 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, magic</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>마술·구출·공개·놀라움 계열 키워드가 마지막 장면까지 보게 만드는 질문을 던집니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/qM70GqUROyk" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Donald Edits</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Mexico+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1513,8 +1921,14 @@
             <span>52,799 views</span>
           </div>
           <h2>El baile viral del momento la culebritica. #musica #music 🤪🤪🤪 #bailesdetiktok #viralshorts</h2>
-          <p class="published">게시일 2024-06-20</p>
-          <p class="popularity">인기 이유 분석: 멕시코 탭에서 52,799 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 baile, music, musica입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2024-06-20</span>
+            <span>등록일 2026-05-16 22:12</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>멕시코 탭에서 52,799 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: baile, music, musica</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/BaMLcfSquP0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Guitar 🎧</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+baile+musica+tendencia+Mexico" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1536,8 +1950,14 @@
             <span>1,594,424 views</span>
           </div>
           <h2>Alien dance | Funny Alien | Dame Tu Cosita | Funny alien dance | Green alien dance | Dance song</h2>
-          <p class="published">게시일 2022-06-12</p>
-          <p class="popularity">인기 이유 분석: 독일 탭에서 1,594,424 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, funny입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2022-06-12</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>독일 탭에서 1,594,424 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/t16xpbf2llY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Green Alien India</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+tanz+musik+trend+deutschland" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1555,8 +1975,14 @@
             <span>270,440 views</span>
           </div>
           <h2>Jerusalema Dance Challenge Austrian Airlines HD✈️✈️ #Dance #JerusalemaDanceChallenge</h2>
-          <p class="published">게시일 2021-03-11</p>
-          <p class="popularity">인기 이유 분석: 독일 탭에서 270,440 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge, dance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2021-03-11</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>독일 탭에서 270,440 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/h5Jh1MIzWOE" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">DancersStudioHD</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Germany+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1574,8 +2000,14 @@
             <span>18,443 views</span>
           </div>
           <h2>After Hours Three 💖stunning 💫girls dance 💙 christina 💤Trending Reels #trending #shorts #dance #viral</h2>
-          <p class="published">게시일 2024-06-09</p>
-          <p class="popularity">인기 이유 분석: 독일 탭에서 18,443 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, trending입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2024-06-09</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>독일 탭에서 18,443 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, trending</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/B2VFVPDrhJc" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Guitar 🎧</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+tanz+musik+trend+deutschland" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1593,8 +2025,14 @@
             <span>9,953 views</span>
           </div>
           <h2>Komm Tanzen? - Ich Will Nicht --- TikTok Trend --- Dancing Wolf</h2>
-          <p class="published">게시일 2023-11-28</p>
-          <p class="popularity">인기 이유 분석: 독일 탭에서 9,953 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dancing, trend입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2023-11-28</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>독일 탭에서 9,953 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dancing, trend</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/vLcJhv_gYlo" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">-=Joint197=-</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+tanz+musik+trend+deutschland" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1612,8 +2050,14 @@
             <span>22,366,919 views</span>
           </div>
           <h2>Handsome Dancer - Coincidance</h2>
-          <p class="published">게시일 2015-06-30</p>
-          <p class="popularity">인기 이유 분석: 독일 탭에서 22,366,919 views로 확인된 중대형 급상승권 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, dancer입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2015-06-30</span>
+            <span>등록일 2026-05-16 22:12</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>독일 탭에서 22,366,919 views로 확인된 중대형 급상승권 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, dancer</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/nBHkIWAJitg" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Handsome Dancer</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Germany+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1635,8 +2079,14 @@
             <span>3,662,744 views</span>
           </div>
           <h2>o professor brigou com a sala inteira kkkkk l #engraçado #escola #humor #shorts</h2>
-          <p class="published">게시일 2026-05-14</p>
-          <p class="popularity">인기 이유 분석: 브라질 탭에서 3,662,744 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 브라질 daily rank 12에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 humor입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-14</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>브라질 탭에서 3,662,744 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 브라질 daily rank 12에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/6zmSGoTN7-U" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/6zmSGoTN7-U?channelId=UCXGb2Xm77q1fzpH5kJuDouQ" target="_blank" rel="noopener">Playboard Shorts Daily - 브라질</a> · rank 12</p>
@@ -1654,8 +2104,14 @@
             <span>8,991,373 views</span>
           </div>
           <h2>VOCÊ COMEU MEU BOLO | #humor #shorts</h2>
-          <p class="published">게시일 2026-05-12</p>
-          <p class="popularity">인기 이유 분석: 브라질 탭에서 8,991,373 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YTTrack Trending - 브라질 Comedy regional rank 3에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 humor입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-12</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>브라질 탭에서 8,991,373 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YTTrack Trending - 브라질 Comedy regional rank 3에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/Dyq9ufEv21o" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Zero filtro corteseco</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 브라질 Comedy</a> · rank 3</p>
@@ -1673,8 +2129,14 @@
             <span>4,603,448 views</span>
           </div>
           <h2>Qual delas vocês gostaram mais #humor #piadascurtas #comedy #comedia #piadasrapidas #shorts</h2>
-          <p class="published">게시일 2026-05-10</p>
-          <p class="popularity">인기 이유 분석: 브라질 탭에서 4,603,448 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YTTrack Trending - 브라질 Comedy regional rank 16에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 humor입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-10</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>브라질 탭에서 4,603,448 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YTTrack Trending - 브라질 Comedy regional rank 16에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/6BLmRFgePZc" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">ALINE.OFICIAL🧚‍♀️</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 브라질 Comedy</a> · rank 16</p>
@@ -1692,8 +2154,14 @@
             <span>3,514,780 views</span>
           </div>
           <h2>Truco na escola? 🤣🤣🤣 #humor #memes #shorts</h2>
-          <p class="published">게시일 2026-05-11</p>
-          <p class="popularity">인기 이유 분석: 브라질 탭에서 3,514,780 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YTTrack Trending - 브라질 Comedy regional rank 15에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 humor입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-11</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>브라질 탭에서 3,514,780 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YTTrack Trending - 브라질 Comedy regional rank 15에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/50BQYtOS5FU" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Canal Invlo</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 브라질 Comedy</a> · rank 15</p>
@@ -1711,8 +2179,14 @@
             <span>323,454 views</span>
           </div>
           <h2>Original vs Edit 🔥 | Gozalo | Bailalo Gozalo | Gozalo Dance | Gonzalo | Gonzalo Dance 😍✨#funk #edit</h2>
-          <p class="published">게시일 2025-12-27</p>
-          <p class="popularity">인기 이유 분석: 브라질 탭에서 323,454 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, edit, funk입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 편집·슬로우드 사운드입니다.</p>
+          <div class="date-row">
+            <span>게시일 2025-12-27</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>브라질 탭에서 323,454 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, edit, funk</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 편집·슬로우드 사운드</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/nWJdabiKpm0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Atco Editz</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+danca+musica+tendencia+Brasil" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1730,8 +2204,14 @@
             <span>44,944 views</span>
           </div>
           <h2>Tomato Tomato Tomato 🕺 New Trend 📸 #dance #dancecover #trend #trending #brazil #phonk #djarana</h2>
-          <p class="published">게시일 2023-06-02</p>
-          <p class="popularity">인기 이유 분석: 브라질 탭에서 44,944 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, phonk, trend, trending입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 편집·슬로우드 사운드입니다.</p>
+          <div class="date-row">
+            <span>게시일 2023-06-02</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>브라질 탭에서 44,944 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, phonk, trend, trending</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 편집·슬로우드 사운드</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/tnSBKJxsWrY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Hot reaction on meme</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+danca+musica+tendencia+Brasil" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1749,8 +2229,14 @@
             <span>2,423,066 views</span>
           </div>
           <h2>PAQUETA DANCE EDIT | BRAZIL CELEBRATION | 4K ULTRA HD</h2>
-          <p class="published">게시일 2023-04-30</p>
-          <p class="popularity">인기 이유 분석: 브라질 탭에서 2,423,066 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, edit입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 편집·슬로우드 사운드입니다.</p>
+          <div class="date-row">
+            <span>게시일 2023-04-30</span>
+            <span>등록일 2026-05-16 22:12</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>브라질 탭에서 2,423,066 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, edit</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 편집·슬로우드 사운드</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/PExRCEPOCk4" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Football Legion</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+danca+musica+tendencia+Brasil" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1768,8 +2254,14 @@
             <span>796,141 views</span>
           </div>
           <h2>Best TikTok challenges 2026 - Brazil Alencarzão and Arthur Lima - brazil dance tiktok</h2>
-          <p class="published">게시일 2026-04-18</p>
-          <p class="popularity">인기 이유 분석: 브라질 탭에서 796,141 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge, dance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-04-18</span>
+            <span>등록일 2026-05-16 22:12</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>브라질 탭에서 796,141 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/p2xTa1U2U5M" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Tiktok mix</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Brazil+dance+challenge+shorts+funk" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1787,8 +2279,14 @@
             <span>5,181,202 views</span>
           </div>
           <h2>DANCING FUNK-DJ Javi26, Zyas ---- JUJUTSU KAISEN EDIT</h2>
-          <p class="published">게시일 2025-12-12</p>
-          <p class="popularity">인기 이유 분석: 브라질 탭에서 5,181,202 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dancing, edit, funk입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 편집·슬로우드 사운드입니다.</p>
+          <div class="date-row">
+            <span>게시일 2025-12-12</span>
+            <span>등록일 2026-05-16 22:10</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>브라질 탭에서 5,181,202 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dancing, edit, funk</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 편집·슬로우드 사운드</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/v35j0LkQ1sM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Suha</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Brazil+dance+challenge+shorts+funk" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1810,8 +2308,14 @@
             <span>7,081,233 views</span>
           </div>
           <h2>Mainan Kardus PRANK kaget lucu #kreatif #toys #prank #funny #lol</h2>
-          <p class="published">게시일 2026-03-30</p>
-          <p class="popularity">인기 이유 분석: 인도네시아 탭에서 7,081,233 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 인도네시아 daily rank 6에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 funny, prank, toys입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-03-30</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>인도네시아 탭에서 7,081,233 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 인도네시아 daily rank 6에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: funny, prank, toys</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/Axg9eTh24cA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/Axg9eTh24cA?channelId=UC3O-Y2r8vISaCK0V6do-B2g" target="_blank" rel="noopener">Playboard Shorts Daily - 인도네시아</a> · rank 6</p>
@@ -1829,8 +2333,14 @@
             <span>4,528,911 views</span>
           </div>
           <h2>Gercep banget ini cewek😂 #couple #funny #shorts</h2>
-          <p class="published">게시일 2026-05-14</p>
-          <p class="popularity">인기 이유 분석: 인도네시아 탭에서 4,528,911 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 인도네시아 daily rank 18에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 funny입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-14</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>인도네시아 탭에서 4,528,911 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 인도네시아 daily rank 18에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/FP1RlgSrod8" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/FP1RlgSrod8?channelId=UCFjAz1kIFc-MKqw4Fz4xkEA" target="_blank" rel="noopener">Playboard Shorts Daily - 인도네시아</a> · rank 18</p>
@@ -1848,8 +2358,14 @@
             <span>109,256 views</span>
           </div>
           <h2>Tarian afrika keren #shorts</h2>
-          <p class="published">게시일 2022-02-17</p>
-          <p class="popularity">인기 이유 분석: 인도네시아 탭에서 109,256 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 tari입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2022-02-17</span>
+            <span>등록일 2026-05-16 22:10</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>인도네시아 탭에서 109,256 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: tari</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/bFdwP0u8FD0" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Masdet</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+joget+musik+viral+Indonesia" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1871,8 +2387,14 @@
             <span>1,007,066 views</span>
           </div>
           <h2>Mission Impossible 😎 #humor #funny #comedy</h2>
-          <p class="published">게시일 2026-05-10</p>
-          <p class="popularity">인기 이유 분석: 아르헨티나 탭에서 1,007,066 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 아르헨티나 daily rank 18에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 funny, humor입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-10</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>아르헨티나 탭에서 1,007,066 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 아르헨티나 daily rank 18에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: funny, humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/lWBlN0bUJis" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/lWBlN0bUJis?channelId=UCABKolAKTA29f03BYtvcERw" target="_blank" rel="noopener">Playboard Shorts Daily - 아르헨티나</a> · rank 18</p>
@@ -1890,8 +2412,14 @@
             <span>4,555,972 views</span>
           </div>
           <h2>Su reacción al saltar a agua fría fue ÉPICA #shorts #challenge</h2>
-          <p class="published">게시일 2026-05-13</p>
-          <p class="popularity">인기 이유 분석: 아르헨티나 탭에서 4,555,972 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YTTrack Trending - 아르헨티나 Entertainment regional rank 16에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-13</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>아르헨티나 탭에서 4,555,972 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YTTrack Trending - 아르헨티나 Entertainment regional rank 16에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/0nPaRKaWm8g" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Pablo Pol</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=AR&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 아르헨티나 Entertainment</a> · rank 16</p>
@@ -1909,8 +2437,14 @@
             <span>1,895,414 views</span>
           </div>
           <h2>Daddy Yankee &amp; Snow - con calma | jyoti choreography | #concalma #dance #choreography #trending</h2>
-          <p class="published">게시일 2024-04-29</p>
-          <p class="popularity">인기 이유 분석: 아르헨티나 탭에서 1,895,414 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, trending입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2024-04-29</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>아르헨티나 탭에서 1,895,414 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, trending</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/j8kTzXjAyjY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Jyotikoli</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Argentina+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1928,8 +2462,14 @@
             <span>321,190 views</span>
           </div>
           <h2>Viral Dance Challenge: Scott West Dance of the Gold Condor (Buenos Aires) Van Gogh Starry Night</h2>
-          <p class="published">게시일 2026-04-10</p>
-          <p class="popularity">인기 이유 분석: 아르헨티나 탭에서 321,190 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge, dance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-04-10</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>아르헨티나 탭에서 321,190 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/9rfhgNmn2YE" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">SCOTT WEST</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Argentina+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1951,8 +2491,14 @@
             <span>567,151 views</span>
           </div>
           <h2>EENIE MEENIE DANCE CHALLENGE BY HYPERKATZ</h2>
-          <p class="published">게시일 2021-10-12</p>
-          <p class="popularity">인기 이유 분석: 필리핀 탭에서 567,151 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge, dance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2021-10-12</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>필리핀 탭에서 567,151 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/vokq7WZwGBc" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Patrickjohn T. Japos</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1970,8 +2516,14 @@
             <span>149,005 views</span>
           </div>
           <h2>Maymay Entrata - Tsada Mahigugma | New Dance Challenge By Zambosur Dance Company | Trend Tiktok</h2>
-          <p class="published">게시일 2023-10-12</p>
-          <p class="popularity">인기 이유 분석: 필리핀 탭에서 149,005 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge, dance, trend입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2023-10-12</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>필리핀 탭에서 149,005 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge, dance, trend</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/dO4XRxSqU_c" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">ZamboSurDanceCompany - ZSDC</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -1989,8 +2541,14 @@
             <span>140,987 views</span>
           </div>
           <h2>GENTO DANCE CHALLENGE by SB19 | The Prime Moverz and Primera Hija</h2>
-          <p class="published">게시일 2023-06-06</p>
-          <p class="popularity">인기 이유 분석: 필리핀 탭에서 140,987 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge, dance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2023-06-06</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>필리핀 탭에서 140,987 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/bNdQG6dB-M4" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">The Prime Moverz</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2008,8 +2566,14 @@
             <span>84,332 views</span>
           </div>
           <h2>Rush - Ayra Starr | Dance Challenge</h2>
-          <p class="published">게시일 2023-08-19</p>
-          <p class="popularity">인기 이유 분석: 필리핀 탭에서 84,332 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge, dance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2023-08-19</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>필리핀 탭에서 84,332 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/fhVxTjONxsA" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Ken Mat Thew</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2027,8 +2591,14 @@
             <span>3,626 views</span>
           </div>
           <h2>Mood 24kgoldn TikTok Speed Dance Challenge</h2>
-          <p class="published">게시일 2021-07-26</p>
-          <p class="popularity">인기 이유 분석: 필리핀 탭에서 3,626 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge, dance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2021-07-26</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>필리핀 탭에서 3,626 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/GiX5agVLfR8" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Kuya Magik</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+Philippines" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2050,8 +2620,14 @@
             <span>1,987,511 views</span>
           </div>
           <h2>New look, same love ❤️😂#shaving #beard #couple #challenge #fyp</h2>
-          <p class="published">게시일 2026-04-15</p>
-          <p class="popularity">인기 이유 분석: 스페인 탭에서 1,987,511 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 스페인 daily rank 15에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-04-15</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>스페인 탭에서 1,987,511 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 스페인 daily rank 15에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/3sLY4XwJ9WM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/3sLY4XwJ9WM?channelId=UCX4eucShCWrUyhW6DZE_gPw" target="_blank" rel="noopener">Playboard Shorts Daily - 스페인</a> · rank 15</p>
@@ -2069,8 +2645,14 @@
             <span>3,042,740 views</span>
           </div>
           <h2>Se lo juro mister #shorts #humor #comedia</h2>
-          <p class="published">게시일 2026-05-14</p>
-          <p class="popularity">인기 이유 분석: 스페인 탭에서 3,042,740 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YTTrack Trending - 스페인 Comedy regional rank 2에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 humor입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-14</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>스페인 탭에서 3,042,740 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YTTrack Trending - 스페인 Comedy regional rank 2에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: humor</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/sVvCEhqaHhw" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Dadytou</p>
           <p class="source">Source: <a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=ES&amp;maxResults=18" target="_blank" rel="noopener">YTTrack Trending - 스페인 Comedy</a> · rank 2</p>
@@ -2088,8 +2670,14 @@
             <span>4,172 views</span>
           </div>
           <h2>PRACTICANDO #POLEDANCE | ¿TE GUSTARÍA APRENDER? | ARIANN MUSIC #SHORTS BAILANDO #BAILE #DANCE</h2>
-          <p class="published">게시일 2022-04-12</p>
-          <p class="popularity">인기 이유 분석: 스페인 탭에서 4,172 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 baile, dance, music입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2022-04-12</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>스페인 탭에서 4,172 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: baile, dance, music</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/O_Z4t9iwWW4" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Moderadores Arianners</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+baile+musica+tendencia+Espana" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2111,8 +2699,14 @@
             <span>1,697,895 views</span>
           </div>
           <h2>TUTORIAL magic Gif #TREND 😳🍆🤮#trend #magic #backstage #creative #lol #shorts#tutorial</h2>
-          <p class="published">게시일 2026-05-15</p>
-          <p class="popularity">인기 이유 분석: 이탈리아 탭에서 1,697,895 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 이탈리아 daily rank 7에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 backstage, magic, trend, tutorial입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다. 마술·구출·공개·놀라움 계열 키워드가 마지막 장면까지 보게 만드는 질문을 던집니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 스포츠·퍼포먼스 순간입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-15</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>이탈리아 탭에서 1,697,895 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 이탈리아 daily rank 7에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: backstage, magic, trend, tutorial</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다</li><li>마술·구출·공개·놀라움 계열 키워드가 마지막 장면까지 보게 만드는 질문을 던집니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 스포츠·퍼포먼스 순간</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/YsLPyexmGXg" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/YsLPyexmGXg?channelId=UCF0e4oTaZk9qr0f2qT-dzhw" target="_blank" rel="noopener">Playboard Shorts Daily - 이탈리아</a> · rank 7</p>
@@ -2130,8 +2724,14 @@
             <span>985,815 views</span>
           </div>
           <h2>Nobody Knows Rowan Atkinson Was Actually a Punk #comedy #celebrity #funny</h2>
-          <p class="published">게시일 2026-04-10</p>
-          <p class="popularity">인기 이유 분석: 이탈리아 탭에서 985,815 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 이탈리아 daily rank 20에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 funny입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-04-10</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>이탈리아 탭에서 985,815 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 이탈리아 daily rank 20에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/DTYue9Ajo9Q" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/DTYue9Ajo9Q?channelId=UCwYDrqBJ7id82pQ1KxKYHLQ" target="_blank" rel="noopener">Playboard Shorts Daily - 이탈리아</a> · rank 20</p>
@@ -2149,8 +2749,14 @@
             <span>25,241,740 views</span>
           </div>
           <h2>Fuego Dance Crew - Gasolina Routine (Official Video) #gasolinachallenge</h2>
-          <p class="published">게시일 2019-12-11</p>
-          <p class="popularity">인기 이유 분석: 이탈리아 탭에서 25,241,740 views로 확인된 중대형 급상승권 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge, dance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2019-12-11</span>
+            <span>등록일 2026-05-16 22:07</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>이탈리아 탭에서 25,241,740 views로 확인된 중대형 급상승권 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge, dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/Voiae2-E-7Y" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Fuego DanceCrew</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Italy+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2172,8 +2778,14 @@
             <span>2,078,684 views</span>
           </div>
           <h2>Que se passe-t-il si vous renversez de l&#x27;eau partout ? 💦 #shorts #prank</h2>
-          <p class="published">게시일 2026-05-15</p>
-          <p class="popularity">인기 이유 분석: 프랑스 탭에서 2,078,684 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 프랑스 daily rank 6에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 prank입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-15</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>프랑스 탭에서 2,078,684 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 프랑스 daily rank 6에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: prank</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/I_CqHrNzKIY" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/I_CqHrNzKIY?channelId=UCcjlkShNTeqpll27KF6rY7A" target="_blank" rel="noopener">Playboard Shorts Daily - 프랑스</a> · rank 6</p>
@@ -2191,8 +2803,14 @@
             <span>1,756,117 views</span>
           </div>
           <h2>#funny #comedy #india</h2>
-          <p class="published">게시일 2026-05-14</p>
-          <p class="popularity">인기 이유 분석: 프랑스 탭에서 1,756,117 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 프랑스 daily rank 10에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 funny입니다. 상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다. 웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다. 초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 상황형 코미디·짧은 사건입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-14</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>프랑스 탭에서 1,756,117 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 프랑스 daily rank 10에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: funny</li><li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li><li>웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다</li><li>초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 상황형 코미디·짧은 사건</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/l91lVPMcoCs" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/l91lVPMcoCs?channelId=UC_rTbuXWDcJ-_-OhutBwuXg" target="_blank" rel="noopener">Playboard Shorts Daily - 프랑스</a> · rank 10</p>
@@ -2210,8 +2828,14 @@
             <span>237,064 views</span>
           </div>
           <h2>Papaoutai (Afro Soul) - ​Stromae | Mikeeysmind | Tiktok Trending Version | Dance Cover | @DjValka</h2>
-          <p class="published">게시일 2026-01-29</p>
-          <p class="popularity">인기 이유 분석: 프랑스 탭에서 237,064 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, trending입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-01-29</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>프랑스 탭에서 237,064 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, trending</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/vBR1-dTbREo" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Cameroon Dance Academy</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=France+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2229,8 +2853,14 @@
             <span>588,935 views</span>
           </div>
           <h2>F2 DANCE X AMBRE_DANCER - S1 - CLIP VIDEO / TAL /Le temps qu&#x27;il faut/ STREET DANCE/ KIDS</h2>
-          <p class="published">게시일 2021-12-19</p>
-          <p class="popularity">인기 이유 분석: 프랑스 탭에서 588,935 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, dancer입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2021-12-19</span>
+            <span>등록일 2026-05-16 22:12</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>프랑스 탭에서 588,935 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, dancer</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/AiTkJix_Pvc" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">AMBRE_DANCER</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+danse+musique+tendance+France" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2252,8 +2882,14 @@
             <span>13,893 views</span>
           </div>
           <h2>Arthur lima dance 🕺#YouTube #dance #brazil #arthurlima #shorts #tiktok #Ethiopia #uzbekistan #india</h2>
-          <p class="published">게시일 2026-03-25</p>
-          <p class="popularity">인기 이유 분석: 우즈베키스탄 탭에서 13,893 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-03-25</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>우즈베키스탄 탭에서 13,893 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/FF7ZGRjUMZ4" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">mr yared</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Uzbekistan+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2271,8 +2907,14 @@
             <span>946,586 views</span>
           </div>
           <h2>Uzbekistan Viral Girl &amp; Boy Dance Bollywood Songs ￼￼Performance ￼</h2>
-          <p class="published">게시일 2026-02-26</p>
-          <p class="popularity">인기 이유 분석: 우즈베키스탄 탭에서 946,586 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance, performance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-02-26</span>
+            <span>등록일 2026-05-16 22:42</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>우즈베키스탄 탭에서 946,586 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance, performance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/2l1ATQUqL2U" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">BawaBlaze TV</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Uzbekistan+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2290,8 +2932,14 @@
             <span>15,540 views</span>
           </div>
           <h2>Xit Musiqalar 👍 Qizlardan Xit Ashulaga raqs Shunaqa Gaplar</h2>
-          <p class="published">게시일 2022-05-11</p>
-          <p class="popularity">인기 이유 분석: 우즈베키스탄 탭에서 15,540 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 raqs, musiqa입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2022-05-11</span>
+            <span>등록일 2026-05-16 22:12</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>우즈베키스탄 탭에서 15,540 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: raqs, musiqa</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/doqbYCwm368" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Beruniy Shorts</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+raqs+musiqa+trend+Uzbekistan" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2313,8 +2961,14 @@
             <span>476,189 views</span>
           </div>
           <h2>#اكسبلور #lifeisbutadream #كيدراما #kdrama #اكسبلور #اعتني #music #explore #edit #fyp #ot7</h2>
-          <p class="published">게시일 2026-05-15</p>
-          <p class="popularity">인기 이유 분석: 알제리 탭에서 476,189 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 알제리 daily rank 19에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 edit, music입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지, 편집·슬로우드 사운드입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-15</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>알제리 탭에서 476,189 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 알제리 daily rank 19에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: edit, music</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지, 편집·슬로우드 사운드</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/fkScHM7zCxE" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/fkScHM7zCxE?channelId=UC3VW62HDOwtCcVzKmNzMoGA" target="_blank" rel="noopener">Playboard Shorts Daily - 알제리</a> · rank 19</p>
@@ -2336,8 +2990,14 @@
             <span>2,181,103 views</span>
           </div>
           <h2>ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY NEON DANCE !! 🔥🔥</h2>
-          <p class="published">게시일 2026-02-10</p>
-          <p class="popularity">인기 이유 분석: 카자흐스탄 탭에서 2,181,103 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 카자흐스탄 daily rank 5에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 dance입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-02-10</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>카자흐스탄 탭에서 2,181,103 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 카자흐스탄 daily rank 5에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: dance</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/tgOQlzCqc0M" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/tgOQlzCqc0M?channelId=UCVRqK0tS3B8pVog1HwCR4pg" target="_blank" rel="noopener">Playboard Shorts Daily - 카자흐스탄</a> · rank 5</p>
@@ -2355,8 +3015,14 @@
             <span>3,075 views</span>
           </div>
           <h2>challenge - Aigul Fatalieva Belly Dancer - Kazakhstan Russia#bellyladyagainstcorona .</h2>
-          <p class="published">게시일 2020-05-03</p>
-          <p class="popularity">인기 이유 분석: 카자흐스탄 탭에서 3,075 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge, dancer입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2020-05-03</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>카자흐스탄 탭에서 3,075 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge, dancer</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/7IWj7mo-lEs" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Avihass</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=Kazakhstan+dance+challenge+shorts+music" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
@@ -2378,8 +3044,14 @@
             <span>3,961,408 views</span>
           </div>
           <h2>Unexpected ending in Left Right challenge #bybacademy #thanhhuyennguyen #daotaonguoimau #5g</h2>
-          <p class="published">게시일 2026-05-15</p>
-          <p class="popularity">인기 이유 분석: 베트남 탭에서 3,961,408 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 베트남 daily rank 11에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-05-15</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>베트남 탭에서 3,961,408 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 베트남 daily rank 11에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/jc1IZpdsJjM" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/jc1IZpdsJjM?channelId=UC0DHkN8GvXGXRf3SA2PKKcg" target="_blank" rel="noopener">Playboard Shorts Daily - 베트남</a> · rank 11</p>
@@ -2397,8 +3069,14 @@
             <span>3,195,257 views</span>
           </div>
           <h2>When princesses playing &quot;Squid Game&quot; Challenge #bybacademy #thanhhuyennguyen #daotaonguoimau #5g</h2>
-          <p class="published">게시일 2026-01-27</p>
-          <p class="popularity">인기 이유 분석: 베트남 탭에서 3,195,257 views로 확인된 지역 탭 검토 후보 쇼츠입니다. Playboard Shorts Daily - 베트남 daily rank 20에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 challenge입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2026-01-27</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>베트남 탭에서 3,195,257 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>Playboard Shorts Daily - 베트남 daily rank 20에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: challenge</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/FWMyxmIu1Ss" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Unknown channel</p>
           <p class="source">Source: <a href="https://playboard.co/en/video/FWMyxmIu1Ss?channelId=UC0DHkN8GvXGXRf3SA2PKKcg" target="_blank" rel="noopener">Playboard Shorts Daily - 베트남</a> · rank 20</p>
@@ -2416,8 +3094,14 @@
             <span>770,071 views</span>
           </div>
           <h2>5 anh trung quốc nhảy nhạc Hồ Quang Hiếu cực khớp trend tiktok nhạc nào cũng khớp</h2>
-          <p class="published">게시일 2023-03-28</p>
-          <p class="popularity">인기 이유 분석: 베트남 탭에서 770,071 views로 확인된 지역 탭 검토 후보 쇼츠입니다. YouTube Shorts search via yt-dlp search에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다. 감지 키워드는 nhảy, nhạc, trend입니다. 음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다. 사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다. 현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다. 분석 패턴은 댄스·음악 챌린지입니다.</p>
+          <div class="date-row">
+            <span>게시일 2023-03-28</span>
+            <span>등록일 2026-05-16 22:51</span>
+          </div>
+          <div class="popularity" aria-label="인기 이유">
+            <strong>인기 이유</strong>
+            <ul><li>베트남 탭에서 770,071 views로 확인된 지역 탭 검토 후보 쇼츠</li><li>YouTube Shorts search via yt-dlp search에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li><li>감지 키워드: nhảy, nhạc, trend</li><li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li><li>사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다</li><li>현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다</li><li>분석 패턴: 댄스·음악 챌린지</li></ul>
+          </div>
           <p class="video-url"><a href="https://www.youtube.com/shorts/XF4_mNgfmFs" target="_blank" rel="noopener">Open YouTube Short</a></p>
           <p class="channel">Lâm Xc</p>
           <p class="source">Source: <a href="https://www.youtube.com/results?search_query=%23shorts+nhay+nhac+trend+Viet+Nam" target="_blank" rel="noopener">YouTube Shorts search via yt-dlp</a></p>
