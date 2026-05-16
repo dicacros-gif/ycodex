@@ -741,16 +741,6 @@ def fmt_int(value: Any) -> str:
         return "0"
 
 
-def fmt_update_time(value: Any) -> str:
-    if not value:
-        return "not yet"
-    try:
-        dt = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
-    except ValueError:
-        return str(value)
-    return f"{dt.month}/{dt.day} {dt.hour:02d}:{dt.minute:02d}"
-
-
 def source_links(items: list[dict[str, Any]]) -> list[tuple[str, str]]:
     pairs: set[tuple[str, str]] = set()
     for source in VIDIRUN_SOURCES:
@@ -803,7 +793,6 @@ def group_items_by_region(items: list[dict[str, Any]]) -> dict[str, list[dict[st
 
 def render_index(items: list[dict[str, Any]]) -> str:
     items = normalize_items(items)
-    latest = fmt_update_time(items[0].get("collectedAt", "") if items else "")
     grouped = group_items_by_region(items)
 
     tab_buttons = "\n".join(
@@ -836,7 +825,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>YouTube Shorts Trend Watch</title>
+  <title>Shorts</title>
   <meta name="description" content="지역별 인기 YouTube Shorts 후보 모음">
   <style>
     :root {{
@@ -857,6 +846,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
       background: var(--wash);
       color: var(--ink);
       letter-spacing: 0;
+      overflow-x: hidden;
     }}
     a {{ color: inherit; }}
     .shell {{
@@ -866,71 +856,25 @@ def render_index(items: list[dict[str, Any]]) -> str:
     header {{
       border-bottom: 1px solid var(--line);
       background: #f9fbfd;
-    }}
-    .topbar {{
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 28px 0 18px;
-    }}
-    h1 {{
-      margin: 0 0 8px;
-      font-size: clamp(26px, 3vw, 40px);
-      line-height: 1.15;
-      font-weight: 800;
-    }}
-    .lead {{
-      margin: 0;
-      max-width: 720px;
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.65;
-    }}
-    .status {{
-      min-width: 220px;
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      background: var(--surface);
-      padding: 12px;
-      font-size: 13px;
-      color: var(--muted);
-    }}
-    .status strong {{
-      display: block;
-      color: var(--ink);
-      font-size: 16px;
-      margin-top: 4px;
-    }}
-    .filters {{
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding: 16px 0 18px;
-    }}
-    .chip {{
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--surface);
-      padding: 8px 11px;
-      font-size: 13px;
-      color: #475467;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }}
     .tabs {{
       display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 0 0 18px;
-      scrollbar-width: thin;
+      flex-wrap: wrap;
+      gap: 6px;
+      overflow: visible;
+      padding: 10px 0;
     }}
     .tab-button {{
       border: 1px solid var(--line);
       border-radius: 999px;
       background: var(--surface);
       color: #344054;
-      padding: 9px 12px;
+      padding: 7px 9px;
       font: inherit;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 700;
       white-space: nowrap;
       cursor: pointer;
@@ -956,17 +900,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
       color: white;
     }}
     main {{
-      padding: 24px 0 44px;
-    }}
-    .notice {{
-      border-left: 4px solid var(--accent);
-      background: var(--surface);
-      padding: 14px 16px;
-      border-radius: 8px;
-      margin-bottom: 18px;
-      color: #344054;
-      font-size: 14px;
-      line-height: 1.65;
+      padding: 14px 0 44px;
     }}
     .grid {{
       display: grid;
@@ -1090,15 +1024,11 @@ def render_index(items: list[dict[str, Any]]) -> str:
       text-decoration: none;
       border-bottom: 1px solid rgba(29, 78, 216, 0.25);
     }}
-    footer {{
-      border-top: 1px solid var(--line);
-      padding: 20px 0 32px;
-      color: var(--muted);
-      font-size: 13px;
-    }}
     @media (max-width: 720px) {{
-      .topbar {{ align-items: stretch; flex-direction: column; }}
-      .status {{ min-width: 0; }}
+      .shell {{ width: min(100% - 16px, 1180px); }}
+      .tabs {{ gap: 5px; padding: 8px 0; }}
+      .tab-button {{ padding: 6px 8px; font-size: 11px; gap: 5px; }}
+      .tab-button span {{ min-width: 18px; padding: 1px 5px; font-size: 10px; }}
       .grid {{ grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }}
       .thumb-link {{ flex-basis: 68px; width: 68px; }}
     }}
@@ -1107,41 +1037,18 @@ def render_index(items: list[dict[str, Any]]) -> str:
 <body>
   <header>
     <div class="shell">
-      <div class="topbar">
-        <div>
-          <h1>YouTube Shorts Trend Watch</h1>
-          <p class="lead">글로벌, KR, US, JP, 멕시코, 독일, 브라질, 인도네시아, 아르헨티나, 필리핀, 스페인, 이탈리아, 프랑스, 우즈베키스탄, 알제리, 카자흐스탄, 베트남 탭별로 음악 중심 배경, 자막 없음, 1~2명 등장, 댄스 또는 짧은 상황형으로 보이는 인기 YouTube Shorts 후보를 수집합니다.</p>
-        </div>
-        <div class="status">
-          Last update
-          <strong>{escape(latest or "not yet")}</strong>
-        </div>
-      </div>
-      <div class="filters" aria-label="collection rules">
-        <span class="chip">music-first</span>
-        <span class="chip">no visible captions target</span>
-        <span class="chip">1-2 people target</span>
-        <span class="chip">dance or situation</span>
-        <span class="chip">region tabs</span>
-        <span class="chip">no duplicate videos</span>
-        <span class="chip">new items stay on top</span>
-      </div>
+      <nav class="tabs" aria-label="region tabs">
+        {tab_buttons}
+      </nav>
     </div>
   </header>
   <main class="shell">
-    <div class="notice">GitHub Actions가 매일 17:00 KST에 여러 공개 트렌드/랭킹 소스와 지역별 검색어를 확인합니다. 같은 YouTube 영상 ID는 전체 탭에서 한 번만 배치하며, 공개 데이터가 제공하지 않는 자막·대사·인물 수 조건은 검수 메모로 남깁니다.</div>
-    <nav class="tabs" aria-label="region tabs">
-      {tab_buttons}
-    </nav>
 {''.join(panels)}
     <section class="source-panel" aria-label="sources">
       <span>Connected sources:</span>
       {links}
     </section>
   </main>
-  <footer>
-    <div class="shell">Runs on GitHub-hosted Actions at 17:00 Asia/Seoul. New region matches are prepended and older unique links stay below.</div>
-  </footer>
   <script type="application/json" id="shorts-data">{data_json}</script>
   <script>
     const buttons = Array.from(document.querySelectorAll("[data-region-tab]"));
