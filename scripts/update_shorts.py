@@ -1294,7 +1294,7 @@ def published_age_days(item: dict[str, Any]) -> int | None:
     return max((today - published).days, 0)
 
 
-def popularity_reason(item: dict[str, Any]) -> str:
+def brief_popularity_reason(item: dict[str, Any]) -> str:
     views = parse_int(item.get("viewsGained"))
     clusters = item_cluster_keys(item)
     labels = [cluster_label(key) for key in clusters if key != "other"]
@@ -1330,6 +1330,98 @@ def popularity_reason(item: dict[str, Any]) -> str:
         reasons.append("짧은 제목과 시각적 상황이 결합되어 스크롤 중 멈춰 볼 가능성이 큼")
 
     return "인기 이유 " + " · ".join(reasons[:3])
+
+
+def match_note_terms(item: dict[str, Any]) -> list[str]:
+    terms: list[str] = []
+    for note in item.get("matchNotes", []):
+        note_text = clean_text(str(note))
+        lower = note_text.lower()
+        if ":" not in note_text or not any(marker in lower for marker in ("keyword", "signal")):
+            continue
+        _, values = note_text.split(":", 1)
+        existing = {term.lower() for term in terms}
+        for value in re.split(r"[,/]", values):
+            term = clean_text(value).strip(" #")
+            if term and term.lower() not in existing:
+                terms.append(term)
+                existing.add(term.lower())
+    return terms[:5]
+
+
+def popularity_reason(item: dict[str, Any]) -> str:
+    views = parse_int(item.get("viewsGained"))
+    clusters = item_cluster_keys(item)
+    labels = [cluster_label(key) for key in clusters if key != "other"]
+    text = item_text(item).lower()
+    age = published_age_days(item)
+    terms = match_note_terms(item)
+    region = str(item.get("regionLabel") or "Global")
+    source = str(item.get("sourceName") or "ranking source")
+    window = str(item.get("sourceWindow") or "trend")
+    rank = item.get("sourceRank")
+
+    if views >= VIRAL_VIEW_THRESHOLD:
+        tier = "1억뷰 돌파형"
+    elif views >= 30_000_000:
+        tier = "1억뷰 근접 대형 확산권"
+    elif views >= 10_000_000:
+        tier = "중대형 급상승권"
+    else:
+        tier = "지역 탭 검토 후보"
+
+    source_detail = f"{source} {window}"
+    if rank:
+        source_detail += f" rank {rank}"
+
+    hook_parts: list[str] = []
+    if "situation" in clusters:
+        hook_parts.append("상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다")
+    if "dance" in clusters:
+        hook_parts.append("음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다")
+    if "edit" in clusters:
+        hook_parts.append("슬로우드·펑크·빠른 컷 편집이 분위기를 먼저 만들며 피드에서 즉시 구분됩니다")
+    if "performance" in clusters:
+        hook_parts.append("퍼포먼스나 스턴트성 장면은 성공 여부를 끝까지 보게 하는 긴장감이 있습니다")
+    if "kpop" in clusters:
+        hook_parts.append("K-pop·아이돌 파생 소재는 팬덤 반응과 챌린지 참여로 재확산되기 쉽습니다")
+    if any(term in text for term in ("magic", "surprise", "saved", "reveal", "defying", "wild")):
+        hook_parts.append("마술·구출·공개·놀라움 계열 키워드가 마지막 장면까지 보게 만드는 질문을 던집니다")
+    if any(term in text for term in ("funny", "comedy", "humor", "prank")):
+        hook_parts.append("웃음 코드는 언어 의존도가 낮아 다른 국가 피드에서도 이해되기 쉽습니다")
+    if not hook_parts:
+        hook_parts.append("짧은 제목과 시각적 상황이 결합되어 스크롤 중 멈춰 볼 가능성이 있습니다")
+
+    if "dance" in clusters or "edit" in clusters:
+        retention = "사운드와 동작의 루프가 맞물려 같은 구간을 다시 보게 만들고, 리믹스나 따라 하기 행동으로 이어질 수 있습니다"
+    elif "situation" in clusters or "performance" in clusters:
+        retention = "초반에 질문을 던지고 끝에서 결과를 회수하는 구조라 완주율과 반복 시청을 동시에 노립니다"
+    elif "kpop" in clusters:
+        retention = "팬덤이 댓글·공유·저장으로 반응하기 쉬워 초기 반응 속도를 키우는 데 유리합니다"
+    else:
+        retention = "핵심 장면을 빠르게 보여 주는 숏폼 문법이라 긴 설명 없이도 시청 판단이 가능합니다"
+
+    if views >= VIRAL_VIEW_THRESHOLD:
+        velocity = "이미 1억뷰를 넘은 사례라 클릭률, 완주율, 반복 시청, 공유 신호가 여러 지역에서 동시에 작동했을 가능성이 큽니다"
+    elif views >= 30_000_000:
+        velocity = "3천만뷰 이상이면 1억뷰 후보군으로 볼 수 있으며, 추가 추천 노출이나 리믹스가 붙을 때 더 크게 확장될 수 있습니다"
+    elif age is not None and age <= 10 and views >= 10_000_000:
+        velocity = f"게시 후 {age}일 안에 1천만뷰 이상을 만든 초기 속도가 강해 알고리즘 테스트 구간을 빠르게 통과한 신호로 볼 수 있습니다"
+    elif window == "24H":
+        velocity = "24H 랭킹 출처에서 잡힌 항목이라 최신 피드 반응은 있지만, 장기 확산 여부는 다음 업데이트에서 확인해야 합니다"
+    else:
+        velocity = "현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다"
+
+    keyword_detail = f"감지 키워드는 {', '.join(terms)}입니다." if terms else ""
+    hook_detail = ". ".join(hook_parts[:3]) + "."
+    pattern_detail = f" 분석 패턴은 {', '.join(labels)}입니다." if labels else " 분석 패턴은 짧은 상황 이해와 시각적 훅 중심입니다."
+
+    return (
+        f"인기 이유 분석: {region} 탭에서 {fmt_int(views)} views로 확인된 {tier} 쇼츠입니다. "
+        f"{source_detail}에 포착되어 단순 검색 결과보다 랭킹·트렌드 출처의 반응 신호가 있습니다."
+        f" {keyword_detail} {hook_detail} "
+        f"{retention}. {velocity}.{pattern_detail}"
+    )
 
 
 def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
@@ -1870,10 +1962,8 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     .popularity {{
       color: #344054;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+      font-size: 11.5px;
+      line-height: 1.48;
     }}
     .video-url a {{
       color: var(--focus);
