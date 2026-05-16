@@ -25,15 +25,15 @@ REGIONS = [
         "#shorts slowed dance edit",
         "#shorts cute dance one person music",
     ]},
-    {"key": "kr", "label": "KR", "queries": [
+    {"key": "kr", "label": "대한민국", "queries": [
         "#shorts 댄스 음악 챌린지",
         "한국 쇼츠 댄스 음악 트렌드",
     ]},
-    {"key": "us", "label": "US", "queries": [
+    {"key": "us", "label": "미국", "queries": [
         "#shorts dance challenge music USA",
         "US trending shorts dance music",
     ]},
-    {"key": "jp", "label": "JP", "queries": [
+    {"key": "jp", "label": "일본", "queries": [
         "#shorts ダンス 音楽 チャレンジ 日本",
         "Japan shorts dance challenge music",
     ]},
@@ -92,6 +92,28 @@ REGIONS = [
 ]
 
 REGION_BY_KEY = {region["key"]: region for region in REGIONS}
+
+COUNTRY_LABEL_ALIASES = {
+    "KR": "대한민국",
+    "US": "미국",
+    "JP": "일본",
+}
+
+
+def region_label_for_key(key: Any) -> str:
+    region = REGION_BY_KEY.get(str(key or "global"))
+    return str(region["label"]) if region else str(REGION_BY_KEY["global"]["label"])
+
+
+def normalize_country_labels(text: Any) -> str:
+    output = str(text)
+    for short_label, country_label in COUNTRY_LABEL_ALIASES.items():
+        output = re.sub(rf"(?<![A-Za-z0-9]){re.escape(short_label)}(?![A-Za-z0-9])", country_label, output)
+    return output
+
+
+def item_region_label(item: dict[str, Any]) -> str:
+    return region_label_for_key(item.get("region") or "global")
 
 VIDIRUN_SOURCES = [
     {
@@ -1325,9 +1347,10 @@ def source_links(items: list[dict[str, Any]]) -> list[tuple[str, str]]:
     for source in HTML_SOURCES:
         pairs.add((source["name"], source["page"]))
     pairs.add(("YouTube Shorts keyword searches", "https://www.youtube.com/results?search_query=%23shorts+dance+music+trend"))
+    pairs = {(normalize_country_labels(name), url) for name, url in pairs}
     known_names = {name for name, _ in pairs}
     for item in items:
-        source_name = item.get("sourceName") or ""
+        source_name = normalize_country_labels(item.get("sourceName") or "")
         if source_name == "YouTube keyword search":
             continue
         if source_name and source_name not in known_names:
@@ -1519,8 +1542,8 @@ def popularity_reason_points(item: dict[str, Any]) -> list[str]:
     text = item_text(item).lower()
     age = published_age_days(item)
     terms = match_note_terms(item)
-    region = str(item.get("regionLabel") or "Global")
-    source = str(item.get("sourceName") or "ranking source")
+    region = item_region_label(item)
+    source = normalize_country_labels(item.get("sourceName") or "ranking source")
     window = str(item.get("sourceWindow") or "trend")
     rank = item.get("sourceRank")
 
@@ -1662,6 +1685,9 @@ HIGHLIGHT_TERMS: list[tuple[str, str]] = [
     ("metric", "3,000뷰"),
     ("metric", "24H"),
     ("region", "글로벌"),
+    ("region", "대한민국"),
+    ("region", "미국"),
+    ("region", "일본"),
     ("region", "멕시코"),
     ("region", "독일"),
     ("region", "브라질"),
@@ -1675,9 +1701,6 @@ HIGHLIGHT_TERMS: list[tuple[str, str]] = [
     ("region", "알제리"),
     ("region", "카자흐스탄"),
     ("region", "베트남"),
-    ("region", "KR"),
-    ("region", "US"),
-    ("region", "JP"),
     ("source", "Playboard"),
     ("source", "Vidirun"),
     ("source", "RedToolBox"),
@@ -1822,14 +1845,14 @@ def render_points(points: list[str]) -> str:
 
 
 def source_label(item: dict[str, Any]) -> str:
-    label = clean_text(str(item.get("sourceName") or "ranking source"))
+    label = clean_text(normalize_country_labels(item.get("sourceName") or "ranking source"))
     window = clean_text(str(item.get("sourceWindow") or ""))
     rank = item.get("sourceRank")
     if window:
         label += f" {window}"
     if rank:
         label += f" rank {rank}"
-    return label
+    return normalize_country_labels(label)
 
 
 def render_mega_case_card(item: dict[str, Any]) -> str:
@@ -1928,7 +1951,7 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
     )
 
     return f"""
-    <section class="region-panel mega-panel" data-region-panel="mega" aria-label="1억뷰 분석">
+    <section id="panel-mega" class="region-panel mega-panel" data-region-panel="mega" role="tabpanel" aria-labelledby="tab-mega" aria-label="1억뷰 분석">
       <div class="mega-hero">
         <div>
           <h2>1억뷰 분석</h2>
@@ -2062,12 +2085,13 @@ def render_index(items: list[dict[str, Any]]) -> str:
 
     tab_parts = []
     for region in REGIONS:
+        is_active = region["key"] == "global"
         tab_parts.append(
-            f"""<button class="tab-button{' active' if region['key'] == 'global' else ''}" type="button" data-region-tab="{region['key']}">{escape(region['label'])}<span>{len(grouped[region['key']])}</span></button>"""
+            f"""<button id="tab-{region['key']}" class="tab-button{' active' if is_active else ''}" type="button" role="tab" aria-selected="{'true' if is_active else 'false'}" aria-controls="panel-{region['key']}" data-region-tab="{region['key']}"><span class="tab-label">{escape(region['label'])}</span><span class="tab-count">{len(grouped[region['key']])}</span></button>"""
         )
         if region["key"] == "global":
             tab_parts.append(
-                f"""<button class="tab-button" type="button" data-region-tab="mega">1억뷰 분석<span>{mega_count}</span></button>"""
+                f"""<button id="tab-mega" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-mega" data-region-tab="mega"><span class="tab-label">1억뷰 분석</span><span class="tab-count">{mega_count}</span></button>"""
             )
     tab_buttons = "\n".join(tab_parts)
 
@@ -2079,7 +2103,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
         panel_intro = trend_analysis if region["key"] == "global" else ""
         panels.append(
             f"""
-    <section class="region-panel{' active' if region['key'] == 'global' else ''}" data-region-panel="{region['key']}" aria-label="{escape(region['label'])} trending shorts">
+    <section id="panel-{region['key']}" class="region-panel{' active' if region['key'] == 'global' else ''}" data-region-panel="{region['key']}" role="tabpanel" aria-labelledby="tab-{region['key']}" aria-label="{escape(region['label'])} trending shorts">
 {panel_intro}
       <div class="grid">{region_cards}
       </div>
@@ -2169,25 +2193,32 @@ def render_index(items: list[dict[str, Any]]) -> str:
       margin: 0 auto;
     }}
     header {{
-      border-bottom: 1px solid #fecaca;
-      background: var(--tab-red-wash);
+      border-bottom: 1px solid rgba(220, 38, 38, 0.18);
+      background: linear-gradient(180deg, rgba(255, 245, 245, 0.98) 0%, rgba(255, 255, 255, 0.94) 100%);
       position: sticky;
       top: 0;
       z-index: 10;
+      box-shadow: 0 10px 30px rgba(127, 29, 29, 0.08);
+      backdrop-filter: blur(14px);
     }}
     .tabs {{
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
+      align-items: center;
+      gap: 8px;
       overflow: visible;
-      padding: 10px 0;
+      padding: 12px 0;
+      position: relative;
     }}
     .tab-button {{
-      border: 1px solid var(--tab-red);
-      border-radius: 999px;
-      background: var(--surface);
-      color: var(--tab-red-dark);
-      padding: 7px 9px;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border: 1px solid rgba(220, 38, 38, 0.26);
+      border-radius: 14px;
+      background: linear-gradient(180deg, #ffffff 0%, #fff7f7 100%);
+      color: #7f1d1d;
+      padding: 8px 9px 8px 12px;
       font: inherit;
       font-size: 12px;
       font-weight: 800;
@@ -2195,43 +2226,101 @@ def render_index(items: list[dict[str, Any]]) -> str:
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      gap: 7px;
-      transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+      gap: 8px;
+      min-height: 38px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86), 0 1px 2px rgba(127, 29, 29, 0.08);
+      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
     }}
-    .tab-button span {{
-      min-width: 22px;
-      padding: 2px 6px;
+    .tab-button::before {{
+      content: "";
+      position: absolute;
+      inset: -2px;
+      z-index: -1;
+      background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, 0.72) 42%, rgba(254, 202, 202, 0.5) 54%, transparent 72%);
+      transform: translateX(-115%);
+      transition: transform 0.42s ease;
+    }}
+    .tab-button::after {{
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 5px;
+      height: 2px;
       border-radius: 999px;
-      background: var(--tab-red-soft);
-      color: var(--tab-red-dark);
+      background: transparent;
+      opacity: 0;
+      transform: scaleX(0.42);
+      transform-origin: center;
+      transition: background 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+    }}
+    .tab-label {{
+      position: relative;
+      z-index: 1;
+      line-height: 1;
+    }}
+    .tab-count {{
+      position: relative;
+      z-index: 1;
+      min-width: 24px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: #ffe4e6;
+      color: #9f1239;
       font-size: 12px;
-      transition: background 0.18s ease, color 0.18s ease;
+      line-height: 1;
+      text-align: center;
+      box-shadow: inset 0 0 0 1px rgba(220, 38, 38, 0.16);
+      transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
     }}
     .tab-button:hover {{
-      background: var(--tab-red-dark);
-      border-color: var(--tab-red-dark);
-      color: white;
-      box-shadow: 0 4px 14px rgba(220, 38, 38, 0.24);
-      transform: translateY(-1px);
+      background: linear-gradient(180deg, #fffafa 0%, #ffe4e6 100%);
+      border-color: rgba(220, 38, 38, 0.58);
+      color: #7f1d1d;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94), 0 8px 22px rgba(220, 38, 38, 0.16);
+      transform: translateY(-2px);
     }}
-    .tab-button:hover span {{
+    .tab-button:hover::before {{
+      transform: translateX(115%);
+    }}
+    .tab-button:hover::after {{
+      background: #ef4444;
+      opacity: 1;
+      transform: scaleX(1);
+    }}
+    .tab-button:hover .tab-count {{
       background: white;
-      color: var(--tab-red-dark);
+      color: #991b1b;
+      box-shadow: inset 0 0 0 1px rgba(220, 38, 38, 0.22);
+    }}
+    .tab-button:focus-visible {{
+      outline: 3px solid rgba(239, 68, 68, 0.28);
+      outline-offset: 3px;
+    }}
+    .tab-button:active {{
+      transform: translateY(0) scale(0.98);
     }}
     .tab-button.active {{
-      background: var(--tab-red);
-      border-color: var(--tab-red);
+      background: linear-gradient(135deg, #ef4444 0%, #dc2626 44%, #991b1b 100%);
+      border-color: #7f1d1d;
       color: white;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22), 0 10px 24px rgba(220, 38, 38, 0.28);
     }}
     .tab-button.active:hover {{
-      background: var(--tab-red-dark);
-      border-color: var(--tab-red-dark);
+      background: linear-gradient(135deg, #f87171 0%, #dc2626 42%, #7f1d1d 100%);
+      border-color: #7f1d1d;
     }}
-    .tab-button.active span {{
+    .tab-button.active::after {{
+      background: rgba(255, 255, 255, 0.88);
+      opacity: 1;
+      transform: scaleX(1);
+    }}
+    .tab-button.active .tab-count {{
       background: rgba(255, 255, 255, 0.18);
       color: white;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
     }}
-    .tab-button.active:hover span {{
+    .tab-button.active:hover .tab-count {{
       background: white;
       color: var(--tab-red-dark);
     }}
@@ -2744,9 +2833,10 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     @media (max-width: 720px) {{
       .shell {{ width: calc(100% - 16px); max-width: 100%; }}
-      .tabs {{ gap: 5px; padding: 8px 0; }}
-      .tab-button {{ padding: 6px 8px; font-size: 11px; gap: 5px; }}
-      .tab-button span {{ min-width: 18px; padding: 1px 5px; font-size: 10px; }}
+      .tabs {{ gap: 6px; padding: 9px 0; }}
+      .tab-button {{ min-height: 34px; padding: 7px 7px 7px 9px; border-radius: 12px; font-size: 11px; gap: 6px; }}
+      .tab-count {{ min-width: 20px; padding: 2px 6px; font-size: 10px; }}
+      .tab-button::after {{ left: 9px; right: 9px; bottom: 4px; }}
       .trend-heading {{ align-items: flex-start; flex-direction: column; gap: 4px; }}
       .trend-meta li {{ white-space: normal; }}
       .mega-grid {{ grid-template-columns: 1fr; }}
@@ -2763,7 +2853,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
 <body>
   <header>
     <div class="shell">
-      <nav class="tabs" aria-label="region tabs">
+      <nav class="tabs" role="tablist" aria-label="지역별 쇼츠 탭">
         {tab_buttons}
       </nav>
     </div>
@@ -2781,11 +2871,34 @@ def render_index(items: list[dict[str, Any]]) -> str:
     const buttons = Array.from(document.querySelectorAll("[data-region-tab]"));
     const panelsByRegion = new Map(Array.from(document.querySelectorAll("[data-region-panel]")).map((panel) => [panel.dataset.regionPanel, panel]));
 
+    const activateTab = (button) => {{
+      const region = button.dataset.regionTab;
+      buttons.forEach((item) => {{
+        const isActive = item === button;
+        item.classList.toggle("active", isActive);
+        item.setAttribute("aria-selected", String(isActive));
+      }});
+      panelsByRegion.forEach((panel, key) => panel.classList.toggle("active", key === region));
+    }};
+
     buttons.forEach((button) => {{
       button.addEventListener("click", () => {{
-        const region = button.dataset.regionTab;
-        buttons.forEach((item) => item.classList.toggle("active", item === button));
-        panelsByRegion.forEach((panel, key) => panel.classList.toggle("active", key === region));
+        activateTab(button);
+      }});
+      button.addEventListener("keydown", (event) => {{
+        if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+        event.preventDefault();
+        const currentIndex = buttons.indexOf(button);
+        const lastIndex = buttons.length - 1;
+        const nextIndex = event.key === "Home"
+          ? 0
+          : event.key === "End"
+            ? lastIndex
+            : event.key === "ArrowRight"
+              ? (currentIndex + 1) % buttons.length
+              : (currentIndex - 1 + buttons.length) % buttons.length;
+        buttons[nextIndex].focus();
+        activateTab(buttons[nextIndex]);
       }});
     }});
   </script>
