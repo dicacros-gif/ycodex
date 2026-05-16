@@ -8,14 +8,20 @@ This repository keeps a static `index.html` of trending YouTube Shorts candidate
 - dance or short situation
 - newer popular videos are placed above older links
 
-The scheduled GitHub Actions workflow runs every day at 08:00 UTC, which is 17:00 in Asia/Seoul, and rewrites `index.html` from `shorts-data.json`.
+The scheduled GitHub Actions workflow runs every day at 08:00 UTC, which is 17:00 in Asia/Seoul, and rewrites `index.html` from `shorts-data.json` on a GitHub-hosted runner.
 
-## Update locally
+## Sources
 
-```powershell
-python -m pip install -r requirements.txt
-python scripts/update_shorts.py
-```
+- Vidirun Top 50 Short-Form Videos
+- Playboard Most Viewed YouTube Shorts
+- RedToolBox Top Shorts
+- TrendsFox Trending Shorts
+- Top1Trend YouTube Trending
+- YouTube Shorts keyword searches through `yt-dlp`
+
+## Manual server run
+
+Use the `Update YouTube Shorts` workflow's `workflow_dispatch` button in GitHub Actions. The repository is not intended to depend on a local scheduled job.
 
 ## Notes
 

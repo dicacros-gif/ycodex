@@ -11,6 +11,12 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    env:
+      MAX_NEW_SHORTS: "20"
+      TZ: Asia/Seoul
+    concurrency:
+      group: update-youtube-shorts
+      cancel-in-progress: true
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -25,6 +31,36 @@ jobs:
 
       - name: Collect and render Shorts
         run: python scripts/update_shorts.py
+
+      - name: Validate generated files
+        run: |
+          python -m json.tool shorts-data.json >/dev/null
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          class CardCounter(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.cards = 0
+                  self.images = 0
+                  self.short_links = 0
+
+              def handle_starttag(self, tag, attrs):
+                  attrs = dict(attrs)
+                  if tag == "article" and "short-card" in attrs.get("class", ""):
+                      self.cards += 1
+                  if tag == "img":
+                      self.images += 1
+                  if tag == "a" and attrs.get("href", "").startswith("https://www.youtube.com/shorts/"):
+                      self.short_links += 1
+
+          parser = CardCounter()
+          parser.feed(Path("index.html").read_text(encoding="utf-8"))
+          if parser.cards == 0 or parser.images == 0 or parser.short_links == 0:
+              raise SystemExit("index.html did not render any Shorts cards")
+          print({"cards": parser.cards, "images": parser.images, "short_links": parser.short_links})
+          PY
 
       - name: Commit updates
         uses: stefanzweifel/git-auto-commit-action@v5

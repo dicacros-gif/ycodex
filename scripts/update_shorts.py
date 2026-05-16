@@ -8,10 +8,10 @@ import subprocess
 import sys
 import urllib.request
 from datetime import datetime, timezone, timedelta
-from html import escape
+from html import escape, unescape
 from pathlib import Path
 from typing import Any
-from urllib.parse import quote_plus
+from urllib.parse import quote_plus, urljoin
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "shorts-data.json"
@@ -19,7 +19,7 @@ INDEX_PATH = ROOT / "index.html"
 
 KST = timezone(timedelta(hours=9))
 
-SOURCES = [
+VIDIRUN_SOURCES = [
     {
         "name": "Vidirun Top 50 Short-Form Videos",
         "window": "24H",
@@ -34,16 +34,44 @@ SOURCES = [
     },
 ]
 
+HTML_SOURCES = [
+    {
+        "name": "Playboard Most Viewed YouTube Shorts",
+        "page": "https://playboard.co/en/chart/short/",
+        "window": "daily",
+    },
+    {
+        "name": "RedToolBox Top Shorts",
+        "page": "https://www.redtoolbox.io/toplist/topShorts.jsp",
+        "window": "daily",
+    },
+    {
+        "name": "TrendsFox Trending Shorts",
+        "page": "https://www.trendsfox.com/trending-videos",
+        "window": "live",
+    },
+    {
+        "name": "Top1Trend YouTube Trending",
+        "page": "https://t1trend.com/",
+        "window": "live",
+    },
+]
+
 YT_SEARCH_QUERIES = [
-    "ytsearch20:#shorts dance challenge music trend",
-    "ytsearch20:#shorts slowed dance edit",
-    "ytsearch20:#shorts cute dance one person music",
-    "ytsearch20:#shorts couple dance music",
-    "ytsearch20:#shorts funny situation music edit",
+    "ytsearch25:#shorts dance challenge music trend",
+    "ytsearch25:#shorts slowed dance edit",
+    "ytsearch25:#shorts cute dance one person music",
+    "ytsearch25:#shorts couple dance music",
+    "ytsearch25:#shorts funny situation music edit",
+    "ytsearch25:#shorts dance challenge no talking",
+    "ytsearch25:#shorts 댄스 음악 챌린지",
+    "ytsearch25:#shorts KPOP dance music trend",
 ]
 
 CORE_TERMS = {
     "dance",
+    "댄스",
+    "춤",
     "dancing",
     "dancer",
     "battle",
@@ -52,12 +80,17 @@ CORE_TERMS = {
     "michael jackson",
     "jumpstyle",
     "challenge",
+    "챌린지",
     "performance",
     "stunt",
     "surprise",
+    "서프라이즈",
     "situation",
+    "상황",
     "prank",
+    "몰래카메라",
     "magic",
+    "마술",
     "cute",
     "saved",
     "happened",
@@ -121,6 +154,18 @@ def fetch_json(url: str) -> Any:
         return json.loads(response.read().decode("utf-8"))
 
 
+def fetch_text(url: str) -> str:
+    req = urllib.request.Request(
+        url,
+        headers={
+            "User-Agent": "Mozilla/5.0 ycodex-shorts-updater/1.0",
+            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        },
+    )
+    with urllib.request.urlopen(req, timeout=25) as response:
+        return response.read().decode("utf-8", errors="replace")
+
+
 def read_data() -> list[dict[str, Any]]:
     if not DATA_PATH.exists():
         return []
@@ -139,6 +184,20 @@ def video_id_from_thumbnail(url: str) -> str | None:
     return match.group(1) if match else None
 
 
+def video_id_from_any(value: str) -> str | None:
+    patterns = [
+        r"(?:youtube\.com/(?:watch\?v=|shorts/)|youtu\.be/)([A-Za-z0-9_-]{11})",
+        r"/vi/([A-Za-z0-9_-]{11})/",
+        r"/video/([A-Za-z0-9_-]{11})(?:\?|/|$)",
+        r"/youtube/video_([A-Za-z0-9_-]{11})(?:\?|/|$)",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, value or "")
+        if match:
+            return match.group(1)
+    return None
+
+
 def normalized_url(video_id: str) -> str:
     return f"https://www.youtube.com/shorts/{video_id}"
 
@@ -150,6 +209,24 @@ def thumbnail_url(video_id: str) -> str:
 def term_hits(text: str, terms: set[str]) -> list[str]:
     lower = text.lower()
     return sorted(term for term in terms if term in lower)
+
+
+def clean_text(value: str) -> str:
+    value = re.sub(r"<[^>]+>", " ", value or "")
+    value = unescape(value)
+    return re.sub(r"\s+", " ", value).strip()
+
+
+def parse_int(value: Any) -> int:
+    if isinstance(value, int):
+        return value
+    if isinstance(value, float):
+        return int(value)
+    text = str(value or "")
+    match = re.search(r"-?[\d,]+", text)
+    if not match:
+        return 0
+    return int(match.group(0).replace(",", ""))
 
 
 def score_candidate(title: str, category: str = "") -> tuple[int, list[str]]:
@@ -181,35 +258,67 @@ def score_candidate(title: str, category: str = "") -> tuple[int, list[str]]:
     return score, notes
 
 
-def from_vidirun_item(raw: dict[str, Any], source: dict[str, str], collected_at: str) -> dict[str, Any] | None:
-    video_id = video_id_from_thumbnail(raw.get("Thumbnail", ""))
-    if not video_id:
+def make_candidate(
+    *,
+    video_id: str,
+    title: str,
+    channel: str,
+    category: str,
+    views_gained: int,
+    source_rank: int,
+    source_window: str,
+    source_name: str,
+    source_url: str,
+    collected_at: str,
+    extra_notes: list[str] | None = None,
+    min_score: int = 4,
+) -> dict[str, Any] | None:
+    title = clean_text(title)
+    if not video_id or not title:
         return None
-    title = str(raw.get("Title", "")).strip()
-    category = str(raw.get("Category", "")).strip()
     score, notes = score_candidate(title, category)
-    if score < 4:
+    if score < min_score:
         return None
+    if extra_notes:
+        notes = extra_notes + notes
     return {
         "id": video_id,
         "title": title,
-        "channel": str(raw.get("Channel", "")).strip(),
-        "category": category,
+        "channel": clean_text(channel),
+        "category": clean_text(category),
         "shortsUrl": normalized_url(video_id),
         "thumbnail": thumbnail_url(video_id),
-        "viewsGained": int(raw.get("Views Gained") or 0),
-        "sourceRank": int(raw.get("Rank") or 0),
-        "sourceWindow": source["window"],
-        "sourceName": source["name"],
-        "sourceUrl": source["page"],
+        "viewsGained": int(views_gained or 0),
+        "sourceRank": int(source_rank or 0),
+        "sourceWindow": source_window,
+        "sourceName": source_name,
+        "sourceUrl": source_url,
         "collectedAt": collected_at,
         "matchNotes": notes,
     }
 
 
+def from_vidirun_item(raw: dict[str, Any], source: dict[str, str], collected_at: str) -> dict[str, Any] | None:
+    video_id = video_id_from_thumbnail(raw.get("Thumbnail", ""))
+    if not video_id:
+        return None
+    return make_candidate(
+        video_id=video_id,
+        title=str(raw.get("Title", "")),
+        channel=str(raw.get("Channel", "")),
+        category=str(raw.get("Category", "")),
+        views_gained=parse_int(raw.get("Views Gained")),
+        source_rank=parse_int(raw.get("Rank")),
+        source_window=source["window"],
+        source_name=source["name"],
+        source_url=source["page"],
+        collected_at=collected_at,
+    )
+
+
 def collect_vidirun(collected_at: str) -> list[dict[str, Any]]:
     candidates: list[dict[str, Any]] = []
-    for source in SOURCES:
+    for source in VIDIRUN_SOURCES:
         try:
             rows = fetch_json(source["json"])
         except Exception as exc:
@@ -219,6 +328,161 @@ def collect_vidirun(collected_at: str) -> list[dict[str, Any]]:
             item = from_vidirun_item(raw, source, collected_at)
             if item:
                 candidates.append(item)
+    return candidates
+
+
+def collect_playboard(collected_at: str) -> list[dict[str, Any]]:
+    source = HTML_SOURCES[0]
+    try:
+        html = fetch_text(source["page"])
+    except Exception as exc:
+        print(f"warning: failed to fetch {source['page']}: {exc}", file=sys.stderr)
+        return []
+
+    candidates: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    rank = 0
+    for match in re.finditer(r'<a[^>]+href="([^"]*/en/video/[^"]+)"[^>]*>(.*?)</a>', html, re.S):
+        href, label_html = match.groups()
+        title = clean_text(label_html)
+        video_id = video_id_from_any(href)
+        if not video_id or not title or video_id in seen:
+            continue
+        seen.add(video_id)
+        rank += 1
+        item = make_candidate(
+            video_id=video_id,
+            title=title,
+            channel="",
+            category="Playboard Shorts Chart",
+            views_gained=0,
+            source_rank=rank,
+            source_window=source["window"],
+            source_name=source["name"],
+            source_url=urljoin(source["page"], href),
+            collected_at=collected_at,
+            extra_notes=["source: Playboard shorts chart"],
+            min_score=3,
+        )
+        if item:
+            candidates.append(item)
+    return candidates
+
+
+def collect_redtoolbox(collected_at: str) -> list[dict[str, Any]]:
+    source = HTML_SOURCES[1]
+    try:
+        html = fetch_text(source["page"])
+    except Exception as exc:
+        print(f"warning: failed to fetch {source['page']}: {exc}", file=sys.stderr)
+        return []
+
+    candidates: list[dict[str, Any]] = []
+    for row in re.findall(r"<tr[^>]*>(.*?)</tr>", html, flags=re.S | re.I):
+        video_id = video_id_from_any(row)
+        if not video_id:
+            continue
+        rank_match = re.search(r'class="rank">\s*(\d+)', row, flags=re.I)
+        title_match = re.search(r'<td class="title">\s*<a[^>]*>(.*?)</a>', row, flags=re.S | re.I)
+        channel_match = re.search(r'<span class="channel">\s*<a[^>]*>(.*?)</a>', row, flags=re.S | re.I)
+        growth_match = re.search(r"<font[^>]*>\s*\+?([\d,]+)\s*</font>", row, flags=re.S | re.I)
+        item = make_candidate(
+            video_id=video_id,
+            title=clean_text(title_match.group(1) if title_match else ""),
+            channel=clean_text(channel_match.group(1) if channel_match else ""),
+            category="RedToolBox Top Shorts",
+            views_gained=parse_int(growth_match.group(1) if growth_match else 0),
+            source_rank=parse_int(rank_match.group(1) if rank_match else 0),
+            source_window=source["window"],
+            source_name=source["name"],
+            source_url=source["page"],
+            collected_at=collected_at,
+            extra_notes=["source: RedToolBox top shorts"],
+            min_score=3,
+        )
+        if item:
+            candidates.append(item)
+    return candidates
+
+
+def collect_trendsfox(collected_at: str) -> list[dict[str, Any]]:
+    source = HTML_SOURCES[2]
+    try:
+        html = fetch_text(source["page"])
+    except Exception as exc:
+        print(f"warning: failed to fetch {source['page']}: {exc}", file=sys.stderr)
+        return []
+
+    candidates: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    rank = 0
+    image_pattern = r'<img[^>]+src="https://i\.ytimg\.com/vi/([^/]+)/[^"]+"[^>]+alt="([^"]*)"[^>]*>'
+    for match in re.finditer(image_pattern, html, flags=re.S | re.I):
+        video_id, alt_title = match.groups()
+        if video_id in seen:
+            continue
+        seen.add(video_id)
+        rank += 1
+        tail = html[match.end() : match.end() + 1200]
+        channel_match = re.search(r"<p[^>]*>(.*?)</p>", tail, flags=re.S | re.I)
+        item = make_candidate(
+            video_id=video_id,
+            title=alt_title,
+            channel=clean_text(channel_match.group(1) if channel_match else ""),
+            category="TrendsFox Trending Shorts",
+            views_gained=0,
+            source_rank=rank,
+            source_window=source["window"],
+            source_name=source["name"],
+            source_url=source["page"],
+            collected_at=collected_at,
+            extra_notes=["source: TrendsFox sample trending shorts"],
+            min_score=3,
+        )
+        if item:
+            candidates.append(item)
+    return candidates
+
+
+def collect_top1trend(collected_at: str) -> list[dict[str, Any]]:
+    source = HTML_SOURCES[3]
+    try:
+        html = fetch_text(source["page"])
+    except Exception as exc:
+        print(f"warning: failed to fetch {source['page']}: {exc}", file=sys.stderr)
+        return []
+
+    candidates: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for match in re.finditer(r'<a[^>]+href="(/youtube/video_([A-Za-z0-9_-]{11})[^"]*)"[^>]*>(.*?)</a>', html, re.S | re.I):
+        href, video_id, label_html = match.groups()
+        if video_id in seen:
+            continue
+        seen.add(video_id)
+        text = clean_text(label_html)
+        rank_match = re.match(r"#?\s*(\d+)", text)
+        item = make_candidate(
+            video_id=video_id,
+            title=re.sub(r"^#?\s*\d+\s*(?:\+\s*\d+\s*)?", "", text),
+            channel="",
+            category="Top1Trend YouTube Trending",
+            views_gained=0,
+            source_rank=parse_int(rank_match.group(1) if rank_match else 0),
+            source_window=source["window"],
+            source_name=source["name"],
+            source_url=urljoin(source["page"], href),
+            collected_at=collected_at,
+            extra_notes=["source: Top1Trend YouTube trending"],
+        )
+        if item:
+            candidates.append(item)
+    return candidates
+
+
+def collect_html_sources(collected_at: str) -> list[dict[str, Any]]:
+    candidates: list[dict[str, Any]] = []
+    for collector in (collect_playboard, collect_redtoolbox, collect_trendsfox, collect_top1trend):
+        candidates.extend(collector(collected_at))
     return candidates
 
 
@@ -254,24 +518,20 @@ def from_ytdlp_item(raw: dict[str, Any], query: str, collected_at: str) -> dict[
     if isinstance(duration, (int, float)) and duration > 180:
         return None
     title = str(raw.get("title", "")).strip()
-    score, notes = score_candidate(title, "")
-    if score < 4:
-        return None
-    return {
-        "id": video_id,
-        "title": title,
-        "channel": str(raw.get("channel") or raw.get("uploader") or "").strip(),
-        "category": "YouTube Search",
-        "shortsUrl": normalized_url(video_id),
-        "thumbnail": thumbnail_url(video_id),
-        "viewsGained": int(raw.get("view_count") or 0),
-        "sourceRank": 0,
-        "sourceWindow": "search",
-        "sourceName": "YouTube Shorts search via yt-dlp",
-        "sourceUrl": f"https://www.youtube.com/results?search_query={quote_plus(query.replace('ytsearch20:', ''))}",
-        "collectedAt": collected_at,
-        "matchNotes": notes,
-    }
+    search_text = re.sub(r"^ytsearch\d*:", "", query)
+    return make_candidate(
+        video_id=video_id,
+        title=title,
+        channel=str(raw.get("channel") or raw.get("uploader") or ""),
+        category="YouTube Search",
+        views_gained=parse_int(raw.get("view_count")),
+        source_rank=0,
+        source_window="search",
+        source_name="YouTube Shorts search via yt-dlp",
+        source_url=f"https://www.youtube.com/results?search_query={quote_plus(search_text)}",
+        collected_at=collected_at,
+        extra_notes=["source: YouTube search result"],
+    )
 
 
 def collect_youtube_search(collected_at: str) -> list[dict[str, Any]]:
@@ -285,22 +545,46 @@ def collect_youtube_search(collected_at: str) -> list[dict[str, Any]]:
 
 
 def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]], max_new: int) -> list[dict[str, Any]]:
-    seen: set[str] = set()
     old_by_id = {item.get("id"): item for item in existing if item.get("id")}
-    ranked = sorted(
-        new_items,
-        key=lambda item: (
-            item.get("sourceWindow") != "24H",
-            -(item.get("viewsGained") or 0),
-            item.get("sourceRank") or 9999,
-        ),
-    )
-    fresh: list[dict[str, Any]] = []
+    ranked = sorted(new_items, key=rank_item)
+
+    deduped: list[dict[str, Any]] = []
+    seen: set[str] = set()
     for item in ranked:
         video_id = item.get("id")
         if not video_id or video_id in seen:
             continue
         seen.add(video_id)
+        deduped.append(item)
+
+    selected = deduped[:max_new]
+    selected_sources = {item.get("sourceName") for item in selected}
+    selected_ids = {item.get("id") for item in selected}
+
+    source_heads: dict[str, dict[str, Any]] = {}
+    for item in deduped:
+        source_name = item.get("sourceName") or ""
+        if source_name and source_name not in source_heads:
+            source_heads[source_name] = item
+
+    for source_name, item in sorted(source_heads.items(), key=lambda pair: rank_item(pair[1])):
+        if source_name in selected_sources or item.get("id") in selected_ids:
+            continue
+        if len(selected) < max_new:
+            selected.append(item)
+        else:
+            replaced = selected[-1]
+            selected_sources.discard(replaced.get("sourceName"))
+            selected_ids.discard(replaced.get("id"))
+            selected[-1] = item
+        selected_sources.add(source_name)
+        selected_ids.add(item.get("id"))
+
+    fresh: list[dict[str, Any]] = []
+    for item in selected:
+        video_id = item.get("id")
+        if not video_id:
+            continue
         if video_id in old_by_id:
             old = old_by_id[video_id]
             old.update(
@@ -320,12 +604,18 @@ def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]],
             fresh.append(old)
         else:
             fresh.append(item)
-        if len(fresh) >= max_new:
-            break
 
     fresh_ids = {item.get("id") for item in fresh}
     tail = [item for item in existing if item.get("id") not in fresh_ids]
     return fresh + tail
+
+
+def rank_item(item: dict[str, Any]) -> tuple[Any, ...]:
+    return (
+        item.get("sourceWindow") != "24H",
+        -(item.get("viewsGained") or 0),
+        item.get("sourceRank") or 9999,
+    )
 
 
 def fmt_int(value: Any) -> str:
@@ -336,12 +626,17 @@ def fmt_int(value: Any) -> str:
 
 
 def source_links(items: list[dict[str, Any]]) -> list[tuple[str, str]]:
-    pairs = {
-        (item.get("sourceName") or "Source", item.get("sourceUrl") or "#")
-        for item in items
-    }
-    pairs.add(("TrendsFox Trending Videos", "https://www.trendsfox.com/trending-videos"))
-    pairs.add(("Apify YouTube Most Popular Shorts actor notes", "https://apify.com/coregent/youtube-most-popular-shorts"))
+    pairs: set[tuple[str, str]] = set()
+    for source in VIDIRUN_SOURCES:
+        pairs.add((source["name"], source["page"]))
+    for source in HTML_SOURCES:
+        pairs.add((source["name"], source["page"]))
+    pairs.add(("YouTube Shorts keyword searches", "https://www.youtube.com/results?search_query=%23shorts+dance+music+trend"))
+    known_names = {name for name, _ in pairs}
+    for item in items:
+        source_name = item.get("sourceName") or ""
+        if source_name and source_name not in known_names:
+            pairs.add((source_name, item.get("sourceUrl") or "#"))
     return sorted(pairs)
 
 
@@ -590,7 +885,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
       <div class="topbar">
         <div>
           <h1>YouTube Shorts Trend Watch</h1>
-          <p class="lead">음악 중심 배경, 자막 없음, 1~2명 등장, 댄스 또는 짧은 상황형으로 보이는 인기 YouTube Shorts 후보를 위에서부터 최신순으로 누적합니다.</p>
+          <p class="lead">Vidirun, Playboard, RedToolBox, TrendsFox, Top1Trend, YouTube 검색에서 음악 중심 배경, 자막 없음, 1~2명 등장, 댄스 또는 짧은 상황형으로 보이는 인기 YouTube Shorts 후보를 모아 최신순으로 누적합니다.</p>
         </div>
         <div class="status">
           Last update
@@ -607,17 +902,17 @@ def render_index(items: list[dict[str, Any]]) -> str:
     </div>
   </header>
   <main class="shell">
-    <div class="notice">공개 랭킹 데이터는 영상 안의 실제 자막, 대사 유무, 인물 수를 직접 제공하지 않습니다. 이 페이지는 제목, 카테고리, 썸네일, 트렌드 순위를 기준으로 후보를 자동 수집하고, 최종 조건 확인이 필요한 항목에는 검수 메모를 남깁니다.</div>
+    <div class="notice">GitHub Actions가 매일 17:00 KST에 여러 공개 트렌드/랭킹 소스를 확인합니다. 공개 데이터는 영상 안의 실제 자막, 대사 유무, 인물 수를 직접 제공하지 않으므로 제목, 카테고리, 썸네일, 트렌드 순위를 기준으로 후보를 자동 수집하고 검수 메모를 남깁니다.</div>
     <section class="grid" aria-label="trending shorts">
 {''.join(cards)}
     </section>
     <section class="source-panel" aria-label="sources">
-      <span>Sources used:</span>
+      <span>Connected sources:</span>
       {links}
     </section>
   </main>
   <footer>
-    <div class="shell">Daily schedule target: 17:00 Asia/Seoul. Data is preserved by prepending new matches and keeping older links below.</div>
+    <div class="shell">Runs on GitHub-hosted Actions at 17:00 Asia/Seoul. New matches are prepended and older links stay below.</div>
   </footer>
   <script type="application/json" id="shorts-data">{data_json}</script>
 </body>
@@ -628,7 +923,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--render-only", action="store_true", help="Render index.html from existing shorts-data.json")
-    parser.add_argument("--max-new", type=int, default=int(os.environ.get("MAX_NEW_SHORTS", "10")))
+    parser.add_argument("--max-new", type=int, default=int(os.environ.get("MAX_NEW_SHORTS", "20")))
     args = parser.parse_args()
 
     existing = read_data()
@@ -637,6 +932,7 @@ def main() -> int:
     else:
         collected_at = datetime.now(KST).replace(microsecond=0).isoformat()
         candidates = collect_vidirun(collected_at)
+        candidates.extend(collect_html_sources(collected_at))
         try:
             import yt_dlp  # noqa: F401
         except Exception:
