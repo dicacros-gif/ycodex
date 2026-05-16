@@ -59,6 +59,7 @@ jobs:
                   self.reason_items = 0
                   self.stats_rows = 0
                   self._in_popularity = False
+                  self._in_short_card = False
 
               def handle_starttag(self, tag, attrs):
                   attrs = dict(attrs)
@@ -66,7 +67,8 @@ jobs:
                   href = attrs.get("href", "")
                   if tag == "article" and "short-card" in classes:
                       self.cards += 1
-                  if tag == "img":
+                      self._in_short_card = True
+                  if tag == "img" and self._in_short_card:
                       self.images += 1
                   if tag == "a" and href.startswith("https://www.youtube.com/shorts/"):
                       self.short_links.append(href)
@@ -92,6 +94,8 @@ jobs:
               def handle_endtag(self, tag):
                   if tag in {"div", "p"} and self._in_popularity:
                       self._in_popularity = False
+                  if tag == "article" and self._in_short_card:
+                      self._in_short_card = False
 
           parser = CardCounter()
           html = Path("index.html").read_text(encoding="utf-8")
@@ -129,14 +133,15 @@ jobs:
               or "popularity" not in html
               or "stats-row" not in html
               or "좋아요" not in html
-              or "date-row" not in html
-              or "등록일" not in html
               or any(
                   collected_order[index] < collected_order[index + 1]
                   for index in range(len(collected_order) - 1)
               )
               or any((item.get("viewsGained") or 0) < 3000 for item in visible)
               or any(not item.get("publishedAt") for item in visible)
+              or any(item.get("isShort9x16") is not True for item in data)
+              or any((item.get("duration") or 9999) > 180 for item in data)
+              or any((item.get("height") or 0) <= (item.get("width") or 0) for item in data)
           ):
               raise SystemExit("index.html did not render unique Shorts across the expected region tabs")
           print({

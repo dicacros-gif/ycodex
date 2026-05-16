@@ -209,6 +209,9 @@ YT_SEARCH_LIMIT = int(os.environ.get("YT_SEARCH_LIMIT", "12"))
 MIN_DISPLAY_VIEWS = int(os.environ.get("MIN_DISPLAY_VIEWS", "3000"))
 PUBLISHED_METADATA_LIMIT = int(os.environ.get("PUBLISHED_METADATA_LIMIT", "200"))
 VIRAL_VIEW_THRESHOLD = int(os.environ.get("VIRAL_VIEW_THRESHOLD", "100000000"))
+SHORTS_MAX_DURATION_SECONDS = int(os.environ.get("SHORTS_MAX_DURATION_SECONDS", "180"))
+SHORTS_MIN_ASPECT_RATIO = float(os.environ.get("SHORTS_MIN_ASPECT_RATIO", "0.48"))
+SHORTS_MAX_ASPECT_RATIO = float(os.environ.get("SHORTS_MAX_ASPECT_RATIO", "0.64"))
 
 CORE_TERMS = {
     "dance",
@@ -501,6 +504,62 @@ def fmt_count(value: Any) -> str:
     return f"{count:,}"
 
 
+def video_dimensions_from_payload(payload: dict[str, Any]) -> tuple[int, int]:
+    width = parse_int(payload.get("width"))
+    height = parse_int(payload.get("height"))
+    if width and height:
+        return width, height
+
+    resolution = str(payload.get("resolution") or "")
+    match = re.search(r"(\d{2,5})\s*x\s*(\d{2,5})", resolution)
+    if match:
+        return parse_int(match.group(1)), parse_int(match.group(2))
+
+    best: tuple[int, int] = (0, 0)
+    best_area = 0
+    for fmt in payload.get("formats") or []:
+        fmt_width = parse_int(fmt.get("width"))
+        fmt_height = parse_int(fmt.get("height"))
+        if not fmt_width or not fmt_height:
+            continue
+        if fmt.get("vcodec") == "none":
+            continue
+        area = fmt_width * fmt_height
+        if area > best_area:
+            best = (fmt_width, fmt_height)
+            best_area = area
+    return best
+
+
+def is_9x16_short_shape(duration: Any, width: Any, height: Any) -> bool:
+    duration_value = parse_int(duration)
+    width_value = parse_int(width)
+    height_value = parse_int(height)
+    if duration_value <= 0 or duration_value > SHORTS_MAX_DURATION_SECONDS:
+        return False
+    if width_value <= 0 or height_value <= 0 or height_value <= width_value:
+        return False
+    ratio = width_value / height_value
+    return SHORTS_MIN_ASPECT_RATIO <= ratio <= SHORTS_MAX_ASPECT_RATIO
+
+
+def set_shape_metadata(item: dict[str, Any], *, duration: Any = None, width: Any = None, height: Any = None) -> None:
+    duration_value = parse_int(duration if duration is not None else item.get("duration"))
+    width_value = parse_int(width if width is not None else item.get("width"))
+    height_value = parse_int(height if height is not None else item.get("height"))
+    if duration_value:
+        item["duration"] = duration_value
+    if width_value and height_value:
+        item["width"] = width_value
+        item["height"] = height_value
+        item["aspectRatio"] = round(width_value / height_value, 4)
+    item["isShort9x16"] = is_9x16_short_shape(
+        item.get("duration"),
+        item.get("width"),
+        item.get("height"),
+    )
+
+
 def normalize_published_at(value: Any) -> str:
     if value is None or value == "":
         return ""
@@ -590,6 +649,9 @@ def make_candidate(
     collected_at: str,
     published_at: Any = "",
     like_count: Any = None,
+    duration: Any = None,
+    width: Any = None,
+    height: Any = None,
     extra_notes: list[str] | None = None,
     min_score: int = 4,
 ) -> dict[str, Any] | None:
@@ -603,7 +665,7 @@ def make_candidate(
         return None
     if extra_notes:
         notes = extra_notes + notes
-    return {
+    item = {
         "id": video_id,
         "region": region,
         "regionLabel": REGION_BY_KEY[region]["label"],
@@ -622,6 +684,8 @@ def make_candidate(
         "publishedAt": normalize_published_at(published_at),
         "matchNotes": notes,
     }
+    set_shape_metadata(item, duration=duration, width=width, height=height)
+    return item
 
 
 def from_vidirun_item(raw: dict[str, Any], source: dict[str, str], collected_at: str) -> dict[str, Any] | None:
@@ -899,7 +963,7 @@ def collect_chartika(collected_at: str) -> list[dict[str, Any]]:
             for raw in rows:
                 video_id = str(raw.get("video_id") or "")
                 duration = parse_int(raw.get("duration"))
-                if not video_id or duration <= 0 or duration > 180:
+                if not video_id or duration <= 0 or duration > SHORTS_MAX_DURATION_SECONDS:
                     continue
                 item = make_candidate(
                     region=region,
@@ -914,6 +978,9 @@ def collect_chartika(collected_at: str) -> list[dict[str, Any]]:
                     source_url=page,
                     collected_at=collected_at,
                     published_at=raw.get("published_at"),
+                    duration=duration,
+                    width=raw.get("width"),
+                    height=raw.get("height"),
                     extra_notes=[f"source: Chartika regional chart", f"duration: {duration}s"],
                     min_score=3,
                 )
@@ -1002,7 +1069,18 @@ def enrich_video_metadata(items: list[dict[str, Any]]) -> None:
         video_id = item.get("id")
         if not video_id or video_id in seen:
             continue
-        if item.get("likeCount") is None or not item.get("publishedAt") or parse_int(item.get("viewsGained")) < MIN_DISPLAY_VIEWS:
+        needs_shape = (
+            item.get("isShort9x16") is not True
+            or not item.get("duration")
+            or not item.get("width")
+            or not item.get("height")
+        )
+        if (
+            needs_shape
+            or item.get("likeCount") is None
+            or not item.get("publishedAt")
+            or parse_int(item.get("viewsGained")) < MIN_DISPLAY_VIEWS
+        ):
             targets.append(video_id)
             seen.add(video_id)
             if len(targets) >= PUBLISHED_METADATA_LIMIT:
@@ -1025,6 +1103,8 @@ def enrich_video_metadata(items: list[dict[str, Any]]) -> None:
             item["viewsGained"] = view_count
         if payload.get("like_count") is not None:
             item["likeCount"] = parse_int(payload.get("like_count"))
+        width, height = video_dimensions_from_payload(payload)
+        set_shape_metadata(item, duration=payload.get("duration"), width=width, height=height)
 
 
 def from_ytdlp_item(raw: dict[str, Any], query: str, region: str, collected_at: str) -> dict[str, Any] | None:
@@ -1032,7 +1112,7 @@ def from_ytdlp_item(raw: dict[str, Any], query: str, region: str, collected_at: 
     duration = raw.get("duration")
     if not video_id:
         return None
-    if isinstance(duration, (int, float)) and duration > 180:
+    if isinstance(duration, (int, float)) and duration > SHORTS_MAX_DURATION_SECONDS:
         return None
     title = str(raw.get("title", "")).strip()
     search_text = re.sub(r"^ytsearch\d*:", "", query)
@@ -1050,6 +1130,9 @@ def from_ytdlp_item(raw: dict[str, Any], query: str, region: str, collected_at: 
         collected_at=collected_at,
         published_at=raw.get("upload_date") or raw.get("timestamp") or raw.get("release_timestamp") or "",
         like_count=raw.get("like_count"),
+        duration=raw.get("duration"),
+        width=raw.get("width"),
+        height=raw.get("height"),
         extra_notes=["source: YouTube search result"],
     )
 
@@ -1121,8 +1204,14 @@ def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]],
                     "collectedAt": item.get("collectedAt") or old.get("collectedAt"),
                     "publishedAt": item.get("publishedAt") or old.get("publishedAt"),
                     "matchNotes": item.get("matchNotes") or old.get("matchNotes"),
+                    "duration": item.get("duration") or old.get("duration"),
+                    "width": item.get("width") or old.get("width"),
+                    "height": item.get("height") or old.get("height"),
+                    "aspectRatio": item.get("aspectRatio") or old.get("aspectRatio"),
+                    "isShort9x16": item.get("isShort9x16") if item.get("isShort9x16") is not None else old.get("isShort9x16"),
                 }
             )
+            set_shape_metadata(old)
             fresh.append(old)
         else:
             fresh.append(item)
@@ -1155,6 +1244,16 @@ def regions_needing_search(candidates: list[dict[str, Any]], max_new: int) -> se
     return {region for region, count in counts.items() if count < max_new}
 
 
+def is_short_9x16_item(item: dict[str, Any]) -> bool:
+    if item.get("isShort9x16") is not True:
+        set_shape_metadata(item)
+    return item.get("isShort9x16") is True
+
+
+def filter_shortform_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [item for item in items if is_short_9x16_item(item)]
+
+
 def source_priority(item: dict[str, Any]) -> int:
     name = str(item.get("sourceName") or "")
     if "Vidirun" in name:
@@ -1177,7 +1276,11 @@ def source_priority(item: dict[str, Any]) -> int:
 
 
 def is_displayable(item: dict[str, Any]) -> bool:
-    return parse_int(item.get("viewsGained")) >= MIN_DISPLAY_VIEWS and bool(item.get("publishedAt"))
+    return (
+        parse_int(item.get("viewsGained")) >= MIN_DISPLAY_VIEWS
+        and bool(item.get("publishedAt"))
+        and is_short_9x16_item(item)
+    )
 
 
 def rank_item(item: dict[str, Any]) -> tuple[Any, ...]:
@@ -2598,24 +2701,29 @@ def main() -> int:
 
     existing = read_data()
     if args.render_only:
-        merged = existing
+        merged = filter_shortform_items(existing)
     else:
         collected_at = datetime.now(KST).replace(microsecond=0).isoformat()
         candidates = collect_vidirun(collected_at)
         candidates.extend(collect_html_sources(collected_at))
-        needed_regions = regions_needing_search(candidates, args.max_new)
         try:
             import yt_dlp  # noqa: F401
         except Exception:
-            print("warning: yt-dlp is not installed; skipping YouTube search queries", file=sys.stderr)
+            print("warning: yt-dlp is not installed; skipping YouTube metadata/search; keeping verified 9:16 history only", file=sys.stderr)
+            candidates = filter_shortform_items(candidates)
         else:
+            enrich_video_metadata(candidates)
+            candidates = filter_shortform_items(candidates)
+            needed_regions = regions_needing_search(candidates, args.max_new)
             if needed_regions:
                 print(
                     "ranking sources need YouTube search fallback for: "
                     + ", ".join(region["label"] for region in REGIONS if region["key"] in needed_regions),
                     file=sys.stderr,
                 )
-                candidates.extend(collect_youtube_search(collected_at, needed_regions))
+                search_candidates = collect_youtube_search(collected_at, needed_regions)
+                enrich_video_metadata(search_candidates)
+                candidates.extend(filter_shortform_items(search_candidates))
             else:
                 print("ranking sources filled every region; skipping YouTube search fallback", file=sys.stderr)
         merged = merge_items(existing, candidates, args.max_new)
@@ -2625,6 +2733,7 @@ def main() -> int:
             print("warning: yt-dlp is not installed; skipping publish-date enrichment", file=sys.stderr)
         else:
             enrich_video_metadata(merged)
+        merged = filter_shortform_items(merged)
         write_data(merged)
 
     INDEX_PATH.write_text(render_index(merged), encoding="utf-8")
