@@ -1045,7 +1045,7 @@ def from_ytdlp_item(raw: dict[str, Any], query: str, region: str, collected_at: 
         views_gained=parse_int(raw.get("view_count")),
         source_rank=0,
         source_window="search",
-        source_name="YouTube Shorts search via yt-dlp",
+        source_name="YouTube keyword search",
         source_url=f"https://www.youtube.com/results?search_query={quote_plus(search_text)}",
         collected_at=collected_at,
         published_at=raw.get("upload_date") or raw.get("timestamp") or raw.get("release_timestamp") or "",
@@ -1225,7 +1225,7 @@ def source_links(items: list[dict[str, Any]]) -> list[tuple[str, str]]:
     known_names = {name for name, _ in pairs}
     for item in items:
         source_name = item.get("sourceName") or ""
-        if source_name == "YouTube Shorts search via yt-dlp":
+        if source_name == "YouTube keyword search":
             continue
         if source_name and source_name not in known_names:
             pairs.add((source_name, item.get("sourceUrl") or "#"))
@@ -1748,9 +1748,6 @@ def render_card(item: dict[str, Any], index: int) -> str:
           <span class="rank">#{index}</span>
         </a>
         <div class="short-body">
-          <div class="meta-row">
-            <span>{escape(str(item.get('regionLabel') or 'Global'))} · {escape(str(item.get('sourceWindow', 'trend')))}</span>
-          </div>
           <h2>{escape(item['title'])}</h2>
           <div class="stats-row">
             <span><b>조회수</b>{fmt_count(item.get('viewsGained'))}</span>
@@ -2257,20 +2254,6 @@ def render_index(items: list[dict[str, Any]]) -> str:
       display: flex;
       flex-direction: column;
       gap: 7px;
-    }}
-    .meta-row {{
-      display: flex;
-      justify-content: space-between;
-      gap: 6px;
-      color: var(--accent-2);
-      font-size: 10px;
-      font-weight: 800;
-    }}
-    .meta-row span {{
-      min-width: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
     }}
     .short-card h2 {{
       margin: 0;
