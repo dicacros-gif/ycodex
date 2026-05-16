@@ -1643,9 +1643,14 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
     examples = "\n".join(
         f"""
         <article class="mega-example">
-          <a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">{escape(compact_title(str(item.get('title', '')), 64))}</a>
-          <span>{fmt_int(item.get('viewsGained'))} views</span>
-          <ul>{render_points(popularity_reason_points(item)[:4])}</ul>
+          <a class="mega-example-thumb" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">
+            <img src="{escape(item.get('thumbnail') or thumbnail_url(item['id']))}" alt="{escape(str(item.get('title', 'YouTube Shorts thumbnail')))}">
+          </a>
+          <div class="mega-example-body">
+            <a class="mega-example-title" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">{escape(compact_title(str(item.get('title', '')), 64))}</a>
+            <span>{fmt_int(item.get('viewsGained'))} views</span>
+            <ul>{render_points(popularity_reason_points(item)[:4])}</ul>
+          </div>
         </article>"""
         for item in analysis_items
     )
@@ -2149,18 +2154,38 @@ def render_index(items: list[dict[str, Any]]) -> str:
     .mega-example {{
       border-top: 1px solid var(--line);
       padding-top: 10px;
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
     }}
     .mega-example:first-child {{
       border-top: 0;
       padding-top: 0;
     }}
-    .mega-example a {{
+    .mega-example-thumb {{
+      display: block;
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      border-radius: 7px;
+      background: #d8e0ea;
+    }}
+    .mega-example-thumb img {{
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }}
+    .mega-example-title {{
       display: block;
       color: var(--focus);
       font-size: 13px;
       font-weight: 800;
       line-height: 1.35;
       text-decoration: none;
+    }}
+    .mega-example-title:hover {{
+      text-decoration: underline;
     }}
     .mega-example span {{
       display: block;
@@ -2367,6 +2392,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
       .mega-section-heading p {{ text-align: left; }}
       .mega-case-list {{ grid-template-columns: 1fr; }}
       .mega-case-card {{ grid-template-columns: 96px minmax(0, 1fr); }}
+      .mega-example {{ grid-template-columns: 78px minmax(0, 1fr); gap: 10px; }}
       .grid {{ grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }}
       .short-body {{ padding: 8px; }}
     }}

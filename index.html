@@ -336,18 +336,38 @@
     .mega-example {
       border-top: 1px solid var(--line);
       padding-top: 10px;
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
     }
     .mega-example:first-child {
       border-top: 0;
       padding-top: 0;
     }
-    .mega-example a {
+    .mega-example-thumb {
+      display: block;
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      border-radius: 7px;
+      background: #d8e0ea;
+    }
+    .mega-example-thumb img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .mega-example-title {
       display: block;
       color: var(--focus);
       font-size: 13px;
       font-weight: 800;
       line-height: 1.35;
       text-decoration: none;
+    }
+    .mega-example-title:hover {
+      text-decoration: underline;
     }
     .mega-example span {
       display: block;
@@ -554,6 +574,7 @@
       .mega-section-heading p { text-align: left; }
       .mega-case-list { grid-template-columns: 1fr; }
       .mega-case-card { grid-template-columns: 96px minmax(0, 1fr); }
+      .mega-example { grid-template-columns: 78px minmax(0, 1fr); gap: 10px; }
       .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
       .short-body { padding: 8px; }
     }
@@ -683,48 +704,73 @@
           <h3>현재 데이터의 1억뷰·근접 사례</h3>
           <div class="mega-examples">
         <article class="mega-example">
-          <a href="https://www.youtube.com/shorts/HsKltJyJ-UI" target="_blank" rel="noopener">When did Ermao learn to do magic？ #funny #comedy</a>
-          <span>118,256,281 views</span>
-          <ul><li>글로벌 탭에서 118,256,281 views로 확인된 1억뷰 돌파형 쇼츠</li>
+          <a class="mega-example-thumb" href="https://www.youtube.com/shorts/HsKltJyJ-UI" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/HsKltJyJ-UI/hqdefault.jpg" alt="When did Ermao learn to do magic？ #funny #comedy">
+          </a>
+          <div class="mega-example-body">
+            <a class="mega-example-title" href="https://www.youtube.com/shorts/HsKltJyJ-UI" target="_blank" rel="noopener">When did Ermao learn to do magic？ #funny #comedy</a>
+            <span>118,256,281 views</span>
+            <ul><li>글로벌 탭에서 118,256,281 views로 확인된 1억뷰 돌파형 쇼츠</li>
 <li>Vidirun Top 50 Short-Form Videos 24H rank 28에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li>
 <li>감지 키워드: magic</li>
 <li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li></ul>
+          </div>
         </article>
 
         <article class="mega-example">
-          <a href="https://www.youtube.com/shorts/ZdXwPHwdwhY" target="_blank" rel="noopener">Saito09 funny video 😂😂😂 #shorts</a>
-          <span>193,019,444 views</span>
-          <ul><li>JP 탭에서 193,019,444 views로 확인된 1억뷰 돌파형 쇼츠</li>
+          <a class="mega-example-thumb" href="https://www.youtube.com/shorts/ZdXwPHwdwhY" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/ZdXwPHwdwhY/hqdefault.jpg" alt="Saito09 funny video 😂😂😂 #shorts">
+          </a>
+          <div class="mega-example-body">
+            <a class="mega-example-title" href="https://www.youtube.com/shorts/ZdXwPHwdwhY" target="_blank" rel="noopener">Saito09 funny video 😂😂😂 #shorts</a>
+            <span>193,019,444 views</span>
+            <ul><li>JP 탭에서 193,019,444 views로 확인된 1억뷰 돌파형 쇼츠</li>
 <li>Playboard Shorts Daily - JP daily rank 15에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li>
 <li>감지 키워드: funny</li>
 <li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li></ul>
+          </div>
         </article>
 
         <article class="mega-example">
-          <a href="https://www.youtube.com/shorts/9Egj8PiHiak" target="_blank" rel="noopener">CHUPANDO DEDO #santi #santioficial #funny #comedy</a>
-          <span>140,864,096 views</span>
-          <ul><li>멕시코 탭에서 140,864,096 views로 확인된 1억뷰 돌파형 쇼츠</li>
+          <a class="mega-example-thumb" href="https://www.youtube.com/shorts/9Egj8PiHiak" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/9Egj8PiHiak/hqdefault.jpg" alt="CHUPANDO DEDO #santi #santioficial #funny #comedy">
+          </a>
+          <div class="mega-example-body">
+            <a class="mega-example-title" href="https://www.youtube.com/shorts/9Egj8PiHiak" target="_blank" rel="noopener">CHUPANDO DEDO #santi #santioficial #funny #comedy</a>
+            <span>140,864,096 views</span>
+            <ul><li>멕시코 탭에서 140,864,096 views로 확인된 1억뷰 돌파형 쇼츠</li>
 <li>Playboard Shorts Daily - 멕시코 daily rank 5에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li>
 <li>감지 키워드: funny</li>
 <li>상황·반전·코미디 신호가 제목에서 바로 읽혀 결과를 확인하려는 궁금증을 만듭니다</li></ul>
+          </div>
         </article>
 
         <article class="mega-example">
-          <a href="https://www.youtube.com/shorts/tgOQlzCqc0M" target="_blank" rel="noopener">ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY NEON DANCE...</a>
-          <span>399,519,222 views</span>
-          <ul><li>카자흐스탄 탭에서 399,519,222 views로 확인된 1억뷰 돌파형 쇼츠</li>
+          <a class="mega-example-thumb" href="https://www.youtube.com/shorts/tgOQlzCqc0M" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/tgOQlzCqc0M/hqdefault.jpg" alt="ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY NEON DANCE !! 🔥🔥">
+          </a>
+          <div class="mega-example-body">
+            <a class="mega-example-title" href="https://www.youtube.com/shorts/tgOQlzCqc0M" target="_blank" rel="noopener">ASTRONOMIA 🤯 TEACHING SHUFFLE TUZELITY 😨 LITTLE BOY NEON DANCE...</a>
+            <span>399,519,222 views</span>
+            <ul><li>카자흐스탄 탭에서 399,519,222 views로 확인된 1억뷰 돌파형 쇼츠</li>
 <li>Playboard Shorts Daily - 카자흐스탄 daily rank 5에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li>
 <li>감지 키워드: dance</li>
 <li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li></ul>
+          </div>
         </article>
 
         <article class="mega-example">
-          <a href="https://www.youtube.com/shorts/FWMyxmIu1Ss" target="_blank" rel="noopener">When princesses playing &quot;Squid Game&quot; Challenge #bybacademy #tha...</a>
-          <span>253,589,299 views</span>
-          <ul><li>베트남 탭에서 253,589,299 views로 확인된 1억뷰 돌파형 쇼츠</li>
+          <a class="mega-example-thumb" href="https://www.youtube.com/shorts/FWMyxmIu1Ss" target="_blank" rel="noopener">
+            <img src="https://i.ytimg.com/vi/FWMyxmIu1Ss/hqdefault.jpg" alt="When princesses playing &quot;Squid Game&quot; Challenge #bybacademy #thanhhuyennguyen #daotaonguoimau #5g">
+          </a>
+          <div class="mega-example-body">
+            <a class="mega-example-title" href="https://www.youtube.com/shorts/FWMyxmIu1Ss" target="_blank" rel="noopener">When princesses playing &quot;Squid Game&quot; Challenge #bybacademy #tha...</a>
+            <span>253,589,299 views</span>
+            <ul><li>베트남 탭에서 253,589,299 views로 확인된 1억뷰 돌파형 쇼츠</li>
 <li>Playboard Shorts Daily - 베트남 daily rank 20에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음</li>
 <li>감지 키워드: challenge</li>
 <li>음악과 동작이 중심이라 첫 프레임만으로 장르가 전달되고 따라 하기 쉽습니다</li></ul>
+          </div>
         </article></div>
         </div>
       </div>
