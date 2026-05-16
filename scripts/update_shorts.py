@@ -396,6 +396,7 @@ def normalize_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
             region = "global"
         item["region"] = region
         item["regionLabel"] = REGION_BY_KEY[region]["label"]
+        item.setdefault("likeCount", None)
         normalized.append(item)
     return normalized
 
@@ -491,6 +492,15 @@ def parse_int(value: Any) -> int:
     return int(match.group(0).replace(",", ""))
 
 
+def fmt_count(value: Any) -> str:
+    if value is None or value == "":
+        return "확인 필요"
+    count = parse_int(value)
+    if count <= 0:
+        return "확인 필요"
+    return f"{count:,}"
+
+
 def normalize_published_at(value: Any) -> str:
     if value is None or value == "":
         return ""
@@ -571,6 +581,7 @@ def make_candidate(
     source_url: str,
     collected_at: str,
     published_at: Any = "",
+    like_count: Any = None,
     extra_notes: list[str] | None = None,
     min_score: int = 4,
 ) -> dict[str, Any] | None:
@@ -594,6 +605,7 @@ def make_candidate(
         "shortsUrl": normalized_url(video_id),
         "thumbnail": thumbnail_url(video_id),
         "viewsGained": int(views_gained or 0),
+        "likeCount": parse_int(like_count) if like_count is not None else None,
         "sourceRank": int(source_rank or 0),
         "sourceWindow": source_window,
         "sourceName": source_name,
@@ -982,7 +994,7 @@ def enrich_video_metadata(items: list[dict[str, Any]]) -> None:
         video_id = item.get("id")
         if not video_id or video_id in seen:
             continue
-        if not item.get("publishedAt") or parse_int(item.get("viewsGained")) < MIN_DISPLAY_VIEWS:
+        if item.get("likeCount") is None or not item.get("publishedAt") or parse_int(item.get("viewsGained")) < MIN_DISPLAY_VIEWS:
             targets.append(video_id)
             seen.add(video_id)
             if len(targets) >= PUBLISHED_METADATA_LIMIT:
@@ -1003,6 +1015,8 @@ def enrich_video_metadata(items: list[dict[str, Any]]) -> None:
         view_count = parse_int(payload.get("view_count"))
         if view_count:
             item["viewsGained"] = view_count
+        if payload.get("like_count") is not None:
+            item["likeCount"] = parse_int(payload.get("like_count"))
 
 
 def from_ytdlp_item(raw: dict[str, Any], query: str, region: str, collected_at: str) -> dict[str, Any] | None:
@@ -1027,6 +1041,7 @@ def from_ytdlp_item(raw: dict[str, Any], query: str, region: str, collected_at: 
         source_url=f"https://www.youtube.com/results?search_query={quote_plus(search_text)}",
         collected_at=collected_at,
         published_at=raw.get("upload_date") or raw.get("timestamp") or raw.get("release_timestamp") or "",
+        like_count=raw.get("like_count"),
         extra_notes=["source: YouTube search result"],
     )
 
@@ -1090,6 +1105,7 @@ def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]],
                     "channel": item.get("channel") or old.get("channel"),
                     "category": item.get("category") or old.get("category"),
                     "viewsGained": item.get("viewsGained") or old.get("viewsGained"),
+                    "likeCount": item.get("likeCount") if item.get("likeCount") is not None else old.get("likeCount"),
                     "sourceRank": item.get("sourceRank") or old.get("sourceRank"),
                     "sourceWindow": item.get("sourceWindow") or old.get("sourceWindow"),
                     "sourceName": item.get("sourceName") or old.get("sourceName"),
@@ -1613,9 +1629,13 @@ def render_card(item: dict[str, Any], index: int) -> str:
         <div class="short-body">
           <div class="meta-row">
             <span>{escape(str(item.get('regionLabel') or 'Global'))} · {escape(str(item.get('sourceWindow', 'trend')))}</span>
-            <span>{fmt_int(item.get('viewsGained'))} views</span>
+            <span>{escape(str(item.get('sourceName') or 'source'))}</span>
           </div>
           <h2>{escape(item['title'])}</h2>
+          <div class="stats-row">
+            <span><b>조회수</b>{fmt_count(item.get('viewsGained'))}</span>
+            <span><b>좋아요</b>{fmt_count(item.get('likeCount'))}</span>
+          </div>
           <div class="date-row">
             <span>게시일 {escape(fmt_published(item.get('publishedAt')))}</span>
             <span>등록일 {escape(fmt_registered(item.get('collectedAt')))}</span>
@@ -1941,8 +1961,8 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     .grid {{
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-      gap: 9px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 14px;
       align-items: stretch;
     }}
     .region-panel {{
@@ -1964,17 +1984,18 @@ def render_index(items: list[dict[str, Any]]) -> str:
     .short-card {{
       background: var(--surface);
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
       display: flex;
       flex-direction: row;
       min-height: 100%;
+      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.07);
     }}
     .thumb-link {{
       position: relative;
       display: block;
-      flex: 0 0 74px;
-      width: 74px;
+      flex: 0 0 92px;
+      width: 92px;
       aspect-ratio: 9 / 16;
       background: #dbe4ee;
       overflow: hidden;
@@ -1998,23 +2019,29 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     .short-body {{
       min-width: 0;
-      padding: 8px;
+      padding: 12px;
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 8px;
     }}
     .meta-row {{
       display: flex;
       justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
       color: var(--accent-2);
-      font-size: 10px;
-      font-weight: 700;
+      font-size: 10.5px;
+      font-weight: 800;
+    }}
+    .meta-row span {{
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }}
     .short-card h2 {{
       margin: 0;
-      font-size: 13px;
-      line-height: 1.3;
+      font-size: 14.5px;
+      line-height: 1.38;
       display: -webkit-box;
       -webkit-line-clamp: 2;
       -webkit-box-orient: vertical;
@@ -2027,13 +2054,35 @@ def render_index(items: list[dict[str, Any]]) -> str:
       text-decoration: underline;
     }}
     .channel,
+    .stats-row,
     .date-row,
     .video-url,
     .source {{
       margin: 0;
       color: var(--muted);
-      font-size: 11px;
-      line-height: 1.35;
+      font-size: 11.5px;
+      line-height: 1.42;
+    }}
+    .stats-row {{
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 6px;
+    }}
+    .stats-row span {{
+      border: 1px solid #fee2e2;
+      border-radius: 8px;
+      background: #fff7f7;
+      color: #991b1b;
+      padding: 6px 8px;
+      font-weight: 800;
+      min-width: 0;
+    }}
+    .stats-row b {{
+      display: block;
+      color: #667085;
+      font-size: 10px;
+      line-height: 1.15;
+      margin-bottom: 2px;
     }}
     .date-row {{
       color: #475467;
@@ -2051,9 +2100,9 @@ def render_index(items: list[dict[str, Any]]) -> str:
     .popularity {{
       color: #344054;
       border: 2px solid rgba(220, 38, 38, 0.38);
-      border-radius: 999px;
+      border-radius: 24px;
       background: radial-gradient(circle at 22px 22px, rgba(254, 226, 226, 0.9), #fffafa 58%);
-      padding: 10px 14px 10px 12px;
+      padding: 12px 14px 12px 12px;
       display: grid;
       grid-template-columns: 44px minmax(0, 1fr);
       gap: 9px;
@@ -2078,8 +2127,8 @@ def render_index(items: list[dict[str, Any]]) -> str:
     .popularity ul {{
       margin: 0;
       padding-left: 15px;
-      font-size: 11.5px;
-      line-height: 1.48;
+      font-size: 12px;
+      line-height: 1.58;
     }}
     .popularity li {{
       margin: 0 0 4px;
@@ -2124,8 +2173,8 @@ def render_index(items: list[dict[str, Any]]) -> str:
       .trend-heading span {{ white-space: normal; }}
       .mega-grid {{ grid-template-columns: 1fr; }}
       .mega-hero {{ flex-direction: column; }}
-      .grid {{ grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }}
-      .thumb-link {{ flex-basis: 68px; width: 68px; }}
+      .grid {{ grid-template-columns: 1fr; }}
+      .thumb-link {{ flex-basis: 82px; width: 82px; }}
       .popularity {{ grid-template-columns: 1fr; border-radius: 22px; padding: 10px 12px; }}
       .popularity strong {{ width: auto; height: auto; border-radius: 999px; padding: 5px 9px; justify-self: start; }}
     }}

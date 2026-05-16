@@ -57,6 +57,7 @@ jobs:
                   self.popularity = 0
                   self.popularity_text = []
                   self.reason_items = 0
+                  self.stats_rows = 0
                   self._in_popularity = False
 
               def handle_starttag(self, tag, attrs):
@@ -75,6 +76,8 @@ jobs:
                       self.tabs += 1
                   if tag == "section" and attrs.get("data-region-panel"):
                       self.panels += 1
+                  if tag == "div" and "stats-row" in classes:
+                      self.stats_rows += 1
                   if tag in {"div", "p"} and "popularity" in classes:
                       self.popularity += 1
                       self.popularity_text.append("")
@@ -116,6 +119,7 @@ jobs:
               or parser.cards == 0
               or parser.cards != parser.images
               or parser.cards != len(parser.thumb_links)
+              or parser.cards != parser.stats_rows
               or parser.cards != parser.popularity
               or parser.cards != len(detailed_popularity)
               or parser.reason_items < parser.cards * 5
@@ -123,6 +127,8 @@ jobs:
               or "trend-brief" not in html
               or "mega-panel" not in html
               or "popularity" not in html
+              or "stats-row" not in html
+              or "좋아요" not in html
               or "date-row" not in html
               or "등록일" not in html
               or any(
@@ -139,6 +145,7 @@ jobs:
               "cards": parser.cards,
               "images": parser.images,
               "thumb_links": len(parser.thumb_links),
+              "stats_rows": parser.stats_rows,
               "popularity": parser.popularity,
               "detailed_popularity": len(detailed_popularity),
               "reason_items": parser.reason_items,
