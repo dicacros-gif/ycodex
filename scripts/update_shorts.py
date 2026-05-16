@@ -538,6 +538,14 @@ def fmt_registered(value: Any) -> str:
     return registered.strftime("%Y-%m-%d %H:%M")
 
 
+def fmt_footer_update(value: Any | None = None) -> str:
+    if value:
+        updated = parse_collected_at(value).astimezone(KST)
+    else:
+        updated = datetime.now(KST)
+    return f"{updated.month}/{updated.day} {updated.hour:02d}:{updated.minute:02d}"
+
+
 def score_candidate(title: str, category: str = "") -> tuple[int, list[str]]:
     text = f"{title} {category}".lower()
     core_hits = term_hits(text, CORE_TERMS)
@@ -2190,6 +2198,15 @@ def render_index(items: list[dict[str, Any]]) -> str:
       text-decoration: none;
       border-bottom: 1px solid rgba(29, 78, 216, 0.25);
     }}
+    .footer-update {{
+      margin: 18px 0 0;
+      padding: 14px 0 4px;
+      border-top: 1px solid var(--line);
+      color: #475467;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+    }}
     @media (max-width: 720px) {{
       .shell {{ width: min(100% - 16px, 1180px); }}
       .tabs {{ gap: 5px; padding: 8px 0; }}
@@ -2219,6 +2236,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
       <span>Connected sources:</span>
       {links}
     </section>
+    <div class="footer-update">업데이트 {escape(fmt_footer_update(os.environ.get("SITE_UPDATED_AT")))}</div>
   </main>
   <script type="application/json" id="shorts-data">{data_json}</script>
   <script>
