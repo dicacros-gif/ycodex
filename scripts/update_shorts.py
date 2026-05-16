@@ -1824,7 +1824,7 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
     else:
         shift_sentence = "최근 표본은 이전 누적과 큰 급변보다는 기존 강세 포맷이 유지되는 흐름입니다."
 
-    recent_range = f"{cutoff.isoformat()}~{latest_date.isoformat()}"
+    recent_range = f"{cutoff.month}/{cutoff.day} ~ {latest_date.month}/{latest_date.day}"
     notes = [
         f"최근 {recent_range} 게시 영상 {len(analysis_base)}개 기준으로 {cluster_label(recent_key)} 신호가 가장 큽니다.",
         shift_sentence,
