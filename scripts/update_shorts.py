@@ -1225,6 +1225,8 @@ def source_links(items: list[dict[str, Any]]) -> list[tuple[str, str]]:
     known_names = {name for name, _ in pairs}
     for item in items:
         source_name = item.get("sourceName") or ""
+        if source_name == "YouTube Shorts search via yt-dlp":
+            continue
         if source_name and source_name not in known_names:
             pairs.add((source_name, item.get("sourceUrl") or "#"))
     return sorted(pairs)
@@ -1738,8 +1740,6 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
 
 
 def render_card(item: dict[str, Any], index: int) -> str:
-    notes = "".join(f"<li>{escape(str(note))}</li>" for note in item.get("matchNotes", []))
-    source_rank = f" · rank {item.get('sourceRank')}" if item.get("sourceRank") else ""
     reason_items = "".join(f"<li>{escape(point)}</li>" for point in card_popularity_points(item))
     return f"""
       <article class="short-card">
@@ -1750,10 +1750,8 @@ def render_card(item: dict[str, Any], index: int) -> str:
         <div class="short-body">
           <div class="meta-row">
             <span>{escape(str(item.get('regionLabel') or 'Global'))} · {escape(str(item.get('sourceWindow', 'trend')))}</span>
-            <span>{escape(str(item.get('sourceName') or 'source'))}</span>
           </div>
           <h2>{escape(item['title'])}</h2>
-          <p class="channel">{escape(str(item.get('channel') or 'Unknown channel'))}</p>
           <div class="stats-row">
             <span><b>조회수</b>{fmt_count(item.get('viewsGained'))}</span>
             <span><b>좋아요</b>{fmt_count(item.get('likeCount'))}</span>
@@ -1762,9 +1760,6 @@ def render_card(item: dict[str, Any], index: int) -> str:
             <strong>인기 이유</strong>
             <ul>{reason_items}</ul>
           </div>
-          <p class="video-url"><a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">Open YouTube Short</a></p>
-          <p class="source">Source: <a href="{escape(str(item.get('sourceUrl') or '#'))}" target="_blank" rel="noopener">{escape(str(item.get('sourceName') or 'source'))}</a>{escape(source_rank)}</p>
-          <ul class="notes">{notes}</ul>
         </div>
       </article>"""
 
@@ -2293,21 +2288,11 @@ def render_index(items: list[dict[str, Any]]) -> str:
     .short-card h2 a:hover {{
       text-decoration: underline;
     }}
-    .channel,
-    .stats-row,
-    .video-url,
-    .source {{
+    .stats-row {{
       margin: 0;
       color: var(--muted);
       font-size: 10.5px;
       line-height: 1.38;
-    }}
-    .channel {{
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      color: #475467;
-      font-weight: 700;
     }}
     .stats-row {{
       display: flex;
@@ -2361,21 +2346,6 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     .popularity li:last-child {{
       margin-bottom: 0;
-    }}
-    .video-url a {{
-      color: var(--focus);
-      overflow-wrap: anywhere;
-      text-decoration: none;
-    }}
-    .video-url {{
-      display: none;
-    }}
-    .source a {{
-      color: var(--focus);
-      text-decoration: none;
-    }}
-    .notes {{
-      display: none;
     }}
     .source-panel {{
       margin-top: 26px;
