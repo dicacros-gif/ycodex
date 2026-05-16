@@ -741,6 +741,16 @@ def fmt_int(value: Any) -> str:
         return "0"
 
 
+def fmt_update_time(value: Any) -> str:
+    if not value:
+        return "not yet"
+    try:
+        dt = datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except ValueError:
+        return str(value)
+    return f"{dt.month}/{dt.day} {dt.hour:02d}:{dt.minute:02d}"
+
+
 def source_links(items: list[dict[str, Any]]) -> list[tuple[str, str]]:
     pairs: set[tuple[str, str]] = set()
     for source in VIDIRUN_SOURCES:
@@ -793,7 +803,7 @@ def group_items_by_region(items: list[dict[str, Any]]) -> dict[str, list[dict[st
 
 def render_index(items: list[dict[str, Any]]) -> str:
     items = normalize_items(items)
-    latest = items[0].get("collectedAt", "") if items else ""
+    latest = fmt_update_time(items[0].get("collectedAt", "") if items else "")
     grouped = group_items_by_region(items)
 
     tab_buttons = "\n".join(
