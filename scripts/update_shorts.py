@@ -1838,7 +1838,7 @@ def cluster_label(key: str) -> str:
     for cluster in TREND_CLUSTERS:
         if cluster["key"] == key:
             return cluster["label"]
-    return "기타 신호"
+    return "제목·조회수 기반 급상승"
 
 
 def cluster_counts(items: list[dict[str, Any]]) -> dict[str, int]:
@@ -1852,8 +1852,20 @@ def cluster_counts(items: list[dict[str, Any]]) -> dict[str, int]:
 
 def top_cluster(items: list[dict[str, Any]]) -> tuple[str, int]:
     counts = cluster_counts(items)
-    key, count = max(counts.items(), key=lambda pair: pair[1])
-    return key, count
+    ranked = sorted(counts.items(), key=lambda pair: pair[1], reverse=True)
+    for key, count in ranked:
+        if key != "other" and count:
+            return key, count
+    return ranked[0]
+
+
+def top_signal_terms(items: list[dict[str, Any]], terms: list[str], limit: int = 5) -> list[tuple[str, int]]:
+    counts = {term: 0 for term in terms}
+    term_set = set(terms)
+    for item in items:
+        for term in term_hits(item_text(item), term_set):
+            counts[term] += 1
+    return [(term, count) for term, count in sorted(counts.items(), key=lambda pair: pair[1], reverse=True) if count][:limit]
 
 
 def trend_ratio(counts: dict[str, int], key: str, total: int) -> float:
@@ -2498,7 +2510,7 @@ def render_global_source_insights(items: list[dict[str, Any]], analysis_base: li
     )
     for family, rows in source_rows[:5]:
         top_item = max(rows, key=lambda item: parse_int(item.get("viewsGained")))
-        cluster_text = ", ".join(cluster_label(key) for key in item_cluster_keys(top_item)[:2] if key != "other") or "복합 포맷"
+        cluster_text = ", ".join(cluster_label(key) for key in item_cluster_keys(top_item)[:2] if key != "other") or "상위 조회수 급상승"
         windows = sorted({clean_text(str(item.get("sourceWindow") or "")) for item in rows if item.get("sourceWindow")})
         window_text = "/".join(windows[:3]) if windows else "라이브"
         regions: dict[str, int] = {}
@@ -2552,7 +2564,7 @@ def creator_action_for_cluster(key: str) -> str:
 
 def top_cluster_sentence(items: list[dict[str, Any]]) -> tuple[str, str]:
     if not items:
-        return "복합 포맷", "제목보다 장면 자체가 먼저 이해되도록 피사체와 행동을 화면 중앙에 둡니다."
+        return "상위 조회수 급상승", "첫 화면에서 피사체·행동·결과 기대가 한 번에 읽히도록 구성합니다."
     key, _ = top_cluster(items)
     return cluster_label(key), creator_action_for_cluster(key)
 
@@ -2595,17 +2607,19 @@ def render_creator_strategy_insights(items: list[dict[str, Any]], analysis_base:
 
     low_items = [item for item in visible_items if parse_int(item.get("viewsGained")) < 1_000_000]
     bottom_items = sorted(visible_items, key=lambda item: parse_int(item.get("viewsGained")))[:8]
-    fallback_items = [item for item in visible_items if source_family(item) == "YouTube"]
     generic_titles = [
         item for item in visible_items
         if len(re.findall(r"#", str(item.get("title") or ""))) >= 4
         or len(term_hits(item_text(item), {"trend", "viral", "fyp", "shorts"})) >= 3
     ]
     weak_label, weak_action = top_cluster_sentence(low_items or bottom_items)
+    weakest = bottom_items[0]
+    weakest_views = parse_int(weakest.get("viewsGained"))
+    low_ceiling = max(parse_int(item.get("viewsGained")) for item in bottom_items)
     failure_points = [
-        f"{view_tier_label(parse_int(bottom_items[0].get('viewsGained')))} 하위권은 {weak_label}처럼 보이더라도 첫 장면 보상이나 결과 회수가 약하면 확산이 멈출 수 있습니다.",
-        f"YouTube 검색 보강에만 잡힌 후보가 {len(fallback_items)}개라면, 랭킹 사이트 교차 확인 전까지는 제목·썸네일·첫 1초 훅을 다시 점검해야 합니다.",
-        f"해시태그·trend·viral 신호가 제목에 과하게 몰린 후보는 {len(generic_titles)}개입니다. 키워드 나열보다 상황, 인물 행동, 결과 질문이 먼저 보여야 합니다.",
+        f"{view_tier_label(weakest_views)} 하위권 대표 사례는 {compact_title(str(weakest.get('title', '')), 40)} ({fmt_int(weakest_views)} views)이며, {weak_label}처럼 보여도 첫 장면 보상이나 결과 회수가 약하면 확산이 멈출 수 있습니다.",
+        f"최근 하위 표본 {len(bottom_items)}개는 {fmt_int(weakest_views)}~{fmt_int(low_ceiling)} views 구간에 몰려 있어, 초반 1초 안에 상황·동작·결과 질문을 더 선명하게 줘야 합니다.",
+        f"해시태그·trend·viral 신호가 제목에 과하게 몰린 후보는 {len(generic_titles)}개입니다. 키워드 나열보다 실제 행동, 상황, 결과 질문을 먼저 보여야 합니다.",
         f"저성과 회피 포인트는 {weak_action}",
     ]
 
@@ -2659,9 +2673,9 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
     region_text = ", ".join(f"{REGION_BY_KEY[key]['label']} {count}개" for key, count in region_focus)
 
     top_view_item = max(analysis_base, key=lambda item: parse_int(item.get("viewsGained")))
-    top_view_clusters = ", ".join(cluster_label(key) for key in item_cluster_keys(top_view_item)[:2])
+    top_view_clusters = ", ".join(cluster_label(key) for key in item_cluster_keys(top_view_item)[:2] if key != "other")
     if not top_view_clusters:
-        top_view_clusters = "복합 트렌드"
+        top_view_clusters = "제목·조회수 기반 급상승"
 
     if rising_delta >= 0.08:
         shift_sentence = f"이전 누적 대비 {cluster_label(rising_key)} 비중이 약 {round(rising_delta * 100)}%p 높아졌습니다."
@@ -2684,7 +2698,7 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
     top_badges = "\n".join(
         f"<li>{highlight_text(f'{cluster_label(key)} {count}')}</li>"
         for key, count in sorted(recent_counts.items(), key=lambda pair: pair[1], reverse=True)[:4]
-        if count
+        if count and key != "other"
     )
     return f"""
     <section class="trend-brief" aria-label="trend analysis">
@@ -2744,18 +2758,24 @@ def render_youtube_api_analysis(items: list[dict[str, Any]]) -> str:
     like_text = fmt_count(top_item.get("likeCount"))
     duration_values = [parse_int(item.get("duration")) for item in api_items if parse_int(item.get("duration"))]
     avg_duration = round(sum(duration_values) / len(duration_values)) if duration_values else 0
+    signal_terms = top_signal_terms(
+        api_items,
+        ["dance", "challenge", "funny", "comedy", "music", "song", "trend", "viral", "fyp", "shuffle", "tutorial"],
+        5,
+    )
+    signal_term_text = ", ".join(f"{term} {count}개" for term, count in signal_terms) or "상위 제목 훅"
 
     summary_points = [
         f"YouTube Data API v3 search/videos 기준 {len(api_items)}개 표시, {MIN_DISPLAY_VIEWS:,}뷰 이상, {SHORTS_MAX_DURATION_SECONDS}초 이하, 중복 제거 통과",
         f"정렬 신호는 {window_text} 중심이며, 조회수 상위 API 사례는 {compact_title(str(top_item.get('title', '')), 48)} ({fmt_int(top_item.get('viewsGained'))} views, 좋아요 {like_text})",
-        f"지역별 API 수집은 {region_text or '여러 지역'} 순으로 많고, 같은 영상 ID는 전체 탭에서 한 번만 유지",
+        f"지역별 API 수집은 {region_text or '여러 지역'} 순으로 많고, 상위 제목 신호는 {signal_term_text}",
         f"최근 {recent_range} 게시 API 표본 {len(analysis_base)}개 기준으로 {cluster_label(top_key)} 신호가 가장 강함",
     ]
 
     pattern_points = [
         f"API 상위 후보는 {top_cluster_text} 성격이 강하고, 제작 포인트는 {top_action}",
         f"평균 길이는 약 {avg_duration}초로, 1분 안에 훅과 결과를 회수하는 짧은 구조가 많음",
-        "제목에 dance, challenge, funny, trend, shorts 같은 탐색 키워드가 함께 붙어 검색 발견성과 추천 테스트 진입을 노림",
+        f"최신 API 제목 신호는 {signal_term_text} 순으로 반복되어, 음악·동작·상황 훅이 검색 발견성을 이끔",
         "API 기반 후보는 공식 조회수·좋아요·게시일 확인이 가능해, 랭킹 사이트 후보와 비교할 때 초기 검수 기준으로 쓰기 좋음",
     ]
 
@@ -2773,7 +2793,7 @@ def render_youtube_api_analysis(items: list[dict[str, Any]]) -> str:
     top_badges = "\n".join(
         f"<li>{highlight_text(f'{cluster_label(key)} {count}')}</li>"
         for key, count in sorted(counts.items(), key=lambda pair: pair[1], reverse=True)[:4]
-        if count
+        if count and key != "other"
     )
 
     return f"""
