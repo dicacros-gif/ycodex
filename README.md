@@ -8,6 +8,7 @@ This repository keeps a static `index.html` of trending YouTube Shorts candidate
 - dance or short situation
 - newer popular videos are accumulated above older links
 - videos are globally deduplicated, so the same YouTube ID appears in only one tab
+- YouTube Data API search/videos candidates are analyzed only from 10,000 views and up
 
 The scheduled GitHub Actions workflow runs every day at 20:00 UTC, which is 05:00 in Asia/Seoul, and updates `shorts-data.json` plus `index.html` on a GitHub-hosted runner.
 

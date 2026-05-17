@@ -18,6 +18,7 @@ jobs:
       YT: ${{ secrets.YT }}
       YOUTUBE_API_SEARCH_LIMIT: "5"
       MIN_DISPLAY_VIEWS: "3000"
+      YOUTUBE_API_MIN_DISPLAY_VIEWS: "10000"
       VIRAL_VIEW_THRESHOLD: "100000000"
       PUBLISHED_METADATA_LIMIT: "120"
       YT_DLP_SEARCH_TIMEOUT_SECONDS: "60"
@@ -152,6 +153,7 @@ jobs:
                   for index in range(len(collected_order) - 1)
               )
               or any((item.get("viewsGained") or 0) < 3000 for item in visible)
+              or any("YouTube Data API" in str(item.get("sourceName") or "") and (item.get("viewsGained") or 0) < 10000 for item in visible)
               or any(not item.get("publishedAt") for item in visible)
               or any(item.get("isShort9x16") is not True for item in data)
               or any((item.get("duration") or 9999) > 180 for item in data)

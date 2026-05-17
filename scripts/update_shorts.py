@@ -259,6 +259,7 @@ YT_SEARCH_LIMIT = int(os.environ.get("YT_SEARCH_LIMIT", "12"))
 YOUTUBE_API_SEARCH_LIMIT = int(os.environ.get("YOUTUBE_API_SEARCH_LIMIT", "5"))
 YOUTUBE_API_RECENT_DAYS = int(os.environ.get("YOUTUBE_API_RECENT_DAYS", "30"))
 MIN_DISPLAY_VIEWS = int(os.environ.get("MIN_DISPLAY_VIEWS", "3000"))
+YOUTUBE_API_MIN_DISPLAY_VIEWS = int(os.environ.get("YOUTUBE_API_MIN_DISPLAY_VIEWS", "10000"))
 PUBLISHED_METADATA_LIMIT = int(os.environ.get("PUBLISHED_METADATA_LIMIT", "200"))
 YT_DLP_SEARCH_TIMEOUT_SECONDS = int(os.environ.get("YT_DLP_SEARCH_TIMEOUT_SECONDS", "60"))
 YT_DLP_METADATA_TIMEOUT_SECONDS = int(os.environ.get("YT_DLP_METADATA_TIMEOUT_SECONDS", "180"))
@@ -1572,6 +1573,8 @@ def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]],
         if existing_item:
             update_existing_item(existing_item, item)
             continue
+        if not is_collectable_new_item(item):
+            continue
         region = item.get("region") or "global"
         if region not in candidates_by_region:
             region = "global"
@@ -1691,9 +1694,23 @@ def source_family_label(family: str) -> str:
     return SOURCE_FAMILY_LABELS.get(family, family)
 
 
+def is_youtube_data_api_item(item: dict[str, Any]) -> bool:
+    return source_family(item) == "YouTubeDataAPI"
+
+
+def min_display_views_for_item(item: dict[str, Any]) -> int:
+    if is_youtube_data_api_item(item):
+        return YOUTUBE_API_MIN_DISPLAY_VIEWS
+    return MIN_DISPLAY_VIEWS
+
+
+def is_collectable_new_item(item: dict[str, Any]) -> bool:
+    return parse_int(item.get("viewsGained")) >= min_display_views_for_item(item)
+
+
 def is_displayable(item: dict[str, Any]) -> bool:
     return (
-        parse_int(item.get("viewsGained")) >= MIN_DISPLAY_VIEWS
+        parse_int(item.get("viewsGained")) >= min_display_views_for_item(item)
         and bool(item.get("publishedAt"))
         and is_short_9x16_item(item)
     )
@@ -2725,7 +2742,7 @@ def render_youtube_api_analysis(items: list[dict[str, Any]]) -> str:
         <strong>YouTube API 인사이트</strong>
         <ul class="trend-meta">
           <li>{highlight_text("API 표시 영상 0개")}</li>
-          <li>{highlight_text(f"{MIN_DISPLAY_VIEWS:,}뷰 이상")}</li>
+          <li>{highlight_text(f"{YOUTUBE_API_MIN_DISPLAY_VIEWS:,}뷰 이상")}</li>
         </ul>
       </div>
       <ul class="trend-notes">{render_points(["YouTube Data API 수집 결과가 아직 없어 다음 실행에서 다시 확인 필요"])}</ul>
@@ -2766,7 +2783,7 @@ def render_youtube_api_analysis(items: list[dict[str, Any]]) -> str:
     signal_term_text = ", ".join(f"{term} {count}개" for term, count in signal_terms) or "상위 제목 훅"
 
     summary_points = [
-        f"YouTube Data API v3 search/videos 기준 {len(api_items)}개 표시, {MIN_DISPLAY_VIEWS:,}뷰 이상, {SHORTS_MAX_DURATION_SECONDS}초 이하, 중복 제거 통과",
+        f"YouTube Data API v3 search/videos 기준 {len(api_items)}개 표시, {YOUTUBE_API_MIN_DISPLAY_VIEWS:,}뷰 이상, {SHORTS_MAX_DURATION_SECONDS}초 이하, 중복 제거 통과",
         f"정렬 신호는 {window_text} 중심이며, 조회수 상위 API 사례는 {compact_title(str(top_item.get('title', '')), 48)} ({fmt_int(top_item.get('viewsGained'))} views, 좋아요 {like_text})",
         f"지역별 API 수집은 {region_text or '여러 지역'} 순으로 많고, 상위 제목 신호는 {signal_term_text}",
         f"최근 {recent_range} 게시 API 표본 {len(analysis_base)}개 기준으로 {cluster_label(top_key)} 신호가 가장 강함",
@@ -2802,7 +2819,7 @@ def render_youtube_api_analysis(items: list[dict[str, Any]]) -> str:
         <strong>YouTube API 인사이트</strong>
         <ul class="trend-meta">
           <li>{highlight_text(f'API 표시 영상 {len(api_items)}개')}</li>
-          <li>{highlight_text(f'{MIN_DISPLAY_VIEWS:,}뷰 이상')}</li>
+          <li>{highlight_text(f'{YOUTUBE_API_MIN_DISPLAY_VIEWS:,}뷰 이상')}</li>
         </ul>
       </div>
       <ul class="trend-badges">{top_badges}</ul>
