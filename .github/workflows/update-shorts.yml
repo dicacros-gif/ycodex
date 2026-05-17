@@ -15,6 +15,7 @@ jobs:
       MAX_NEW_SHORTS_PER_REGION: "8"
       YT_SEARCH_LIMIT: "12"
       YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      YT: ${{ secrets.YT }}
       YOUTUBE_API_SEARCH_LIMIT: "5"
       MIN_DISPLAY_VIEWS: "3000"
       VIRAL_VIEW_THRESHOLD: "100000000"

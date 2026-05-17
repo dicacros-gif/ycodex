@@ -1242,7 +1242,7 @@ def collect_html_sources(collected_at: str) -> list[dict[str, Any]]:
 
 
 def youtube_api_key() -> str:
-    return os.environ.get("YOUTUBE_API_KEY", "").strip()
+    return (os.environ.get("YOUTUBE_API_KEY") or os.environ.get("YT") or "").strip()
 
 
 def youtube_api_published_after() -> str:
@@ -1274,7 +1274,7 @@ def fetch_youtube_api_video_details(video_ids: list[str], api_key: str) -> dict[
 def collect_youtube_api(collected_at: str) -> list[dict[str, Any]]:
     api_key = youtube_api_key()
     if not api_key:
-        print("warning: YOUTUBE_API_KEY is not set; skipping YouTube Data API collection", file=sys.stderr)
+        print("warning: YOUTUBE_API_KEY or YT is not set; skipping YouTube Data API collection", file=sys.stderr)
         return []
 
     candidates: list[dict[str, Any]] = []
@@ -2654,7 +2654,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
 
     api_cards = "".join(render_card(item, index) for index, item in enumerate(api_items, start=1))
     if not api_cards:
-        api_cards = '<div class="empty-state">YOUTUBE_API_KEY 등록 후 다음 수동 실행 또는 매일 업데이트에서 YouTube Data API 수집 결과 표시</div>'
+        api_cards = '<div class="empty-state">YOUTUBE_API_KEY 또는 YT Secret 등록 후 다음 수동 실행 또는 매일 업데이트에서 YouTube Data API 수집 결과 표시</div>'
 
     panels = [
         render_mega_view_analysis(display_items),
