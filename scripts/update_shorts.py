@@ -2520,9 +2520,6 @@ def render_global_source_insights(items: list[dict[str, Any]], analysis_base: li
     ][:3]
     if leading:
         notes.append(f"소스별 랭킹을 합쳐 보면 {', '.join(leading)}가 글로벌 탭의 핵심 관찰 포인트입니다.")
-    if groups.get("YouTube"):
-        notes.append("YouTube 검색 보강은 랭킹 사이트가 부족한 지역을 채우는 보조 단계이며, 같은 영상 ID와 같은 제목은 전체 탭에서 한 번만 남깁니다.")
-
     return f"""
       <div class="trend-source-insights">
         <strong>글로벌 크롤링 인사이트</strong>
