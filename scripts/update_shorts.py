@@ -262,6 +262,7 @@ MIN_DISPLAY_VIEWS = int(os.environ.get("MIN_DISPLAY_VIEWS", "3000"))
 PUBLISHED_METADATA_LIMIT = int(os.environ.get("PUBLISHED_METADATA_LIMIT", "200"))
 YT_DLP_SEARCH_TIMEOUT_SECONDS = int(os.environ.get("YT_DLP_SEARCH_TIMEOUT_SECONDS", "60"))
 YT_DLP_METADATA_TIMEOUT_SECONDS = int(os.environ.get("YT_DLP_METADATA_TIMEOUT_SECONDS", "180"))
+SKIP_YT_DLP_METADATA = os.environ.get("SKIP_YT_DLP_METADATA", "").strip().lower() in {"1", "true", "yes"}
 VIRAL_VIEW_THRESHOLD = int(os.environ.get("VIRAL_VIEW_THRESHOLD", "100000000"))
 SHORTS_MAX_DURATION_SECONDS = int(os.environ.get("SHORTS_MAX_DURATION_SECONDS", "180"))
 SHORTS_MIN_ASPECT_RATIO = float(os.environ.get("SHORTS_MIN_ASPECT_RATIO", "0.48"))
@@ -3544,33 +3545,40 @@ def main() -> int:
         candidates = collect_vidirun(collected_at)
         candidates.extend(collect_html_sources(collected_at))
         candidates.extend(collect_youtube_api(collected_at))
-        try:
-            import yt_dlp  # noqa: F401
-        except Exception:
-            print("warning: yt-dlp is not installed; skipping YouTube metadata/search; keeping verified 9:16 history only", file=sys.stderr)
+        if SKIP_YT_DLP_METADATA:
+            print("warning: SKIP_YT_DLP_METADATA is set; using source/API metadata only", file=sys.stderr)
             candidates = filter_shortform_items(candidates)
         else:
-            enrich_video_metadata(candidates)
-            candidates = filter_shortform_items(candidates)
-            needed_regions = regions_needing_search(candidates, args.max_new)
-            if needed_regions:
-                print(
-                    "ranking sources need YouTube search fallback for: "
-                    + ", ".join(region["label"] for region in REGIONS if region["key"] in needed_regions),
-                    file=sys.stderr,
-                )
-                search_candidates = collect_youtube_search(collected_at, needed_regions)
-                enrich_video_metadata(search_candidates)
-                candidates.extend(filter_shortform_items(search_candidates))
+            try:
+                import yt_dlp  # noqa: F401
+            except Exception:
+                print("warning: yt-dlp is not installed; skipping YouTube metadata/search; keeping verified 9:16 history only", file=sys.stderr)
+                candidates = filter_shortform_items(candidates)
             else:
-                print("ranking sources filled every region; skipping YouTube search fallback", file=sys.stderr)
+                enrich_video_metadata(candidates)
+                candidates = filter_shortform_items(candidates)
+                needed_regions = regions_needing_search(candidates, args.max_new)
+                if needed_regions:
+                    print(
+                        "ranking sources need YouTube search fallback for: "
+                        + ", ".join(region["label"] for region in REGIONS if region["key"] in needed_regions),
+                        file=sys.stderr,
+                    )
+                    search_candidates = collect_youtube_search(collected_at, needed_regions)
+                    enrich_video_metadata(search_candidates)
+                    candidates.extend(filter_shortform_items(search_candidates))
+                else:
+                    print("ranking sources filled every region; skipping YouTube search fallback", file=sys.stderr)
         merged = merge_items(existing, candidates, args.max_new)
-        try:
-            import yt_dlp  # noqa: F401
-        except Exception:
-            print("warning: yt-dlp is not installed; skipping publish-date enrichment", file=sys.stderr)
+        if SKIP_YT_DLP_METADATA:
+            print("warning: SKIP_YT_DLP_METADATA is set; skipping publish-date enrichment", file=sys.stderr)
         else:
-            enrich_video_metadata(merged)
+            try:
+                import yt_dlp  # noqa: F401
+            except Exception:
+                print("warning: yt-dlp is not installed; skipping publish-date enrichment", file=sys.stderr)
+            else:
+                enrich_video_metadata(merged)
         merged = dedupe_accumulated_items(filter_shortform_items(merged))
         write_data(merged)
 

@@ -22,6 +22,7 @@ jobs:
       PUBLISHED_METADATA_LIMIT: "120"
       YT_DLP_SEARCH_TIMEOUT_SECONDS: "60"
       YT_DLP_METADATA_TIMEOUT_SECONDS: "180"
+      SKIP_YT_DLP_METADATA: "1"
       TZ: Asia/Seoul
     concurrency:
       group: update-youtube-shorts
