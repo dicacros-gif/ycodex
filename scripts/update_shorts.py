@@ -260,6 +260,8 @@ YOUTUBE_API_SEARCH_LIMIT = int(os.environ.get("YOUTUBE_API_SEARCH_LIMIT", "5"))
 YOUTUBE_API_RECENT_DAYS = int(os.environ.get("YOUTUBE_API_RECENT_DAYS", "30"))
 MIN_DISPLAY_VIEWS = int(os.environ.get("MIN_DISPLAY_VIEWS", "3000"))
 PUBLISHED_METADATA_LIMIT = int(os.environ.get("PUBLISHED_METADATA_LIMIT", "200"))
+YT_DLP_SEARCH_TIMEOUT_SECONDS = int(os.environ.get("YT_DLP_SEARCH_TIMEOUT_SECONDS", "60"))
+YT_DLP_METADATA_TIMEOUT_SECONDS = int(os.environ.get("YT_DLP_METADATA_TIMEOUT_SECONDS", "180"))
 VIRAL_VIEW_THRESHOLD = int(os.environ.get("VIRAL_VIEW_THRESHOLD", "100000000"))
 SHORTS_MAX_DURATION_SECONDS = int(os.environ.get("SHORTS_MAX_DURATION_SECONDS", "180"))
 SHORTS_MIN_ASPECT_RATIO = float(os.environ.get("SHORTS_MIN_ASPECT_RATIO", "0.48"))
@@ -1370,7 +1372,14 @@ def run_yt_search(query: str) -> list[dict[str, Any]]:
         query,
     ]
     try:
-        proc = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, timeout=90, check=False)
+        proc = subprocess.run(
+            cmd,
+            cwd=ROOT,
+            capture_output=True,
+            text=True,
+            timeout=YT_DLP_SEARCH_TIMEOUT_SECONDS,
+            check=False,
+        )
     except Exception as exc:
         print(f"warning: yt-dlp search failed for {query}: {exc}", file=sys.stderr)
         return []
@@ -1399,7 +1408,14 @@ def run_yt_metadata(video_ids: list[str]) -> dict[str, dict[str, Any]]:
             *[normalized_url(video_id) for video_id in chunk],
         ]
         try:
-            proc = subprocess.run(cmd, cwd=ROOT, capture_output=True, text=True, timeout=600, check=False)
+            proc = subprocess.run(
+                cmd,
+                cwd=ROOT,
+                capture_output=True,
+                text=True,
+                timeout=YT_DLP_METADATA_TIMEOUT_SECONDS,
+                check=False,
+            )
         except Exception as exc:
             print(f"warning: yt-dlp metadata failed: {exc}", file=sys.stderr)
             continue

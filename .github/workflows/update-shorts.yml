@@ -19,7 +19,9 @@ jobs:
       YOUTUBE_API_SEARCH_LIMIT: "5"
       MIN_DISPLAY_VIEWS: "3000"
       VIRAL_VIEW_THRESHOLD: "100000000"
-      PUBLISHED_METADATA_LIMIT: "200"
+      PUBLISHED_METADATA_LIMIT: "120"
+      YT_DLP_SEARCH_TIMEOUT_SECONDS: "60"
+      YT_DLP_METADATA_TIMEOUT_SECONDS: "180"
       TZ: Asia/Seoul
     concurrency:
       group: update-youtube-shorts
