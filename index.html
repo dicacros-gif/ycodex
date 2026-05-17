@@ -745,32 +745,6 @@
     .popularity li:last-child {
       margin-bottom: 0;
     }
-    .source-panel {
-      margin-top: 26px;
-      border-top: 1px solid var(--line);
-      padding-top: 18px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .source-panel > strong {
-      display: block;
-      color: #344054;
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }
-    .source-links {
-      margin: 0;
-      padding-left: 18px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 6px 18px;
-    }
-    .source-panel a {
-      color: var(--focus);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(29, 78, 216, 0.25);
-    }
     .footer-update {
       margin: 18px 0 0;
       padding: 14px 0 4px;
@@ -929,7 +903,7 @@
             <ul class="mega-case-points"><li><strong class="text-mark text-mark--signal">Squid Game</strong> <strong class="text-mark text-mark--signal">Challenge</strong>라는 <strong class="text-mark text-mark--region">글로벌</strong> <strong class="text-mark text-mark--signal">IP</strong> 신호와 공주 콘셉트의 대비가 첫 순간부터 <strong class="text-mark text-mark--signal">상황</strong>을 이해시키는 사례임</li>
 <li><strong class="text-mark text-mark--signal">챌린지</strong> 포맷은 결과를 끝까지 보게 만들고, 익숙한 <strong class="text-mark text-mark--signal">IP</strong>는 클릭 전 설명 비용을 크게 낮춤</li>
 <li>의상·게임 규칙·반응이 시각적으로 읽혀 자막이 없어도 장면의 긴장과 재미가 전달됨</li>
-<li><strong class="text-mark text-mark--source">트렌드</strong> <strong class="text-mark text-mark--signal">IP</strong>를 짧은 <strong class="text-mark text-mark--signal">퍼포먼스</strong>로 재가공해 검색·추천·<strong class="text-mark text-mark--signal">공유</strong>에서 모두 발견될 접점을 넓혔습니다</li></ul>
+<li><strong class="text-mark text-mark--source">트렌드</strong> <strong class="text-mark text-mark--signal">IP</strong>를 짧은 <strong class="text-mark text-mark--signal">퍼포먼스</strong>로 재가공해 검색·추천·<strong class="text-mark text-mark--signal">공유</strong>에서 모두 발견될 접점을 넓힘</li></ul>
           </div>
         </article>
 
@@ -963,7 +937,69 @@
       </div>
     </section>
     <section id="panel-youtube-api" class="region-panel" data-region-panel="youtube_api" role="tabpanel" aria-labelledby="tab-youtube-api" aria-label="YouTube Data API Shorts">
-      <div class="grid"><div class="empty-state">YOUTUBE_API_KEY 또는 YT Secret 등록 후 다음 수동 실행 또는 매일 업데이트에서 YouTube Data API 수집 결과 표시</div>
+
+    <section class="trend-brief" aria-label="trend analysis">
+      <div class="trend-heading">
+        <strong>트렌드 분석</strong>
+        <ul class="trend-meta">
+          <li><strong class="text-mark text-mark--metric">52개</strong> 표시 영상</li>
+          <li><strong class="text-mark text-mark--metric">3,000뷰</strong> 이상</li>
+        </ul>
+      </div>
+      <ul class="trend-badges"><li><strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 19</li>
+<li>기타 신호 7</li>
+<li><strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong> 6</li>
+<li><strong class="text-mark text-mark--signal">스포츠·퍼포먼스 순간</strong> 3</li></ul>
+      <ul class="trend-notes"><li>최근 5 / 10 ~ 5 / 16 게시 영상 <strong class="text-mark text-mark--metric">32개</strong> 기준으로 <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 신호가 가장 큼</li>
+<li>이전 누적 대비 기타 신호 비중이 약 <strong class="text-mark text-mark--metric">22%p</strong> 높아짐</li>
+<li>지역별로는 <strong class="text-mark text-mark--region">글로벌</strong> <strong class="text-mark text-mark--metric">12개</strong>, <strong class="text-mark text-mark--region">멕시코</strong> <strong class="text-mark text-mark--metric">7개</strong>, <strong class="text-mark text-mark--region">미국</strong> <strong class="text-mark text-mark--metric">2개</strong>에서 새 게시물이 많이 잡히며, 지역 탭마다 <strong class="text-mark text-mark--signal">코미디</strong>·<strong class="text-mark text-mark--signal">댄스</strong>·<strong class="text-mark text-mark--signal">편집</strong>형 비중이 다르게 나타남</li>
+<li><strong class="text-mark text-mark--metric">조회수</strong> 상위 최근 사례는 The Last Doorbell is a CURSE 💀 (<strong class="text-mark text-mark--metric">37,920,141 views</strong>) / 기타 신호 쪽 신호가 강함</li></ul>
+
+      <div class="trend-source-insights">
+        <strong>글로벌 크롤링 인사이트</strong>
+        <ul><li><strong class="text-mark text-mark--source">글로벌 크롤링</strong>은 <strong class="text-mark text-mark--source">Vidirun</strong> <strong class="text-mark text-mark--metric">24H</strong> / 7D <strong class="text-mark text-mark--signal">숏폼</strong> <strong class="text-mark text-mark--source">랭킹</strong>, <strong class="text-mark text-mark--source">Playboard</strong> 지역별 Shorts Daily, <strong class="text-mark text-mark--source">RedToolBox</strong> 일 / 주 / 월 <strong class="text-mark text-mark--source">Top Shorts</strong>, <strong class="text-mark text-mark--source">TubeTrending</strong> 48H 신규 Shorts, <strong class="text-mark text-mark--source">YTTrack</strong> 지역·카테고리 <strong class="text-mark text-mark--source">트렌드</strong>, <strong class="text-mark text-mark--source">Chartika</strong> 지역 차트, <strong class="text-mark text-mark--source">TrendsFox</strong> <strong class="text-mark text-mark--source">라이브 트렌딩</strong>, <strong class="text-mark text-mark--source">Top1Trend</strong> <strong class="text-mark text-mark--source">YouTube</strong> Trending, <strong class="text-mark text-mark--source">YouTube Data API</strong> 공식 검색 <strong class="text-mark text-mark--source">소스</strong>를 매일 확인하고, 9:16·3천뷰 이상·중복 제거를 통과한 영상만 분석에 반영</li>
+<li>현재 표시 데이터는 <strong class="text-mark text-mark--source">Vidirun</strong> <strong class="text-mark text-mark--metric">24H</strong> / 7D <strong class="text-mark text-mark--signal">숏폼</strong> <strong class="text-mark text-mark--source">랭킹</strong>, <strong class="text-mark text-mark--source">Playboard</strong> 지역별 Shorts Daily, <strong class="text-mark text-mark--source">TubeTrending</strong> 48H 신규 Shorts, <strong class="text-mark text-mark--source">YTTrack</strong> 지역·카테고리 <strong class="text-mark text-mark--source">트렌드</strong>에서 실제 <strong class="text-mark text-mark--source">랭킹</strong> 신호가 잡혔고, <strong class="text-mark text-mark--source">검색 보강</strong>보다 <strong class="text-mark text-mark--source">공개 랭킹</strong> 출처를 우선</li>
+<li><strong class="text-mark text-mark--source">Vidirun</strong> <strong class="text-mark text-mark--metric">24H</strong> / 7D <strong class="text-mark text-mark--signal">숏폼</strong> <strong class="text-mark text-mark--source">랭킹</strong>: <strong class="text-mark text-mark--metric">12개</strong> 표시, <strong class="text-mark text-mark--metric">24H</strong> / 7D 기준에서 <strong class="text-mark text-mark--region">글로벌</strong> <strong class="text-mark text-mark--metric">12개</strong> 신호가 잡혔고 대표 사례는 When did Ermao learn to do <strong class="text-mark text-mark--signal">magic</strong>？ #<strong class="text-mark text-mark--signal">funny</strong>… (<strong class="text-mark text-mark--metric">118,572,269 views</strong>), <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 성격이 강함</li>
+<li><strong class="text-mark text-mark--source">Playboard</strong> 지역별 Shorts Daily: <strong class="text-mark text-mark--metric">20개</strong> 표시, daily 기준에서 <strong class="text-mark text-mark--region">멕시코</strong> <strong class="text-mark text-mark--metric">5개</strong>, <strong class="text-mark text-mark--region">일본</strong> <strong class="text-mark text-mark--metric">4개</strong>, <strong class="text-mark text-mark--region">이탈리아</strong> <strong class="text-mark text-mark--metric">2개</strong> 신호가 잡혔고 대표 사례는 <strong class="text-mark text-mark--signal">ASTRONOMIA</strong> 🤯 TEACHING <strong class="text-mark text-mark--signal">SHUFFLE</strong> TUZELITY 😨… (<strong class="text-mark text-mark--metric">400,439,680 views</strong>), <strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong> 성격이 강함</li>
+<li><strong class="text-mark text-mark--source">TubeTrending</strong> 48H 신규 Shorts: <strong class="text-mark text-mark--metric">6개</strong> 표시, 48H 기준에서 <strong class="text-mark text-mark--region">글로벌</strong> <strong class="text-mark text-mark--metric">6개</strong> 신호가 잡혔고 대표 사례는 The Last Doorbell is a CURSE 💀 (<strong class="text-mark text-mark--metric">37,920,141 views</strong>), 복합 포맷 성격이 강함</li>
+<li><strong class="text-mark text-mark--source">YTTrack</strong> 지역·카테고리 <strong class="text-mark text-mark--source">트렌드</strong>: <strong class="text-mark text-mark--metric">9개</strong> 표시, regional 기준에서 <strong class="text-mark text-mark--region">멕시코</strong> <strong class="text-mark text-mark--metric">4개</strong>, <strong class="text-mark text-mark--region">브라질</strong> <strong class="text-mark text-mark--metric">2개</strong>, <strong class="text-mark text-mark--region">아르헨티나</strong> <strong class="text-mark text-mark--metric">2개</strong> 신호가 잡혔고 대표 사례는 He tried not to laugh… #shorts #shortsf… (<strong class="text-mark text-mark--metric">9,966,241 views</strong>), <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 성격이 강함</li>
+<li><strong class="text-mark text-mark--source">YouTube</strong> <strong class="text-mark text-mark--source">검색 보강</strong>: <strong class="text-mark text-mark--metric">5개</strong> 표시, search 기준에서 <strong class="text-mark text-mark--region">글로벌</strong> <strong class="text-mark text-mark--metric">1개</strong>, <strong class="text-mark text-mark--region">대한민국</strong> <strong class="text-mark text-mark--metric">1개</strong>, <strong class="text-mark text-mark--region">미국</strong> <strong class="text-mark text-mark--metric">1개</strong> 신호가 잡혔고 대표 사례는 Rush - Ayra Starr | <strong class="text-mark text-mark--signal">Dance</strong> <strong class="text-mark text-mark--signal">Challenge</strong> (<strong class="text-mark text-mark--metric">84,338 views</strong>), <strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong> 성격이 강함</li>
+<li><strong class="text-mark text-mark--source">소스</strong>별 <strong class="text-mark text-mark--source">랭킹</strong>을 합쳐 보면 <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> <strong class="text-mark text-mark--metric">19개</strong>, <strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong> <strong class="text-mark text-mark--metric">6개</strong>, <strong class="text-mark text-mark--signal">스포츠·퍼포먼스 순간</strong> <strong class="text-mark text-mark--metric">3개</strong>가 <strong class="text-mark text-mark--region">글로벌</strong> 탭의 핵심 관찰 포인트임</li>
+<li><strong class="text-mark text-mark--source">YouTube</strong> <strong class="text-mark text-mark--source">검색 보강</strong>은 <strong class="text-mark text-mark--source">랭킹</strong> 사이트가 부족한 지역을 채우는 보조 단계 / 같은 영상 ID와 같은 제목은 전체 탭에서 한 번만 남김</li></ul>
+      </div>
+
+      <div class="creator-insights">
+        <strong>영상 제작자 인사이트</strong>
+        <div class="creator-insight-grid">
+          <div class="creator-insight-card">
+            <h3>1억뷰 공통 패턴</h3>
+            <ul><li><strong class="text-mark text-mark--metric">1억뷰</strong> 이상 대표 사례는 <strong class="text-mark text-mark--signal">ASTRONOMIA</strong> 🤯 TEACHING <strong class="text-mark text-mark--signal">SHUFFLE</strong> TUZELITY 😨 LI… / <strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong> 신호가 가장 강함</li>
+<li><strong class="text-mark text-mark--metric">1억뷰</strong>·근접권은 <strong class="text-mark text-mark--source">Playboard</strong> 지역별 Shorts Daily, <strong class="text-mark text-mark--source">Vidirun</strong> <strong class="text-mark text-mark--metric">24H</strong> / 7D <strong class="text-mark text-mark--signal">숏폼</strong> <strong class="text-mark text-mark--source">랭킹</strong>에서 교차로 잡히는 경우가 많아, 단일 검색 노출보다 <strong class="text-mark text-mark--source">랭킹</strong> 사이트 반응을 함께 확인 필요</li>
+<li><strong class="text-mark text-mark--signal">음악 훅</strong>과 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉬운 동작을 초반에 배치하고, <strong class="text-mark text-mark--signal">루프</strong>가 자연스럽게 이어지게 만듦</li>
+<li>대사보다 표정·동작·결과가 먼저 읽히는 영상이 국가를 넘어 확장되며, <strong class="text-mark text-mark--signal">반복 시청</strong>을 만들 수 있는 <strong class="text-mark text-mark--signal">루프</strong>형 끝맺음이 유리</li></ul>
+          </div>
+          <div class="creator-insight-card">
+            <h3>국가별 콘텐츠 차별점</h3>
+            <ul><li><strong class="text-mark text-mark--region">글로벌</strong>: <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 비중이 크고 대표 사례는 When did Ermao learn to do <strong class="text-mark text-mark--signal">magic</strong>？ #fu… (<strong class="text-mark text-mark--metric">118,572,269 views</strong>)임 / <strong class="text-mark text-mark--signal">제작 포인트</strong>는 첫 1초에 <strong class="text-mark text-mark--signal">갈등</strong>·<strong class="text-mark text-mark--signal">반전</strong>·결과 질문을 먼저 제시하고, 마지막 컷에서 <strong class="text-mark text-mark--signal">보상</strong>을 회수함 / 근거 <strong class="text-mark text-mark--source">소스</strong>는 <strong class="text-mark text-mark--source">Vidirun</strong> <strong class="text-mark text-mark--metric">24H</strong> / 7D <strong class="text-mark text-mark--signal">숏폼</strong> <strong class="text-mark text-mark--source">랭킹</strong>임</li>
+<li><strong class="text-mark text-mark--region">멕시코</strong>: <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 비중이 크고 대표 사례는 CHUPANDO DEDO #santi #santioficial #f… (<strong class="text-mark text-mark--metric">142,478,570 views</strong>)임 / <strong class="text-mark text-mark--signal">제작 포인트</strong>는 첫 1초에 <strong class="text-mark text-mark--signal">갈등</strong>·<strong class="text-mark text-mark--signal">반전</strong>·결과 질문을 먼저 제시하고, 마지막 컷에서 <strong class="text-mark text-mark--signal">보상</strong>을 회수함 / 근거 <strong class="text-mark text-mark--source">소스</strong>는 <strong class="text-mark text-mark--source">Playboard</strong> 지역별 Shorts Daily임</li>
+<li><strong class="text-mark text-mark--region">일본</strong>: <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 비중이 크고 대표 사례는 Saito09 <strong class="text-mark text-mark--signal">funny</strong> video 😂😂😂 #shorts (<strong class="text-mark text-mark--metric">194,272,282 views</strong>)임 / <strong class="text-mark text-mark--signal">제작 포인트</strong>는 첫 1초에 <strong class="text-mark text-mark--signal">갈등</strong>·<strong class="text-mark text-mark--signal">반전</strong>·결과 질문을 먼저 제시하고, 마지막 컷에서 <strong class="text-mark text-mark--signal">보상</strong>을 회수함 / 근거 <strong class="text-mark text-mark--source">소스</strong>는 <strong class="text-mark text-mark--source">Playboard</strong> 지역별 Shorts Daily임</li>
+<li><strong class="text-mark text-mark--region">아르헨티나</strong>: <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 비중이 크고 대표 사례는 Mission Impossible 😎 #<strong class="text-mark text-mark--signal">humor</strong> #<strong class="text-mark text-mark--signal">funny</strong> #c… (<strong class="text-mark text-mark--metric">5,986,824 views</strong>)임 / <strong class="text-mark text-mark--signal">제작 포인트</strong>는 첫 1초에 <strong class="text-mark text-mark--signal">갈등</strong>·<strong class="text-mark text-mark--signal">반전</strong>·결과 질문을 먼저 제시하고, 마지막 컷에서 <strong class="text-mark text-mark--signal">보상</strong>을 회수함 / 근거 <strong class="text-mark text-mark--source">소스</strong>는 <strong class="text-mark text-mark--source">Playboard</strong> 지역별 Shorts Daily임</li>
+<li><strong class="text-mark text-mark--region">대한민국</strong>: <strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong> 비중이 크고 대표 사례는 F1 스탑 <strong class="text-mark text-mark--signal">챌린지</strong> #f1 #formula1 #포뮬러1 (<strong class="text-mark text-mark--metric">42,543,513 views</strong>)임 / <strong class="text-mark text-mark--signal">제작 포인트</strong>는 <strong class="text-mark text-mark--signal">음악 훅</strong>과 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉬운 동작을 초반에 배치하고, <strong class="text-mark text-mark--signal">루프</strong>가 자연스럽게 이어지게 만듦 / 근거 <strong class="text-mark text-mark--source">소스</strong>는 <strong class="text-mark text-mark--source">Playboard</strong> 지역별 Shorts Daily임</li>
+<li><strong class="text-mark text-mark--region">미국</strong>: <strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong> 비중이 크고 대표 사례는 He tried not to laugh… #shorts #sho… (<strong class="text-mark text-mark--metric">9,966,241 views</strong>)임 / <strong class="text-mark text-mark--signal">제작 포인트</strong>는 <strong class="text-mark text-mark--signal">음악 훅</strong>과 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉬운 동작을 초반에 배치하고, <strong class="text-mark text-mark--signal">루프</strong>가 자연스럽게 이어지게 만듦 / 근거 <strong class="text-mark text-mark--source">소스</strong>는 <strong class="text-mark text-mark--source">YTTrack</strong> 지역·카테고리 <strong class="text-mark text-mark--source">트렌드</strong>임</li>
+<li><strong class="text-mark text-mark--region">베트남</strong>: <strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong> 비중이 크고 대표 사례는 When princesses playing &quot;<strong class="text-mark text-mark--signal">Squid Game</strong>&quot;… (<strong class="text-mark text-mark--metric">254,639,331 views</strong>)임 / <strong class="text-mark text-mark--signal">제작 포인트</strong>는 <strong class="text-mark text-mark--signal">음악 훅</strong>과 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉬운 동작을 초반에 배치하고, <strong class="text-mark text-mark--signal">루프</strong>가 자연스럽게 이어지게 만듦 / 근거 <strong class="text-mark text-mark--source">소스</strong>는 <strong class="text-mark text-mark--source">Playboard</strong> 지역별 Shorts Daily임</li>
+<li><strong class="text-mark text-mark--region">브라질</strong>: <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 비중이 크고 대표 사례는 Qual delas vocês gostaram mais #<strong class="text-mark text-mark--signal">humor</strong>… (<strong class="text-mark text-mark--metric">4,660,632 views</strong>)임 / <strong class="text-mark text-mark--signal">제작 포인트</strong>는 첫 1초에 <strong class="text-mark text-mark--signal">갈등</strong>·<strong class="text-mark text-mark--signal">반전</strong>·결과 질문을 먼저 제시하고, 마지막 컷에서 <strong class="text-mark text-mark--signal">보상</strong>을 회수함 / 근거 <strong class="text-mark text-mark--source">소스</strong>는 <strong class="text-mark text-mark--source">YTTrack</strong> 지역·카테고리 <strong class="text-mark text-mark--source">트렌드</strong>임</li></ul>
+          </div>
+          <div class="creator-insight-card">
+            <h3>실패 패턴</h3>
+            <ul><li><strong class="text-mark text-mark--signal">저성과</strong> 위험 구간 <strong class="text-mark text-mark--signal">하위권</strong>은 <strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong>처럼 보이더라도 <strong class="text-mark text-mark--signal">첫 장면</strong> <strong class="text-mark text-mark--signal">보상</strong>이나 <strong class="text-mark text-mark--signal">결과 회수</strong>가 약하면 <strong class="text-mark text-mark--signal">확산</strong>이 멈출 수 있음</li>
+<li><strong class="text-mark text-mark--source">YouTube</strong> <strong class="text-mark text-mark--source">검색 보강</strong>에만 잡힌 후보가 <strong class="text-mark text-mark--metric">5개</strong>라면 / <strong class="text-mark text-mark--source">랭킹</strong> 사이트 <strong class="text-mark text-mark--source">교차 확인</strong> 전까지는 제목·썸네일·첫 1초 <strong class="text-mark text-mark--signal">훅</strong>을 다시 점검 필요</li>
+<li>해시태그·<strong class="text-mark text-mark--signal">trend</strong>·viral 신호가 제목에 과하게 몰린 후보는 <strong class="text-mark text-mark--metric">20개</strong>임 / 키워드 나열보다 <strong class="text-mark text-mark--signal">상황</strong>, 인물 행동, 결과 질문이 먼저 보여야 함</li>
+<li><strong class="text-mark text-mark--signal">저성과</strong> 회피 포인트는 <strong class="text-mark text-mark--signal">음악 훅</strong>과 <strong class="text-mark text-mark--signal">따라 하기</strong> 쉬운 동작을 초반에 배치하고, <strong class="text-mark text-mark--signal">루프</strong>가 자연스럽게 이어지게 만듦</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+      <div class="grid">
       </div>
     </section>
     <section id="panel-global" class="region-panel active" data-region-panel="global" role="tabpanel" aria-labelledby="tab-global" aria-label="글로벌 trending shorts">
@@ -981,7 +1017,7 @@
 <li><strong class="text-mark text-mark--signal">댄스·음악 챌린지</strong> 6</li>
 <li><strong class="text-mark text-mark--signal">스포츠·퍼포먼스 순간</strong> 3</li></ul>
       <ul class="trend-notes"><li>최근 5 / 10 ~ 5 / 16 게시 영상 <strong class="text-mark text-mark--metric">32개</strong> 기준으로 <strong class="text-mark text-mark--signal">상황형 코미디·짧은 사건</strong> 신호가 가장 큼</li>
-<li>이전 누적 대비 기타 신호 비중이 약 <strong class="text-mark text-mark--metric">22%p</strong> 높아졌습니다</li>
+<li>이전 누적 대비 기타 신호 비중이 약 <strong class="text-mark text-mark--metric">22%p</strong> 높아짐</li>
 <li>지역별로는 <strong class="text-mark text-mark--region">글로벌</strong> <strong class="text-mark text-mark--metric">12개</strong>, <strong class="text-mark text-mark--region">멕시코</strong> <strong class="text-mark text-mark--metric">7개</strong>, <strong class="text-mark text-mark--region">미국</strong> <strong class="text-mark text-mark--metric">2개</strong>에서 새 게시물이 많이 잡히며, 지역 탭마다 <strong class="text-mark text-mark--signal">코미디</strong>·<strong class="text-mark text-mark--signal">댄스</strong>·<strong class="text-mark text-mark--signal">편집</strong>형 비중이 다르게 나타남</li>
 <li><strong class="text-mark text-mark--metric">조회수</strong> 상위 최근 사례는 The Last Doorbell is a CURSE 💀 (<strong class="text-mark text-mark--metric">37,920,141 views</strong>) / 기타 신호 쪽 신호가 강함</li></ul>
 
@@ -2151,46 +2187,6 @@
         </div>
       </article>
       </div>
-    </section>
-    <section class="source-panel" aria-label="sources">
-      <strong>연결 소스</strong>
-      <ul class="source-links"><li><a href="https://chartika.com/" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Chartika</strong> regional <strong class="text-mark text-mark--source">YouTube</strong> charts</a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-worldwide-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">글로벌</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-south-korea-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">대한민국</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-germany-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">독일</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-mexico-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">멕시코</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-united-states-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">미국</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-viet-nam-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">베트남</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-brazil-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">브라질</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-spain-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">스페인</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-argentina-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">아르헨티나</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-algeria-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">알제리</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-uzbekistan-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">우즈베키스탄</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-italy-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">이탈리아</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-indonesia-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">인도네시아</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-japan-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">일본</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-kazakhstan-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">카자흐스탄</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-france-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">프랑스</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-philippines-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> Shorts Daily - <strong class="text-mark text-mark--region">필리핀</strong></a></li>
-<li><a href="https://playboard.co/chart/short/most-viewed-all-videos-in-worldwide-daily" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Playboard</strong> regional <strong class="text-mark text-mark--source">YouTube</strong> Shorts charts</a></li>
-<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=1&amp;type=VIEW" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> <strong class="text-mark text-mark--source">Top Shorts</strong> daily</a></li>
-<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=30&amp;type=VIEW" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> <strong class="text-mark text-mark--source">Top Shorts</strong> monthly</a></li>
-<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp?day=7&amp;type=VIEW" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> <strong class="text-mark text-mark--source">Top Shorts</strong> weekly</a></li>
-<li><a href="https://www.redtoolbox.io/toplist/topShorts.jsp" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">RedToolBox</strong> daily/weekly/monthly <strong class="text-mark text-mark--source">top Shorts</strong></a></li>
-<li><a href="https://t1trend.com/" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Top1Trend</strong> <strong class="text-mark text-mark--source">YouTube</strong> Trending</a></li>
-<li><a href="https://www.trendsfox.com/trending-videos" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">TrendsFox</strong> Trending Shorts</a></li>
-<li><a href="https://www.tubetrending.com/?duration=shorts&amp;lang=en" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">TubeTrending</strong> Most Viewed New Shorts</a></li>
-<li><a href="https://www.tubetrending.com/?duration=shorts&amp;lang=en" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">TubeTrending</strong> Most Viewed New Shorts 48H</a></li>
-<li><a href="https://vidirun.com/format-short" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">Vidirun</strong> Top 50 Short-Form Videos</a></li>
-<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">멕시코</strong> <strong class="text-mark text-mark--signal">Comedy</strong></a></li>
-<li><a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=MX&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">멕시코</strong> Entertainment</a></li>
-<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=US&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">미국</strong> <strong class="text-mark text-mark--signal">Comedy</strong></a></li>
-<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=BR&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">브라질</strong> <strong class="text-mark text-mark--signal">Comedy</strong></a></li>
-<li><a href="https://yttrack.com/search.php?categoryId=23&amp;regionCode=AR&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">아르헨티나</strong> <strong class="text-mark text-mark--signal">Comedy</strong></a></li>
-<li><a href="https://yttrack.com/search.php?categoryId=24&amp;regionCode=AR&amp;maxResults=18" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> Trending - <strong class="text-mark text-mark--region">아르헨티나</strong> Entertainment</a></li>
-<li><a href="https://yttrack.com/" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YTTrack</strong> regional <strong class="text-mark text-mark--source">YouTube</strong> trending charts</a></li>
-<li><a href="https://developers.google.com/youtube/v3" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YouTube Data API</strong> v3</a></li>
-<li><a href="https://www.youtube.com/results?search_query=%23shorts+dance+music+trend" target="_blank" rel="noopener"><strong class="text-mark text-mark--source">YouTube</strong> Shorts keyword searches</a></li></ul>
     </section>
     <div class="footer-update">업데이트 5/16 23:30</div>
   </main>

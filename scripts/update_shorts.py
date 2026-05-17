@@ -605,12 +605,16 @@ def bulletize_text(value: Any) -> str:
         ("큽니다", "큼"),
         ("작습니다", "작음"),
         ("좋습니다", "좋음"),
+        ("넓혔습니다", "넓힘"),
         ("입니다", "임"),
         ("합니다", "함"),
         ("됩니다", "됨"),
     ]
     for before, after in replacements:
         text = text.replace(before, after)
+    text = re.sub(r"([가-힣]+)졌습니다", r"\1짐", text)
+    text = re.sub(r"([가-힣]+)았습니다", r"\1음", text)
+    text = re.sub(r"([가-힣]+)었습니다", r"\1음", text)
     text = text.replace("이며,", " /")
     text = text.replace("이고,", " /")
     text = text.replace("라면,", "라면 /")
@@ -2653,13 +2657,12 @@ def render_index(items: list[dict[str, Any]]) -> str:
     tab_buttons = "\n".join(tab_parts)
 
     api_cards = "".join(render_card(item, index) for index, item in enumerate(api_items, start=1))
-    if not api_cards:
-        api_cards = '<div class="empty-state">YOUTUBE_API_KEY 또는 YT Secret 등록 후 다음 수동 실행 또는 매일 업데이트에서 YouTube Data API 수집 결과 표시</div>'
 
     panels = [
         render_mega_view_analysis(display_items),
         f"""
     <section id="panel-youtube-api" class="region-panel" data-region-panel="youtube_api" role="tabpanel" aria-labelledby="tab-youtube-api" aria-label="YouTube Data API Shorts">
+{trend_analysis}
       <div class="grid">{api_cards}
       </div>
     </section>""",
@@ -2677,11 +2680,6 @@ def render_index(items: list[dict[str, Any]]) -> str:
       </div>
     </section>"""
         )
-
-    links = "\n".join(
-        f'<li><a href="{escape(url)}" target="_blank" rel="noopener">{highlight_text(name)}</a></li>'
-        for name, url in source_links(display_items)
-    )
 
     data_json = escape(json.dumps(items, ensure_ascii=False), quote=False)
 
@@ -3432,32 +3430,6 @@ def render_index(items: list[dict[str, Any]]) -> str:
     .popularity li:last-child {{
       margin-bottom: 0;
     }}
-    .source-panel {{
-      margin-top: 26px;
-      border-top: 1px solid var(--line);
-      padding-top: 18px;
-      color: var(--muted);
-      font-size: 13px;
-    }}
-    .source-panel > strong {{
-      display: block;
-      color: #344054;
-      font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 8px;
-    }}
-    .source-links {{
-      margin: 0;
-      padding-left: 18px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-      gap: 6px 18px;
-    }}
-    .source-panel a {{
-      color: var(--focus);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(29, 78, 216, 0.25);
-    }}
     .footer-update {{
       margin: 18px 0 0;
       padding: 14px 0 4px;
@@ -3496,10 +3468,6 @@ def render_index(items: list[dict[str, Any]]) -> str:
   </header>
   <main class="shell">
 {''.join(panels)}
-    <section class="source-panel" aria-label="sources">
-      <strong>연결 소스</strong>
-      <ul class="source-links">{links}</ul>
-    </section>
     <div class="footer-update">업데이트 {escape(fmt_footer_update(os.environ.get("SITE_UPDATED_AT")))}</div>
   </main>
   <script type="application/json" id="shorts-data">{data_json}</script>
