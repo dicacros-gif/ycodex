@@ -1931,6 +1931,100 @@ def match_note_terms(item: dict[str, Any]) -> list[str]:
     return terms[:5]
 
 
+def title_hashtags(item: dict[str, Any]) -> list[str]:
+    title = str(item.get("title") or "")
+    tags = re.findall(r"#([\w가-힣ぁ-んァ-ン一-龥]+)", title, flags=re.UNICODE)
+    unique: list[str] = []
+    seen: set[str] = set()
+    for tag in tags:
+        normalized = tag.lower()
+        if normalized in seen:
+            continue
+        seen.add(normalized)
+        unique.append("#" + tag)
+    return unique[:5]
+
+
+def title_specific_hook_points(item: dict[str, Any]) -> list[str]:
+    title = clean_text(str(item.get("title") or ""))
+    text = title.lower()
+    compact = compact_title(title, 54)
+    points: list[str] = []
+
+    if "?" in title or "？" in title:
+        points.append(f"제목 '{compact}'가 질문형으로 열려 결과 확인 욕구를 만듦")
+    if re.search(r"\bvs\b| versus ", text, flags=re.I):
+        points.append(f"제목 '{compact}' 안에 비교 구도가 있어 전후 차이를 끝까지 확인하게 만듦")
+    if re.search(r"대결|전쟁|world cup|fifa", text, flags=re.I):
+        points.append(f"제목 '{compact}' 안에 경쟁 구도가 있어 승패·결과를 끝까지 보게 만듦")
+    if any(term in text for term in ("magic", "마술", "trick", "reveal")):
+        points.append(f"제목 '{compact}'의 마술·공개 신호가 트릭을 다시 확인하게 만듦")
+    if re.search(r"\b(saved|rescue|almost|curse|unexpected|ending)\b|cost him", text):
+        points.append(f"제목 '{compact}'가 위기·반전·결말을 먼저 던져 완주 동기를 만듦")
+    if any(term in text for term in ("funny", "comedy", "humor", "prank", "laugh", "웃", "코미디")):
+        points.append(f"제목 '{compact}'의 코미디 신호가 언어 장벽 낮은 공유 포인트를 만듦")
+    if any(term in text for term in ("dance", "댄스", "춤", "challenge", "챌린지", "shuffle", "joget", "baile")):
+        points.append(f"제목 '{compact}'의 댄스·챌린지 신호가 따라 하기와 반복 시청을 유도")
+    if any(term in text for term in ("tutorial", "how to", "making", "backstage", "result")):
+        points.append(f"제목 '{compact}'가 과정과 결과를 함께 암시해 전후 비교 욕구를 만듦")
+    if any(term in text for term in ("k-pop", "kpop", "idol", "bts", "blackpink", "뉴진스", "아이돌")):
+        points.append(f"제목 '{compact}'의 K-pop·팬덤 신호가 댓글·공유 반응을 모으기 쉬움")
+    if any(term in text for term in ("song", "music", "노래", "음악", "trend", "trending", "phonk", "slowed")):
+        points.append(f"제목 '{compact}'에 사운드·트렌드 단서가 있어 첫 프레임 전에 장르 기대가 형성됨")
+
+    hashtags = title_hashtags(item)
+    if hashtags:
+        points.append(f"해시태그 {', '.join(hashtags[:4])}가 검색 발견성과 추천 테스트 진입점을 넓힘")
+
+    emoji_count = len(re.findall(r"[^\w\s#.,:;!?？'\"/|()\-가-힣ぁ-んァ-ン一-龥]", title, flags=re.UNICODE))
+    if emoji_count >= 2:
+        points.append(f"이모지 {emoji_count}개가 감정 톤을 즉시 보여 줘 작은 썸네일에서도 분위기가 읽힘")
+
+    if not points:
+        points.append(f"제목 '{compact}'가 짧은 장면 기대를 먼저 만들어 스크롤 정지 포인트로 작동")
+    return points
+
+
+def metric_specific_points(item: dict[str, Any]) -> list[str]:
+    views = parse_int(item.get("viewsGained"))
+    likes = parse_int(item.get("likeCount"))
+    duration = parse_int(item.get("duration"))
+    age = published_age_days(item)
+    points: list[str] = []
+
+    if likes and views:
+        like_rate = likes / views * 100
+        if like_rate >= 3:
+            points.append(f"좋아요율 약 {like_rate:.1f}%로 조회 대비 반응 밀도가 높아 추천 신호가 강함")
+        elif like_rate >= 1:
+            points.append(f"좋아요 {fmt_int(likes)}개가 붙어 단순 노출보다 실제 반응이 확인됨")
+        else:
+            points.append(f"조회수 {fmt_int(views)} 대비 좋아요 {fmt_int(likes)}개로 대량 노출형 확산 신호가 큼")
+    elif views:
+        points.append(f"공개 메타데이터 기준 조회수 {fmt_int(views)}회로 탭 내 비교 우선순위가 높음")
+
+    if age is not None and views:
+        if age <= 14:
+            daily_views = max(round(views / max(age, 1)), 1)
+            points.append(f"게시 후 {age}일 기준 하루 평균 약 {fmt_int(daily_views)} views 속도로 초기 확산이 빠름")
+        elif views >= 10_000_000:
+            points.append(f"게시 후 {age}일이 지나도 {fmt_int(views)} views를 유지해 장기 추천 노출이 남아 있음")
+
+    if duration:
+        if duration <= 15:
+            points.append(f"{duration}초 길이라 훅과 결과를 빠르게 회수해 반복 재생에 유리")
+        elif duration <= 35:
+            points.append(f"{duration}초 구성으로 상황 전개와 결과 확인을 한 번에 담기 좋음")
+        else:
+            points.append(f"{duration}초 길이로 짧은 서사·챌린지 과정을 보여 줄 여유가 있음")
+
+    source_rank = parse_int(item.get("sourceRank"))
+    source_window = clean_text(str(item.get("sourceWindow") or ""))
+    if source_rank:
+        points.append(f"{source_window or 'source'} rank {source_rank}로 포착되어 같은 소스 안에서도 상위 반응 신호가 있음")
+    return points
+
+
 def popularity_reason_points(item: dict[str, Any]) -> list[str]:
     views = parse_int(item.get("viewsGained"))
     clusters = item_cluster_keys(item)
@@ -1992,7 +2086,7 @@ def popularity_reason_points(item: dict[str, Any]) -> list[str]:
     elif window == "24H":
         velocity = "24H 랭킹 출처에서 잡힌 항목이라 최신 피드 반응은 있지만, 장기 확산 여부는 다음 업데이트에서 확인해야 합니다"
     else:
-        velocity = "현재는 지역·소스 단위의 인기 신호가 먼저 보이며, 누적 반복 시청이 붙어야 더 큰 조회수로 커질 수 있습니다"
+        velocity = f"{source_detail} 신호와 {fmt_int(views)} views가 결합된 초기 후보 / 다음 수집에서 좋아요·순위 변화로 확장성 확인 필요"
 
     keyword_detail = f"감지 키워드: {', '.join(terms)}" if terms else "감지 키워드: 제목·소스 신호 중심"
     pattern_detail = f"분석 패턴: {', '.join(labels)}" if labels else "분석 패턴: 짧은 상황 이해와 시각적 훅 중심"
@@ -2001,6 +2095,8 @@ def popularity_reason_points(item: dict[str, Any]) -> list[str]:
         f"{region} 탭에서 {fmt_int(views)} views로 확인된 {tier} 쇼츠",
         f"{source_detail}에 포착되어 단순 검색보다 랭킹·트렌드 출처의 반응 신호가 있음",
         keyword_detail,
+        *title_specific_hook_points(item)[:4],
+        *metric_specific_points(item)[:4],
         *hook_parts[:3],
         retention,
         velocity,
@@ -2014,13 +2110,19 @@ def popularity_reason(item: dict[str, Any]) -> str:
 
 def card_popularity_points(item: dict[str, Any]) -> list[str]:
     points = popularity_reason_points(item)
+    title_points = title_specific_hook_points(item)
+    metric_points = metric_specific_points(item)
     selected = [points[0]]
-    if len(points) > 2:
+    if title_points:
+        selected.append(title_points[0])
+    if metric_points:
+        selected.append(metric_points[0])
+    if len(metric_points) > 1:
+        selected.append(metric_points[1])
+    elif len(title_points) > 1:
+        selected.append(title_points[1])
+    elif len(points) > 2:
         selected.append(points[2])
-    if len(points) > 3:
-        selected.append(points[3])
-    if len(points) > 6:
-        selected.append(points[-2])
     return unique_texts(selected)[:4]
 
 
