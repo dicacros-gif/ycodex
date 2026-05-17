@@ -2614,6 +2614,107 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
     </section>"""
 
 
+def render_youtube_api_analysis(items: list[dict[str, Any]]) -> str:
+    api_items = unique_content_items([item for item in items if is_displayable(item)])
+    if not api_items:
+        return f"""
+    <section class="trend-brief youtube-api-brief" aria-label="YouTube API analysis">
+      <div class="trend-heading">
+        <strong>YouTube API 인사이트</strong>
+        <ul class="trend-meta">
+          <li>{highlight_text("API 표시 영상 0개")}</li>
+          <li>{highlight_text(f"{MIN_DISPLAY_VIEWS:,}뷰 이상")}</li>
+        </ul>
+      </div>
+      <ul class="trend-notes">{render_points(["YouTube Data API 수집 결과가 아직 없어 다음 실행에서 다시 확인 필요"])}</ul>
+    </section>"""
+
+    dated_items = [(item, parse_date(item.get("publishedAt"))) for item in api_items]
+    dated_items = [(item, published) for item, published in dated_items if published]
+    latest_date = max((published for _, published in dated_items), default=None)
+    cutoff = latest_date - timedelta(days=6) if latest_date else None
+    recent_items = [item for item, published in dated_items if cutoff and published >= cutoff]
+    analysis_base = recent_items or api_items
+    counts = cluster_counts(api_items)
+    top_key, _ = top_cluster(api_items)
+    top_item = max(api_items, key=lambda item: parse_int(item.get("viewsGained")))
+    top_cluster_text = ", ".join(cluster_label(key) for key in item_cluster_keys(top_item)[:2] if key != "other") or cluster_label(top_key)
+    top_action = creator_action_for_cluster(top_key)
+
+    region_counts: dict[str, int] = {}
+    for item in api_items:
+        label = item_region_label(item)
+        region_counts[label] = region_counts.get(label, 0) + 1
+    region_text = ", ".join(
+        f"{label} {count}개"
+        for label, count in sorted(region_counts.items(), key=lambda pair: pair[1], reverse=True)[:5]
+    )
+
+    api_windows = sorted({clean_text(str(item.get("sourceWindow") or "")) for item in api_items if item.get("sourceWindow")})
+    window_text = ", ".join(api_windows) if api_windows else "api-viewCount"
+    recent_range = f"{cutoff.month}/{cutoff.day} ~ {latest_date.month}/{latest_date.day}" if cutoff and latest_date else "게시일 확인 구간"
+    like_text = fmt_count(top_item.get("likeCount"))
+    duration_values = [parse_int(item.get("duration")) for item in api_items if parse_int(item.get("duration"))]
+    avg_duration = round(sum(duration_values) / len(duration_values)) if duration_values else 0
+
+    summary_points = [
+        f"YouTube Data API v3 search/videos 기준 {len(api_items)}개 표시, {MIN_DISPLAY_VIEWS:,}뷰 이상, {SHORTS_MAX_DURATION_SECONDS}초 이하, 중복 제거 통과",
+        f"정렬 신호는 {window_text} 중심이며, 조회수 상위 API 사례는 {compact_title(str(top_item.get('title', '')), 48)} ({fmt_int(top_item.get('viewsGained'))} views, 좋아요 {like_text})",
+        f"지역별 API 수집은 {region_text or '여러 지역'} 순으로 많고, 같은 영상 ID는 전체 탭에서 한 번만 유지",
+        f"최근 {recent_range} 게시 API 표본 {len(analysis_base)}개 기준으로 {cluster_label(top_key)} 신호가 가장 강함",
+    ]
+
+    pattern_points = [
+        f"API 상위 후보는 {top_cluster_text} 성격이 강하고, 제작 포인트는 {top_action}",
+        f"평균 길이는 약 {avg_duration}초로, 1분 안에 훅과 결과를 회수하는 짧은 구조가 많음",
+        "제목에 dance, challenge, funny, trend, shorts 같은 탐색 키워드가 함께 붙어 검색 발견성과 추천 테스트 진입을 노림",
+        "API 기반 후보는 공식 조회수·좋아요·게시일 확인이 가능해, 랭킹 사이트 후보와 비교할 때 초기 검수 기준으로 쓰기 좋음",
+    ]
+
+    region_points: list[str] = []
+    grouped_by_region: dict[str, list[dict[str, Any]]] = {}
+    for item in api_items:
+        grouped_by_region.setdefault(str(item.get("region") or "global"), []).append(item)
+    for region_key, rows in sorted(grouped_by_region.items(), key=lambda pair: (-len(pair[1]), region_label_for_key(pair[0])))[:6]:
+        region_top = max(rows, key=lambda item: parse_int(item.get("viewsGained")))
+        region_cluster, region_action = top_cluster_sentence(rows)
+        region_points.append(
+            f"{region_label_for_key(region_key)}: API 후보 {len(rows)}개, 대표 사례 {compact_title(str(region_top.get('title', '')), 42)} ({fmt_int(region_top.get('viewsGained'))} views), 핵심 신호 {region_cluster}, 제작 포인트 {region_action}"
+        )
+
+    top_badges = "\n".join(
+        f"<li>{highlight_text(f'{cluster_label(key)} {count}')}</li>"
+        for key, count in sorted(counts.items(), key=lambda pair: pair[1], reverse=True)[:4]
+        if count
+    )
+
+    return f"""
+    <section class="trend-brief youtube-api-brief" aria-label="YouTube API analysis">
+      <div class="trend-heading">
+        <strong>YouTube API 인사이트</strong>
+        <ul class="trend-meta">
+          <li>{highlight_text(f'API 표시 영상 {len(api_items)}개')}</li>
+          <li>{highlight_text(f'{MIN_DISPLAY_VIEWS:,}뷰 이상')}</li>
+        </ul>
+      </div>
+      <ul class="trend-badges">{top_badges}</ul>
+      <ul class="trend-notes">{render_points(summary_points)}</ul>
+      <div class="trend-source-insights">
+        <strong>API 수집 요약</strong>
+        <ul>{render_points(pattern_points)}</ul>
+      </div>
+      <div class="creator-insights">
+        <strong>API 기반 지역 인사이트</strong>
+        <div class="creator-insight-grid">
+          <div class="creator-insight-card">
+            <h3>지역별 API 신호</h3>
+            <ul>{render_points(region_points)}</ul>
+          </div>
+        </div>
+      </div>
+    </section>"""
+
+
 def render_card(item: dict[str, Any], index: int) -> str:
     reason_items = render_points(card_popularity_points(item))
     return f"""
@@ -2659,6 +2760,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
     api_items = unique_content_items([item for item in order_items_newest_first(api_pool) if is_displayable(item)])
     display_items = [item for region_items in grouped.values() for item in region_items] + api_items
     trend_analysis = render_trend_analysis(display_items)
+    api_analysis = render_youtube_api_analysis(api_items)
     mega_count = sum(1 for item in display_items if parse_int(item.get("viewsGained")) >= VIRAL_VIEW_THRESHOLD)
 
     tab_parts = []
@@ -2682,7 +2784,7 @@ def render_index(items: list[dict[str, Any]]) -> str:
         render_mega_view_analysis(display_items),
         f"""
     <section id="panel-youtube-api" class="region-panel" data-region-panel="youtube_api" role="tabpanel" aria-labelledby="tab-youtube-api" aria-label="YouTube Data API Shorts">
-{trend_analysis}
+{api_analysis}
       <div class="grid">{api_cards}
       </div>
     </section>""",
