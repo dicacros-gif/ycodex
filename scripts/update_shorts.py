@@ -1885,6 +1885,41 @@ def top_signal_terms(items: list[dict[str, Any]], terms: list[str], limit: int =
     return [(term, count) for term, count in sorted(counts.items(), key=lambda pair: pair[1], reverse=True) if count][:limit]
 
 
+def pct_text(count: int, total: int) -> str:
+    if total <= 0:
+        return "0%"
+    return f"{round(count / total * 100)}%"
+
+
+def cluster_mix_text(items: list[dict[str, Any]], limit: int = 3) -> str:
+    counts = cluster_counts(items)
+    ranked = [
+        (key, count)
+        for key, count in sorted(counts.items(), key=lambda pair: pair[1], reverse=True)
+        if count and key != "other"
+    ]
+    if not ranked:
+        ranked = [(key, count) for key, count in sorted(counts.items(), key=lambda pair: pair[1], reverse=True) if count]
+    return ", ".join(
+        f"{cluster_label(key)} {count}개({pct_text(count, len(items))})"
+        for key, count in ranked[:limit]
+    )
+
+
+def top_signal_text(items: list[dict[str, Any]], limit: int = 5) -> str:
+    terms = top_signal_terms(
+        items,
+        ["dance", "challenge", "funny", "comedy", "music", "song", "trend", "viral", "fyp", "shuffle", "magic", "prank", "tutorial"],
+        limit,
+    )
+    return ", ".join(f"{term} {count}개" for term, count in terms) or "상위 제목 훅 분산"
+
+
+def average_int(values: list[int]) -> int:
+    values = [value for value in values if value]
+    return round(sum(values) / len(values)) if values else 0
+
+
 def trend_ratio(counts: dict[str, int], key: str, total: int) -> float:
     if total <= 0:
         return 0.0
@@ -2527,7 +2562,7 @@ def render_global_source_insights(items: list[dict[str, Any]], analysis_base: li
     )
     for family, rows in source_rows[:5]:
         top_item = max(rows, key=lambda item: parse_int(item.get("viewsGained")))
-        cluster_text = ", ".join(cluster_label(key) for key in item_cluster_keys(top_item)[:2] if key != "other") or "상위 조회수 급상승"
+        cluster_text = cluster_mix_text(rows, 2)
         windows = sorted({clean_text(str(item.get("sourceWindow") or "")) for item in rows if item.get("sourceWindow")})
         window_text = "/".join(windows[:3]) if windows else "라이브"
         regions: dict[str, int] = {}
@@ -2538,8 +2573,9 @@ def render_global_source_insights(items: list[dict[str, Any]], analysis_base: li
             f"{label} {count}개"
             for label, count in sorted(regions.items(), key=lambda pair: pair[1], reverse=True)[:3]
         )
+        avg_views = average_int([parse_int(item.get("viewsGained")) for item in rows])
         notes.append(
-            f"{source_family_label(family)}: {len(rows)}개 표시, {window_text} 기준에서 {region_text or '여러 지역'} 신호가 잡혔고 대표 사례는 {compact_title(str(top_item.get('title', '')), 42)} ({fmt_int(top_item.get('viewsGained'))} views), {cluster_text} 성격이 강합니다."
+            f"{source_family_label(family)} / {window_text} / {len(rows)}개 / 주요 지역 {region_text or '여러 지역'} / 평균 {fmt_int(avg_views)} views / 대표 {compact_title(str(top_item.get('title', '')), 42)} ({fmt_int(top_item.get('viewsGained'))} views) / 포맷 {cluster_text}"
         )
 
     source_counts = cluster_counts(analysis_base)
@@ -2549,7 +2585,7 @@ def render_global_source_insights(items: list[dict[str, Any]], analysis_base: li
         if count and key != "other"
     ][:3]
     if leading:
-        notes.append(f"소스별 랭킹을 합쳐 보면 {', '.join(leading)}가 글로벌 탭의 핵심 관찰 포인트입니다.")
+        notes.append(f"소스 통합 핵심 / {', '.join(leading)} / 오늘 글로벌 탭에서 우선 확인할 포맷")
     return f"""
       <div class="trend-source-insights">
         <strong>글로벌 크롤링 인사이트</strong>
@@ -2601,12 +2637,15 @@ def render_creator_strategy_insights(items: list[dict[str, Any]], analysis_base:
     )
     top_source_text = ", ".join(top_sources[:4]) if top_sources else "공개 랭킹 소스"
     highest = sorted_by_views[0]
+    high_avg_views = average_int([parse_int(item.get("viewsGained")) for item in high_signal_items[:8]])
+    high_avg_duration = average_int([parse_int(item.get("duration")) for item in high_signal_items[:8]])
+    high_signal_terms = top_signal_text(high_signal_items, 4)
 
     common_points = [
-        f"{view_tier_label(parse_int(highest.get('viewsGained')))} 대표 사례는 {compact_title(str(highest.get('title', '')), 44)}이며, {top_label} 신호가 가장 강합니다.",
-        f"1억뷰·근접권은 {top_source_text}에서 교차로 잡히는 경우가 많아, 단일 검색 노출보다 랭킹 사이트 반응을 함께 확인해야 합니다.",
-        top_action,
-        "대사보다 표정·동작·결과가 먼저 읽히는 영상이 국가를 넘어 확장되며, 반복 시청을 만들 수 있는 루프형 끝맺음이 유리합니다.",
+        f"상위권 기준 / {len(high_signal_items[:8])}개 / 평균 {fmt_int(high_avg_views)} views / 평균 {high_avg_duration}초 / 대표 {compact_title(str(highest.get('title', '')), 44)} ({fmt_int(highest.get('viewsGained'))} views)",
+        f"오늘 강한 신호 / {top_label} / 제목 키워드 {high_signal_terms} / 출처 {top_source_text}",
+        f"제작 우선순위 / {top_action}",
+        "확산 포인트 / 대사보다 표정·동작·결과가 먼저 읽히고, 마지막 컷이 첫 컷으로 자연스럽게 이어지는 루프 구조",
     ]
 
     region_points: list[str] = []
@@ -2618,8 +2657,10 @@ def render_creator_strategy_insights(items: list[dict[str, Any]], analysis_base:
         cluster_name, action = top_cluster_sentence(rows)
         top_item = max(rows, key=lambda item: parse_int(item.get("viewsGained")))
         family_text = source_family_label(source_family(top_item))
+        region_avg_views = average_int([parse_int(item.get("viewsGained")) for item in rows])
+        region_terms = top_signal_text(rows, 3)
         region_points.append(
-            f"{region_label}: {cluster_name} 비중이 크고 대표 사례는 {compact_title(str(top_item.get('title', '')), 38)} ({fmt_int(top_item.get('viewsGained'))} views)입니다. 제작 포인트는 {action} 근거 소스는 {family_text}입니다."
+            f"{region_label} / {len(rows)}개 / 평균 {fmt_int(region_avg_views)} views / 핵심 {cluster_name} / 제목 신호 {region_terms} / 대표 {compact_title(str(top_item.get('title', '')), 38)} ({fmt_int(top_item.get('viewsGained'))} views) / 제작 포인트 {action} / 근거 {family_text}"
         )
 
     low_items = [item for item in visible_items if parse_int(item.get("viewsGained")) < 1_000_000]
@@ -2633,11 +2674,12 @@ def render_creator_strategy_insights(items: list[dict[str, Any]], analysis_base:
     weakest = bottom_items[0]
     weakest_views = parse_int(weakest.get("viewsGained"))
     low_ceiling = max(parse_int(item.get("viewsGained")) for item in bottom_items)
+    bottom_terms = top_signal_text(bottom_items, 4)
     failure_points = [
-        f"{view_tier_label(weakest_views)} 하위권 대표 사례는 {compact_title(str(weakest.get('title', '')), 40)} ({fmt_int(weakest_views)} views)이며, {weak_label}처럼 보여도 첫 장면 보상이나 결과 회수가 약하면 확산이 멈출 수 있습니다.",
-        f"최근 하위 표본 {len(bottom_items)}개는 {fmt_int(weakest_views)}~{fmt_int(low_ceiling)} views 구간에 몰려 있어, 초반 1초 안에 상황·동작·결과 질문을 더 선명하게 줘야 합니다.",
-        f"해시태그·trend·viral 신호가 제목에 과하게 몰린 후보는 {len(generic_titles)}개입니다. 키워드 나열보다 실제 행동, 상황, 결과 질문을 먼저 보여야 합니다.",
-        f"저성과 회피 포인트는 {weak_action}",
+        f"하위권 구간 / {len(bottom_items)}개 / {fmt_int(weakest_views)}~{fmt_int(low_ceiling)} views / 대표 {compact_title(str(weakest.get('title', '')), 40)}",
+        f"약한 신호 / {weak_label}처럼 보여도 첫 장면 보상·결과 회수 약하면 확산 정체 / 하위 제목 신호 {bottom_terms}",
+        f"주의 패턴 / 해시태그·trend·viral 과밀 후보 {len(generic_titles)}개 / 키워드 나열보다 실제 행동·상황·결과 질문 우선",
+        f"개선 포인트 / {weak_action}",
     ]
 
     return f"""
@@ -2678,6 +2720,8 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
     comparison = []
     if previous:
         for key in recent_counts:
+            if key == "other":
+                continue
             delta = trend_ratio(recent_counts, key, len(analysis_base)) - trend_ratio(previous_counts, key, len(previous))
             comparison.append((delta, key))
     comparison.sort(reverse=True)
@@ -2695,18 +2739,23 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
         top_view_clusters = "제목·조회수 기반 급상승"
 
     if rising_delta >= 0.08:
-        shift_sentence = f"이전 누적 대비 {cluster_label(rising_key)} 비중이 약 {round(rising_delta * 100)}%p 높아졌습니다."
+        shift_sentence = f"변화 / {cluster_label(rising_key)} 비중 +{round(rising_delta * 100)}%p / 이전 누적 대비 가장 빠르게 확대"
     elif rising_delta <= -0.08:
-        shift_sentence = f"최근 표본에서는 {cluster_label(rising_key)} 비중이 이전보다 낮아져, 관심이 다른 포맷으로 분산됩니다."
+        shift_sentence = f"변화 / {cluster_label(rising_key)} 비중 {round(rising_delta * 100)}%p / 관심이 다른 포맷으로 분산"
     else:
-        shift_sentence = "최근 표본은 이전 누적과 큰 급변보다는 기존 강세 포맷이 유지되는 흐름입니다."
+        shift_sentence = "변화 / 급격한 쏠림보다 기존 강세 포맷 유지 / 상위 사례 중심으로 세부 훅 확인 필요"
 
     recent_range = f"{cutoff.month}/{cutoff.day} ~ {latest_date.month}/{latest_date.day}"
+    recent_mix = cluster_mix_text(analysis_base, 3)
+    recent_terms = top_signal_text(analysis_base, 5)
+    recent_avg_views = average_int([parse_int(item.get("viewsGained")) for item in analysis_base])
+    recent_avg_duration = average_int([parse_int(item.get("duration")) for item in analysis_base])
     notes = [
-        f"최근 {recent_range} 게시 영상 {len(analysis_base)}개 기준으로 {cluster_label(recent_key)} 신호가 가장 큽니다.",
+        f"분석 기간 / {recent_range} / 최근 게시 {len(analysis_base)}개 / 평균 {fmt_int(recent_avg_views)} views / 평균 {recent_avg_duration}초",
+        f"포맷 분포 / {recent_mix}",
         shift_sentence,
-        f"지역별로는 {region_text or '여러 지역'}에서 새 게시물이 많이 잡히며, 지역 탭마다 코미디·댄스·편집형 비중이 다르게 나타납니다.",
-        f"조회수 상위 최근 사례는 {compact_title(str(top_view_item.get('title', '')))} ({fmt_int(top_view_item.get('viewsGained'))} views)이며, {top_view_clusters} 쪽 신호가 강합니다.",
+        f"지역 확산 / {region_text or '여러 지역'} / 제목 신호 {recent_terms}",
+        f"상위 최근 사례 / {compact_title(str(top_view_item.get('title', '')))} / {fmt_int(top_view_item.get('viewsGained'))} views / {top_view_clusters}",
     ]
 
     note_items = render_points(notes)
@@ -2775,25 +2824,22 @@ def render_youtube_api_analysis(items: list[dict[str, Any]]) -> str:
     like_text = fmt_count(top_item.get("likeCount"))
     duration_values = [parse_int(item.get("duration")) for item in api_items if parse_int(item.get("duration"))]
     avg_duration = round(sum(duration_values) / len(duration_values)) if duration_values else 0
-    signal_terms = top_signal_terms(
-        api_items,
-        ["dance", "challenge", "funny", "comedy", "music", "song", "trend", "viral", "fyp", "shuffle", "tutorial"],
-        5,
-    )
-    signal_term_text = ", ".join(f"{term} {count}개" for term, count in signal_terms) or "상위 제목 훅"
+    signal_term_text = top_signal_text(api_items, 5)
+    api_avg_views = average_int([parse_int(item.get("viewsGained")) for item in api_items])
+    api_recent_mix = cluster_mix_text(analysis_base, 3)
 
     summary_points = [
-        f"YouTube Data API v3 search/videos 기준 {len(api_items)}개 표시, {YOUTUBE_API_MIN_DISPLAY_VIEWS:,}뷰 이상, {SHORTS_MAX_DURATION_SECONDS}초 이하, 중복 제거 통과",
-        f"정렬 신호는 {window_text} 중심이며, 조회수 상위 API 사례는 {compact_title(str(top_item.get('title', '')), 48)} ({fmt_int(top_item.get('viewsGained'))} views, 좋아요 {like_text})",
-        f"지역별 API 수집은 {region_text or '여러 지역'} 순으로 많고, 상위 제목 신호는 {signal_term_text}",
-        f"최근 {recent_range} 게시 API 표본 {len(analysis_base)}개 기준으로 {cluster_label(top_key)} 신호가 가장 강함",
+        f"API 기준 / search/videos / {len(api_items)}개 / {YOUTUBE_API_MIN_DISPLAY_VIEWS:,}뷰 이상 / 평균 {fmt_int(api_avg_views)} views / {SHORTS_MAX_DURATION_SECONDS}초 이하",
+        f"조회수 1위 / {compact_title(str(top_item.get('title', '')), 48)} / {fmt_int(top_item.get('viewsGained'))} views / 좋아요 {like_text} / 정렬 {window_text}",
+        f"지역 분포 / {region_text or '여러 지역'} / 제목 신호 {signal_term_text}",
+        f"최근 API 표본 / {recent_range} / {len(analysis_base)}개 / 포맷 {api_recent_mix}",
     ]
 
     pattern_points = [
-        f"API 상위 후보는 {top_cluster_text} 성격이 강하고, 제작 포인트는 {top_action}",
-        f"평균 길이는 약 {avg_duration}초로, 1분 안에 훅과 결과를 회수하는 짧은 구조가 많음",
-        f"최신 API 제목 신호는 {signal_term_text} 순으로 반복되어, 음악·동작·상황 훅이 검색 발견성을 이끔",
-        "API 기반 후보는 공식 조회수·좋아요·게시일 확인이 가능해, 랭킹 사이트 후보와 비교할 때 초기 검수 기준으로 쓰기 좋음",
+        f"상위 포맷 / {top_cluster_text} / 제작 포인트 {top_action}",
+        f"길이 패턴 / 평균 {avg_duration}초 / 1분 안에 훅과 결과를 회수하는 짧은 구조 우세",
+        f"제목 패턴 / {signal_term_text} / 음악·동작·상황 훅이 검색 발견성 주도",
+        "검수 포인트 / 공식 조회수·좋아요·게시일 확인 가능 / 랭킹 사이트 후보와 초기 반응 비교",
     ]
 
     region_points: list[str] = []
@@ -2803,8 +2849,10 @@ def render_youtube_api_analysis(items: list[dict[str, Any]]) -> str:
     for region_key, rows in sorted(grouped_by_region.items(), key=lambda pair: (-len(pair[1]), region_label_for_key(pair[0])))[:6]:
         region_top = max(rows, key=lambda item: parse_int(item.get("viewsGained")))
         region_cluster, region_action = top_cluster_sentence(rows)
+        region_avg = average_int([parse_int(item.get("viewsGained")) for item in rows])
+        region_terms = top_signal_text(rows, 3)
         region_points.append(
-            f"{region_label_for_key(region_key)}: API 후보 {len(rows)}개, 대표 사례 {compact_title(str(region_top.get('title', '')), 42)} ({fmt_int(region_top.get('viewsGained'))} views), 핵심 신호 {region_cluster}, 제작 포인트 {region_action}"
+            f"{region_label_for_key(region_key)} / API {len(rows)}개 / 평균 {fmt_int(region_avg)} views / 대표 {compact_title(str(region_top.get('title', '')), 42)} ({fmt_int(region_top.get('viewsGained'))} views) / 신호 {region_cluster} / 제목 {region_terms} / 제작 {region_action}"
         )
 
     top_badges = "\n".join(
