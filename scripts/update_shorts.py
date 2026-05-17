@@ -537,6 +537,69 @@ def unique_texts(values: list[str]) -> list[str]:
     return unique
 
 
+def bulletize_text(value: Any) -> str:
+    text = clean_text(str(value)).replace("...", "…")
+    replacements = [
+        ("확인해야 합니다", "확인 필요"),
+        ("점검해야 합니다", "점검 필요"),
+        ("봐야 합니다", "봐야 함"),
+        ("작동했을 가능성이 큽니다", "작동 가능성 큼"),
+        ("가능성이 큽니다", "가능성 큼"),
+        ("설명 비용이 거의 필요 없습니다", "설명 비용 낮음"),
+        ("맥락 설명이 거의 필요 없습니다", "맥락 설명 거의 불필요"),
+        ("필요 없습니다", "불필요"),
+        ("보여 주고", "제시하고"),
+        ("보여 줍니다", "제시"),
+        ("알려 줍니다", "전달"),
+        ("만들어 줍니다", "만듦"),
+        ("만듭니다", "만듦"),
+        ("나옵니다", "나옴"),
+        ("나타납니다", "나타남"),
+        ("잡힙니다", "잡힘"),
+        ("남깁니다", "남김"),
+        ("던집니다", "던짐"),
+        ("노립니다", "노림"),
+        ("이어집니다", "이어짐"),
+        ("열립니다", "열림"),
+        ("줄입니다", "줄임"),
+        ("낮춥니다", "낮춤"),
+        ("붙잡습니다", "붙잡음"),
+        ("유리합니다", "유리"),
+        ("발생합니다", "발생"),
+        ("전달됩니다", "전달됨"),
+        ("이해됩니다", "이해됨"),
+        ("확장됩니다", "확장됨"),
+        ("구분됩니다", "구분됨"),
+        ("분산됩니다", "분산됨"),
+        ("반영합니다", "반영"),
+        ("우선합니다", "우선"),
+        ("시도합니다", "시도"),
+        ("확인합니다", "확인"),
+        ("있습니다", "있음"),
+        ("없습니다", "없음"),
+        ("쉽습니다", "쉬움"),
+        ("어렵습니다", "어려움"),
+        ("강합니다", "강함"),
+        ("큽니다", "큼"),
+        ("작습니다", "작음"),
+        ("좋습니다", "좋음"),
+        ("입니다", "임"),
+        ("합니다", "함"),
+        ("됩니다", "됨"),
+    ]
+    for before, after in replacements:
+        text = text.replace(before, after)
+    text = text.replace("이며,", " /")
+    text = text.replace("이고,", " /")
+    text = text.replace("라면,", "라면 /")
+    text = re.sub(r"\s*\.\s+", " / ", text)
+    text = re.sub(r"[.。]+$", "", text)
+    text = re.sub(r"\s*/\s*", " / ", text)
+    text = re.sub(r"(?:\s*/\s*){2,}", " / ", text)
+    text = re.sub(r"\s+", " ", text).strip(" .。")
+    return text
+
+
 def unique_content_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     unique: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
@@ -2005,7 +2068,8 @@ def highlight_text(text: Any) -> str:
 
 
 def render_points(points: list[str]) -> str:
-    return "\n".join(f"<li>{highlight_text(point)}</li>" for point in unique_texts(points))
+    bullet_points = unique_texts([bulletize_text(point) for point in points])
+    return "\n".join(f"<li>{highlight_text(point)}</li>" for point in bullet_points)
 
 
 def source_label(item: dict[str, Any]) -> str:
