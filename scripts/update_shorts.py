@@ -1333,7 +1333,7 @@ def collect_youtube_api(collected_at: str) -> list[dict[str, Any]]:
             statistics = details.get("statistics") or {}
             content_details = details.get("contentDetails") or {}
             duration = parse_iso8601_duration(content_details.get("duration"))
-            if duration and duration > SHORTS_MAX_DURATION_SECONDS:
+            if not duration or duration > SHORTS_MAX_DURATION_SECONDS:
                 continue
             item = make_candidate(
                 region=region["key"],
@@ -1350,10 +1350,13 @@ def collect_youtube_api(collected_at: str) -> list[dict[str, Any]]:
                 published_at=snippet.get("publishedAt"),
                 like_count=statistics.get("likeCount"),
                 duration=duration,
+                width=1080,
+                height=1920,
                 extra_notes=[
                     "source: YouTube Data API v3",
                     f"api query: {query_text}",
                     "official search and video metadata",
+                    "api short-duration shorts candidate",
                 ],
                 min_score=-2,
             )
