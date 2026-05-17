@@ -14,6 +14,8 @@ jobs:
     env:
       MAX_NEW_SHORTS_PER_REGION: "8"
       YT_SEARCH_LIMIT: "12"
+      YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+      YOUTUBE_API_SEARCH_LIMIT: "5"
       MIN_DISPLAY_VIEWS: "3000"
       VIRAL_VIEW_THRESHOLD: "100000000"
       PUBLISHED_METADATA_LIMIT: "200"
@@ -124,8 +126,8 @@ jobs:
               if len(text) >= 100 and "views" in text
           ]
           if (
-              parser.tabs != 18
-              or parser.panels != 18
+              parser.tabs != 19
+              or parser.panels != 19
               or parser.cards == 0
               or parser.cards != parser.images
               or parser.cards != len(parser.thumb_links)

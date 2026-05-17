@@ -234,8 +234,30 @@ CHARTIKA_REGION_IDS = {
     "vn": "vn",
 }
 
+YOUTUBE_API_REGION_CODES = {
+    "global": "",
+    "kr": "KR",
+    "us": "US",
+    "jp": "JP",
+    "mx": "MX",
+    "de": "DE",
+    "br": "BR",
+    "id": "ID",
+    "ar": "AR",
+    "ph": "PH",
+    "es": "ES",
+    "it": "IT",
+    "fr": "FR",
+    "uz": "UZ",
+    "dz": "DZ",
+    "kz": "KZ",
+    "vn": "VN",
+}
+
 RANKING_SOURCE_LIMIT = int(os.environ.get("RANKING_SOURCE_LIMIT", "18"))
 YT_SEARCH_LIMIT = int(os.environ.get("YT_SEARCH_LIMIT", "12"))
+YOUTUBE_API_SEARCH_LIMIT = int(os.environ.get("YOUTUBE_API_SEARCH_LIMIT", "5"))
+YOUTUBE_API_RECENT_DAYS = int(os.environ.get("YOUTUBE_API_RECENT_DAYS", "30"))
 MIN_DISPLAY_VIEWS = int(os.environ.get("MIN_DISPLAY_VIEWS", "3000"))
 PUBLISHED_METADATA_LIMIT = int(os.environ.get("PUBLISHED_METADATA_LIMIT", "200"))
 VIRAL_VIEW_THRESHOLD = int(os.environ.get("VIRAL_VIEW_THRESHOLD", "100000000"))
@@ -638,6 +660,27 @@ def fmt_count(value: Any) -> str:
     if count <= 0:
         return "확인 필요"
     return f"{count:,}"
+
+
+def parse_iso8601_duration(value: Any) -> int:
+    if isinstance(value, (int, float)):
+        return int(value)
+    text = str(value or "").strip()
+    if not text:
+        return 0
+    if text.isdigit():
+        return int(text)
+    match = re.fullmatch(
+        r"P(?:(?P<days>\d+)D)?(?:T(?:(?P<hours>\d+)H)?(?:(?P<minutes>\d+)M)?(?:(?P<seconds>\d+)S)?)?",
+        text,
+    )
+    if not match:
+        return parse_int(text)
+    days = parse_int(match.group("days"))
+    hours = parse_int(match.group("hours"))
+    minutes = parse_int(match.group("minutes"))
+    seconds = parse_int(match.group("seconds"))
+    return days * 86400 + hours * 3600 + minutes * 60 + seconds
 
 
 def video_dimensions_from_payload(payload: dict[str, Any]) -> tuple[int, int]:
@@ -1198,6 +1241,121 @@ def collect_html_sources(collected_at: str) -> list[dict[str, Any]]:
     return candidates
 
 
+def youtube_api_key() -> str:
+    return os.environ.get("YOUTUBE_API_KEY", "").strip()
+
+
+def youtube_api_published_after() -> str:
+    recent_floor = datetime.now(timezone.utc) - timedelta(days=YOUTUBE_API_RECENT_DAYS)
+    return recent_floor.replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def fetch_youtube_api_video_details(video_ids: list[str], api_key: str) -> dict[str, dict[str, Any]]:
+    details: dict[str, dict[str, Any]] = {}
+    for index in range(0, len(video_ids), 50):
+        chunk = video_ids[index : index + 50]
+        if not chunk:
+            continue
+        params = urlencode(
+            {
+                "part": "snippet,statistics,contentDetails",
+                "id": ",".join(chunk),
+                "key": api_key,
+            }
+        )
+        payload = fetch_json(f"https://www.googleapis.com/youtube/v3/videos?{params}")
+        for raw in payload.get("items") or []:
+            video_id = raw.get("id")
+            if video_id:
+                details[str(video_id)] = raw
+    return details
+
+
+def collect_youtube_api(collected_at: str) -> list[dict[str, Any]]:
+    api_key = youtube_api_key()
+    if not api_key:
+        print("warning: YOUTUBE_API_KEY is not set; skipping YouTube Data API collection", file=sys.stderr)
+        return []
+
+    candidates: list[dict[str, Any]] = []
+    published_after = youtube_api_published_after()
+    for region in REGIONS:
+        query_text = region["queries"][0]
+        search_params: dict[str, str] = {
+            "part": "snippet",
+            "type": "video",
+            "videoDuration": "short",
+            "order": "viewCount",
+            "maxResults": str(YOUTUBE_API_SEARCH_LIMIT),
+            "publishedAfter": published_after,
+            "q": query_text,
+            "key": api_key,
+        }
+        region_code = YOUTUBE_API_REGION_CODES.get(region["key"], "")
+        if region_code:
+            search_params["regionCode"] = region_code
+
+        try:
+            search_payload = fetch_json(f"https://www.googleapis.com/youtube/v3/search?{urlencode(search_params)}")
+        except Exception as exc:
+            print(f"warning: YouTube Data API search failed for {region['label']}: {exc}", file=sys.stderr)
+            if "HTTP Error 403" in str(exc):
+                break
+            continue
+
+        search_rows = search_payload.get("items") or []
+        video_ids: list[str] = []
+        search_snippets: dict[str, dict[str, Any]] = {}
+        ranks: dict[str, int] = {}
+        for rank, row in enumerate(search_rows, start=1):
+            video_id = str((row.get("id") or {}).get("videoId") or "")
+            if not video_id or video_id in search_snippets:
+                continue
+            video_ids.append(video_id)
+            search_snippets[video_id] = row.get("snippet") or {}
+            ranks[video_id] = rank
+
+        try:
+            details_by_id = fetch_youtube_api_video_details(video_ids, api_key)
+        except Exception as exc:
+            print(f"warning: YouTube Data API video details failed for {region['label']}: {exc}", file=sys.stderr)
+            details_by_id = {}
+
+        for video_id in video_ids:
+            details = details_by_id.get(video_id) or {}
+            snippet = details.get("snippet") or search_snippets.get(video_id) or {}
+            statistics = details.get("statistics") or {}
+            content_details = details.get("contentDetails") or {}
+            duration = parse_iso8601_duration(content_details.get("duration"))
+            if duration and duration > SHORTS_MAX_DURATION_SECONDS:
+                continue
+            item = make_candidate(
+                region=region["key"],
+                video_id=video_id,
+                title=str(snippet.get("title") or ""),
+                channel=str(snippet.get("channelTitle") or ""),
+                category="YouTube Data API Shorts Search",
+                views_gained=parse_int(statistics.get("viewCount")),
+                source_rank=ranks.get(video_id, 0),
+                source_window="api-viewCount",
+                source_name=f"YouTube Data API - {region['label']}",
+                source_url=f"https://www.youtube.com/results?search_query={quote_plus(query_text)}",
+                collected_at=collected_at,
+                published_at=snippet.get("publishedAt"),
+                like_count=statistics.get("likeCount"),
+                duration=duration,
+                extra_notes=[
+                    "source: YouTube Data API v3",
+                    f"api query: {query_text}",
+                    "official search and video metadata",
+                ],
+                min_score=-2,
+            )
+            if item:
+                candidates.append(item)
+    return candidates
+
+
 def run_yt_search(query: str) -> list[dict[str, Any]]:
     cmd = [
         sys.executable,
@@ -1458,9 +1616,11 @@ def source_priority(item: dict[str, Any]) -> int:
         return 6
     if "Top1Trend" in name:
         return 7
-    if "YouTube Search" in name:
+    if "YouTube Data API" in name:
+        return 8
+    if "YouTube Search" in name or "YouTube keyword" in name:
         return 9
-    return 8
+    return 10
 
 
 SOURCE_FAMILY_LABELS = {
@@ -1472,6 +1632,7 @@ SOURCE_FAMILY_LABELS = {
     "Chartika": "Chartika 지역 차트",
     "TrendsFox": "TrendsFox 라이브 트렌딩",
     "Top1Trend": "Top1Trend YouTube Trending",
+    "YouTubeDataAPI": "YouTube Data API 공식 검색 소스",
     "YouTube": "YouTube 검색 보강",
     "Other": "기타 공개 소스",
 }
@@ -1485,11 +1646,14 @@ GLOBAL_CRAWL_SOURCE_LABELS = [
     "Chartika",
     "TrendsFox",
     "Top1Trend",
+    "YouTubeDataAPI",
 ]
 
 
 def source_family(item: dict[str, Any]) -> str:
     name = str(item.get("sourceName") or "")
+    if "youtube data api" in name.lower():
+        return "YouTubeDataAPI"
     for family in GLOBAL_CRAWL_SOURCE_LABELS:
         if family.lower() in name.lower():
             return family
@@ -1553,6 +1717,7 @@ def source_links(items: list[dict[str, Any]]) -> list[tuple[str, str]]:
     pairs.add(("Chartika regional YouTube charts", "https://chartika.com/"))
     for source in HTML_SOURCES:
         pairs.add((source["name"], source["page"]))
+    pairs.add(("YouTube Data API v3", "https://developers.google.com/youtube/v3"))
     pairs.add(("YouTube Shorts keyword searches", "https://www.youtube.com/results?search_query=%23shorts+dance+music+trend"))
     pairs = {(normalize_country_labels(name), url) for name, url in pairs}
     known_names = {name for name, _ in pairs}
@@ -1916,6 +2081,8 @@ HIGHLIGHT_TERMS: list[tuple[str, str]] = [
     ("source", "Chartika"),
     ("source", "TrendsFox"),
     ("source", "Top1Trend"),
+    ("source", "YouTube Data API"),
+    ("source", "API"),
     ("source", "YouTube"),
     ("source", "랭킹"),
     ("source", "트렌드"),
@@ -2462,8 +2629,11 @@ def group_items_by_region(items: list[dict[str, Any]]) -> dict[str, list[dict[st
 
 def render_index(items: list[dict[str, Any]]) -> str:
     items = order_items_newest_first(items)
-    grouped = group_items_by_region(items)
-    display_items = [item for region_items in grouped.values() for item in region_items]
+    api_pool = [item for item in items if source_family(item) == "YouTubeDataAPI"]
+    region_pool = [item for item in items if source_family(item) != "YouTubeDataAPI"]
+    grouped = group_items_by_region(region_pool)
+    api_items = unique_content_items([item for item in order_items_newest_first(api_pool) if is_displayable(item)])
+    display_items = [item for region_items in grouped.values() for item in region_items] + api_items
     trend_analysis = render_trend_analysis(display_items)
     mega_count = sum(1 for item in display_items if parse_int(item.get("viewsGained")) >= VIRAL_VIEW_THRESHOLD)
 
@@ -2477,9 +2647,23 @@ def render_index(items: list[dict[str, Any]]) -> str:
             tab_parts.append(
                 f"""<button id="tab-mega" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-mega" data-region-tab="mega"><span class="tab-label">1억뷰 분석</span><span class="tab-count">{mega_count}</span></button>"""
             )
+            tab_parts.append(
+                f"""<button id="tab-youtube-api" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-youtube-api" data-region-tab="youtube_api"><span class="tab-label">YouTube API</span><span class="tab-count">{len(api_items)}</span></button>"""
+            )
     tab_buttons = "\n".join(tab_parts)
 
-    panels = [render_mega_view_analysis(display_items)]
+    api_cards = "".join(render_card(item, index) for index, item in enumerate(api_items, start=1))
+    if not api_cards:
+        api_cards = '<div class="empty-state">YOUTUBE_API_KEY 등록 후 다음 수동 실행 또는 매일 업데이트에서 YouTube Data API 수집 결과 표시</div>'
+
+    panels = [
+        render_mega_view_analysis(display_items),
+        f"""
+    <section id="panel-youtube-api" class="region-panel" data-region-panel="youtube_api" role="tabpanel" aria-labelledby="tab-youtube-api" aria-label="YouTube Data API Shorts">
+      <div class="grid">{api_cards}
+      </div>
+    </section>""",
+    ]
     for region in REGIONS:
         region_cards = "".join(render_card(item, index) for index, item in enumerate(grouped[region["key"]], start=1))
         if not region_cards:
@@ -3372,6 +3556,7 @@ def main() -> int:
         collected_at = datetime.now(KST).replace(microsecond=0).isoformat()
         candidates = collect_vidirun(collected_at)
         candidates.extend(collect_html_sources(collected_at))
+        candidates.extend(collect_youtube_api(collected_at))
         try:
             import yt_dlp  # noqa: F401
         except Exception:
