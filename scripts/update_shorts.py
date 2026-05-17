@@ -1552,6 +1552,7 @@ def update_existing_item(old: dict[str, Any], new: dict[str, Any]) -> None:
 
 
 def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]], max_new: int) -> list[dict[str, Any]]:
+    # Keep the archive append-only: only brand-new, non-duplicate videos are placed above history.
     existing_unique = dedupe_accumulated_items(existing)
     old_by_id = {item.get("id"): item for item in existing_unique if item.get("id")}
     old_by_signature = {content_signature(item): item for item in existing_unique if content_signature(item)}
@@ -3728,7 +3729,7 @@ def main() -> int:
 
     existing = read_data()
     if args.render_only:
-        merged = dedupe_accumulated_items(filter_shortform_items(existing))
+        merged = dedupe_accumulated_items(existing)
     else:
         collected_at = datetime.now(KST).replace(microsecond=0).isoformat()
         candidates = collect_vidirun(collected_at)
@@ -3768,7 +3769,7 @@ def main() -> int:
                 print("warning: yt-dlp is not installed; skipping publish-date enrichment", file=sys.stderr)
             else:
                 enrich_video_metadata(merged)
-        merged = dedupe_accumulated_items(filter_shortform_items(merged))
+        merged = dedupe_accumulated_items(merged)
         write_data(merged)
 
     INDEX_PATH.write_text(render_index(merged), encoding="utf-8")
