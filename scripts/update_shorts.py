@@ -2489,19 +2489,7 @@ def render_global_source_insights(items: list[dict[str, Any]], analysis_base: li
         family = source_family(item)
         groups.setdefault(family, []).append(item)
 
-    ranking_families = [family for family in GLOBAL_CRAWL_SOURCE_LABELS if groups.get(family)]
-    ranking_family_text = ", ".join(source_family_label(family) for family in ranking_families[:5])
-    if len(ranking_families) > 5:
-        ranking_family_text += f" 외 {len(ranking_families) - 5}개"
-    configured_text = ", ".join(source_family_label(family) for family in GLOBAL_CRAWL_SOURCE_LABELS)
-
-    notes = [
-        f"글로벌 크롤링은 {configured_text}를 매일 확인하고, 9:16·3천뷰 이상·중복 제거를 통과한 영상만 분석에 반영합니다.",
-    ]
-    if ranking_family_text:
-        notes.append(f"현재 표시 데이터는 {ranking_family_text}에서 실제 랭킹 신호가 잡혔고, 검색 보강보다 공개 랭킹 출처를 우선합니다.")
-    else:
-        notes.append("현재 표시 데이터는 랭킹 출처 통과분이 적어 검색 보강 후보를 함께 보되, 다음 업데이트에서 랭킹 교차 확인을 다시 시도합니다.")
+    notes: list[str] = []
 
     source_rows = sorted(
         ((family, rows) for family, rows in groups.items()),
