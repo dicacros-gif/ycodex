@@ -552,6 +552,10 @@ def unique_content_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return unique
 
 
+def dedupe_accumulated_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return unique_content_items(order_items_newest_first(items))
+
+
 def parse_int(value: Any) -> int:
     if isinstance(value, int):
         return value
@@ -1276,17 +1280,52 @@ def collect_youtube_search(collected_at: str, region_keys: set[str] | None = Non
     return candidates
 
 
+def update_existing_item(old: dict[str, Any], new: dict[str, Any]) -> None:
+    old["title"] = old.get("title") or new.get("title") or ""
+    old["region"] = old.get("region") or new.get("region") or "global"
+    old["regionLabel"] = region_label_for_key(old.get("region"))
+    old["channel"] = new.get("channel") or old.get("channel")
+    old["category"] = new.get("category") or old.get("category")
+    if parse_int(new.get("viewsGained")) >= parse_int(old.get("viewsGained")):
+        old["viewsGained"] = new.get("viewsGained") or old.get("viewsGained")
+    if new.get("likeCount") is not None:
+        old["likeCount"] = new.get("likeCount")
+    old["sourceRank"] = new.get("sourceRank") or old.get("sourceRank")
+    old["sourceWindow"] = new.get("sourceWindow") or old.get("sourceWindow")
+    old["sourceName"] = new.get("sourceName") or old.get("sourceName")
+    old["sourceUrl"] = new.get("sourceUrl") or old.get("sourceUrl")
+    old["publishedAt"] = new.get("publishedAt") or old.get("publishedAt")
+    old["matchNotes"] = new.get("matchNotes") or old.get("matchNotes")
+    old["duration"] = new.get("duration") or old.get("duration")
+    old["width"] = new.get("width") or old.get("width")
+    old["height"] = new.get("height") or old.get("height")
+    old["aspectRatio"] = new.get("aspectRatio") or old.get("aspectRatio")
+    old["isShort9x16"] = new.get("isShort9x16") if new.get("isShort9x16") is not None else old.get("isShort9x16")
+    old["lastSeenAt"] = new.get("collectedAt") or old.get("lastSeenAt") or old.get("collectedAt")
+    old.setdefault("collectedAt", new.get("collectedAt"))
+    set_shape_metadata(old)
+
+
 def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]], max_new: int) -> list[dict[str, Any]]:
-    old_by_id = {item.get("id"): item for item in existing if item.get("id")}
+    existing_unique = dedupe_accumulated_items(existing)
+    old_by_id = {item.get("id"): item for item in existing_unique if item.get("id")}
+    old_by_signature = {content_signature(item): item for item in existing_unique if content_signature(item)}
     ranked = sorted(new_items, key=rank_item)
 
     candidates_by_region: dict[str, list[dict[str, Any]]] = {region["key"]: [] for region in REGIONS}
     seen: set[str] = set()
+    seen_signatures: set[str] = set()
     for item in ranked:
         video_id = item.get("id")
-        if not video_id or video_id in seen:
+        signature = content_signature(item)
+        if not video_id or video_id in seen or signature in seen_signatures:
             continue
         seen.add(video_id)
+        seen_signatures.add(signature)
+        existing_item = old_by_id.get(video_id) or old_by_signature.get(signature)
+        if existing_item:
+            update_existing_item(existing_item, item)
+            continue
         region = item.get("region") or "global"
         if region not in candidates_by_region:
             region = "global"
@@ -1294,63 +1333,22 @@ def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]],
 
     selected: list[dict[str, Any]] = []
     selected_ids: set[str] = set()
+    selected_signatures: set[str] = set()
     for region in REGIONS:
         count = 0
         for item in candidates_by_region[region["key"]]:
             video_id = item.get("id")
-            if not video_id or video_id in selected_ids:
+            signature = content_signature(item)
+            if not video_id or video_id in selected_ids or signature in selected_signatures:
                 continue
             selected.append(item)
             selected_ids.add(video_id)
+            selected_signatures.add(signature)
             count += 1
             if count >= max_new:
                 break
 
-    fresh: list[dict[str, Any]] = []
-    for item in selected:
-        video_id = item.get("id")
-        if not video_id:
-            continue
-        if video_id in old_by_id:
-            old = old_by_id[video_id]
-            old.update(
-                {
-                    "title": item.get("title") or old.get("title"),
-                    "region": item.get("region") or old.get("region") or "global",
-                    "regionLabel": item.get("regionLabel") or old.get("regionLabel") or "Global",
-                    "channel": item.get("channel") or old.get("channel"),
-                    "category": item.get("category") or old.get("category"),
-                    "viewsGained": item.get("viewsGained") or old.get("viewsGained"),
-                    "likeCount": item.get("likeCount") if item.get("likeCount") is not None else old.get("likeCount"),
-                    "sourceRank": item.get("sourceRank") or old.get("sourceRank"),
-                    "sourceWindow": item.get("sourceWindow") or old.get("sourceWindow"),
-                    "sourceName": item.get("sourceName") or old.get("sourceName"),
-                    "sourceUrl": item.get("sourceUrl") or old.get("sourceUrl"),
-                    "collectedAt": item.get("collectedAt") or old.get("collectedAt"),
-                    "publishedAt": item.get("publishedAt") or old.get("publishedAt"),
-                    "matchNotes": item.get("matchNotes") or old.get("matchNotes"),
-                    "duration": item.get("duration") or old.get("duration"),
-                    "width": item.get("width") or old.get("width"),
-                    "height": item.get("height") or old.get("height"),
-                    "aspectRatio": item.get("aspectRatio") or old.get("aspectRatio"),
-                    "isShort9x16": item.get("isShort9x16") if item.get("isShort9x16") is not None else old.get("isShort9x16"),
-                }
-            )
-            set_shape_metadata(old)
-            fresh.append(old)
-        else:
-            fresh.append(item)
-
-    fresh_ids = {item.get("id") for item in fresh}
-    tail: list[dict[str, Any]] = []
-    seen_ids = set(fresh_ids)
-    for item in existing:
-        video_id = item.get("id")
-        if not video_id or video_id in seen_ids:
-            continue
-        seen_ids.add(video_id)
-        tail.append(item)
-    return order_items_newest_first(fresh + tail)
+    return order_items_newest_first(selected + existing_unique)
 
 
 def regions_needing_search(candidates: list[dict[str, Any]], max_new: int) -> set[str]:
@@ -3149,7 +3147,7 @@ def main() -> int:
 
     existing = read_data()
     if args.render_only:
-        merged = filter_shortform_items(existing)
+        merged = dedupe_accumulated_items(filter_shortform_items(existing))
     else:
         collected_at = datetime.now(KST).replace(microsecond=0).isoformat()
         candidates = collect_vidirun(collected_at)
@@ -3181,7 +3179,7 @@ def main() -> int:
             print("warning: yt-dlp is not installed; skipping publish-date enrichment", file=sys.stderr)
         else:
             enrich_video_metadata(merged)
-        merged = filter_shortform_items(merged)
+        merged = dedupe_accumulated_items(filter_shortform_items(merged))
         write_data(merged)
 
     INDEX_PATH.write_text(render_index(merged), encoding="utf-8")

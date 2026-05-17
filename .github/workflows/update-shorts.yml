@@ -43,6 +43,7 @@ jobs:
           from html.parser import HTMLParser
           from pathlib import Path
           import json
+          import re
           from datetime import datetime, timezone
 
           class CardCounter(HTMLParser):
@@ -104,6 +105,9 @@ jobs:
           data = json.loads(Path("shorts-data.json").read_text(encoding="utf-8"))
           by_id = {item["id"]: item for item in data}
           visible = [by_id[video_id] for video_id in video_ids]
+          def content_signature(item):
+              title = re.sub(r"\W+", " ", str(item.get("title") or "").lower()).strip()
+              return title if len(title) >= 12 else str(item.get("id") or "")
           def parse_collected_at(item):
               value = item.get("collectedAt")
               if not value:
@@ -113,6 +117,8 @@ jobs:
                   parsed = parsed.replace(tzinfo=timezone.utc)
               return parsed.astimezone(timezone.utc)
           collected_order = [parse_collected_at(item) for item in data]
+          data_signatures = [content_signature(item) for item in data]
+          visible_signatures = [content_signature(item) for item in visible]
           explained_popularity = [
               text for text in parser.popularity_text
               if len(text) >= 100 and "views" in text
@@ -128,6 +134,8 @@ jobs:
               or parser.cards != len(explained_popularity)
               or parser.reason_items < parser.cards * 4
               or len(video_ids) != len(set(video_ids))
+              or len(data_signatures) != len(set(data_signatures))
+              or len(visible_signatures) != len(set(visible_signatures))
               or "trend-brief" not in html
               or "mega-panel" not in html
               or "popularity" not in html
