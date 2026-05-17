@@ -1864,6 +1864,16 @@ HIGHLIGHT_TERMS: list[tuple[str, str]] = [
     ("source", "교차 확인"),
     ("source", "라이브 트렌딩"),
     ("source", "Top Shorts"),
+    ("signal", "영상 제작자"),
+    ("signal", "제작자"),
+    ("signal", "공통 패턴"),
+    ("signal", "국가별 콘텐츠 차별점"),
+    ("signal", "실패 패턴"),
+    ("signal", "저성과"),
+    ("signal", "하위권"),
+    ("signal", "결과 회수"),
+    ("signal", "보상"),
+    ("signal", "제작 포인트"),
     ("signal", "상황형 코미디·짧은 사건"),
     ("signal", "댄스·음악 챌린지"),
     ("signal", "편집·슬로우드 사운드"),
@@ -2175,6 +2185,107 @@ def render_global_source_insights(items: list[dict[str, Any]], analysis_base: li
       </div>"""
 
 
+def view_tier_label(views: int) -> str:
+    if views >= VIRAL_VIEW_THRESHOLD:
+        return "1억뷰 이상"
+    if views >= 30_000_000:
+        return "3천만뷰 이상 1억뷰 근접"
+    if views >= 10_000_000:
+        return "1천만뷰 이상 급상승"
+    if views >= 1_000_000:
+        return "100만뷰 이상 검증권"
+    return "저성과 위험 구간"
+
+
+def creator_action_for_cluster(key: str) -> str:
+    return {
+        "situation": "첫 1초에 갈등·반전·결과 질문을 먼저 보여 주고, 마지막 컷에서 보상을 회수합니다.",
+        "dance": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듭니다.",
+        "edit": "슬로우드 사운드나 빠른 컷 편집을 쓰되, 첫 장면의 상황 이해를 희생하지 않습니다.",
+        "performance": "성공·실패가 궁금한 순간을 먼저 제시하고, 결과 공개를 너무 늦추지 않습니다.",
+        "kpop": "팬덤이 바로 알아볼 수 있는 안무·의상·곡 신호를 첫 프레임에 배치합니다.",
+    }.get(key, "제목보다 장면 자체가 먼저 이해되도록 피사체와 행동을 화면 중앙에 둡니다.")
+
+
+def top_cluster_sentence(items: list[dict[str, Any]]) -> tuple[str, str]:
+    if not items:
+        return "복합 포맷", "제목보다 장면 자체가 먼저 이해되도록 피사체와 행동을 화면 중앙에 둡니다."
+    key, _ = top_cluster(items)
+    return cluster_label(key), creator_action_for_cluster(key)
+
+
+def render_creator_strategy_insights(items: list[dict[str, Any]], analysis_base: list[dict[str, Any]]) -> str:
+    visible_items = unique_content_items([item for item in items if is_displayable(item)])
+    if not visible_items:
+        return ""
+
+    sorted_by_views = sorted(visible_items, key=lambda item: parse_int(item.get("viewsGained")), reverse=True)
+    mega_items = [item for item in sorted_by_views if parse_int(item.get("viewsGained")) >= VIRAL_VIEW_THRESHOLD]
+    near_items = [item for item in sorted_by_views if 30_000_000 <= parse_int(item.get("viewsGained")) < VIRAL_VIEW_THRESHOLD]
+    high_signal_items = mega_items or near_items or sorted_by_views[:8]
+    top_label, top_action = top_cluster_sentence(high_signal_items)
+    top_sources = sorted(
+        {source_family_label(source_family(item)) for item in high_signal_items[:8]}
+    )
+    top_source_text = ", ".join(top_sources[:4]) if top_sources else "공개 랭킹 소스"
+    highest = sorted_by_views[0]
+
+    common_points = [
+        f"{view_tier_label(parse_int(highest.get('viewsGained')))} 대표 사례는 {compact_title(str(highest.get('title', '')), 44)}이며, {top_label} 신호가 가장 강합니다.",
+        f"1억뷰·근접권은 {top_source_text}에서 교차로 잡히는 경우가 많아, 단일 검색 노출보다 랭킹 사이트 반응을 함께 확인해야 합니다.",
+        top_action,
+        "대사보다 표정·동작·결과가 먼저 읽히는 영상이 국가를 넘어 확장되며, 반복 시청을 만들 수 있는 루프형 끝맺음이 유리합니다.",
+    ]
+
+    region_points: list[str] = []
+    grouped_by_region: dict[str, list[dict[str, Any]]] = {}
+    for item in visible_items:
+        grouped_by_region.setdefault(str(item.get("region") or "global"), []).append(item)
+    for region_key, rows in sorted(grouped_by_region.items(), key=lambda pair: (-len(pair[1]), region_label_for_key(pair[0])))[:8]:
+        region_label = region_label_for_key(region_key)
+        cluster_name, action = top_cluster_sentence(rows)
+        top_item = max(rows, key=lambda item: parse_int(item.get("viewsGained")))
+        family_text = source_family_label(source_family(top_item))
+        region_points.append(
+            f"{region_label}: {cluster_name} 비중이 크고 대표 사례는 {compact_title(str(top_item.get('title', '')), 38)} ({fmt_int(top_item.get('viewsGained'))} views)입니다. 제작 포인트는 {action} 근거 소스는 {family_text}입니다."
+        )
+
+    low_items = [item for item in visible_items if parse_int(item.get("viewsGained")) < 1_000_000]
+    bottom_items = sorted(visible_items, key=lambda item: parse_int(item.get("viewsGained")))[:8]
+    fallback_items = [item for item in visible_items if source_family(item) == "YouTube"]
+    generic_titles = [
+        item for item in visible_items
+        if len(re.findall(r"#", str(item.get("title") or ""))) >= 4
+        or len(term_hits(item_text(item), {"trend", "viral", "fyp", "shorts"})) >= 3
+    ]
+    weak_label, weak_action = top_cluster_sentence(low_items or bottom_items)
+    failure_points = [
+        f"{view_tier_label(parse_int(bottom_items[0].get('viewsGained')))} 하위권은 {weak_label}처럼 보이더라도 첫 장면 보상이나 결과 회수가 약하면 확산이 멈출 수 있습니다.",
+        f"YouTube 검색 보강에만 잡힌 후보가 {len(fallback_items)}개라면, 랭킹 사이트 교차 확인 전까지는 제목·썸네일·첫 1초 훅을 다시 점검해야 합니다.",
+        f"해시태그·trend·viral 신호가 제목에 과하게 몰린 후보는 {len(generic_titles)}개입니다. 키워드 나열보다 상황, 인물 행동, 결과 질문이 먼저 보여야 합니다.",
+        f"저성과 회피 포인트는 {weak_action}",
+    ]
+
+    return f"""
+      <div class="creator-insights">
+        <strong>영상 제작자 인사이트</strong>
+        <div class="creator-insight-grid">
+          <div class="creator-insight-card">
+            <h3>1억뷰 공통 패턴</h3>
+            <ul>{render_points(common_points)}</ul>
+          </div>
+          <div class="creator-insight-card">
+            <h3>국가별 콘텐츠 차별점</h3>
+            <ul>{render_points(region_points)}</ul>
+          </div>
+          <div class="creator-insight-card">
+            <h3>실패 패턴</h3>
+            <ul>{render_points(failure_points)}</ul>
+          </div>
+        </div>
+      </div>"""
+
+
 def render_trend_analysis(items: list[dict[str, Any]]) -> str:
     dated_items = [(item, parse_date(item.get("publishedAt"))) for item in items]
     dated_items = [(item, published) for item, published in dated_items if published]
@@ -2226,6 +2337,7 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
 
     note_items = render_points(notes)
     source_insights = render_global_source_insights(items, analysis_base)
+    creator_insights = render_creator_strategy_insights(items, analysis_base)
     top_badges = "\n".join(
         f"<li>{highlight_text(f'{cluster_label(key)} {count}')}</li>"
         for key, count in sorted(recent_counts.items(), key=lambda pair: pair[1], reverse=True)[:4]
@@ -2243,6 +2355,7 @@ def render_trend_analysis(items: list[dict[str, Any]]) -> str:
       <ul class="trend-badges">{top_badges}</ul>
       <ul class="trend-notes">{note_items}</ul>
 {source_insights}
+{creator_insights}
     </section>"""
 
 
@@ -2616,6 +2729,49 @@ def render_index(items: list[dict[str, Any]]) -> str:
       line-height: 1.6;
     }}
     .trend-source-insights li + li {{
+      margin-top: 6px;
+    }}
+    .creator-insights {{
+      margin-top: 14px;
+      padding: 14px;
+      border: 1px solid rgba(13, 148, 136, 0.18);
+      border-radius: 8px;
+      background: #ffffff;
+    }}
+    .creator-insights > strong {{
+      display: block;
+      margin-bottom: 10px;
+      color: #0f766e;
+      font-size: 14px;
+      line-height: 1.3;
+      font-weight: 900;
+    }}
+    .creator-insight-grid {{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 10px;
+    }}
+    .creator-insight-card {{
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f8fbfd;
+      padding: 12px;
+    }}
+    .creator-insight-card h3 {{
+      margin: 0 0 8px;
+      color: #344054;
+      font-size: 13px;
+      line-height: 1.3;
+      font-weight: 900;
+    }}
+    .creator-insight-card ul {{
+      margin: 0;
+      padding-left: 18px;
+      color: #344054;
+      font-size: 12px;
+      line-height: 1.58;
+    }}
+    .creator-insight-card li + li {{
       margin-top: 6px;
     }}
     .mega-panel {{
