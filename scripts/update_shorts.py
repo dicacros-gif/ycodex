@@ -266,7 +266,7 @@ YT_DLP_SEARCH_TIMEOUT_SECONDS = int(os.environ.get("YT_DLP_SEARCH_TIMEOUT_SECOND
 YT_DLP_METADATA_TIMEOUT_SECONDS = int(os.environ.get("YT_DLP_METADATA_TIMEOUT_SECONDS", "180"))
 SKIP_YT_DLP_METADATA = os.environ.get("SKIP_YT_DLP_METADATA", "").strip().lower() in {"1", "true", "yes"}
 VIRAL_VIEW_THRESHOLD = int(os.environ.get("VIRAL_VIEW_THRESHOLD", "100000000"))
-SHORTS_MAX_DURATION_SECONDS = int(os.environ.get("SHORTS_MAX_DURATION_SECONDS", "180"))
+SHORTS_MAX_DURATION_SECONDS = int(os.environ.get("SHORTS_MAX_DURATION_SECONDS", "39"))
 SHORTS_MIN_ASPECT_RATIO = float(os.environ.get("SHORTS_MIN_ASPECT_RATIO", "0.48"))
 SHORTS_MAX_ASPECT_RATIO = float(os.environ.get("SHORTS_MAX_ASPECT_RATIO", "0.64"))
 INSIGHT_HISTORY_LIMIT = int(os.environ.get("INSIGHT_HISTORY_LIMIT", "14"))
@@ -1639,13 +1639,16 @@ def regions_needing_search(candidates: list[dict[str, Any]], max_new: int) -> se
 
 
 def is_short_9x16_item(item: dict[str, Any]) -> bool:
-    if item.get("isShort9x16") is not True:
-        set_shape_metadata(item)
+    set_shape_metadata(item)
     return item.get("isShort9x16") is True
 
 
 def filter_shortform_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return [item for item in items if is_short_9x16_item(item)]
+
+
+def prune_shortform_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [item for item in dedupe_accumulated_items(items) if is_short_9x16_item(item)]
 
 
 def source_priority(item: dict[str, Any]) -> int:
@@ -1727,7 +1730,10 @@ def min_display_views_for_item(item: dict[str, Any]) -> int:
 
 
 def is_collectable_new_item(item: dict[str, Any]) -> bool:
-    return parse_int(item.get("viewsGained")) >= min_display_views_for_item(item)
+    return (
+        parse_int(item.get("viewsGained")) >= min_display_views_for_item(item)
+        and is_short_9x16_item(item)
+    )
 
 
 def is_displayable(item: dict[str, Any]) -> bool:
@@ -1753,6 +1759,10 @@ def fmt_int(value: Any) -> str:
         return f"{int(value):,}"
     except Exception:
         return "0"
+
+
+def duration_limit_text() -> str:
+    return f"{SHORTS_MAX_DURATION_SECONDS + 1}초 미만"
 
 
 def parse_date(value: Any) -> datetime.date | None:
@@ -2851,7 +2861,7 @@ def render_youtube_api_analysis(items: list[dict[str, Any]]) -> str:
     api_recent_mix = cluster_mix_text(analysis_base, 3)
 
     summary_points = [
-        f"API 기준 / search/videos / {len(api_items)}개 / {YOUTUBE_API_MIN_DISPLAY_VIEWS:,}뷰 이상 / 평균 {fmt_int(api_avg_views)} views / {SHORTS_MAX_DURATION_SECONDS}초 이하",
+        f"API 기준 / search/videos / {len(api_items)}개 / {YOUTUBE_API_MIN_DISPLAY_VIEWS:,}뷰 이상 / 평균 {fmt_int(api_avg_views)} views / {duration_limit_text()}",
         f"조회수 1위 / {compact_title(str(top_item.get('title', '')), 48)} / {fmt_int(top_item.get('viewsGained'))} views / 좋아요 {like_text} / 정렬 {window_text}",
         f"지역 분포 / {region_text or '여러 지역'} / 제목 신호 {signal_term_text}",
         f"최근 API 표본 / {recent_range} / {len(analysis_base)}개 / 포맷 {api_recent_mix}",
@@ -2859,7 +2869,7 @@ def render_youtube_api_analysis(items: list[dict[str, Any]]) -> str:
 
     pattern_points = [
         f"상위 포맷 / {top_cluster_text} / 제작 포인트 {top_action}",
-        f"길이 패턴 / 평균 {avg_duration}초 / 1분 안에 훅과 결과를 회수하는 짧은 구조 우세",
+        f"길이 패턴 / 평균 {avg_duration}초 / {duration_limit_text()} 안에 훅과 결과를 회수하는 짧은 구조 우세",
         f"제목 패턴 / {signal_term_text} / 음악·동작·상황 훅이 검색 발견성 주도",
         "검수 포인트 / 공식 조회수·좋아요·게시일 확인 가능 / 랭킹 사이트 후보와 초기 반응 비교",
     ]
@@ -3261,7 +3271,7 @@ def build_api_insight_model(api_items: list[dict[str, Any]], generated_at: str) 
     model["sources"] = []
     for card in model.get("cards", []):
         if card.get("title") == "오늘 핵심":
-            card["items"].append(insight_line("API 조건", f"search/videos / {YOUTUBE_API_MIN_DISPLAY_VIEWS:,}뷰 이상 / {SHORTS_MAX_DURATION_SECONDS}초 이하"))
+            card["items"].append(insight_line("API 조건", f"search/videos / {YOUTUBE_API_MIN_DISPLAY_VIEWS:,}뷰 이상 / {duration_limit_text()}"))
     return model
 
 
@@ -4457,7 +4467,9 @@ def main() -> int:
     existing = read_data()
     insight_history = read_insights()
     if args.render_only:
-        merged = dedupe_accumulated_items(existing)
+        merged = prune_shortform_items(existing)
+        if len(merged) != len(existing):
+            write_data(merged)
         if not insight_history:
             generated_at = latest_observed_at_iso(merged)
             insight_history = upsert_insight_snapshot(insight_history, build_insight_snapshot(merged, generated_at))
@@ -4501,7 +4513,7 @@ def main() -> int:
                 print("warning: yt-dlp is not installed; skipping publish-date enrichment", file=sys.stderr)
             else:
                 enrich_video_metadata(merged)
-        merged = dedupe_accumulated_items(merged)
+        merged = prune_shortform_items(merged)
         write_data(merged)
         insight_history = upsert_insight_snapshot(insight_history, build_insight_snapshot(merged, collected_at))
         write_insights(insight_history)

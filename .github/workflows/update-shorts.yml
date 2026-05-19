@@ -20,6 +20,7 @@ jobs:
       MIN_DISPLAY_VIEWS: "3000"
       YOUTUBE_API_MIN_DISPLAY_VIEWS: "10000"
       VIRAL_VIEW_THRESHOLD: "100000000"
+      SHORTS_MAX_DURATION_SECONDS: "39"
       PUBLISHED_METADATA_LIMIT: "120"
       YT_DLP_SEARCH_TIMEOUT_SECONDS: "60"
       YT_DLP_METADATA_TIMEOUT_SECONDS: "180"
@@ -157,7 +158,7 @@ jobs:
               or any("YouTube Data API" in str(item.get("sourceName") or "") and (item.get("viewsGained") or 0) < 10000 for item in visible)
               or any(not item.get("publishedAt") for item in visible)
               or any(item.get("isShort9x16") is not True for item in data)
-              or any((item.get("duration") or 9999) > 180 for item in data)
+              or any((item.get("duration") or 9999) >= 40 for item in data)
               or any((item.get("height") or 0) <= (item.get("width") or 0) for item in data)
           ):
               raise SystemExit("index.html did not render unique Shorts across the expected region tabs")

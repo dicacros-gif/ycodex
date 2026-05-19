@@ -6,6 +6,7 @@ This repository keeps a static `index.html` of trending YouTube Shorts candidate
 - no visible captions target
 - one or two people target
 - dance or short situation
+- video duration under 40 seconds
 - newer popular videos are accumulated above older links
 - videos are globally deduplicated, so the same YouTube ID appears in only one tab
 - YouTube Data API search/videos candidates are analyzed only from 10,000 views and up

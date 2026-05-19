@@ -8,19 +8,19 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "108개"
+          "value": "83개"
         },
         {
           "label": "오늘 감지",
-          "value": "48개"
+          "value": "39개"
         },
         {
           "label": "신규 편입",
-          "value": "7개"
+          "value": "6개"
         },
         {
           "label": "분석 표본",
-          "value": "48개"
+          "value": "39개"
         },
         {
           "label": "기준",
@@ -28,10 +28,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 48개",
-        "스포츠·퍼포먼스 순간 5개",
-        "편집·슬로우드 사운드 4개",
-        "상황형 코미디·짧은 사건 2개"
+        "댄스·음악 챌린지 39개",
+        "편집·슬로우드 사운드 3개",
+        "상황형 코미디·짧은 사건 2개",
+        "K-pop·아이돌 파생 2개"
       ],
       "cards": [
         {
@@ -39,15 +39,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 48개 / 100%"
+              "text": "댄스·음악 챌린지 39개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/19 랭킹·API 재감지 48개 / 신규 편입 7개 / 기존 재확인 41개"
+              "text": "5/19 랭킹·API 재감지 39개 / 신규 편입 6개 / 기존 재확인 33개"
             },
             {
               "label": "게시 구간",
-              "text": "4/20 ~ 5/12 / 평균 4,249,388 views / 평균 27초"
+              "text": "4/20 ~ 5/12 / 평균 3,955,881 views / 평균 20초"
             }
           ]
         },
@@ -56,15 +56,15 @@
           "items": [
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +62%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 비중 +68%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "지역",
-              "text": "미국 6개, 글로벌 5개, 대한민국 5개, 인도네시아 5개"
+              "text": "미국 5개, 인도네시아 5개, 우즈베키스탄 5개, 베트남 5개"
             },
             {
               "label": "제목 훅",
-              "text": "trend 35개, music 33개, dance 28개, viral 24개, challenge 16개"
+              "text": "music 29개, trend 29개, viral 24개, dance 21개, challenge 13개"
             }
           ]
         },
@@ -92,11 +92,11 @@
           "metrics": [
             {
               "label": "감지",
-              "value": "48개"
+              "value": "39개"
             },
             {
               "label": "평균 조회",
-              "value": "4,249,388 views"
+              "value": "3,955,881 views"
             },
             {
               "label": "구간",
@@ -106,7 +106,7 @@
           "items": [
             {
               "label": "주요 지역",
-              "text": "미국 6개, 글로벌 5개, 대한민국 5개"
+              "text": "미국 5개, 인도네시아 5개, 우즈베키스탄 5개"
             },
             {
               "label": "대표",
@@ -114,7 +114,7 @@
             },
             {
               "label": "포맷",
-              "text": "댄스·음악 챌린지 48개(100%), 스포츠·퍼포먼스 순간 5개(10%)"
+              "text": "댄스·음악 챌린지 39개(100%), 편집·슬로우드 사운드 3개(8%)"
             },
             {
               "label": "읽을 점",
@@ -129,7 +129,7 @@
           "items": [
             {
               "label": "상위권",
-              "text": "8개 평균 14,044,285 views / 평균 26초"
+              "text": "8개 평균 13,198,327 views / 평균 17초"
             },
             {
               "label": "대표",
@@ -137,7 +137,7 @@
             },
             {
               "label": "강한 신호",
-              "text": "댄스·음악 챌린지 / 제목 dance 6개, challenge 6개, trend 6개, music 5개"
+              "text": "댄스·음악 챌린지 / 제목 dance 6개, challenge 6개, music 6개, trend 6개"
             },
             {
               "label": "제작 우선순위",
@@ -150,23 +150,23 @@
           "items": [
             {
               "label": "미국",
-              "text": "댄스·음악 챌린지 중심 / 평균 4,393,957 views / 제목 dance 6개, music 6개, challenge 5개 / 대표 VIRAL SIX SEVEN DANCE TREND 🔥😱 #c… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
-            },
-            {
-              "label": "글로벌",
-              "text": "댄스·음악 챌린지 중심 / 평균 13,008,557 views / 제목 dance 5개, challenge 5개, music 5개 / 대표 Hello Girl Trend - 67 (Six Seven)… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
-            },
-            {
-              "label": "대한민국",
-              "text": "댄스·음악 챌린지 중심 / 평균 10,266,472 views / 제목 challenge 2개, dance 1개, music 1개 / 대표 내 신발 누가 들고갔어❕️👟#크림서현의랜덤댄스 #크림서현 #… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
-            },
-            {
-              "label": "독일",
-              "text": "댄스·음악 챌린지 중심 / 평균 4,697,513 views / 제목 dance 5개, trend 5개, music 3개 / 대표 BLAZIL vs PORTUGAL FIFA World Cup… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+              "text": "댄스·음악 챌린지 중심 / 평균 4,879,002 views / 제목 dance 5개, music 5개, challenge 4개 / 대표 VIRAL SIX SEVEN DANCE TREND 🔥😱 #c… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
             },
             {
               "label": "베트남",
               "text": "댄스·음악 챌린지 중심 / 평균 1,303,180 views / 제목 trend 5개, music 4개, dance 2개 / 대표 Welcome to Vietnam, @Belitskay 🇻🇳… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "우즈베키스탄",
+              "text": "댄스·음악 챌린지 중심 / 평균 120,374 views / 제목 music 5개, trend 5개, viral 4개 / 대표 BOTIR QODIROV YANGI TREND #kishta… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "인도네시아",
+              "text": "댄스·음악 챌린지 중심 / 평균 517,524 views / 제목 viral 5개 / 대표 GAK NYANGKA! Penampilan Siswi Pon… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "글로벌",
+              "text": "댄스·음악 챌린지 중심 / 평균 13,072,586 views / 제목 dance 4개, challenge 4개, music 4개 / 대표 Hello Girl Trend - 67 (Six Seven)… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
             }
           ]
         },
@@ -183,7 +183,7 @@
             },
             {
               "label": "주의",
-              "text": "해시태그·trend·viral 과밀 후보 29개 / 키워드보다 행동·상황·결과 우선"
+              "text": "해시태그·trend·viral 과밀 후보 26개 / 키워드보다 행동·상황·결과 우선"
             },
             {
               "label": "개선",
@@ -198,19 +198,19 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "56개"
+          "value": "45개"
         },
         {
           "label": "오늘 감지",
-          "value": "48개"
+          "value": "39개"
         },
         {
           "label": "신규 편입",
-          "value": "7개"
+          "value": "6개"
         },
         {
           "label": "분석 표본",
-          "value": "48개"
+          "value": "39개"
         },
         {
           "label": "기준",
@@ -218,10 +218,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 48개",
-        "스포츠·퍼포먼스 순간 5개",
-        "편집·슬로우드 사운드 4개",
-        "상황형 코미디·짧은 사건 2개"
+        "댄스·음악 챌린지 39개",
+        "편집·슬로우드 사운드 3개",
+        "상황형 코미디·짧은 사건 2개",
+        "K-pop·아이돌 파생 2개"
       ],
       "cards": [
         {
@@ -229,19 +229,19 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 48개 / 100%"
+              "text": "댄스·음악 챌린지 39개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/19 랭킹·API 재감지 48개 / 신규 편입 7개 / 기존 재확인 41개"
+              "text": "5/19 랭킹·API 재감지 39개 / 신규 편입 6개 / 기존 재확인 33개"
             },
             {
               "label": "게시 구간",
-              "text": "4/20 ~ 5/12 / 평균 4,249,388 views / 평균 27초"
+              "text": "4/20 ~ 5/12 / 평균 3,955,881 views / 평균 20초"
             },
             {
               "label": "API 조건",
-              "text": "search / videos / 10,000뷰 이상 / 180초 이하"
+              "text": "search / videos / 10,000뷰 이상 / 40초 미만"
             }
           ]
         },
@@ -250,15 +250,15 @@
           "items": [
             {
               "label": "변화",
-              "text": "스포츠·퍼포먼스 순간 비중 +10%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 강세 유지 / 5/19 재감지 표본 기준"
             },
             {
               "label": "지역",
-              "text": "미국 6개, 글로벌 5개, 대한민국 5개, 인도네시아 5개"
+              "text": "미국 5개, 인도네시아 5개, 우즈베키스탄 5개, 베트남 5개"
             },
             {
               "label": "제목 훅",
-              "text": "trend 35개, music 33개, dance 28개, viral 24개, challenge 16개"
+              "text": "music 29개, trend 29개, viral 24개, dance 21개, challenge 13개"
             }
           ]
         },
@@ -287,7 +287,7 @@
           "items": [
             {
               "label": "상위권",
-              "text": "8개 평균 14,044,285 views / 평균 26초"
+              "text": "8개 평균 13,198,327 views / 평균 17초"
             },
             {
               "label": "대표",
@@ -295,7 +295,7 @@
             },
             {
               "label": "강한 신호",
-              "text": "댄스·음악 챌린지 / 제목 dance 6개, challenge 6개, trend 6개, music 5개"
+              "text": "댄스·음악 챌린지 / 제목 dance 6개, challenge 6개, music 6개, trend 6개"
             },
             {
               "label": "제작 우선순위",
@@ -308,23 +308,23 @@
           "items": [
             {
               "label": "미국",
-              "text": "댄스·음악 챌린지 중심 / 평균 4,393,957 views / 제목 dance 6개, music 6개, challenge 5개 / 대표 VIRAL SIX SEVEN DANCE TREND 🔥😱 #c… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
-            },
-            {
-              "label": "글로벌",
-              "text": "댄스·음악 챌린지 중심 / 평균 13,008,557 views / 제목 dance 5개, challenge 5개, music 5개 / 대표 Hello Girl Trend - 67 (Six Seven)… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
-            },
-            {
-              "label": "대한민국",
-              "text": "댄스·음악 챌린지 중심 / 평균 10,266,472 views / 제목 challenge 2개, dance 1개, music 1개 / 대표 내 신발 누가 들고갔어❕️👟#크림서현의랜덤댄스 #크림서현 #… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
-            },
-            {
-              "label": "독일",
-              "text": "댄스·음악 챌린지 중심 / 평균 4,697,513 views / 제목 dance 5개, trend 5개, music 3개 / 대표 BLAZIL vs PORTUGAL FIFA World Cup… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+              "text": "댄스·음악 챌린지 중심 / 평균 4,879,002 views / 제목 dance 5개, music 5개, challenge 4개 / 대표 VIRAL SIX SEVEN DANCE TREND 🔥😱 #c… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
             },
             {
               "label": "베트남",
               "text": "댄스·음악 챌린지 중심 / 평균 1,303,180 views / 제목 trend 5개, music 4개, dance 2개 / 대표 Welcome to Vietnam, @Belitskay 🇻🇳… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "우즈베키스탄",
+              "text": "댄스·음악 챌린지 중심 / 평균 120,374 views / 제목 music 5개, trend 5개, viral 4개 / 대표 BOTIR QODIROV YANGI TREND #kishta… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "인도네시아",
+              "text": "댄스·음악 챌린지 중심 / 평균 517,524 views / 제목 viral 5개 / 대표 GAK NYANGKA! Penampilan Siswi Pon… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "글로벌",
+              "text": "댄스·음악 챌린지 중심 / 평균 13,072,586 views / 제목 dance 4개, challenge 4개, music 4개 / 대표 Hello Girl Trend - 67 (Six Seven)… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
             }
           ]
         },
@@ -341,7 +341,356 @@
             },
             {
               "label": "주의",
-              "text": "해시태그·trend·viral 과밀 후보 29개 / 키워드보다 행동·상황·결과 우선"
+              "text": "해시태그·trend·viral 과밀 후보 26개 / 키워드보다 행동·상황·결과 우선"
+            },
+            {
+              "label": "개선",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "dateKey": "2026-05-18",
+    "updatedAt": "2026-05-18T06:01:24+09:00",
+    "updatedLabel": "5/18 06:01",
+    "global": {
+      "title": "트렌드 분석",
+      "metrics": [
+        {
+          "label": "전체 표시",
+          "value": "83개"
+        },
+        {
+          "label": "오늘 감지",
+          "value": "7개"
+        },
+        {
+          "label": "신규 편입",
+          "value": "3개"
+        },
+        {
+          "label": "분석 표본",
+          "value": "7개"
+        },
+        {
+          "label": "기준",
+          "value": "3,000뷰 이상"
+        }
+      ],
+      "badges": [
+        "댄스·음악 챌린지 7개",
+        "편집·슬로우드 사운드 2개"
+      ],
+      "cards": [
+        {
+          "title": "오늘 핵심",
+          "items": [
+            {
+              "label": "강한 포맷",
+              "text": "댄스·음악 챌린지 7개 / 100%"
+            },
+            {
+              "label": "감지 기준",
+              "text": "5/18 랭킹·API 재감지 7개 / 신규 편입 3개 / 기존 재확인 4개"
+            },
+            {
+              "label": "게시 구간",
+              "text": "4/21 ~ 5/9 / 평균 3,339,464 views / 평균 17초"
+            }
+          ]
+        },
+        {
+          "title": "변화와 확산",
+          "items": [
+            {
+              "label": "변화",
+              "text": "댄스·음악 챌린지 비중 +39%p / 오늘 랭킹에서 가장 빠르게 확대"
+            },
+            {
+              "label": "지역",
+              "text": "인도네시아 3개, 글로벌 1개, 미국 1개, 아르헨티나 1개"
+            },
+            {
+              "label": "제목 훅",
+              "text": "viral 5개, music 4개, trend 4개, dance 3개, challenge 2개"
+            }
+          ]
+        },
+        {
+          "title": "제작 힌트",
+          "items": [
+            {
+              "label": "우선순위",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "상위 사례",
+              "text": "Nervy funk dance trend 🥺🔥|#shortsfeed #dancet… / 11,558,632 views / YouTube Data API 공식 검색 소스"
+            },
+            {
+              "label": "검토 포인트",
+              "text": "첫 프레임에서 결과 질문을 만들고 마지막 컷에서 보상 회수"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "YouTube Data API 공식 검색 소스",
+          "metrics": [
+            {
+              "label": "감지",
+              "value": "7개"
+            },
+            {
+              "label": "평균 조회",
+              "value": "3,339,464 views"
+            },
+            {
+              "label": "구간",
+              "value": "api-viewCount"
+            }
+          ],
+          "items": [
+            {
+              "label": "주요 지역",
+              "text": "인도네시아 3개, 글로벌 1개, 미국 1개"
+            },
+            {
+              "label": "대표",
+              "text": "Nervy funk dance trend 🥺🔥|#shortsfeed #da… / 11,558,632 views"
+            },
+            {
+              "label": "포맷",
+              "text": "댄스·음악 챌린지 7개(100%), 편집·슬로우드 사운드 2개(29%)"
+            },
+            {
+              "label": "읽을 점",
+              "text": "공식 조회수·좋아요 검수용 / 검색 발견성은 댄스·음악 챌린지 쪽이 강함"
+            }
+          ]
+        }
+      ],
+      "creatorCards": [
+        {
+          "title": "1억뷰 공통 패턴",
+          "items": [
+            {
+              "label": "상위권",
+              "text": "7개 평균 3,339,464 views / 평균 17초"
+            },
+            {
+              "label": "대표",
+              "text": "Nervy funk dance trend 🥺🔥|#shortsfeed #danc… / 11,558,632 views"
+            },
+            {
+              "label": "강한 신호",
+              "text": "댄스·음악 챌린지 / 제목 viral 5개, music 4개, trend 4개, dance 3개"
+            },
+            {
+              "label": "제작 우선순위",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            }
+          ]
+        },
+        {
+          "title": "국가별 콘텐츠 차이",
+          "items": [
+            {
+              "label": "인도네시아",
+              "text": "댄스·음악 챌린지 중심 / 평균 1,327,549 views / 제목 viral 3개, dance 1개, fyp 1개 / 대표 Kicau Mania || Lagu Ndarboy Genk… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "글로벌",
+              "text": "댄스·음악 챌린지 중심 / 평균 11,558,632 views / 제목 dance 1개, challenge 1개, music 1개 / 대표 Nervy funk dance trend 🥺🔥|#shorts… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "대한민국",
+              "text": "댄스·음악 챌린지 중심 / 평균 3,446,700 views / 제목 music 1개, trend 1개 / 대표 누나❗️꼼짝마🔫💦#크림서현의랜덤댄스 #크림서현 #현대백화점중… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "미국",
+              "text": "댄스·음악 챌린지 중심 / 평균 1,455,339 views / 제목 dance 1개, challenge 1개, music 1개 / 대표 TikTok Viral Trend | Moonlight Re… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "아르헨티나",
+              "text": "댄스·음악 챌린지 중심 / 평균 2,932,928 views / 제목 music 1개, trend 1개, viral 1개 / 대표 SI TE SABES EL TIKTOK BAILA!-2026… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            }
+          ]
+        },
+        {
+          "title": "실패 패턴",
+          "items": [
+            {
+              "label": "하위 구간",
+              "text": "7개 / 255,760~11,558,632 views"
+            },
+            {
+              "label": "약한 신호",
+              "text": "댄스·음악 챌린지처럼 보여도 첫 장면 보상·결과 회수 약하면 확산 정체"
+            },
+            {
+              "label": "주의",
+              "text": "해시태그·trend·viral 과밀 후보 7개 / 키워드보다 행동·상황·결과 우선"
+            },
+            {
+              "label": "개선",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            }
+          ]
+        }
+      ]
+    },
+    "api": {
+      "title": "YouTube API 인사이트",
+      "metrics": [
+        {
+          "label": "전체 표시",
+          "value": "45개"
+        },
+        {
+          "label": "오늘 감지",
+          "value": "7개"
+        },
+        {
+          "label": "신규 편입",
+          "value": "3개"
+        },
+        {
+          "label": "분석 표본",
+          "value": "7개"
+        },
+        {
+          "label": "기준",
+          "value": "10,000뷰 이상"
+        }
+      ],
+      "badges": [
+        "댄스·음악 챌린지 7개",
+        "편집·슬로우드 사운드 2개"
+      ],
+      "cards": [
+        {
+          "title": "오늘 핵심",
+          "items": [
+            {
+              "label": "강한 포맷",
+              "text": "댄스·음악 챌린지 7개 / 100%"
+            },
+            {
+              "label": "감지 기준",
+              "text": "5/18 랭킹·API 재감지 7개 / 신규 편입 3개 / 기존 재확인 4개"
+            },
+            {
+              "label": "게시 구간",
+              "text": "4/21 ~ 5/9 / 평균 3,339,464 views / 평균 17초"
+            },
+            {
+              "label": "API 조건",
+              "text": "search / videos / 10,000뷰 이상 / 40초 미만"
+            }
+          ]
+        },
+        {
+          "title": "변화와 확산",
+          "items": [
+            {
+              "label": "변화",
+              "text": "편집·슬로우드 사운드 비중 +26%p / 오늘 랭킹에서 가장 빠르게 확대"
+            },
+            {
+              "label": "지역",
+              "text": "인도네시아 3개, 글로벌 1개, 미국 1개, 아르헨티나 1개"
+            },
+            {
+              "label": "제목 훅",
+              "text": "viral 5개, music 4개, trend 4개, dance 3개, challenge 2개"
+            }
+          ]
+        },
+        {
+          "title": "제작 힌트",
+          "items": [
+            {
+              "label": "우선순위",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "상위 사례",
+              "text": "Nervy funk dance trend 🥺🔥|#shortsfeed #dancet… / 11,558,632 views / YouTube Data API 공식 검색 소스"
+            },
+            {
+              "label": "검토 포인트",
+              "text": "첫 프레임에서 결과 질문을 만들고 마지막 컷에서 보상 회수"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "creatorCards": [
+        {
+          "title": "1억뷰 공통 패턴",
+          "items": [
+            {
+              "label": "상위권",
+              "text": "7개 평균 3,339,464 views / 평균 17초"
+            },
+            {
+              "label": "대표",
+              "text": "Nervy funk dance trend 🥺🔥|#shortsfeed #danc… / 11,558,632 views"
+            },
+            {
+              "label": "강한 신호",
+              "text": "댄스·음악 챌린지 / 제목 viral 5개, music 4개, trend 4개, dance 3개"
+            },
+            {
+              "label": "제작 우선순위",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            }
+          ]
+        },
+        {
+          "title": "국가별 콘텐츠 차이",
+          "items": [
+            {
+              "label": "인도네시아",
+              "text": "댄스·음악 챌린지 중심 / 평균 1,327,549 views / 제목 viral 3개, dance 1개, fyp 1개 / 대표 Kicau Mania || Lagu Ndarboy Genk… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "글로벌",
+              "text": "댄스·음악 챌린지 중심 / 평균 11,558,632 views / 제목 dance 1개, challenge 1개, music 1개 / 대표 Nervy funk dance trend 🥺🔥|#shorts… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "대한민국",
+              "text": "댄스·음악 챌린지 중심 / 평균 3,446,700 views / 제목 music 1개, trend 1개 / 대표 누나❗️꼼짝마🔫💦#크림서현의랜덤댄스 #크림서현 #현대백화점중… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "미국",
+              "text": "댄스·음악 챌린지 중심 / 평균 1,455,339 views / 제목 dance 1개, challenge 1개, music 1개 / 대표 TikTok Viral Trend | Moonlight Re… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "아르헨티나",
+              "text": "댄스·음악 챌린지 중심 / 평균 2,932,928 views / 제목 music 1개, trend 1개, viral 1개 / 대표 SI TE SABES EL TIKTOK BAILA!-2026… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            }
+          ]
+        },
+        {
+          "title": "실패 패턴",
+          "items": [
+            {
+              "label": "하위 구간",
+              "text": "7개 / 255,760~11,558,632 views"
+            },
+            {
+              "label": "약한 신호",
+              "text": "댄스·음악 챌린지처럼 보여도 첫 장면 보상·결과 회수 약하면 확산 정체"
+            },
+            {
+              "label": "주의",
+              "text": "해시태그·trend·viral 과밀 후보 7개 / 키워드보다 행동·상황·결과 우선"
             },
             {
               "label": "개선",
@@ -361,19 +710,19 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "98개"
+          "value": "83개"
         },
         {
           "label": "오늘 감지",
-          "value": "93개"
+          "value": "70개"
         },
         {
           "label": "신규 편입",
-          "value": "93개"
+          "value": "70개"
         },
         {
           "label": "분석 표본",
-          "value": "93개"
+          "value": "70개"
         },
         {
           "label": "기준",
@@ -381,9 +730,9 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 58개",
-        "상황형 코미디·짧은 사건 30개",
-        "스포츠·퍼포먼스 순간 11개",
+        "댄스·음악 챌린지 42개",
+        "상황형 코미디·짧은 사건 22개",
+        "스포츠·퍼포먼스 순간 7개",
         "K-pop·아이돌 파생 4개"
       ],
       "cards": [
@@ -392,15 +741,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 58개 / 62%"
+              "text": "댄스·음악 챌린지 42개 / 60%"
             },
             {
               "label": "감지 기준",
-              "text": "5/17 랭킹·API 재감지 93개 / 신규 편입 93개 / 기존 재확인 0개"
+              "text": "5/17 랭킹·API 재감지 70개 / 신규 편입 70개 / 기존 재확인 0개"
             },
             {
               "label": "게시 구간",
-              "text": "4/12 ~ 5/15 / 평균 21,387,530 views / 평균 29초"
+              "text": "10/27 ~ 5/15 / 평균 18,322,574 views / 평균 20초"
             }
           ]
         },
@@ -409,15 +758,15 @@
           "items": [
             {
               "label": "변화",
-              "text": "상황형 코미디·짧은 사건 비중 +12%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "상황형 코미디·짧은 사건 비중 +24%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "지역",
-              "text": "글로벌 22개, 멕시코 10개, 대한민국 7개, 베트남 7개"
+              "text": "글로벌 16개, 멕시코 9개, 대한민국 6개, 인도네시아 6개"
             },
             {
               "label": "제목 훅",
-              "text": "trend 38개, music 35개, dance 33개, challenge 22개, viral 22개"
+              "text": "trend 29개, music 28개, dance 23개, viral 22개, challenge 13개"
             }
           ]
         },
@@ -445,11 +794,11 @@
           "metrics": [
             {
               "label": "감지",
-              "value": "10개"
+              "value": "6개"
             },
             {
               "label": "평균 조회",
-              "value": "35,971,934 views"
+              "value": "41,599,274 views"
             },
             {
               "label": "구간",
@@ -459,7 +808,7 @@
           "items": [
             {
               "label": "주요 지역",
-              "text": "글로벌 10개"
+              "text": "글로벌 6개"
             },
             {
               "label": "대표",
@@ -467,7 +816,7 @@
             },
             {
               "label": "포맷",
-              "text": "상황형 코미디·짧은 사건 8개(80%), 스포츠·퍼포먼스 순간 3개(30%)"
+              "text": "상황형 코미디·짧은 사건 4개(67%), 스포츠·퍼포먼스 순간 3개(50%)"
             },
             {
               "label": "읽을 점",
@@ -480,11 +829,11 @@
           "metrics": [
             {
               "label": "감지",
-              "value": "20개"
+              "value": "15개"
             },
             {
               "label": "평균 조회",
-              "value": "62,057,473 views"
+              "value": "49,296,283 views"
             },
             {
               "label": "구간",
@@ -494,7 +843,7 @@
           "items": [
             {
               "label": "주요 지역",
-              "text": "멕시코 5개, 일본 4개, 이탈리아 2개"
+              "text": "멕시코 5개, 일본 3개, 이탈리아 2개"
             },
             {
               "label": "대표",
@@ -502,7 +851,7 @@
             },
             {
               "label": "포맷",
-              "text": "상황형 코미디·짧은 사건 12개(60%), 댄스·음악 챌린지 7개(35%)"
+              "text": "상황형 코미디·짧은 사건 10개(67%), 댄스·음악 챌린지 4개(27%)"
             },
             {
               "label": "읽을 점",
@@ -550,11 +899,11 @@
           "metrics": [
             {
               "label": "감지",
-              "value": "8개"
+              "value": "6개"
             },
             {
               "label": "평균 조회",
-              "value": "6,366,350 views"
+              "value": "5,232,272 views"
             },
             {
               "label": "구간",
@@ -564,15 +913,15 @@
           "items": [
             {
               "label": "주요 지역",
-              "text": "멕시코 4개, 브라질 2개, 미국 1개"
+              "text": "멕시코 3개, 브라질 2개, 아르헨티나 1개"
             },
             {
               "label": "대표",
-              "text": "He tried not to laugh… #shorts #shortsf… / 9,966,241 views"
+              "text": "Enganaron a LARIN JR😭🥺By:alfredolarin #hu… / 8,126,932 views"
             },
             {
               "label": "포맷",
-              "text": "상황형 코미디·짧은 사건 8개(100%)"
+              "text": "상황형 코미디·짧은 사건 6개(100%)"
             },
             {
               "label": "읽을 점",
@@ -585,11 +934,11 @@
           "metrics": [
             {
               "label": "감지",
-              "value": "46개"
+              "value": "36개"
             },
             {
               "label": "평균 조회",
-              "value": "5,344,940 views"
+              "value": "4,746,157 views"
             },
             {
               "label": "구간",
@@ -599,15 +948,15 @@
           "items": [
             {
               "label": "주요 지역",
-              "text": "글로벌 6개, 대한민국 5개, 독일 5개"
+              "text": "인도네시아 5개, 우즈베키스탄 5개, 베트남 5개"
             },
             {
               "label": "대표",
-              "text": "🔴 Lal Lal Bangdi Dance Tutorial | Trendin… / 26,433,383 views"
+              "text": "HELLO GIRL TREND 😏 | The moment 67 plays…… / 25,415,992 views"
             },
             {
               "label": "포맷",
-              "text": "댄스·음악 챌린지 46개(100%), 스포츠·퍼포먼스 순간 4개(9%)"
+              "text": "댄스·음악 챌린지 36개(100%), 상황형 코미디·짧은 사건 2개(6%)"
             },
             {
               "label": "읽을 점",
@@ -622,7 +971,7 @@
           "items": [
             {
               "label": "상위권",
-              "text": "5개 평균 218,367,566 views / 평균 27초"
+              "text": "3개 평균 214,308,739 views / 평균 15초"
             },
             {
               "label": "대표",
@@ -630,7 +979,7 @@
             },
             {
               "label": "강한 신호",
-              "text": "댄스·음악 챌린지 / 제목 dance 2개, funny 2개, challenge 1개, comedy 1개"
+              "text": "댄스·음악 챌린지 / 제목 dance 2개, funny 1개, comedy 1개, shuffle 1개"
             },
             {
               "label": "제작 우선순위",
@@ -643,23 +992,23 @@
           "items": [
             {
               "label": "글로벌",
-              "text": "상황형 코미디·짧은 사건 중심 / 평균 25,614,881 views / 제목 dance 7개, music 7개, trend 7개 / 대표 Backstage vs Result cute dance 😊🧸 / 액션 첫 1초에 갈등·반전·결과 질문을 먼저 제시하고, 마지막 컷에서 보상을 회수함"
+              "text": "댄스·음악 챌린지 중심 / 평균 25,939,852 views / 제목 dance 5개, challenge 4개, funny 4개 / 대표 Backstage vs Result cute dance 😊🧸 / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
             },
             {
               "label": "멕시코",
-              "text": "상황형 코미디·짧은 사건 중심 / 평균 20,497,327 views / 제목 comedy 5개, funny 4개, viral 2개 / 대표 CHUPANDO DEDO #santi #santioficia… / 액션 첫 1초에 갈등·반전·결과 질문을 먼저 제시하고, 마지막 컷에서 보상을 회수함"
+              "text": "상황형 코미디·짧은 사건 중심 / 평균 21,718,916 views / 제목 comedy 4개, funny 3개, viral 2개 / 대표 CHUPANDO DEDO #santi #santioficia… / 액션 첫 1초에 갈등·반전·결과 질문을 먼저 제시하고, 마지막 컷에서 보상을 회수함"
             },
             {
               "label": "대한민국",
-              "text": "댄스·음악 챌린지 중심 / 평균 12,785,827 views / 제목 challenge 3개, dance 2개, music 2개 / 대표 F1 스탑 챌린지 #f1 #formula1 #포뮬러1 / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
-            },
-            {
-              "label": "베트남",
-              "text": "댄스·음악 챌린지 중심 / 평균 38,817,005 views / 제목 trend 5개, music 4개, dance 2개 / 대표 When princesses playing \"Squid Ga… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+              "text": "댄스·음악 챌린지 중심 / 평균 14,582,939 views / 제목 challenge 3개, dance 2개, music 2개 / 대표 F1 스탑 챌린지 #f1 #formula1 #포뮬러1 / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
             },
             {
               "label": "인도네시아",
-              "text": "댄스·음악 챌린지 중심 / 평균 2,055,675 views / 제목 viral 5개, dance 1개, funny 1개 / 대표 Gercep banget ini cewek😂 #couple… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+              "text": "댄스·음악 챌린지 중심 / 평균 2,075,696 views / 제목 viral 5개, dance 1개, funny 1개 / 대표 Gercep banget ini cewek😂 #couple… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "베트남",
+              "text": "댄스·음악 챌린지 중심 / 평균 1,303,180 views / 제목 trend 5개, music 4개, dance 2개 / 대표 Welcome to Vietnam, @Belitskay 🇻🇳… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
             }
           ]
         },
@@ -668,7 +1017,7 @@
           "items": [
             {
               "label": "하위 구간",
-              "text": "8개 / 3,897~106,106 views"
+              "text": "8개 / 3,897~170,845 views"
             },
             {
               "label": "약한 신호",
@@ -676,7 +1025,7 @@
             },
             {
               "label": "주의",
-              "text": "해시태그·trend·viral 과밀 후보 47개 / 키워드보다 행동·상황·결과 우선"
+              "text": "해시태그·trend·viral 과밀 후보 36개 / 키워드보다 행동·상황·결과 우선"
             },
             {
               "label": "개선",
@@ -691,19 +1040,19 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "46개"
+          "value": "45개"
         },
         {
           "label": "오늘 감지",
-          "value": "46개"
+          "value": "36개"
         },
         {
           "label": "신규 편입",
-          "value": "46개"
+          "value": "36개"
         },
         {
           "label": "분석 표본",
-          "value": "46개"
+          "value": "36개"
         },
         {
           "label": "기준",
@@ -711,10 +1060,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 46개",
-        "스포츠·퍼포먼스 순간 4개",
-        "편집·슬로우드 사운드 2개",
-        "상황형 코미디·짧은 사건 2개"
+        "댄스·음악 챌린지 36개",
+        "상황형 코미디·짧은 사건 2개",
+        "K-pop·아이돌 파생 2개",
+        "편집·슬로우드 사운드 1개"
       ],
       "cards": [
         {
@@ -722,19 +1071,19 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 46개 / 100%"
+              "text": "댄스·음악 챌린지 36개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/17 랭킹·API 재감지 46개 / 신규 편입 46개 / 기존 재확인 0개"
+              "text": "5/17 랭킹·API 재감지 36개 / 신규 편입 36개 / 기존 재확인 0개"
             },
             {
               "label": "게시 구간",
-              "text": "4/17 ~ 5/12 / 평균 5,344,940 views / 평균 28초"
+              "text": "4/17 ~ 5/12 / 평균 4,746,157 views / 평균 21초"
             },
             {
               "label": "API 조건",
-              "text": "search / videos / 10,000뷰 이상 / 180초 이하"
+              "text": "search / videos / 10,000뷰 이상 / 40초 미만"
             }
           ]
         },
@@ -743,15 +1092,15 @@
           "items": [
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 중심으로 오늘 표본 형성 / 이전 비교 표본 부족"
+              "text": "댄스·음악 챌린지 강세 유지 / 5/17 재감지 표본 기준"
             },
             {
               "label": "지역",
-              "text": "글로벌 6개, 대한민국 5개, 독일 5개, 인도네시아 5개"
+              "text": "인도네시아 5개, 우즈베키스탄 5개, 베트남 5개, 글로벌 4개"
             },
             {
               "label": "제목 훅",
-              "text": "trend 35개, music 32개, dance 28개, viral 21개, challenge 16개"
+              "text": "trend 28개, music 27개, viral 21개, dance 20개, challenge 11개"
             }
           ]
         },
@@ -764,7 +1113,7 @@
             },
             {
               "label": "상위 사례",
-              "text": "🔴 Lal Lal Bangdi Dance Tutorial | Trending Ma… / 26,433,383 views / YouTube Data API 공식 검색 소스"
+              "text": "HELLO GIRL TREND 😏 | The moment 67 plays… #sh… / 25,415,992 views / YouTube Data API 공식 검색 소스"
             },
             {
               "label": "검토 포인트",
@@ -780,15 +1129,15 @@
           "items": [
             {
               "label": "상위권",
-              "text": "8개 평균 18,438,003 views / 평균 28초"
+              "text": "8개 평균 15,932,148 views / 평균 19초"
             },
             {
               "label": "대표",
-              "text": "🔴 Lal Lal Bangdi Dance Tutorial | Trending… / 26,433,383 views"
+              "text": "HELLO GIRL TREND 😏 | The moment 67 plays… #… / 25,415,992 views"
             },
             {
               "label": "강한 신호",
-              "text": "댄스·음악 챌린지 / 제목 challenge 7개, dance 6개, music 6개, trend 6개"
+              "text": "댄스·음악 챌린지 / 제목 dance 6개, challenge 6개, music 6개, trend 6개"
             },
             {
               "label": "제작 우선순위",
@@ -800,24 +1149,24 @@
           "title": "국가별 콘텐츠 차이",
           "items": [
             {
-              "label": "글로벌",
-              "text": "댄스·음악 챌린지 중심 / 평균 18,754,494 views / 제목 dance 6개, challenge 6개, music 6개 / 대표 🔴 Lal Lal Bangdi Dance Tutorial |… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
-            },
-            {
-              "label": "대한민국",
-              "text": "댄스·음악 챌린지 중심 / 평균 9,390,675 views / 제목 challenge 2개, music 2개, trend 2개 / 대표 내 신발 누가 들고갔어❕️👟#크림서현의랜덤댄스 #크림서현 #… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
-            },
-            {
-              "label": "독일",
-              "text": "댄스·음악 챌린지 중심 / 평균 4,662,864 views / 제목 dance 5개, trend 5개, music 3개 / 대표 BLAZIL vs PORTUGAL FIFA World Cup… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
-            },
-            {
               "label": "베트남",
-              "text": "댄스·음악 챌린지 중심 / 평균 1,252,156 views / 제목 trend 5개, music 4개, dance 2개 / 대표 Welcome to Vietnam, @Belitskay 🇻🇳… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+              "text": "댄스·음악 챌린지 중심 / 평균 1,303,180 views / 제목 trend 5개, music 4개, dance 2개 / 대표 Welcome to Vietnam, @Belitskay 🇻🇳… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
             },
             {
               "label": "우즈베키스탄",
-              "text": "댄스·음악 챌린지 중심 / 평균 114,087 views / 제목 music 5개, trend 5개, viral 4개 / 대표 BOTIR QODIROV YANGI TREND #kishta… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+              "text": "댄스·음악 챌린지 중심 / 평균 120,374 views / 제목 music 5개, trend 5개, viral 4개 / 대표 BOTIR QODIROV YANGI TREND #kishta… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "인도네시아",
+              "text": "댄스·음악 챌린지 중심 / 평균 1,227,614 views / 제목 viral 5개, dance 1개, fyp 1개 / 대표 Kicau Mania || Lagu Ndarboy Genk… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "글로벌",
+              "text": "댄스·음악 챌린지 중심 / 평균 18,540,228 views / 제목 dance 4개, challenge 4개, music 4개 / 대표 HELLO GIRL TREND 😏 | The moment 6… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "대한민국",
+              "text": "댄스·음악 챌린지 중심 / 평균 11,237,556 views / 제목 challenge 2개, music 2개, trend 2개 / 대표 내 신발 누가 들고갔어❕️👟#크림서현의랜덤댄스 #크림서현 #… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
             }
           ]
         },
@@ -826,7 +1175,7 @@
           "items": [
             {
               "label": "하위 구간",
-              "text": "8개 / 14,665~184,727 views"
+              "text": "8개 / 17,186~201,040 views"
             },
             {
               "label": "약한 신호",
@@ -834,7 +1183,420 @@
             },
             {
               "label": "주의",
-              "text": "해시태그·trend·viral 과밀 후보 28개 / 키워드보다 행동·상황·결과 우선"
+              "text": "해시태그·trend·viral 과밀 후보 25개 / 키워드보다 행동·상황·결과 우선"
+            },
+            {
+              "label": "개선",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "dateKey": "2026-05-16",
+    "updatedAt": "2026-05-16T22:51:58+09:00",
+    "updatedLabel": "5/16 22:51",
+    "global": {
+      "title": "트렌드 분석",
+      "metrics": [
+        {
+          "label": "전체 표시",
+          "value": "83개"
+        },
+        {
+          "label": "오늘 감지",
+          "value": "4개"
+        },
+        {
+          "label": "신규 편입",
+          "value": "4개"
+        },
+        {
+          "label": "분석 표본",
+          "value": "4개"
+        },
+        {
+          "label": "기준",
+          "value": "3,000뷰 이상"
+        }
+      ],
+      "badges": [
+        "댄스·음악 챌린지 2개",
+        "상황형 코미디·짧은 사건 1개"
+      ],
+      "cards": [
+        {
+          "title": "오늘 핵심",
+          "items": [
+            {
+              "label": "강한 포맷",
+              "text": "댄스·음악 챌린지 2개 / 50%"
+            },
+            {
+              "label": "감지 기준",
+              "text": "5/16 랭킹·API 재감지 4개 / 신규 편입 4개 / 기존 재확인 0개"
+            },
+            {
+              "label": "게시 구간",
+              "text": "5/5 ~ 5/16 / 평균 35,667,025 views / 평균 23초"
+            }
+          ]
+        },
+        {
+          "title": "변화와 확산",
+          "items": [
+            {
+              "label": "변화",
+              "text": "댄스·음악 챌린지 강세 유지 / 5/16 재감지 표본 기준"
+            },
+            {
+              "label": "지역",
+              "text": "글로벌 2개, 미국 1개, 아르헨티나 1개"
+            },
+            {
+              "label": "제목 훅",
+              "text": "trend 2개, dance 1개, challenge 1개, funny 1개, comedy 1개"
+            }
+          ]
+        },
+        {
+          "title": "제작 힌트",
+          "items": [
+            {
+              "label": "우선순위",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "상위 사례",
+              "text": "When did Ermao learn to do magic？ #funny #com… / 118,572,269 views / Vidirun 24H / 7D 숏폼 랭킹"
+            },
+            {
+              "label": "검토 포인트",
+              "text": "첫 프레임에서 결과 질문을 만들고 마지막 컷에서 보상 회수"
+            }
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "title": "Vidirun 24H/7D 숏폼 랭킹",
+          "metrics": [
+            {
+              "label": "감지",
+              "value": "2개"
+            },
+            {
+              "label": "평균 조회",
+              "value": "69,051,971 views"
+            },
+            {
+              "label": "구간",
+              "value": "24H"
+            }
+          ],
+          "items": [
+            {
+              "label": "주요 지역",
+              "text": "글로벌 2개"
+            },
+            {
+              "label": "대표",
+              "text": "When did Ermao learn to do magic？ #funny… / 118,572,269 views"
+            },
+            {
+              "label": "포맷",
+              "text": "상황형 코미디·짧은 사건 1개(50%)"
+            },
+            {
+              "label": "읽을 점",
+              "text": "단기 급상승 확인용 / 상황형 코미디·짧은 사건 포맷이 빠르게 조회를 모으는지 우선 확인"
+            }
+          ]
+        },
+        {
+          "title": "YTTrack 지역·카테고리 트렌드",
+          "metrics": [
+            {
+              "label": "감지",
+              "value": "1개"
+            },
+            {
+              "label": "평균 조회",
+              "value": "4,559,796 views"
+            },
+            {
+              "label": "구간",
+              "value": "regional"
+            }
+          ],
+          "items": [
+            {
+              "label": "주요 지역",
+              "text": "아르헨티나 1개"
+            },
+            {
+              "label": "대표",
+              "text": "Su reacción al saltar a agua fría fue ÉPI… / 4,559,796 views"
+            },
+            {
+              "label": "포맷",
+              "text": "댄스·음악 챌린지 1개(100%)"
+            },
+            {
+              "label": "읽을 점",
+              "text": "카테고리 반응 확인용 / 코미디·엔터테인먼트 안에서 댄스·음악 챌린지 훅 검증"
+            }
+          ]
+        },
+        {
+          "title": "YouTube 검색 보강",
+          "metrics": [
+            {
+              "label": "감지",
+              "value": "1개"
+            },
+            {
+              "label": "평균 조회",
+              "value": "4,363 views"
+            },
+            {
+              "label": "구간",
+              "value": "search"
+            }
+          ],
+          "items": [
+            {
+              "label": "주요 지역",
+              "text": "미국 1개"
+            },
+            {
+              "label": "대표",
+              "text": "#music #fypシ #dance #shorts#youtubeshorts… / 4,363 views"
+            },
+            {
+              "label": "포맷",
+              "text": "댄스·음악 챌린지 1개(100%)"
+            },
+            {
+              "label": "읽을 점",
+              "text": "보조 랭킹 신호 / 댄스·음악 챌린지 후보를 다른 소스와 교차 확인"
+            }
+          ]
+        }
+      ],
+      "creatorCards": [
+        {
+          "title": "1억뷰 공통 패턴",
+          "items": [
+            {
+              "label": "상위권",
+              "text": "1개 평균 118,572,269 views / 평균 34초"
+            },
+            {
+              "label": "대표",
+              "text": "When did Ermao learn to do magic？ #funny #c… / 118,572,269 views"
+            },
+            {
+              "label": "강한 신호",
+              "text": "상황형 코미디·짧은 사건 / 제목 funny 1개, comedy 1개, magic 1개"
+            },
+            {
+              "label": "제작 우선순위",
+              "text": "첫 1초에 갈등·반전·결과 질문을 먼저 제시하고, 마지막 컷에서 보상을 회수함"
+            }
+          ]
+        },
+        {
+          "title": "국가별 콘텐츠 차이",
+          "items": [
+            {
+              "label": "글로벌",
+              "text": "상황형 코미디·짧은 사건 중심 / 평균 69,051,971 views / 제목 funny 1개, comedy 1개, trend 1개 / 대표 When did Ermao learn to do magic？… / 액션 첫 1초에 갈등·반전·결과 질문을 먼저 제시하고, 마지막 컷에서 보상을 회수함"
+            },
+            {
+              "label": "미국",
+              "text": "댄스·음악 챌린지 중심 / 평균 4,363 views / 제목 dance 1개, music 1개, trend 1개 / 대표 #music #fypシ #dance #shorts#youtu… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "아르헨티나",
+              "text": "댄스·음악 챌린지 중심 / 평균 4,559,796 views / 제목 challenge 1개 / 대표 Su reacción al saltar a agua fría… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            }
+          ]
+        },
+        {
+          "title": "실패 패턴",
+          "items": [
+            {
+              "label": "하위 구간",
+              "text": "4개 / 4,363~118,572,269 views"
+            },
+            {
+              "label": "약한 신호",
+              "text": "댄스·음악 챌린지처럼 보여도 첫 장면 보상·결과 회수 약하면 확산 정체"
+            },
+            {
+              "label": "주의",
+              "text": "해시태그·trend·viral 과밀 후보 1개 / 키워드보다 행동·상황·결과 우선"
+            },
+            {
+              "label": "개선",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            }
+          ]
+        }
+      ]
+    },
+    "api": {
+      "title": "YouTube API 인사이트",
+      "metrics": [
+        {
+          "label": "전체 표시",
+          "value": "45개"
+        },
+        {
+          "label": "오늘 감지",
+          "value": "0개"
+        },
+        {
+          "label": "신규 편입",
+          "value": "0개"
+        },
+        {
+          "label": "분석 표본",
+          "value": "39개"
+        },
+        {
+          "label": "기준",
+          "value": "10,000뷰 이상"
+        }
+      ],
+      "badges": [
+        "댄스·음악 챌린지 39개",
+        "편집·슬로우드 사운드 3개",
+        "상황형 코미디·짧은 사건 2개",
+        "K-pop·아이돌 파생 2개"
+      ],
+      "cards": [
+        {
+          "title": "오늘 핵심",
+          "items": [
+            {
+              "label": "강한 포맷",
+              "text": "댄스·음악 챌린지 39개 / 100%"
+            },
+            {
+              "label": "감지 기준",
+              "text": "5/16 신규 감지 없음 / 최신 보유 데이터 5/19 기준 재분석"
+            },
+            {
+              "label": "게시 구간",
+              "text": "4/20 ~ 5/12 / 평균 3,955,881 views / 평균 20초"
+            },
+            {
+              "label": "API 조건",
+              "text": "search / videos / 10,000뷰 이상 / 40초 미만"
+            }
+          ]
+        },
+        {
+          "title": "변화와 확산",
+          "items": [
+            {
+              "label": "변화",
+              "text": "댄스·음악 챌린지 강세 유지 / 5/19 재감지 표본 기준"
+            },
+            {
+              "label": "지역",
+              "text": "미국 5개, 인도네시아 5개, 우즈베키스탄 5개, 베트남 5개"
+            },
+            {
+              "label": "제목 훅",
+              "text": "music 29개, trend 29개, viral 24개, dance 21개, challenge 13개"
+            }
+          ]
+        },
+        {
+          "title": "제작 힌트",
+          "items": [
+            {
+              "label": "우선순위",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "상위 사례",
+              "text": "내 신발 누가 들고갔어❕️👟#크림서현의랜덤댄스 #크림서현 #랜덤댄스 #내신발어디갔… / 23,813,175 views / YouTube Data API 공식 검색 소스"
+            },
+            {
+              "label": "검토 포인트",
+              "text": "첫 프레임에서 결과 질문을 만들고 마지막 컷에서 보상 회수"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "creatorCards": [
+        {
+          "title": "1억뷰 공통 패턴",
+          "items": [
+            {
+              "label": "상위권",
+              "text": "8개 평균 13,198,327 views / 평균 17초"
+            },
+            {
+              "label": "대표",
+              "text": "내 신발 누가 들고갔어❕️👟#크림서현의랜덤댄스 #크림서현 #랜덤댄스 #내신발어… / 23,813,175 views"
+            },
+            {
+              "label": "강한 신호",
+              "text": "댄스·음악 챌린지 / 제목 dance 6개, challenge 6개, music 6개, trend 6개"
+            },
+            {
+              "label": "제작 우선순위",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            }
+          ]
+        },
+        {
+          "title": "국가별 콘텐츠 차이",
+          "items": [
+            {
+              "label": "미국",
+              "text": "댄스·음악 챌린지 중심 / 평균 4,879,002 views / 제목 dance 5개, music 5개, challenge 4개 / 대표 VIRAL SIX SEVEN DANCE TREND 🔥😱 #c… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "베트남",
+              "text": "댄스·음악 챌린지 중심 / 평균 1,303,180 views / 제목 trend 5개, music 4개, dance 2개 / 대표 Welcome to Vietnam, @Belitskay 🇻🇳… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "우즈베키스탄",
+              "text": "댄스·음악 챌린지 중심 / 평균 120,374 views / 제목 music 5개, trend 5개, viral 4개 / 대표 BOTIR QODIROV YANGI TREND #kishta… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "인도네시아",
+              "text": "댄스·음악 챌린지 중심 / 평균 517,524 views / 제목 viral 5개 / 대표 GAK NYANGKA! Penampilan Siswi Pon… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "글로벌",
+              "text": "댄스·음악 챌린지 중심 / 평균 13,072,586 views / 제목 dance 4개, challenge 4개, music 4개 / 대표 Hello Girl Trend - 67 (Six Seven)… / 액션 음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            }
+          ]
+        },
+        {
+          "title": "실패 패턴",
+          "items": [
+            {
+              "label": "하위 구간",
+              "text": "8개 / 17,186~134,024 views"
+            },
+            {
+              "label": "약한 신호",
+              "text": "댄스·음악 챌린지처럼 보여도 첫 장면 보상·결과 회수 약하면 확산 정체"
+            },
+            {
+              "label": "주의",
+              "text": "해시태그·trend·viral 과밀 후보 26개 / 키워드보다 행동·상황·결과 우선"
             },
             {
               "label": "개선",
