@@ -46,6 +46,7 @@ jobs:
       - name: Validate generated files
         run: |
           python -m json.tool shorts-data.json >/dev/null
+          python -m json.tool insights-data.json >/dev/null
           python - <<'PY'
           from html.parser import HTMLParser
           from pathlib import Path
@@ -180,4 +181,4 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update trending shorts"
-          file_pattern: "index.html shorts-data.json"
+          file_pattern: "index.html shorts-data.json insights-data.json"

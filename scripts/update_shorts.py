@@ -15,6 +15,7 @@ from urllib.parse import quote_plus, urlencode, urljoin
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "shorts-data.json"
+INSIGHTS_PATH = ROOT / "insights-data.json"
 INDEX_PATH = ROOT / "index.html"
 
 KST = timezone(timedelta(hours=9))
@@ -268,6 +269,7 @@ VIRAL_VIEW_THRESHOLD = int(os.environ.get("VIRAL_VIEW_THRESHOLD", "100000000"))
 SHORTS_MAX_DURATION_SECONDS = int(os.environ.get("SHORTS_MAX_DURATION_SECONDS", "180"))
 SHORTS_MIN_ASPECT_RATIO = float(os.environ.get("SHORTS_MIN_ASPECT_RATIO", "0.48"))
 SHORTS_MAX_ASPECT_RATIO = float(os.environ.get("SHORTS_MAX_ASPECT_RATIO", "0.64"))
+INSIGHT_HISTORY_LIMIT = int(os.environ.get("INSIGHT_HISTORY_LIMIT", "14"))
 
 CORE_TERMS = {
     "dance",
@@ -440,6 +442,25 @@ def read_data() -> list[dict[str, Any]]:
     if not DATA_PATH.exists():
         return []
     return normalize_items(json.loads(DATA_PATH.read_text(encoding="utf-8")))
+
+
+def read_insights() -> list[dict[str, Any]]:
+    if not INSIGHTS_PATH.exists():
+        return []
+    try:
+        payload = json.loads(INSIGHTS_PATH.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return []
+    if isinstance(payload, list):
+        return [item for item in payload if isinstance(item, dict)]
+    return []
+
+
+def write_insights(snapshots: list[dict[str, Any]]) -> None:
+    INSIGHTS_PATH.write_text(
+        json.dumps(snapshots[:INSIGHT_HISTORY_LIMIT], ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
 
 
 def normalize_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -625,6 +646,7 @@ def bulletize_text(value: Any) -> str:
     text = re.sub(r"\s*\.\s+", " / ", text)
     text = re.sub(r"[.。]+$", "", text)
     text = re.sub(r"\s*/\s*", " / ", text)
+    text = re.sub(r"(?<=\d)\s*/\s*(?=\d)", "/", text)
     text = re.sub(r"(?:\s*/\s*){2,}", " / ", text)
     text = re.sub(r"\s+", " ", text).strip(" .。")
     return text
@@ -2925,15 +2947,440 @@ def group_items_by_region(items: list[dict[str, Any]]) -> dict[str, list[dict[st
     return grouped
 
 
-def render_index(items: list[dict[str, Any]]) -> str:
+def build_display_context(items: list[dict[str, Any]]) -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, Any]], list[dict[str, Any]]]:
     items = order_items_newest_first(items)
     api_pool = [item for item in items if source_family(item) == "YouTubeDataAPI"]
     region_pool = [item for item in items if source_family(item) != "YouTubeDataAPI"]
     grouped = group_items_by_region(region_pool)
     api_items = unique_content_items([item for item in order_items_newest_first(api_pool) if is_displayable(item)])
     display_items = [item for region_items in grouped.values() for item in region_items] + api_items
-    trend_analysis = render_trend_analysis(display_items)
-    api_analysis = render_youtube_api_analysis(api_items)
+    return grouped, api_items, display_items
+
+
+def local_date_key(value: Any) -> str:
+    return parse_collected_at(value).astimezone(KST).date().isoformat()
+
+
+def format_date_key(date_key: str) -> str:
+    try:
+        parsed = datetime.fromisoformat(date_key).date()
+    except ValueError:
+        return date_key
+    return f"{parsed.month}/{parsed.day}"
+
+
+def item_seen_on_date(item: dict[str, Any], date_key: str) -> bool:
+    return any(
+        value and local_date_key(value) == date_key
+        for value in (item.get("collectedAt"), item.get("lastSeenAt"))
+    )
+
+
+def item_collected_on_date(item: dict[str, Any], date_key: str) -> bool:
+    return bool(item.get("collectedAt")) and local_date_key(item.get("collectedAt")) == date_key
+
+
+def latest_observed_date_key(items: list[dict[str, Any]]) -> str:
+    keys = [
+        local_date_key(value)
+        for item in items
+        for value in (item.get("collectedAt"), item.get("lastSeenAt"))
+        if value
+    ]
+    return max(keys) if keys else datetime.now(KST).date().isoformat()
+
+
+def latest_observed_at_iso(items: list[dict[str, Any]]) -> str:
+    observed = [
+        parse_collected_at(value)
+        for item in items
+        for value in (item.get("collectedAt"), item.get("lastSeenAt"))
+        if value
+    ]
+    if not observed:
+        return datetime.now(KST).replace(microsecond=0).isoformat()
+    return max(observed).astimezone(KST).replace(microsecond=0).isoformat()
+
+
+def active_items_for_date(items: list[dict[str, Any]], date_key: str) -> tuple[list[dict[str, Any]], str]:
+    displayable = unique_content_items([item for item in items if is_displayable(item)])
+    active = [item for item in displayable if item_seen_on_date(item, date_key)]
+    if active:
+        return active, date_key
+    fallback_key = latest_observed_date_key(displayable)
+    fallback = [item for item in displayable if item_seen_on_date(item, fallback_key)]
+    return fallback or displayable, fallback_key
+
+
+def date_range_text(items: list[dict[str, Any]]) -> str:
+    dates = sorted({published for item in items if (published := parse_date(item.get("publishedAt")))})
+    if not dates:
+        return "게시일 혼합"
+    first = dates[0]
+    last = dates[-1]
+    if first == last:
+        return f"{first.month}/{first.day}"
+    return f"{first.month}/{first.day} ~ {last.month}/{last.day}"
+
+
+def top_region_summary(items: list[dict[str, Any]], limit: int = 3) -> str:
+    counts: dict[str, int] = {}
+    for item in items:
+        label = item_region_label(item)
+        counts[label] = counts.get(label, 0) + 1
+    return ", ".join(
+        f"{label} {count}개"
+        for label, count in sorted(counts.items(), key=lambda pair: pair[1], reverse=True)[:limit]
+    )
+
+
+def top_source_summary(items: list[dict[str, Any]], limit: int = 3) -> str:
+    counts: dict[str, int] = {}
+    for item in items:
+        label = source_family_label(source_family(item))
+        counts[label] = counts.get(label, 0) + 1
+    return ", ".join(
+        f"{label} {count}개"
+        for label, count in sorted(counts.items(), key=lambda pair: pair[1], reverse=True)[:limit]
+    )
+
+
+def source_takeaway(family: str, rows: list[dict[str, Any]]) -> str:
+    key, _ = top_cluster(rows)
+    label = cluster_label(key)
+    if family in {"Vidirun", "TubeTrending"}:
+        return f"단기 급상승 확인용 / {label} 포맷이 빠르게 조회를 모으는지 우선 확인"
+    if family == "Playboard":
+        return f"지역별 실사용 반응 확인용 / {label} 포맷이 여러 국가 탭으로 번지는지 관찰"
+    if family == "YTTrack":
+        return f"카테고리 반응 확인용 / 코미디·엔터테인먼트 안에서 {label} 훅 검증"
+    if family == "YouTubeDataAPI":
+        return f"공식 조회수·좋아요 검수용 / 검색 발견성은 {label} 쪽이 강함"
+    return f"보조 랭킹 신호 / {label} 후보를 다른 소스와 교차 확인"
+
+
+def shift_text(active_items: list[dict[str, Any]], previous_items: list[dict[str, Any]], fallback_key: str) -> str:
+    active_key, _ = top_cluster(active_items)
+    if not previous_items:
+        return f"{cluster_label(active_key)} 중심으로 오늘 표본 형성 / 이전 비교 표본 부족"
+    active_counts = cluster_counts(active_items)
+    previous_counts = cluster_counts(previous_items)
+    comparison: list[tuple[float, str]] = []
+    for key in active_counts:
+        if key == "other":
+            continue
+        delta = trend_ratio(active_counts, key, len(active_items)) - trend_ratio(previous_counts, key, len(previous_items))
+        comparison.append((delta, key))
+    comparison.sort(reverse=True)
+    delta, key = comparison[0] if comparison else (0.0, active_key)
+    if delta >= 0.08:
+        return f"{cluster_label(key)} 비중 +{round(delta * 100)}%p / 오늘 랭킹에서 가장 빠르게 확대"
+    if delta <= -0.08:
+        return f"{cluster_label(key)} 비중 {round(delta * 100)}%p / 관심이 다른 포맷으로 분산"
+    return f"{cluster_label(active_key)} 강세 유지 / {format_date_key(fallback_key)} 재감지 표본 기준"
+
+
+def insight_metric(label: str, value: str) -> dict[str, str]:
+    return {"label": label, "value": value}
+
+
+def insight_line(label: str, text: str) -> dict[str, str]:
+    return {"label": label, "text": bulletize_text(text)}
+
+
+def build_source_cards(items: list[dict[str, Any]], limit: int = 5) -> list[dict[str, Any]]:
+    groups: dict[str, list[dict[str, Any]]] = {}
+    for item in items:
+        groups.setdefault(source_family(item), []).append(item)
+    cards: list[dict[str, Any]] = []
+    source_rows = sorted(
+        groups.items(),
+        key=lambda pair: (source_priority(pair[1][0]), -len(pair[1]), -max(parse_int(item.get("viewsGained")) for item in pair[1])),
+    )
+    for family, rows in source_rows[:limit]:
+        top_item = max(rows, key=lambda item: parse_int(item.get("viewsGained")))
+        windows = sorted({clean_text(str(item.get("sourceWindow") or "")) for item in rows if item.get("sourceWindow")})
+        avg_views = average_int([parse_int(item.get("viewsGained")) for item in rows])
+        cards.append(
+            {
+                "title": source_family_label(family),
+                "metrics": [
+                    insight_metric("감지", f"{len(rows)}개"),
+                    insight_metric("평균 조회", f"{fmt_int(avg_views)} views"),
+                    insight_metric("구간", "/".join(windows[:3]) if windows else "라이브"),
+                ],
+                "items": [
+                    insight_line("주요 지역", top_region_summary(rows, 3) or "여러 지역"),
+                    insight_line("대표", f"{compact_title(str(top_item.get('title', '')), 42)} / {fmt_int(top_item.get('viewsGained'))} views"),
+                    insight_line("포맷", cluster_mix_text(rows, 2) or "분산"),
+                    insight_line("읽을 점", source_takeaway(family, rows)),
+                ],
+            }
+        )
+    return cards
+
+
+def build_creator_cards(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    visible_items = unique_content_items([item for item in items if is_displayable(item)])
+    if not visible_items:
+        return []
+    sorted_by_views = sorted(visible_items, key=lambda item: parse_int(item.get("viewsGained")), reverse=True)
+    mega_items = [item for item in sorted_by_views if parse_int(item.get("viewsGained")) >= VIRAL_VIEW_THRESHOLD]
+    near_items = [item for item in sorted_by_views if 30_000_000 <= parse_int(item.get("viewsGained")) < VIRAL_VIEW_THRESHOLD]
+    high_signal_items = (mega_items or near_items or sorted_by_views)[:8]
+    top_label, top_action = top_cluster_sentence(high_signal_items)
+    highest = sorted_by_views[0]
+    high_avg_views = average_int([parse_int(item.get("viewsGained")) for item in high_signal_items])
+    high_avg_duration = average_int([parse_int(item.get("duration")) for item in high_signal_items])
+
+    grouped_by_region: dict[str, list[dict[str, Any]]] = {}
+    for item in visible_items:
+        grouped_by_region.setdefault(str(item.get("region") or "global"), []).append(item)
+    region_lines: list[dict[str, str]] = []
+    for region_key, rows in sorted(grouped_by_region.items(), key=lambda pair: (-len(pair[1]), region_label_for_key(pair[0])))[:5]:
+        cluster_name, action = top_cluster_sentence(rows)
+        top_item = max(rows, key=lambda item: parse_int(item.get("viewsGained")))
+        region_avg_views = average_int([parse_int(item.get("viewsGained")) for item in rows])
+        region_lines.append(
+            insight_line(
+                region_label_for_key(region_key),
+                f"{cluster_name} 중심 / 평균 {fmt_int(region_avg_views)} views / 제목 {top_signal_text(rows, 3)} / 대표 {compact_title(str(top_item.get('title', '')), 34)} / 액션 {action}",
+            )
+        )
+
+    bottom_items = sorted(visible_items, key=lambda item: parse_int(item.get("viewsGained")))[:8]
+    weakest = bottom_items[0]
+    low_ceiling = max(parse_int(item.get("viewsGained")) for item in bottom_items)
+    generic_titles = [
+        item
+        for item in visible_items
+        if len(re.findall(r"#", str(item.get("title") or ""))) >= 4
+        or len(term_hits(item_text(item), {"trend", "viral", "fyp", "shorts"})) >= 3
+    ]
+    weak_label, weak_action = top_cluster_sentence(bottom_items)
+
+    return [
+        {
+            "title": "1억뷰 공통 패턴",
+            "items": [
+                insight_line("상위권", f"{len(high_signal_items)}개 평균 {fmt_int(high_avg_views)} views / 평균 {high_avg_duration}초"),
+                insight_line("대표", f"{compact_title(str(highest.get('title', '')), 44)} / {fmt_int(highest.get('viewsGained'))} views"),
+                insight_line("강한 신호", f"{top_label} / 제목 {top_signal_text(high_signal_items, 4)}"),
+                insight_line("제작 우선순위", top_action),
+            ],
+        },
+        {
+            "title": "국가별 콘텐츠 차이",
+            "items": region_lines,
+        },
+        {
+            "title": "실패 패턴",
+            "items": [
+                insight_line("하위 구간", f"{len(bottom_items)}개 / {fmt_int(parse_int(weakest.get('viewsGained')))}~{fmt_int(low_ceiling)} views"),
+                insight_line("약한 신호", f"{weak_label}처럼 보여도 첫 장면 보상·결과 회수 약하면 확산 정체"),
+                insight_line("주의", f"해시태그·trend·viral 과밀 후보 {len(generic_titles)}개 / 키워드보다 행동·상황·결과 우선"),
+                insight_line("개선", weak_action),
+            ],
+        },
+    ]
+
+
+def build_trend_model(items: list[dict[str, Any]], generated_at: str, title: str, min_views: int) -> dict[str, Any]:
+    visible_items = unique_content_items([item for item in items if is_displayable(item)])
+    date_key = local_date_key(generated_at)
+    today_items = [item for item in visible_items if item_seen_on_date(item, date_key)]
+    active_items, active_key = active_items_for_date(visible_items, date_key)
+    active_ids = {item.get("id") for item in active_items}
+    previous_items = [item for item in visible_items if item.get("id") not in active_ids]
+    new_items = [item for item in today_items if item_collected_on_date(item, date_key)]
+    refreshed_items = [item for item in today_items if item.get("id") not in {row.get("id") for row in new_items}]
+
+    counts = cluster_counts(active_items)
+    top_key, top_count = top_cluster(active_items)
+    top_pct = pct_text(top_count, len(active_items))
+    top_item = max(active_items, key=lambda item: parse_int(item.get("viewsGained"))) if active_items else {}
+    top_label, top_action = top_cluster_sentence(active_items)
+    avg_views = average_int([parse_int(item.get("viewsGained")) for item in active_items])
+    avg_duration = average_int([parse_int(item.get("duration")) for item in active_items])
+
+    badges = [
+        f"{cluster_label(key)} {count}개"
+        for key, count in sorted(counts.items(), key=lambda pair: pair[1], reverse=True)
+        if count and key != "other"
+    ][:4]
+    if active_key == date_key:
+        detection_text = f"{format_date_key(active_key)} 랭킹·API 재감지 {len(today_items)}개 / 신규 편입 {len(new_items)}개 / 기존 재확인 {len(refreshed_items)}개"
+    else:
+        detection_text = f"{format_date_key(date_key)} 신규 감지 없음 / 최신 보유 데이터 {format_date_key(active_key)} 기준 재분석"
+
+    cards = [
+        {
+            "title": "오늘 핵심",
+            "items": [
+                insight_line("강한 포맷", f"{top_label} {top_count}개 / {top_pct}"),
+                insight_line("감지 기준", detection_text),
+                insight_line("게시 구간", f"{date_range_text(active_items)} / 평균 {fmt_int(avg_views)} views / 평균 {avg_duration}초"),
+            ],
+        },
+        {
+            "title": "변화와 확산",
+            "items": [
+                insight_line("변화", shift_text(active_items, previous_items, active_key)),
+                insight_line("지역", top_region_summary(active_items, 4) or "여러 지역 분산"),
+                insight_line("제목 훅", top_signal_text(active_items, 5)),
+            ],
+        },
+        {
+            "title": "제작 힌트",
+            "items": [
+                insight_line("우선순위", top_action),
+                insight_line("상위 사례", f"{compact_title(str(top_item.get('title', '')), 46)} / {fmt_int(top_item.get('viewsGained'))} views / {source_family_label(source_family(top_item)) if top_item else '소스 없음'}"),
+                insight_line("검토 포인트", "첫 프레임에서 결과 질문을 만들고 마지막 컷에서 보상 회수"),
+            ],
+        },
+    ]
+
+    return {
+        "title": title,
+        "metrics": [
+            insight_metric("전체 표시", f"{len(visible_items)}개"),
+            insight_metric("오늘 감지", f"{len(today_items)}개"),
+            insight_metric("신규 편입", f"{len(new_items)}개"),
+            insight_metric("분석 표본", f"{len(active_items)}개"),
+            insight_metric("기준", f"{min_views:,}뷰 이상"),
+        ],
+        "badges": badges,
+        "cards": cards,
+        "sources": build_source_cards(active_items),
+        "creatorCards": build_creator_cards(active_items),
+    }
+
+
+def build_api_insight_model(api_items: list[dict[str, Any]], generated_at: str) -> dict[str, Any]:
+    model = build_trend_model(api_items, generated_at, "YouTube API 인사이트", YOUTUBE_API_MIN_DISPLAY_VIEWS)
+    model["sources"] = []
+    for card in model.get("cards", []):
+        if card.get("title") == "오늘 핵심":
+            card["items"].append(insight_line("API 조건", f"search/videos / {YOUTUBE_API_MIN_DISPLAY_VIEWS:,}뷰 이상 / {SHORTS_MAX_DURATION_SECONDS}초 이하"))
+    return model
+
+
+def build_insight_snapshot(items: list[dict[str, Any]], generated_at: str) -> dict[str, Any]:
+    _, api_items, display_items = build_display_context(items)
+    date_key = local_date_key(generated_at)
+    return {
+        "dateKey": date_key,
+        "updatedAt": generated_at,
+        "updatedLabel": fmt_footer_update(generated_at),
+        "global": build_trend_model(display_items, generated_at, "트렌드 분석", MIN_DISPLAY_VIEWS),
+        "api": build_api_insight_model(api_items, generated_at),
+    }
+
+
+def upsert_insight_snapshot(history: list[dict[str, Any]], snapshot: dict[str, Any]) -> list[dict[str, Any]]:
+    date_key = snapshot.get("dateKey")
+    kept = [item for item in history if item.get("dateKey") != date_key]
+    return [snapshot] + kept[: max(INSIGHT_HISTORY_LIMIT - 1, 0)]
+
+
+def render_metric_pills(metrics: list[dict[str, str]]) -> str:
+    return "".join(
+        f"""<span class="insight-metric"><b>{escape(metric.get('label', ''))}</b><strong>{highlight_text(metric.get('value', ''))}</strong></span>"""
+        for metric in metrics
+    )
+
+
+def render_labeled_items(items: list[dict[str, str]]) -> str:
+    rows = []
+    for item in items:
+        label = escape(item.get("label", ""))
+        text = highlight_text(item.get("text", ""))
+        rows.append(f"""<li><b>{label}</b><span>{text}</span></li>""")
+    return "\n".join(rows)
+
+
+def render_insight_cards(cards: list[dict[str, Any]], class_name: str = "insight-card") -> str:
+    return "\n".join(
+        f"""
+          <article class="{class_name}">
+            <h3>{escape(card.get('title', ''))}</h3>
+            <div class="mini-metrics">{render_metric_pills(card.get('metrics') or [])}</div>
+            <ul>{render_labeled_items(card.get('items') or [])}</ul>
+          </article>"""
+        for card in cards
+    )
+
+
+def render_source_cards(cards: list[dict[str, Any]]) -> str:
+    if not cards:
+        return ""
+    return f"""
+        <div class="insight-subsection">
+          <h3>소스별 관찰</h3>
+          <div class="source-card-grid">
+{render_insight_cards(cards, "source-card")}
+          </div>
+        </div>"""
+
+
+def render_creator_cards(cards: list[dict[str, Any]]) -> str:
+    if not cards:
+        return ""
+    return f"""
+        <div class="insight-subsection">
+          <h3>영상 제작자 인사이트</h3>
+          <div class="creator-insight-grid">
+{render_insight_cards(cards, "creator-insight-card")}
+          </div>
+        </div>"""
+
+
+def render_snapshot_model(snapshot: dict[str, Any], key: str, is_latest: bool) -> str:
+    model = snapshot.get(key) or {}
+    if not model:
+        return ""
+    badges = "".join(f"<li>{highlight_text(badge)}</li>" for badge in model.get("badges", []))
+    latest_label = '<span class="insight-live">최신</span>' if is_latest else ""
+    return f"""
+      <section class="daily-insight{' daily-insight--latest' if is_latest else ''}">
+        <div class="daily-insight-head">
+          <div>
+            <span class="insight-date">{escape(snapshot.get('updatedLabel') or format_date_key(str(snapshot.get('dateKey') or '')))}</span>
+            <h2>{escape(model.get('title', '인사이트'))}{latest_label}</h2>
+          </div>
+          <div class="insight-metrics">{render_metric_pills(model.get('metrics') or [])}</div>
+        </div>
+        <ul class="insight-badges">{badges}</ul>
+        <div class="insight-grid">
+{render_insight_cards(model.get('cards') or [])}
+        </div>
+{render_source_cards(model.get('sources') or [])}
+{render_creator_cards(model.get('creatorCards') or [])}
+      </section>"""
+
+
+def render_insight_history(history: list[dict[str, Any]], key: str, fallback_items: list[dict[str, Any]], title: str, min_views: int) -> str:
+    if not history:
+        generated_at = (os.environ.get("SITE_UPDATED_AT") or datetime.now(KST).replace(microsecond=0).isoformat())
+        model = build_trend_model(fallback_items, generated_at, title, min_views)
+        history = [{"dateKey": local_date_key(generated_at), "updatedAt": generated_at, "updatedLabel": fmt_footer_update(generated_at), key: model}]
+    rendered = "\n".join(
+        render_snapshot_model(snapshot, key, index == 0)
+        for index, snapshot in enumerate(history[:INSIGHT_HISTORY_LIMIT])
+        if snapshot.get(key)
+    )
+    return f"""
+    <section class="insight-stack" aria-label="{escape(title)}">
+{rendered}
+    </section>"""
+
+
+def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, Any]] | None = None) -> str:
+    items = order_items_newest_first(items)
+    grouped, api_items, display_items = build_display_context(items)
+    insight_history = insight_history or read_insights()
+    trend_analysis = render_insight_history(insight_history, "global", display_items, "트렌드 분석", MIN_DISPLAY_VIEWS)
+    api_analysis = render_insight_history(insight_history, "api", api_items, "YouTube API 인사이트", YOUTUBE_API_MIN_DISPLAY_VIEWS)
     mega_count = sum(1 for item in display_items if parse_int(item.get("viewsGained")) >= VIRAL_VIEW_THRESHOLD)
 
     tab_parts = []
@@ -3188,6 +3635,182 @@ def render_index(items: list[dict[str, Any]]) -> str:
     main {{
       padding: 14px 0 44px;
     }}
+    .insight-stack {{
+      display: grid;
+      gap: 14px;
+      margin-bottom: 18px;
+    }}
+    .daily-insight {{
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
+      padding: 14px;
+    }}
+    .daily-insight--latest {{
+      border-color: rgba(220, 38, 38, 0.28);
+      box-shadow: 0 10px 26px rgba(24, 33, 47, 0.06);
+    }}
+    .daily-insight-head {{
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }}
+    .insight-date {{
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 3px;
+    }}
+    .daily-insight h2 {{
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.25;
+    }}
+    .insight-live {{
+      border-radius: 999px;
+      background: #fee2e2;
+      color: #991b1b;
+      padding: 3px 7px;
+      font-size: 11px;
+      font-weight: 900;
+    }}
+    .insight-metrics,
+    .mini-metrics {{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+    }}
+    .mini-metrics {{
+      justify-content: flex-start;
+      margin-bottom: 8px;
+    }}
+    .insight-metric {{
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid rgba(13, 148, 136, 0.18);
+      border-radius: 999px;
+      background: #ffffff;
+      color: #344054;
+      padding: 5px 8px;
+      font-size: 11px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }}
+    .insight-metric b {{
+      color: var(--muted);
+      font-weight: 800;
+    }}
+    .insight-metric strong {{
+      font-weight: 900;
+    }}
+    .insight-badges {{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0 0 12px;
+      padding: 0;
+      list-style: none;
+    }}
+    .insight-badges li {{
+      border: 1px solid rgba(220, 38, 38, 0.18);
+      border-radius: 999px;
+      background: #fff7f7;
+      color: #7f1d1d;
+      padding: 5px 8px;
+      font-size: 11px;
+      font-weight: 900;
+    }}
+    .insight-grid,
+    .source-card-grid,
+    .creator-insight-grid {{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 10px;
+    }}
+    .source-card-grid {{
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }}
+    .insight-card,
+    .source-card,
+    .creator-insight-card {{
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 12px;
+    }}
+    .source-card {{
+      background: #fffafa;
+    }}
+    .creator-insight-card {{
+      background: #f8fbfd;
+    }}
+    .insight-card h3,
+    .source-card h3,
+    .creator-insight-card h3,
+    .insight-subsection > h3 {{
+      margin: 0 0 8px;
+      color: #344054;
+      font-size: 13px;
+      line-height: 1.3;
+      font-weight: 900;
+    }}
+    .insight-subsection {{
+      margin-top: 14px;
+    }}
+    .insight-card ul,
+    .source-card ul,
+    .creator-insight-card ul {{
+      display: grid;
+      gap: 7px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: #344054;
+      font-size: 12.5px;
+      line-height: 1.55;
+    }}
+    .insight-card li,
+    .source-card li,
+    .creator-insight-card li {{
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 9px;
+      align-items: start;
+      border-top: 1px solid #edf2f7;
+      padding-top: 7px;
+    }}
+    .insight-card li:first-child,
+    .source-card li:first-child,
+    .creator-insight-card li:first-child {{
+      border-top: 0;
+      padding-top: 0;
+    }}
+    .insight-card li b,
+    .source-card li b,
+    .creator-insight-card li b {{
+      color: #991b1b;
+      font-size: 11px;
+      font-weight: 900;
+      line-height: 1.35;
+    }}
+    .creator-insight-card li b {{
+      color: #0f766e;
+    }}
+    .insight-card li span,
+    .source-card li span,
+    .creator-insight-card li span {{
+      min-width: 0;
+    }}
     .trend-brief {{
       border-bottom: 1px solid var(--line);
       padding: 2px 0 16px;
@@ -3314,6 +3937,20 @@ def render_index(items: list[dict[str, Any]]) -> str:
     }}
     .creator-insight-card li + li {{
       margin-top: 6px;
+    }}
+    .daily-insight .creator-insight-grid {{
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }}
+    .daily-insight .creator-insight-card ul {{
+      display: grid;
+      gap: 7px;
+      padding: 0;
+      list-style: none;
+      font-size: 12.5px;
+      line-height: 1.55;
+    }}
+    .daily-insight .creator-insight-card li + li {{
+      margin-top: 0;
     }}
     .mega-panel {{
       background: transparent;
@@ -3740,6 +4377,11 @@ def render_index(items: list[dict[str, Any]]) -> str:
       .tab-button {{ min-height: 34px; padding: 7px 7px 7px 9px; border-radius: 12px; font-size: 11px; gap: 6px; }}
       .tab-count {{ min-width: 20px; padding: 2px 6px; font-size: 10px; }}
       .tab-button::after {{ left: 9px; right: 9px; bottom: 4px; }}
+      .daily-insight-head {{ flex-direction: column; }}
+      .insight-metrics {{ justify-content: flex-start; }}
+      .insight-card li,
+      .source-card li,
+      .creator-insight-card li {{ grid-template-columns: 1fr; gap: 3px; }}
       .trend-heading {{ align-items: flex-start; flex-direction: column; gap: 4px; }}
       .trend-meta li {{ white-space: normal; }}
       .mega-grid {{ grid-template-columns: 1fr; }}
@@ -3813,8 +4455,13 @@ def main() -> int:
     args = parser.parse_args()
 
     existing = read_data()
+    insight_history = read_insights()
     if args.render_only:
         merged = dedupe_accumulated_items(existing)
+        if not insight_history:
+            generated_at = latest_observed_at_iso(merged)
+            insight_history = upsert_insight_snapshot(insight_history, build_insight_snapshot(merged, generated_at))
+            write_insights(insight_history)
     else:
         collected_at = datetime.now(KST).replace(microsecond=0).isoformat()
         candidates = collect_vidirun(collected_at)
@@ -3856,8 +4503,10 @@ def main() -> int:
                 enrich_video_metadata(merged)
         merged = dedupe_accumulated_items(merged)
         write_data(merged)
+        insight_history = upsert_insight_snapshot(insight_history, build_insight_snapshot(merged, collected_at))
+        write_insights(insight_history)
 
-    INDEX_PATH.write_text(render_index(merged), encoding="utf-8")
+    INDEX_PATH.write_text(render_index(merged, insight_history), encoding="utf-8")
     print(f"rendered {INDEX_PATH} with {len(merged)} shorts")
     return 0
 
