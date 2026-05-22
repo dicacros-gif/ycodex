@@ -257,19 +257,20 @@ YOUTUBE_API_REGION_CODES = {
 
 RANKING_SOURCE_LIMIT = int(os.environ.get("RANKING_SOURCE_LIMIT", "18"))
 YT_SEARCH_LIMIT = int(os.environ.get("YT_SEARCH_LIMIT", "12"))
-YOUTUBE_API_SEARCH_LIMIT = int(os.environ.get("YOUTUBE_API_SEARCH_LIMIT", "5"))
+YOUTUBE_API_SEARCH_LIMIT = int(os.environ.get("YOUTUBE_API_SEARCH_LIMIT", "8"))
 YOUTUBE_API_RECENT_DAYS = int(os.environ.get("YOUTUBE_API_RECENT_DAYS", "30"))
-MIN_DISPLAY_VIEWS = int(os.environ.get("MIN_DISPLAY_VIEWS", "3000"))
+MIN_DISPLAY_VIEWS = int(os.environ.get("MIN_DISPLAY_VIEWS", "10000"))
 YOUTUBE_API_MIN_DISPLAY_VIEWS = int(os.environ.get("YOUTUBE_API_MIN_DISPLAY_VIEWS", "10000"))
 PUBLISHED_METADATA_LIMIT = int(os.environ.get("PUBLISHED_METADATA_LIMIT", "200"))
 YT_DLP_SEARCH_TIMEOUT_SECONDS = int(os.environ.get("YT_DLP_SEARCH_TIMEOUT_SECONDS", "60"))
 YT_DLP_METADATA_TIMEOUT_SECONDS = int(os.environ.get("YT_DLP_METADATA_TIMEOUT_SECONDS", "180"))
 SKIP_YT_DLP_METADATA = os.environ.get("SKIP_YT_DLP_METADATA", "").strip().lower() in {"1", "true", "yes"}
 VIRAL_VIEW_THRESHOLD = int(os.environ.get("VIRAL_VIEW_THRESHOLD", "100000000"))
-SHORTS_MAX_DURATION_SECONDS = int(os.environ.get("SHORTS_MAX_DURATION_SECONDS", "39"))
+SHORTS_MAX_DURATION_SECONDS = int(os.environ.get("SHORTS_MAX_DURATION_SECONDS", "40"))
 SHORTS_MIN_ASPECT_RATIO = float(os.environ.get("SHORTS_MIN_ASPECT_RATIO", "0.48"))
 SHORTS_MAX_ASPECT_RATIO = float(os.environ.get("SHORTS_MAX_ASPECT_RATIO", "0.64"))
 INSIGHT_HISTORY_LIMIT = int(os.environ.get("INSIGHT_HISTORY_LIMIT", "14"))
+LIKE_POPULARITY_WEIGHT = int(os.environ.get("LIKE_POPULARITY_WEIGHT", "85"))
 
 CORE_TERMS = {
     "dance",
@@ -690,6 +691,14 @@ def fmt_count(value: Any) -> str:
     if count <= 0:
         return "확인 필요"
     return f"{count:,}"
+
+
+def fmt_duration(value: Any) -> str:
+    seconds = parse_int(value)
+    if seconds <= 0:
+        return "--:--"
+    minutes, remainder = divmod(seconds, 60)
+    return f"{minutes}:{remainder:02d}"
 
 
 def parse_iso8601_duration(value: Any) -> int:
@@ -1310,82 +1319,84 @@ def collect_youtube_api(collected_at: str) -> list[dict[str, Any]]:
     candidates: list[dict[str, Any]] = []
     published_after = youtube_api_published_after()
     for region in REGIONS:
-        query_text = region["queries"][0]
-        search_params: dict[str, str] = {
-            "part": "snippet",
-            "type": "video",
-            "videoDuration": "short",
-            "order": "viewCount",
-            "maxResults": str(YOUTUBE_API_SEARCH_LIMIT),
-            "publishedAfter": published_after,
-            "q": query_text,
-            "key": api_key,
-        }
-        region_code = YOUTUBE_API_REGION_CODES.get(region["key"], "")
-        if region_code:
-            search_params["regionCode"] = region_code
+        seen_region_ids: set[str] = set()
+        for query_index, query_text in enumerate(region["queries"], start=1):
+            search_params: dict[str, str] = {
+                "part": "snippet",
+                "type": "video",
+                "videoDuration": "short",
+                "order": "viewCount",
+                "maxResults": str(YOUTUBE_API_SEARCH_LIMIT),
+                "publishedAfter": published_after,
+                "q": query_text,
+                "key": api_key,
+            }
+            region_code = YOUTUBE_API_REGION_CODES.get(region["key"], "")
+            if region_code:
+                search_params["regionCode"] = region_code
 
-        try:
-            search_payload = fetch_json(f"https://www.googleapis.com/youtube/v3/search?{urlencode(search_params)}")
-        except Exception as exc:
-            print(f"warning: YouTube Data API search failed for {region['label']}: {exc}", file=sys.stderr)
-            if "HTTP Error 403" in str(exc):
-                break
-            continue
-
-        search_rows = search_payload.get("items") or []
-        video_ids: list[str] = []
-        search_snippets: dict[str, dict[str, Any]] = {}
-        ranks: dict[str, int] = {}
-        for rank, row in enumerate(search_rows, start=1):
-            video_id = str((row.get("id") or {}).get("videoId") or "")
-            if not video_id or video_id in search_snippets:
+            try:
+                search_payload = fetch_json(f"https://www.googleapis.com/youtube/v3/search?{urlencode(search_params)}")
+            except Exception as exc:
+                print(f"warning: YouTube Data API search failed for {region['label']}: {exc}", file=sys.stderr)
+                if "HTTP Error 403" in str(exc):
+                    return candidates
                 continue
-            video_ids.append(video_id)
-            search_snippets[video_id] = row.get("snippet") or {}
-            ranks[video_id] = rank
 
-        try:
-            details_by_id = fetch_youtube_api_video_details(video_ids, api_key)
-        except Exception as exc:
-            print(f"warning: YouTube Data API video details failed for {region['label']}: {exc}", file=sys.stderr)
-            details_by_id = {}
+            search_rows = search_payload.get("items") or []
+            video_ids: list[str] = []
+            search_snippets: dict[str, dict[str, Any]] = {}
+            ranks: dict[str, int] = {}
+            for rank, row in enumerate(search_rows, start=1):
+                video_id = str((row.get("id") or {}).get("videoId") or "")
+                if not video_id or video_id in seen_region_ids or video_id in search_snippets:
+                    continue
+                video_ids.append(video_id)
+                search_snippets[video_id] = row.get("snippet") or {}
+                ranks[video_id] = ((query_index - 1) * YOUTUBE_API_SEARCH_LIMIT) + rank
 
-        for video_id in video_ids:
-            details = details_by_id.get(video_id) or {}
-            snippet = details.get("snippet") or search_snippets.get(video_id) or {}
-            statistics = details.get("statistics") or {}
-            content_details = details.get("contentDetails") or {}
-            duration = parse_iso8601_duration(content_details.get("duration"))
-            if not duration or duration > SHORTS_MAX_DURATION_SECONDS:
-                continue
-            item = make_candidate(
-                region=region["key"],
-                video_id=video_id,
-                title=str(snippet.get("title") or ""),
-                channel=str(snippet.get("channelTitle") or ""),
-                category="YouTube Data API Shorts Search",
-                views_gained=parse_int(statistics.get("viewCount")),
-                source_rank=ranks.get(video_id, 0),
-                source_window="api-viewCount",
-                source_name=f"YouTube Data API - {region['label']}",
-                source_url=f"https://www.youtube.com/results?search_query={quote_plus(query_text)}",
-                collected_at=collected_at,
-                published_at=snippet.get("publishedAt"),
-                like_count=statistics.get("likeCount"),
-                duration=duration,
-                width=1080,
-                height=1920,
-                extra_notes=[
-                    "source: YouTube Data API v3",
-                    f"api query: {query_text}",
-                    "official search and video metadata",
-                    "api short-duration shorts candidate",
-                ],
-                min_score=-2,
-            )
-            if item:
-                candidates.append(item)
+            try:
+                details_by_id = fetch_youtube_api_video_details(video_ids, api_key)
+            except Exception as exc:
+                print(f"warning: YouTube Data API video details failed for {region['label']}: {exc}", file=sys.stderr)
+                details_by_id = {}
+
+            for video_id in video_ids:
+                details = details_by_id.get(video_id) or {}
+                snippet = details.get("snippet") or search_snippets.get(video_id) or {}
+                statistics = details.get("statistics") or {}
+                content_details = details.get("contentDetails") or {}
+                duration = parse_iso8601_duration(content_details.get("duration"))
+                if not duration or duration > SHORTS_MAX_DURATION_SECONDS:
+                    continue
+                item = make_candidate(
+                    region=region["key"],
+                    video_id=video_id,
+                    title=str(snippet.get("title") or ""),
+                    channel=str(snippet.get("channelTitle") or ""),
+                    category="YouTube Data API Shorts Search",
+                    views_gained=parse_int(statistics.get("viewCount")),
+                    source_rank=ranks.get(video_id, 0),
+                    source_window="api-viewCount",
+                    source_name=f"YouTube Data API - {region['label']}",
+                    source_url=f"https://www.youtube.com/results?search_query={quote_plus(query_text)}",
+                    collected_at=collected_at,
+                    published_at=snippet.get("publishedAt"),
+                    like_count=statistics.get("likeCount"),
+                    duration=duration,
+                    width=1080,
+                    height=1920,
+                    extra_notes=[
+                        "source: YouTube Data API v3",
+                        f"api query: {query_text}",
+                        "official search and video metadata",
+                        "api short-duration shorts candidate",
+                    ],
+                    min_score=-2,
+                )
+                if item:
+                    candidates.append(item)
+                    seen_region_ids.add(video_id)
     return candidates
 
 
@@ -1648,7 +1659,7 @@ def filter_shortform_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def prune_shortform_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    return [item for item in dedupe_accumulated_items(items) if is_short_9x16_item(item)]
+    return [item for item in dedupe_accumulated_items(items) if is_collectable_new_item(item)]
 
 
 def source_priority(item: dict[str, Any]) -> int:
@@ -1744,12 +1755,20 @@ def is_displayable(item: dict[str, Any]) -> bool:
     )
 
 
+def popularity_score(item: dict[str, Any]) -> int:
+    views = parse_int(item.get("viewsGained"))
+    likes = parse_int(item.get("likeCount"))
+    return views + (likes * LIKE_POPULARITY_WEIGHT)
+
+
 def rank_item(item: dict[str, Any]) -> tuple[Any, ...]:
     return (
         REGIONS.index(REGION_BY_KEY.get(item.get("region") or "global", REGION_BY_KEY["global"])),
         source_priority(item),
         item.get("sourceWindow") != "24H",
-        -(item.get("viewsGained") or 0),
+        -popularity_score(item),
+        -parse_int(item.get("viewsGained")),
+        -parse_int(item.get("likeCount")),
         item.get("sourceRank") or 9999,
     )
 
@@ -1762,7 +1781,7 @@ def fmt_int(value: Any) -> str:
 
 
 def duration_limit_text() -> str:
-    return f"{SHORTS_MAX_DURATION_SECONDS + 1}초 미만"
+    return f"{SHORTS_MAX_DURATION_SECONDS}초 이하"
 
 
 def parse_date(value: Any) -> datetime.date | None:
@@ -2479,6 +2498,7 @@ def render_mega_case_card(item: dict[str, Any]) -> str:
         <article class="mega-case-card">
           <a class="mega-case-thumb" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">
             <img src="{escape(item.get('thumbnail') or thumbnail_url(item['id']))}" alt="{escape(str(item.get('title', 'YouTube Shorts thumbnail')))}">
+            <span class="duration-badge">{fmt_duration(item.get('duration'))}</span>
           </a>
           <div class="mega-case-body">
             <h3><a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">{escape(compact_title(str(item.get('title', '')), 72))}</a></h3>
@@ -2559,6 +2579,7 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
 
     return f"""
     <section id="panel-mega" class="region-panel mega-panel" data-region-panel="mega" role="tabpanel" aria-labelledby="tab-mega" aria-label="1억뷰 분석">
+{case_section}
       <div class="mega-hero">
         <div>
           <h2>1억뷰 분석</h2>
@@ -2566,7 +2587,6 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
         </div>
         <strong>{len(mega_items)}</strong>
       </div>
-{case_section}
       <div class="mega-grid">
         <div class="mega-block">
           <h3>왜 1억뷰가 나오는가</h3>
@@ -2927,6 +2947,7 @@ def render_card(item: dict[str, Any], index: int) -> str:
         <a class="thumb-link" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener" aria-label="Open {escape(item['title'])} on YouTube Shorts">
           <img src="{escape(item['thumbnail'])}" alt="{escape(item['title'])} thumbnail" loading="lazy">
           <span class="rank">#{index}</span>
+          <span class="duration-badge">{fmt_duration(item.get('duration'))}</span>
         </a>
         <div class="short-body">
           <h2>{escape(item['title'])}</h2>
@@ -2960,10 +2981,9 @@ def group_items_by_region(items: list[dict[str, Any]]) -> dict[str, list[dict[st
 def build_display_context(items: list[dict[str, Any]]) -> tuple[dict[str, list[dict[str, Any]]], list[dict[str, Any]], list[dict[str, Any]]]:
     items = order_items_newest_first(items)
     api_pool = [item for item in items if source_family(item) == "YouTubeDataAPI"]
-    region_pool = [item for item in items if source_family(item) != "YouTubeDataAPI"]
-    grouped = group_items_by_region(region_pool)
+    grouped = group_items_by_region(items)
     api_items = unique_content_items([item for item in order_items_newest_first(api_pool) if is_displayable(item)])
-    display_items = [item for region_items in grouped.values() for item in region_items] + api_items
+    display_items = [item for region_items in grouped.values() for item in region_items]
     return grouped, api_items, display_items
 
 
@@ -3098,6 +3118,46 @@ def insight_line(label: str, text: str) -> dict[str, str]:
     return {"label": label, "text": bulletize_text(text)}
 
 
+def video_metric_summary(item: dict[str, Any]) -> str:
+    duration = parse_int(item.get("duration"))
+    duration_text = f"{duration}초" if duration else "길이 확인"
+    cluster = cluster_label(item_cluster_keys(item)[0])
+    return (
+        f"{compact_title(str(item.get('title', '')), 42)} · "
+        f"조회 {fmt_count(item.get('viewsGained'))} · "
+        f"좋아요 {fmt_count(item.get('likeCount'))} · "
+        f"{duration_text} · {cluster}"
+    )
+
+
+def top_video_insight_lines(items: list[dict[str, Any]], limit: int = 3) -> list[dict[str, str]]:
+    ranked = sorted(
+        unique_content_items(items),
+        key=lambda item: (popularity_score(item), parse_int(item.get("viewsGained")), parse_int(item.get("likeCount"))),
+        reverse=True,
+    )
+    return [insight_line(f"#{index}", video_metric_summary(item)) for index, item in enumerate(ranked[:limit], start=1)]
+
+
+def top_like_summary(items: list[dict[str, Any]]) -> str:
+    liked_items = [item for item in items if parse_int(item.get("likeCount")) > 0]
+    if not liked_items:
+        return "좋아요 공개 데이터가 있는 영상부터 다음 업데이트에서 우선 비교"
+    top_item = max(liked_items, key=lambda item: (parse_int(item.get("likeCount")), popularity_score(item)))
+    views = parse_int(top_item.get("viewsGained"))
+    likes = parse_int(top_item.get("likeCount"))
+    rate = (likes / views * 100) if views else 0
+    return f"{compact_title(str(top_item.get('title', '')), 42)} · 좋아요 {fmt_count(likes)} · 조회 대비 {rate:.1f}%"
+
+
+def duration_mix_summary(items: list[dict[str, Any]], avg_duration: int) -> str:
+    durations = [parse_int(item.get("duration")) for item in items if parse_int(item.get("duration"))]
+    if not durations:
+        return f"{duration_limit_text()} 후보만 표시"
+    near_limit_count = sum(1 for duration in durations if duration >= max(1, SHORTS_MAX_DURATION_SECONDS - 4))
+    return f"{duration_limit_text()} {len(durations)}개 / 제한 근접 {near_limit_count}개 / 평균 {avg_duration}초"
+
+
 def build_source_cards(items: list[dict[str, Any]], limit: int = 5) -> list[dict[str, Any]]:
     groups: dict[str, list[dict[str, Any]]] = {}
     for item in items:
@@ -3204,14 +3264,20 @@ def build_trend_model(items: list[dict[str, Any]], generated_at: str, title: str
     previous_items = [item for item in visible_items if item.get("id") not in active_ids]
     new_items = [item for item in today_items if item_collected_on_date(item, date_key)]
     refreshed_items = [item for item in today_items if item.get("id") not in {row.get("id") for row in new_items}]
+    active_ranked = sorted(
+        active_items,
+        key=lambda item: (popularity_score(item), parse_int(item.get("viewsGained")), parse_int(item.get("likeCount"))),
+        reverse=True,
+    )
 
     counts = cluster_counts(active_items)
     top_key, top_count = top_cluster(active_items)
     top_pct = pct_text(top_count, len(active_items))
-    top_item = max(active_items, key=lambda item: parse_int(item.get("viewsGained"))) if active_items else {}
+    top_item = active_ranked[0] if active_ranked else {}
     top_label, top_action = top_cluster_sentence(active_items)
     avg_views = average_int([parse_int(item.get("viewsGained")) for item in active_items])
     avg_duration = average_int([parse_int(item.get("duration")) for item in active_items])
+    key_video_lines = top_video_insight_lines(active_items)
 
     badges = [
         f"{cluster_label(key)} {count}개"
@@ -3225,26 +3291,24 @@ def build_trend_model(items: list[dict[str, Any]], generated_at: str, title: str
 
     cards = [
         {
-            "title": "오늘 핵심",
+            "title": "핵심 영상",
+            "items": key_video_lines or [insight_line("대기", "표시 가능한 영상이 부족해 다음 수집에서 재분석")],
+        },
+        {
+            "title": "오늘 신호",
             "items": [
                 insight_line("강한 포맷", f"{top_label} {top_count}개 / {top_pct}"),
                 insight_line("감지 기준", detection_text),
-                insight_line("게시 구간", f"{date_range_text(active_items)} / 평균 {fmt_int(avg_views)} views / 평균 {avg_duration}초"),
+                insight_line("반응 밀도", top_like_summary(active_items)),
             ],
         },
         {
-            "title": "변화와 확산",
+            "title": "제작 액션",
             "items": [
+                insight_line("우선 적용", top_action),
+                insight_line("참고 영상", f"{compact_title(str(top_item.get('title', '')), 46)} · 조회 {fmt_count(top_item.get('viewsGained'))} · 좋아요 {fmt_count(top_item.get('likeCount'))}"),
+                insight_line("길이", duration_mix_summary(active_items, avg_duration)),
                 insight_line("변화", shift_text(active_items, previous_items, active_key)),
-                insight_line("지역", top_region_summary(active_items, 4) or "여러 지역 분산"),
-                insight_line("제목 훅", top_signal_text(active_items, 5)),
-            ],
-        },
-        {
-            "title": "제작 힌트",
-            "items": [
-                insight_line("우선순위", top_action),
-                insight_line("상위 사례", f"{compact_title(str(top_item.get('title', '')), 46)} / {fmt_int(top_item.get('viewsGained'))} views / {source_family_label(source_family(top_item)) if top_item else '소스 없음'}"),
                 insight_line("검토 포인트", "첫 프레임에서 결과 질문을 만들고 마지막 컷에서 보상 회수"),
             ],
         },
@@ -3261,8 +3325,8 @@ def build_trend_model(items: list[dict[str, Any]], generated_at: str, title: str
         ],
         "badges": badges,
         "cards": cards,
-        "sources": build_source_cards(active_items),
-        "creatorCards": build_creator_cards(active_items),
+        "sources": [],
+        "creatorCards": [],
     }
 
 
@@ -3270,7 +3334,7 @@ def build_api_insight_model(api_items: list[dict[str, Any]], generated_at: str) 
     model = build_trend_model(api_items, generated_at, "YouTube API 인사이트", YOUTUBE_API_MIN_DISPLAY_VIEWS)
     model["sources"] = []
     for card in model.get("cards", []):
-        if card.get("title") == "오늘 핵심":
+        if card.get("title") == "오늘 신호":
             card["items"].append(insight_line("API 조건", f"search/videos / {YOUTUBE_API_MIN_DISPLAY_VIEWS:,}뷰 이상 / {duration_limit_text()}"))
     return model
 
@@ -3291,6 +3355,20 @@ def upsert_insight_snapshot(history: list[dict[str, Any]], snapshot: dict[str, A
     date_key = snapshot.get("dateKey")
     kept = [item for item in history if item.get("dateKey") != date_key]
     return [snapshot] + kept[: max(INSIGHT_HISTORY_LIMIT - 1, 0)]
+
+
+def refresh_insight_history_models(items: list[dict[str, Any]], history: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    refreshed: list[dict[str, Any]] = []
+    seen_dates: set[str] = set()
+    for snapshot in history[:INSIGHT_HISTORY_LIMIT]:
+        generated_at = snapshot.get("updatedAt") or snapshot.get("dateKey") or latest_observed_at_iso(items)
+        rebuilt = build_insight_snapshot(items, str(generated_at))
+        date_key = str(rebuilt.get("dateKey") or "")
+        if not date_key or date_key in seen_dates:
+            continue
+        refreshed.append(rebuilt)
+        seen_dates.add(date_key)
+    return refreshed
 
 
 def render_metric_pills(metrics: list[dict[str, str]]) -> str:
@@ -3408,14 +3486,13 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
             )
     tab_buttons = "\n".join(tab_parts)
 
-    api_cards = "".join(render_card(item, index) for index, item in enumerate(api_items, start=1))
-
     panels = [
         render_mega_view_analysis(display_items),
         f"""
     <section id="panel-youtube-api" class="region-panel" data-region-panel="youtube_api" role="tabpanel" aria-labelledby="tab-youtube-api" aria-label="YouTube Data API Shorts">
 {api_analysis}
-      <div class="grid">{api_cards}
+      <div class="grid">
+        <div class="empty-state">공식 API 후보는 각 지역 탭 카드에 반영됩니다.</div>
       </div>
     </section>""",
     ]
@@ -3646,15 +3723,16 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
       padding: 14px 0 44px;
     }}
     .insight-stack {{
+      order: 2;
       display: grid;
-      gap: 14px;
-      margin-bottom: 18px;
+      gap: 18px;
+      margin: 22px 0 0;
     }}
     .daily-insight {{
       border: 1px solid var(--line);
       border-radius: 8px;
       background: linear-gradient(180deg, #ffffff 0%, #f8fbfd 100%);
-      padding: 14px;
+      padding: 18px;
     }}
     .daily-insight--latest {{
       border-color: rgba(220, 38, 38, 0.28);
@@ -3665,7 +3743,7 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
       justify-content: space-between;
       gap: 14px;
       align-items: flex-start;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }}
     .insight-date {{
       display: block;
@@ -3681,7 +3759,7 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
       gap: 8px;
       margin: 0;
       color: var(--ink);
-      font-size: 18px;
+      font-size: 19px;
       line-height: 1.25;
     }}
     .insight-live {{
@@ -3697,7 +3775,7 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 6px;
+      gap: 8px;
     }}
     .mini-metrics {{
       justify-content: flex-start;
@@ -3711,9 +3789,9 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
       border-radius: 999px;
       background: #ffffff;
       color: #344054;
-      padding: 5px 8px;
-      font-size: 11px;
-      line-height: 1.2;
+      padding: 6px 9px;
+      font-size: 11.5px;
+      line-height: 1.25;
       white-space: nowrap;
     }}
     .insight-metric b {{
@@ -3726,8 +3804,8 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
     .insight-badges {{
       display: flex;
       flex-wrap: wrap;
-      gap: 6px;
-      margin: 0 0 12px;
+      gap: 8px;
+      margin: 0 0 14px;
       padding: 0;
       list-style: none;
     }}
@@ -3736,19 +3814,19 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
       border-radius: 999px;
       background: #fff7f7;
       color: #7f1d1d;
-      padding: 5px 8px;
-      font-size: 11px;
+      padding: 6px 9px;
+      font-size: 11.5px;
       font-weight: 900;
     }}
     .insight-grid,
     .source-card-grid,
     .creator-insight-grid {{
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 14px;
     }}
     .source-card-grid {{
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     }}
     .insight-card,
     .source-card,
@@ -3756,7 +3834,7 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
       border: 1px solid var(--line);
       border-radius: 8px;
       background: #ffffff;
-      padding: 12px;
+      padding: 15px;
     }}
     .source-card {{
       background: #fffafa;
@@ -3768,10 +3846,10 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
     .source-card h3,
     .creator-insight-card h3,
     .insight-subsection > h3 {{
-      margin: 0 0 8px;
+      margin: 0 0 10px;
       color: #344054;
-      font-size: 13px;
-      line-height: 1.3;
+      font-size: 14px;
+      line-height: 1.35;
       font-weight: 900;
     }}
     .insight-subsection {{
@@ -3781,23 +3859,23 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
     .source-card ul,
     .creator-insight-card ul {{
       display: grid;
-      gap: 7px;
+      gap: 9px;
       margin: 0;
       padding: 0;
       list-style: none;
       color: #344054;
-      font-size: 12.5px;
-      line-height: 1.55;
+      font-size: 13px;
+      line-height: 1.65;
     }}
     .insight-card li,
     .source-card li,
     .creator-insight-card li {{
       display: grid;
-      grid-template-columns: 92px minmax(0, 1fr);
-      gap: 9px;
+      grid-template-columns: 104px minmax(0, 1fr);
+      gap: 11px;
       align-items: start;
       border-top: 1px solid #edf2f7;
-      padding-top: 7px;
+      padding-top: 9px;
     }}
     .insight-card li:first-child,
     .source-card li:first-child,
@@ -3809,7 +3887,7 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
     .source-card li b,
     .creator-insight-card li b {{
       color: #991b1b;
-      font-size: 11px;
+      font-size: 11.5px;
       font-weight: 900;
       line-height: 1.35;
     }}
@@ -4035,6 +4113,7 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
       padding: 10px;
     }}
     .mega-case-thumb {{
+      position: relative;
       display: block;
       width: 100%;
       aspect-ratio: 9 / 16;
@@ -4190,6 +4269,7 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
       margin-top: 3px;
     }}
     .grid {{
+      order: 1;
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(215px, 1fr));
       gap: 18px;
@@ -4199,7 +4279,19 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
       display: none;
     }}
     .region-panel.active {{
-      display: block;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }}
+    .region-panel > .grid,
+    .region-panel > .mega-case-section {{
+      order: 1;
+    }}
+    .region-panel > .mega-hero {{
+      order: 2;
+    }}
+    .region-panel > .mega-grid {{
+      order: 3;
     }}
     .empty-state {{
       grid-column: 1 / -1;
@@ -4263,6 +4355,7 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
       position: absolute;
       top: 8px;
       left: 8px;
+      z-index: 2;
       min-width: 26px;
       height: 26px;
       display: inline-flex;
@@ -4274,6 +4367,27 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
       padding: 0 7px;
       font-size: 11px;
       font-weight: 800;
+    }}
+    .duration-badge {{
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 42px;
+      min-height: 24px;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.82);
+      color: white;
+      padding: 4px 7px;
+      font-family: "JetBrains Mono", "Noto Sans KR", monospace;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: 0;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
     }}
     .short-body {{
       min-width: 0;
@@ -4470,10 +4584,10 @@ def main() -> int:
         merged = prune_shortform_items(existing)
         if len(merged) != len(existing):
             write_data(merged)
-        if not insight_history:
-            generated_at = latest_observed_at_iso(merged)
-            insight_history = upsert_insight_snapshot(insight_history, build_insight_snapshot(merged, generated_at))
-            write_insights(insight_history)
+        generated_at = latest_observed_at_iso(merged)
+        insight_history = upsert_insight_snapshot(insight_history, build_insight_snapshot(merged, generated_at))
+        insight_history = refresh_insight_history_models(merged, insight_history)
+        write_insights(insight_history)
     else:
         collected_at = datetime.now(KST).replace(microsecond=0).isoformat()
         candidates = collect_vidirun(collected_at)
@@ -4516,6 +4630,7 @@ def main() -> int:
         merged = prune_shortform_items(merged)
         write_data(merged)
         insight_history = upsert_insight_snapshot(insight_history, build_insight_snapshot(merged, collected_at))
+        insight_history = refresh_insight_history_models(merged, insight_history)
         write_insights(insight_history)
 
     INDEX_PATH.write_text(render_index(merged, insight_history), encoding="utf-8")

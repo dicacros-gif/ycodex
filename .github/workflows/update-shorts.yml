@@ -3,6 +3,7 @@ name: Update YouTube Shorts
 on:
   schedule:
     - cron: "0 20 * * *"
+    - cron: "30 21 * * *"
   workflow_dispatch:
 
 permissions:
@@ -16,11 +17,12 @@ jobs:
       YT_SEARCH_LIMIT: "12"
       YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
       YT: ${{ secrets.YT }}
-      YOUTUBE_API_SEARCH_LIMIT: "5"
-      MIN_DISPLAY_VIEWS: "3000"
+      YOUTUBE_API_SEARCH_LIMIT: "8"
+      MIN_DISPLAY_VIEWS: "10000"
       YOUTUBE_API_MIN_DISPLAY_VIEWS: "10000"
       VIRAL_VIEW_THRESHOLD: "100000000"
-      SHORTS_MAX_DURATION_SECONDS: "39"
+      SHORTS_MAX_DURATION_SECONDS: "40"
+      LIKE_POPULARITY_WEIGHT: "85"
       PUBLISHED_METADATA_LIMIT: "120"
       YT_DLP_SEARCH_TIMEOUT_SECONDS: "60"
       YT_DLP_METADATA_TIMEOUT_SECONDS: "180"
@@ -68,6 +70,7 @@ jobs:
                   self.popularity_text = []
                   self.reason_items = 0
                   self.stats_rows = 0
+                  self.duration_badges = 0
                   self._in_popularity = False
                   self._in_short_card = False
 
@@ -90,6 +93,8 @@ jobs:
                       self.panels += 1
                   if tag == "div" and "stats-row" in classes:
                       self.stats_rows += 1
+                  if tag == "span" and "duration-badge" in classes and self._in_short_card:
+                      self.duration_badges += 1
                   if tag in {"div", "p"} and "popularity" in classes:
                       self.popularity += 1
                       self.popularity_text.append("")
@@ -139,6 +144,7 @@ jobs:
               or parser.cards != parser.images
               or parser.cards != len(parser.thumb_links)
               or parser.cards != parser.stats_rows
+              or parser.cards != parser.duration_badges
               or parser.cards != parser.popularity
               or parser.cards != len(explained_popularity)
               or parser.reason_items < parser.cards * 4
@@ -158,7 +164,8 @@ jobs:
               or any("YouTube Data API" in str(item.get("sourceName") or "") and (item.get("viewsGained") or 0) < 10000 for item in visible)
               or any(not item.get("publishedAt") for item in visible)
               or any(item.get("isShort9x16") is not True for item in data)
-              or any((item.get("duration") or 9999) >= 40 for item in data)
+              or any((item.get("viewsGained") or 0) < 10000 for item in data)
+              or any((item.get("duration") or 9999) > 40 for item in data)
               or any((item.get("height") or 0) <= (item.get("width") or 0) for item in data)
           ):
               raise SystemExit("index.html did not render unique Shorts across the expected region tabs")
@@ -169,6 +176,7 @@ jobs:
               "images": parser.images,
               "thumb_links": len(parser.thumb_links),
               "stats_rows": parser.stats_rows,
+              "duration_badges": parser.duration_badges,
               "popularity": parser.popularity,
               "explained_popularity": len(explained_popularity),
               "reason_items": parser.reason_items,

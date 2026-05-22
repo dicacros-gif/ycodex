@@ -6,12 +6,13 @@ This repository keeps a static `index.html` of trending YouTube Shorts candidate
 - no visible captions target
 - one or two people target
 - dance or short situation
-- video duration under 40 seconds
+- video duration up to 40 seconds
+- videos are prioritized by a combined views + likes signal
 - newer popular videos are accumulated above older links
 - videos are globally deduplicated, so the same YouTube ID appears in only one tab
-- YouTube Data API search/videos candidates are analyzed only from 10,000 views and up
+- all candidates are accumulated only from 10,000 views and up
 
-The scheduled GitHub Actions workflow runs every day at 20:00 UTC, which is 05:00 in Asia/Seoul, and updates `shorts-data.json` plus `index.html` on a GitHub-hosted runner.
+The scheduled GitHub Actions workflow runs every day at 20:00 UTC and retries at 21:30 UTC, which is 05:00 and 06:30 in Asia/Seoul. It updates `shorts-data.json`, `insights-data.json`, and `index.html` on a GitHub-hosted runner.
 
 ## Region Tabs
 
