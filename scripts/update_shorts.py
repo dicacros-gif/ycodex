@@ -258,6 +258,7 @@ YOUTUBE_API_REGION_CODES = {
 RANKING_SOURCE_LIMIT = int(os.environ.get("RANKING_SOURCE_LIMIT", "18"))
 YT_SEARCH_LIMIT = int(os.environ.get("YT_SEARCH_LIMIT", "12"))
 YOUTUBE_API_SEARCH_LIMIT = int(os.environ.get("YOUTUBE_API_SEARCH_LIMIT", "8"))
+YOUTUBE_API_DETAILS_LIMIT = int(os.environ.get("YOUTUBE_API_DETAILS_LIMIT", "600"))
 YOUTUBE_API_RECENT_DAYS = int(os.environ.get("YOUTUBE_API_RECENT_DAYS", "30"))
 MIN_DISPLAY_VIEWS = int(os.environ.get("MIN_DISPLAY_VIEWS", "10000"))
 YOUTUBE_API_MIN_DISPLAY_VIEWS = int(os.environ.get("YOUTUBE_API_MIN_DISPLAY_VIEWS", "10000"))
@@ -922,6 +923,7 @@ def from_vidirun_item(raw: dict[str, Any], source: dict[str, str], collected_at:
         source_name=source["name"],
         source_url=source["page"],
         collected_at=collected_at,
+        min_score=-2,
     )
 
 
@@ -978,7 +980,7 @@ def collect_playboard(collected_at: str) -> list[dict[str, Any]]:
                 collected_at=collected_at,
                 published_at=published_match.group(1) if published_match else "",
                 extra_notes=["source: Playboard regional shorts chart"],
-                min_score=0,
+                min_score=-2,
             )
             if item:
                 candidates.append(item)
@@ -1018,7 +1020,7 @@ def collect_redtoolbox(collected_at: str) -> list[dict[str, Any]]:
                 source_url=source["page"],
                 collected_at=collected_at,
                 extra_notes=[f"source: RedToolBox top shorts {source['window']} chart"],
-                min_score=0,
+                min_score=-2,
             )
             if item:
                 candidates.append(item)
@@ -1116,7 +1118,7 @@ def collect_trendsfox(collected_at: str) -> list[dict[str, Any]]:
             source_url=source["page"],
             collected_at=collected_at,
             extra_notes=["source: TrendsFox sample trending shorts"],
-            min_score=3,
+            min_score=0,
         )
         if item:
             candidates.append(item)
@@ -1153,6 +1155,7 @@ def collect_top1trend(collected_at: str) -> list[dict[str, Any]]:
             source_url=urljoin(source["page"], href),
             collected_at=collected_at,
             extra_notes=["source: Top1Trend YouTube trending"],
+            min_score=0,
         )
         if item:
             candidates.append(item)
@@ -1200,7 +1203,7 @@ def collect_yttrack(collected_at: str) -> list[dict[str, Any]]:
                     source_url=page,
                     collected_at=collected_at,
                     extra_notes=["source: YTTrack regional trending chart"],
-                    min_score=0,
+                    min_score=-2,
                 )
                 if item:
                     candidates.append(item)
@@ -1255,7 +1258,7 @@ def collect_chartika(collected_at: str) -> list[dict[str, Any]]:
                     width=raw.get("width"),
                     height=raw.get("height"),
                     extra_notes=[f"source: Chartika regional chart", f"duration: {duration}s"],
-                    min_score=3,
+                    min_score=-2,
                 )
                 if item:
                     candidates.append(item)
@@ -1308,6 +1311,96 @@ def fetch_youtube_api_video_details(video_ids: list[str], api_key: str) -> dict[
             if video_id:
                 details[str(video_id)] = raw
     return details
+
+
+def probable_shorts_source(item: dict[str, Any]) -> bool:
+    notes = " ".join(str(note) for note in item.get("matchNotes") or [])
+    haystack = " ".join(
+        str(value or "")
+        for value in (
+            item.get("sourceName"),
+            item.get("sourceUrl"),
+            item.get("sourceWindow"),
+            item.get("category"),
+            item.get("title"),
+            notes,
+        )
+    ).lower()
+    return any(marker in haystack for marker in ("short", "#shorts", "short-form"))
+
+
+def append_match_note(item: dict[str, Any], note: str) -> None:
+    notes = item.setdefault("matchNotes", [])
+    if isinstance(notes, list) and note not in notes:
+        notes.append(note)
+
+
+def enrich_candidates_with_youtube_api_metadata(items: list[dict[str, Any]]) -> None:
+    api_key = youtube_api_key()
+    if not api_key:
+        return
+
+    targets: list[str] = []
+    seen: set[str] = set()
+    for item in items:
+        video_id = item.get("id")
+        if not video_id or video_id in seen:
+            continue
+        needs_shape = (
+            item.get("isShort9x16") is not True
+            or not item.get("duration")
+            or not item.get("width")
+            or not item.get("height")
+        )
+        if (
+            needs_shape
+            or item.get("likeCount") is None
+            or not item.get("publishedAt")
+            or parse_int(item.get("viewsGained")) < min_display_views_for_item(item)
+        ):
+            targets.append(str(video_id))
+            seen.add(str(video_id))
+            if len(targets) >= YOUTUBE_API_DETAILS_LIMIT:
+                break
+
+    if not targets:
+        return
+
+    try:
+        details_by_id = fetch_youtube_api_video_details(targets, api_key)
+    except Exception as exc:
+        print(f"warning: YouTube Data API details enrichment failed: {exc}", file=sys.stderr)
+        return
+
+    for item in items:
+        details = details_by_id.get(str(item.get("id") or ""))
+        if not details:
+            continue
+        snippet = details.get("snippet") or {}
+        statistics = details.get("statistics") or {}
+        content_details = details.get("contentDetails") or {}
+
+        published_at = normalize_published_at(snippet.get("publishedAt"))
+        if published_at:
+            item["publishedAt"] = published_at
+        if snippet.get("channelTitle") and not item.get("channel"):
+            item["channel"] = clean_text(snippet.get("channelTitle"))
+
+        view_count = parse_int(statistics.get("viewCount"))
+        if view_count and view_count >= parse_int(item.get("viewsGained")):
+            item["viewsGained"] = view_count
+        if statistics.get("likeCount") is not None:
+            item["likeCount"] = parse_int(statistics.get("likeCount"))
+
+        duration = parse_iso8601_duration(content_details.get("duration"))
+        width = item.get("width")
+        height = item.get("height")
+        if duration and duration <= SHORTS_MAX_DURATION_SECONDS and (not parse_int(width) or not parse_int(height)):
+            if probable_shorts_source(item):
+                width, height = 1080, 1920
+                append_match_note(item, "portrait inferred from shorts source")
+        set_shape_metadata(item, duration=duration or None, width=width, height=height)
+        append_match_note(item, "metadata: YouTube Data API video details")
 
 
 def collect_youtube_api(collected_at: str) -> list[dict[str, Any]]:
@@ -1542,6 +1635,7 @@ def from_ytdlp_item(raw: dict[str, Any], query: str, region: str, collected_at: 
         width=raw.get("width"),
         height=raw.get("height"),
         extra_notes=["source: YouTube search result"],
+        min_score=-2,
     )
 
 
@@ -2971,6 +3065,20 @@ def high_view_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
     )
 
 
+def popular_view_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return sorted(
+        items,
+        key=lambda item: (
+            popularity_score(item),
+            parse_int(item.get("viewsGained")),
+            parse_int(item.get("likeCount")),
+            parse_collected_at(item.get("collectedAt")).timestamp(),
+            -parse_int(item.get("sourceRank") or 9999),
+        ),
+        reverse=True,
+    )
+
+
 def render_youtube_api_showcase(api_items: list[dict[str, Any]]) -> str:
     ranked = high_view_items(api_items)
     if not ranked:
@@ -3016,6 +3124,8 @@ def group_items_by_region(items: list[dict[str, Any]]) -> dict[str, list[dict[st
         seen.add(video_id)
         seen_signatures.add(signature)
         grouped[item["region"]].append(item)
+    for region_key, region_items in grouped.items():
+        grouped[region_key] = popular_view_items(region_items)
     return grouped
 
 
@@ -4632,6 +4742,7 @@ def main() -> int:
         candidates = collect_vidirun(collected_at)
         candidates.extend(collect_html_sources(collected_at))
         candidates.extend(collect_youtube_api(collected_at))
+        enrich_candidates_with_youtube_api_metadata(candidates)
         if SKIP_YT_DLP_METADATA:
             print("warning: SKIP_YT_DLP_METADATA is set; using source/API metadata only", file=sys.stderr)
             candidates = filter_shortform_items(candidates)
