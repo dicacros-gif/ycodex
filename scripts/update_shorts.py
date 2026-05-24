@@ -267,7 +267,7 @@ YT_DLP_SEARCH_TIMEOUT_SECONDS = int(os.environ.get("YT_DLP_SEARCH_TIMEOUT_SECOND
 YT_DLP_METADATA_TIMEOUT_SECONDS = int(os.environ.get("YT_DLP_METADATA_TIMEOUT_SECONDS", "180"))
 SKIP_YT_DLP_METADATA = os.environ.get("SKIP_YT_DLP_METADATA", "").strip().lower() in {"1", "true", "yes"}
 VIRAL_VIEW_THRESHOLD = int(os.environ.get("VIRAL_VIEW_THRESHOLD", "100000000"))
-SHORTS_MAX_DURATION_SECONDS = int(os.environ.get("SHORTS_MAX_DURATION_SECONDS", "40"))
+SHORTS_MAX_DURATION_SECONDS = int(os.environ.get("SHORTS_MAX_DURATION_SECONDS", "39"))
 SHORTS_MIN_ASPECT_RATIO = float(os.environ.get("SHORTS_MIN_ASPECT_RATIO", "0.48"))
 SHORTS_MAX_ASPECT_RATIO = float(os.environ.get("SHORTS_MAX_ASPECT_RATIO", "0.64"))
 INSIGHT_HISTORY_LIMIT = int(os.environ.get("INSIGHT_HISTORY_LIMIT", "14"))
@@ -1875,6 +1875,8 @@ def fmt_int(value: Any) -> str:
 
 
 def duration_limit_text() -> str:
+    if SHORTS_MAX_DURATION_SECONDS == 39:
+        return "40초 미만"
     return f"{SHORTS_MAX_DURATION_SECONDS}초 이하"
 
 
