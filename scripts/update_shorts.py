@@ -164,14 +164,22 @@ PLAYBOARD_REGION_SLUGS = {
     "vn": "viet-nam",
 }
 
+PLAYBOARD_WINDOWS = (
+    ("daily", "Daily"),
+    ("weekly", "Weekly"),
+    ("monthly", "Monthly"),
+    ("total", "All-time"),
+)
+
 PLAYBOARD_SOURCES = [
     {
-        "name": f"Playboard Shorts Daily - {REGION_BY_KEY[region]['label']}",
-        "page": f"https://playboard.co/chart/short/most-viewed-all-videos-in-{slug}-daily",
-        "window": "daily",
+        "name": f"Playboard Shorts {label} - {REGION_BY_KEY[region]['label']}",
+        "page": f"https://playboard.co/chart/short/most-viewed-all-videos-in-{slug}-{window}",
+        "window": window,
         "region": region,
     }
     for region, slug in PLAYBOARD_REGION_SLUGS.items()
+    for window, label in PLAYBOARD_WINDOWS
 ]
 
 REDTOOLBOX_SOURCES = [
@@ -255,18 +263,20 @@ YOUTUBE_API_REGION_CODES = {
     "vn": "VN",
 }
 
-RANKING_SOURCE_LIMIT = int(os.environ.get("RANKING_SOURCE_LIMIT", "18"))
-YT_SEARCH_LIMIT = int(os.environ.get("YT_SEARCH_LIMIT", "12"))
+RANKING_SOURCE_LIMIT = int(os.environ.get("RANKING_SOURCE_LIMIT", "36"))
+YT_SEARCH_LIMIT = int(os.environ.get("YT_SEARCH_LIMIT", "16"))
 YOUTUBE_API_SEARCH_LIMIT = int(os.environ.get("YOUTUBE_API_SEARCH_LIMIT", "8"))
-YOUTUBE_API_DETAILS_LIMIT = int(os.environ.get("YOUTUBE_API_DETAILS_LIMIT", "600"))
+YOUTUBE_API_DETAILS_LIMIT = int(os.environ.get("YOUTUBE_API_DETAILS_LIMIT", "1000"))
 YOUTUBE_API_RECENT_DAYS = int(os.environ.get("YOUTUBE_API_RECENT_DAYS", "30"))
 MIN_DISPLAY_VIEWS = int(os.environ.get("MIN_DISPLAY_VIEWS", "10000"))
 YOUTUBE_API_MIN_DISPLAY_VIEWS = int(os.environ.get("YOUTUBE_API_MIN_DISPLAY_VIEWS", "10000"))
-PUBLISHED_METADATA_LIMIT = int(os.environ.get("PUBLISHED_METADATA_LIMIT", "200"))
+PUBLISHED_METADATA_LIMIT = int(os.environ.get("PUBLISHED_METADATA_LIMIT", "500"))
 YT_DLP_SEARCH_TIMEOUT_SECONDS = int(os.environ.get("YT_DLP_SEARCH_TIMEOUT_SECONDS", "60"))
 YT_DLP_METADATA_TIMEOUT_SECONDS = int(os.environ.get("YT_DLP_METADATA_TIMEOUT_SECONDS", "180"))
 SKIP_YT_DLP_METADATA = os.environ.get("SKIP_YT_DLP_METADATA", "").strip().lower() in {"1", "true", "yes"}
 VIRAL_VIEW_THRESHOLD = int(os.environ.get("VIRAL_VIEW_THRESHOLD", "100000000"))
+VIRAL_NEW_ITEMS_LIMIT = int(os.environ.get("VIRAL_NEW_ITEMS_LIMIT", "100"))
+VIRAL_DISPLAY_LIMIT = int(os.environ.get("VIRAL_DISPLAY_LIMIT", "48"))
 SHORTS_MAX_DURATION_SECONDS = int(os.environ.get("SHORTS_MAX_DURATION_SECONDS", "39"))
 SHORTS_MIN_ASPECT_RATIO = float(os.environ.get("SHORTS_MIN_ASPECT_RATIO", "0.48"))
 SHORTS_MAX_ASPECT_RATIO = float(os.environ.get("SHORTS_MAX_ASPECT_RATIO", "0.64"))
@@ -1724,6 +1734,29 @@ def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]],
             if count >= max_new:
                 break
 
+    viral_added = 0
+    viral_candidates = sorted(
+        (
+            item
+            for rows in candidates_by_region.values()
+            for item in rows
+            if parse_int(item.get("viewsGained")) >= VIRAL_VIEW_THRESHOLD
+        ),
+        key=lambda item: (parse_int(item.get("viewsGained")), popularity_score(item), parse_int(item.get("likeCount"))),
+        reverse=True,
+    )
+    for item in viral_candidates:
+        video_id = item.get("id")
+        signature = content_signature(item)
+        if not video_id or video_id in selected_ids or signature in selected_signatures:
+            continue
+        selected.append(item)
+        selected_ids.add(video_id)
+        selected_signatures.add(signature)
+        viral_added += 1
+        if viral_added >= VIRAL_NEW_ITEMS_LIMIT:
+            break
+
     return order_items_newest_first(selected + existing_unique)
 
 
@@ -2610,7 +2643,7 @@ def render_mega_case_card(item: dict[str, Any]) -> str:
 
 def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
     unique_items = unique_content_items(items)
-    mega_items = [item for item in unique_items if parse_int(item.get("viewsGained")) >= VIRAL_VIEW_THRESHOLD]
+    mega_items = viral_view_items(unique_items)
     near_items = [
         item
         for item in sorted(unique_items, key=lambda row: parse_int(row.get("viewsGained")), reverse=True)
@@ -2672,13 +2705,27 @@ def render_mega_view_analysis(items: list[dict[str, Any]]) -> str:
         if case_cards
         else ""
     )
+    viral_cards = "\n".join(render_mega_case_card(item) for item in mega_items[:VIRAL_DISPLAY_LIMIT])
+    viral_section = (
+        f"""
+      <div class="mega-case-section">
+        <div class="mega-section-heading">
+          <h3>1억뷰 이상 Shorts</h3>
+          <span>{highlight_text(f'{len(mega_items)}개 수집 / 조회순 상위 {min(len(mega_items), VIRAL_DISPLAY_LIMIT)}개 표시')}</span>
+        </div>
+        <div class="mega-case-list">{viral_cards}</div>
+      </div>"""
+        if viral_cards
+        else ""
+    )
 
     return f"""
-    <section id="panel-mega" class="region-panel mega-panel" data-region-panel="mega" role="tabpanel" aria-labelledby="tab-mega" aria-label="1억뷰 분석">
+    <section id="panel-mega" class="region-panel mega-panel" data-region-panel="mega" role="tabpanel" aria-labelledby="tab-mega" aria-label="1억뷰 이상 Shorts">
+{viral_section}
 {case_section}
       <div class="mega-hero">
         <div>
-          <h2>1억뷰 분석</h2>
+          <h2>1억뷰 이상 Shorts</h2>
           <ul class="mega-hero-points">{hero_point_items}</ul>
         </div>
         <strong>{len(mega_items)}</strong>
@@ -3065,6 +3112,14 @@ def high_view_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
         key=lambda item: (parse_int(item.get("viewsGained")), parse_int(item.get("likeCount")), popularity_score(item)),
         reverse=True,
     )
+
+
+def viral_view_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [
+        item
+        for item in high_view_items(items)
+        if parse_int(item.get("viewsGained")) >= VIRAL_VIEW_THRESHOLD
+    ]
 
 
 def popular_view_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
@@ -3632,7 +3687,7 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
         )
         if region["key"] == "global":
             tab_parts.append(
-                f"""<button id="tab-mega" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-mega" data-region-tab="mega"><span class="tab-label">1억뷰 분석</span><span class="tab-count">{mega_count}</span></button>"""
+                f"""<button id="tab-mega" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-mega" data-region-tab="mega"><span class="tab-label">1억뷰 이상</span><span class="tab-count">{mega_count}</span></button>"""
             )
             tab_parts.append(
                 f"""<button id="tab-youtube-api" class="tab-button" type="button" role="tab" aria-selected="false" aria-controls="panel-youtube-api" data-region-tab="youtube_api"><span class="tab-label">YouTube API</span><span class="tab-count">{len(api_items)}</span></button>"""
@@ -4726,7 +4781,7 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--render-only", action="store_true", help="Render index.html from existing shorts-data.json")
-    parser.add_argument("--max-new", type=int, default=int(os.environ.get("MAX_NEW_SHORTS_PER_REGION", "8")))
+    parser.add_argument("--max-new", type=int, default=int(os.environ.get("MAX_NEW_SHORTS_PER_REGION", "18")))
     args = parser.parse_args()
 
     existing = read_data()

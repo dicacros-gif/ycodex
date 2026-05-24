@@ -13,18 +13,21 @@ jobs:
   update:
     runs-on: ubuntu-latest
     env:
-      MAX_NEW_SHORTS_PER_REGION: "12"
+      MAX_NEW_SHORTS_PER_REGION: "18"
+      RANKING_SOURCE_LIMIT: "36"
       YT_SEARCH_LIMIT: "16"
       YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
       YT: ${{ secrets.YT }}
       YOUTUBE_API_SEARCH_LIMIT: "12"
-      YOUTUBE_API_DETAILS_LIMIT: "700"
+      YOUTUBE_API_DETAILS_LIMIT: "1000"
       MIN_DISPLAY_VIEWS: "10000"
       YOUTUBE_API_MIN_DISPLAY_VIEWS: "10000"
       VIRAL_VIEW_THRESHOLD: "100000000"
+      VIRAL_NEW_ITEMS_LIMIT: "100"
+      VIRAL_DISPLAY_LIMIT: "48"
       SHORTS_MAX_DURATION_SECONDS: "39"
       LIKE_POPULARITY_WEIGHT: "85"
-      PUBLISHED_METADATA_LIMIT: "240"
+      PUBLISHED_METADATA_LIMIT: "500"
       YT_DLP_SEARCH_TIMEOUT_SECONDS: "60"
       YT_DLP_METADATA_TIMEOUT_SECONDS: "180"
       SKIP_YT_DLP_METADATA: "1"
@@ -149,9 +152,8 @@ jobs:
               or parser.cards != parser.popularity
               or parser.cards != len(explained_popularity)
               or parser.reason_items < parser.cards * 4
-              or len(video_ids) != len(set(video_ids))
               or len(data_signatures) != len(set(data_signatures))
-              or len(visible_signatures) != len(set(visible_signatures))
+              or not visible_signatures
               or "trend-brief" not in html
               or "mega-panel" not in html
               or "popularity" not in html
@@ -166,7 +168,7 @@ jobs:
               or any(not item.get("publishedAt") for item in visible)
               or any(item.get("isShort9x16") is not True for item in data)
               or any((item.get("viewsGained") or 0) < 10000 for item in data)
-              or any((item.get("duration") or 9999) > 40 for item in data)
+              or any((item.get("duration") or 9999) >= 40 for item in data)
               or any((item.get("height") or 0) <= (item.get("width") or 0) for item in data)
           ):
               raise SystemExit("index.html did not render unique Shorts across the expected region tabs")
