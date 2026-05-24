@@ -1,5 +1,266 @@
 [
   {
+    "dateKey": "2026-05-25",
+    "updatedAt": "2026-05-25T06:03:12+09:00",
+    "updatedLabel": "5/25 06:03",
+    "global": {
+      "title": "트렌드 분석",
+      "metrics": [
+        {
+          "label": "전체 표시",
+          "value": "441개"
+        },
+        {
+          "label": "오늘 감지",
+          "value": "109개"
+        },
+        {
+          "label": "신규 편입",
+          "value": "61개"
+        },
+        {
+          "label": "분석 표본",
+          "value": "109개"
+        },
+        {
+          "label": "기준",
+          "value": "50,000뷰 이상"
+        }
+      ],
+      "badges": [
+        "댄스·음악 챌린지 43개",
+        "상황형 코미디·짧은 사건 25개",
+        "K-pop·아이돌 파생 4개",
+        "편집·슬로우드 사운드 2개"
+      ],
+      "cards": [
+        {
+          "title": "핵심 영상",
+          "videos": [
+            {
+              "rank": "#1",
+              "title": "Yehi Bachi Gir gayi hai #cartoonseries#Ytshorts#shorts#is...",
+              "thumbnail": "https://i.ytimg.com/vi/dfUxzBjJ8o4/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/dfUxzBjJ8o4",
+              "views": "1,047,315,499",
+              "likes": "5,324,589",
+              "duration": "0:26",
+              "cluster": "제목·조회수 기반 급상승"
+            },
+            {
+              "rank": "#2",
+              "title": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼",
+              "thumbnail": "https://i.ytimg.com/vi/vR6ylQMeeQ0/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/vR6ylQMeeQ0",
+              "views": "151,815,659",
+              "likes": "2,197,225",
+              "duration": "0:36",
+              "cluster": "제목·조회수 기반 급상승"
+            },
+            {
+              "rank": "#3",
+              "title": "World's Fastest Date",
+              "thumbnail": "https://i.ytimg.com/vi/hCuqh2NU2Yg/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/hCuqh2NU2Yg",
+              "views": "118,484,554",
+              "likes": "2,287,638",
+              "duration": "0:32",
+              "cluster": "제목·조회수 기반 급상승"
+            }
+          ],
+          "items": [
+            {
+              "label": "#1",
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Yt… · 조회 1,047,315,499 · 좋아요 5,324,589 · 26초 · 제목·조회수 기반 급상승"
+            },
+            {
+              "label": "#2",
+              "text": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼ · 조회 151,815,659 · 좋아요 2,197,225 · 36초 · 제목·조회수 기반 급상승"
+            },
+            {
+              "label": "#3",
+              "text": "World's Fastest Date · 조회 118,484,554 · 좋아요 2,287,638 · 32초 · 제목·조회수 기반 급상승"
+            }
+          ]
+        },
+        {
+          "title": "오늘 신호",
+          "items": [
+            {
+              "label": "강한 포맷",
+              "text": "댄스·음악 챌린지 43개 / 39%"
+            },
+            {
+              "label": "감지 기준",
+              "text": "5/25 랭킹·API 재감지 109개 / 신규 편입 61개 / 기존 재확인 48개"
+            },
+            {
+              "label": "반응 밀도",
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Yt… · 좋아요 5,324,589 · 조회 대비 0.5%"
+            }
+          ]
+        },
+        {
+          "title": "제작 액션",
+          "items": [
+            {
+              "label": "우선 적용",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "참고 영상",
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Ytshor… · 조회 1,047,315,499 · 좋아요 5,324,589"
+            },
+            {
+              "label": "길이",
+              "text": "40초 미만 109개 / 제한 근접 7개 / 평균 22초"
+            },
+            {
+              "label": "변화",
+              "text": "댄스·음악 챌린지 비중 +28%p / 오늘 랭킹에서 가장 빠르게 확대"
+            },
+            {
+              "label": "검토 포인트",
+              "text": "첫 프레임에서 결과 질문을 만들고 마지막 컷에서 보상 회수"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "creatorCards": []
+    },
+    "api": {
+      "title": "YouTube API 인사이트",
+      "metrics": [
+        {
+          "label": "전체 표시",
+          "value": "62개"
+        },
+        {
+          "label": "오늘 감지",
+          "value": "38개"
+        },
+        {
+          "label": "신규 편입",
+          "value": "38개"
+        },
+        {
+          "label": "분석 표본",
+          "value": "38개"
+        },
+        {
+          "label": "기준",
+          "value": "50,000뷰 이상"
+        }
+      ],
+      "badges": [
+        "댄스·음악 챌린지 38개",
+        "K-pop·아이돌 파생 3개",
+        "편집·슬로우드 사운드 1개",
+        "상황형 코미디·짧은 사건 1개"
+      ],
+      "cards": [
+        {
+          "title": "핵심 영상",
+          "videos": [
+            {
+              "rank": "#1",
+              "title": "다 함께 취해 보자 #CHOOM °. ♪",
+              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
+              "views": "7,040,265",
+              "likes": "266,631",
+              "duration": "0:25",
+              "cluster": "댄스·음악 챌린지"
+            },
+            {
+              "rank": "#2",
+              "title": "New viral trend #tiktok #music #dance #duet #funny #trend...",
+              "thumbnail": "https://i.ytimg.com/vi/Dq54E4e1mfo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/Dq54E4e1mfo",
+              "views": "10,944,371",
+              "likes": "41,198",
+              "duration": "0:09",
+              "cluster": "댄스·음악 챌린지"
+            },
+            {
+              "rank": "#3",
+              "title": "Tiktok queens 🔥 || # #zahide #zah1de #berlin #lunatix #mu...",
+              "thumbnail": "https://i.ytimg.com/vi/6WzGHOMFkmo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/6WzGHOMFkmo",
+              "views": "4,423,279",
+              "likes": "94,856",
+              "duration": "0:22",
+              "cluster": "댄스·음악 챌린지"
+            }
+          ],
+          "items": [
+            {
+              "label": "#1",
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631 · 25초 · 댄스·음악 챌린지"
+            },
+            {
+              "label": "#2",
+              "text": "New viral trend #tiktok #music #dance #du… · 조회 10,944,371 · 좋아요 41,198 · 9초 · 댄스·음악 챌린지"
+            },
+            {
+              "label": "#3",
+              "text": "Tiktok queens 🔥 || # #zahide #zah1de #ber… · 조회 4,423,279 · 좋아요 94,856 · 22초 · 댄스·음악 챌린지"
+            }
+          ]
+        },
+        {
+          "title": "오늘 신호",
+          "items": [
+            {
+              "label": "강한 포맷",
+              "text": "댄스·음악 챌린지 38개 / 100%"
+            },
+            {
+              "label": "감지 기준",
+              "text": "5/25 랭킹·API 재감지 38개 / 신규 편입 38개 / 기존 재확인 0개"
+            },
+            {
+              "label": "반응 밀도",
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 좋아요 266,631 · 조회 대비 3.8%"
+            },
+            {
+              "label": "API 조건",
+              "text": "search / videos / 50,000뷰 이상 / 40초 미만"
+            }
+          ]
+        },
+        {
+          "title": "제작 액션",
+          "items": [
+            {
+              "label": "우선 적용",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "참고 영상",
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631"
+            },
+            {
+              "label": "길이",
+              "text": "40초 미만 38개 / 제한 근접 2개 / 평균 20초"
+            },
+            {
+              "label": "변화",
+              "text": "댄스·음악 챌린지 비중 +42%p / 오늘 랭킹에서 가장 빠르게 확대"
+            },
+            {
+              "label": "검토 포인트",
+              "text": "첫 프레임에서 결과 질문을 만들고 마지막 컷에서 보상 회수"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "creatorCards": []
+    }
+  },
+  {
     "dateKey": "2026-05-24",
     "updatedAt": "2026-05-24T17:00:35+09:00",
     "updatedLabel": "5/24 17:00",
@@ -8,11 +269,11 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "380개"
+          "value": "441개"
         },
         {
           "label": "오늘 감지",
-          "value": "335개"
+          "value": "329개"
         },
         {
           "label": "신규 편입",
@@ -20,7 +281,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "335개"
+          "value": "329개"
         },
         {
           "label": "기준",
@@ -28,8 +289,8 @@
         }
       ],
       "badges": [
-        "상황형 코미디·짧은 사건 40개",
         "댄스·음악 챌린지 36개",
+        "상황형 코미디·짧은 사건 34개",
         "스포츠·퍼포먼스 순간 9개",
         "K-pop·아이돌 파생 6개"
       ],
@@ -88,11 +349,11 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "상황형 코미디·짧은 사건 40개 / 12%"
+              "text": "댄스·음악 챌린지 36개 / 11%"
             },
             {
               "label": "감지 기준",
-              "text": "5/24 랭킹·API 재감지 335개 / 신규 편입 318개 / 기존 재확인 17개"
+              "text": "5/24 랭킹·API 재감지 329개 / 신규 편입 318개 / 기존 재확인 11개"
             },
             {
               "label": "반응 밀도",
@@ -105,7 +366,7 @@
           "items": [
             {
               "label": "우선 적용",
-              "text": "첫 1초에 갈등·반전·결과 질문을 먼저 제시하고, 마지막 컷에서 보상을 회수함"
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
             },
             {
               "label": "참고 영상",
@@ -113,11 +374,11 @@
             },
             {
               "label": "길이",
-              "text": "40초 미만 335개 / 제한 근접 28개 / 평균 20초"
+              "text": "40초 미만 329개 / 제한 근접 28개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "상황형 코미디·짧은 사건 강세 유지 / 5/24 재감지 표본 기준"
+              "text": "댄스·음악 챌린지 강세 유지 / 5/24 재감지 표본 기준"
             },
             {
               "label": "검토 포인트",
@@ -134,7 +395,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "24개"
+          "value": "62개"
         },
         {
           "label": "오늘 감지",
@@ -246,7 +507,7 @@
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 중심으로 오늘 표본 형성 / 이전 비교 표본 부족"
+              "text": "상황형 코미디·짧은 사건 비중 +10%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -268,7 +529,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "380개"
+          "value": "441개"
         },
         {
           "label": "오늘 감지",
@@ -280,7 +541,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "335개"
+          "value": "109개"
         },
         {
           "label": "기준",
@@ -288,10 +549,10 @@
         }
       ],
       "badges": [
-        "상황형 코미디·짧은 사건 40개",
-        "댄스·음악 챌린지 36개",
-        "스포츠·퍼포먼스 순간 9개",
-        "K-pop·아이돌 파생 6개"
+        "댄스·음악 챌린지 43개",
+        "상황형 코미디·짧은 사건 25개",
+        "K-pop·아이돌 파생 4개",
+        "편집·슬로우드 사운드 2개"
       ],
       "cards": [
         {
@@ -299,47 +560,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "jai veeru ki yaari🤪🤪👭👭 | #shorts #viralshorts #trending #...",
-              "thumbnail": "https://i.ytimg.com/vi/l52bfaNAlHU/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/l52bfaNAlHU",
-              "views": "3,155,897,758",
-              "likes": "23,910,493",
-              "duration": "0:15",
-              "cluster": "댄스·음악 챌린지"
+              "title": "Yehi Bachi Gir gayi hai #cartoonseries#Ytshorts#shorts#is...",
+              "thumbnail": "https://i.ytimg.com/vi/dfUxzBjJ8o4/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/dfUxzBjJ8o4",
+              "views": "1,047,315,499",
+              "likes": "5,324,589",
+              "duration": "0:26",
+              "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#2",
-              "title": "حرف الدي D 💜🔎دونت بي لااات😼🤒",
-              "thumbnail": "https://i.ytimg.com/vi/uJSxrHWPnB4/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/uJSxrHWPnB4",
-              "views": "3,131,819,897",
-              "likes": "23,373,401",
-              "duration": "0:14",
+              "title": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼",
+              "thumbnail": "https://i.ytimg.com/vi/vR6ylQMeeQ0/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/vR6ylQMeeQ0",
+              "views": "151,815,659",
+              "likes": "2,197,225",
+              "duration": "0:36",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#3",
-              "title": "Spider - Man VS T - Rex",
-              "thumbnail": "https://i.ytimg.com/vi/i8Bl8cueEsk/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/i8Bl8cueEsk",
-              "views": "3,086,936,564",
-              "likes": "22,042,478",
-              "duration": "0:14",
+              "title": "World's Fastest Date",
+              "thumbnail": "https://i.ytimg.com/vi/hCuqh2NU2Yg/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/hCuqh2NU2Yg",
+              "views": "118,484,554",
+              "likes": "2,287,638",
+              "duration": "0:32",
               "cluster": "제목·조회수 기반 급상승"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "jai veeru ki yaari🤪🤪👭👭 | #shorts #viralsh… · 조회 3,155,897,758 · 좋아요 23,910,493 · 15초 · 댄스·음악 챌린지"
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Yt… · 조회 1,047,315,499 · 좋아요 5,324,589 · 26초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#2",
-              "text": "حرف الدي D 💜🔎دونت بي لااات😼🤒 · 조회 3,131,819,897 · 좋아요 23,373,401 · 14초 · 제목·조회수 기반 급상승"
+              "text": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼ · 조회 151,815,659 · 좋아요 2,197,225 · 36초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
-              "text": "Spider - Man VS T - Rex · 조회 3,086,936,564 · 좋아요 22,042,478 · 14초 · 제목·조회수 기반 급상승"
+              "text": "World's Fastest Date · 조회 118,484,554 · 좋아요 2,287,638 · 32초 · 제목·조회수 기반 급상승"
             }
           ]
         },
@@ -348,15 +609,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "상황형 코미디·짧은 사건 40개 / 12%"
+              "text": "댄스·음악 챌린지 43개 / 39%"
             },
             {
               "label": "감지 기준",
-              "text": "5/23 신규 감지 없음 / 최신 보유 데이터 5/24 기준 재분석"
+              "text": "5/23 신규 감지 없음 / 최신 보유 데이터 5/25 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Anaya Ke Dance Ke Liye Ek Like To Banta H… · 좋아요 26,073,746 · 조회 대비 1.0%"
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Yt… · 좋아요 5,324,589 · 조회 대비 0.5%"
             }
           ]
         },
@@ -365,19 +626,19 @@
           "items": [
             {
               "label": "우선 적용",
-              "text": "첫 1초에 갈등·반전·결과 질문을 먼저 제시하고, 마지막 컷에서 보상을 회수함"
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
             },
             {
               "label": "참고 영상",
-              "text": "jai veeru ki yaari🤪🤪👭👭 | #shorts #viralshorts… · 조회 3,155,897,758 · 좋아요 23,910,493"
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Ytshor… · 조회 1,047,315,499 · 좋아요 5,324,589"
             },
             {
               "label": "길이",
-              "text": "40초 미만 335개 / 제한 근접 28개 / 평균 20초"
+              "text": "40초 미만 109개 / 제한 근접 7개 / 평균 22초"
             },
             {
               "label": "변화",
-              "text": "상황형 코미디·짧은 사건 강세 유지 / 5/24 재감지 표본 기준"
+              "text": "댄스·음악 챌린지 비중 +28%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -394,7 +655,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "24개"
+          "value": "62개"
         },
         {
           "label": "오늘 감지",
@@ -406,7 +667,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "24개"
+          "value": "38개"
         },
         {
           "label": "기준",
@@ -414,9 +675,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 14개",
-        "상황형 코미디·짧은 사건 3개",
-        "편집·슬로우드 사운드 1개"
+        "댄스·음악 챌린지 38개",
+        "K-pop·아이돌 파생 3개",
+        "편집·슬로우드 사운드 1개",
+        "상황형 코미디·짧은 사건 1개"
       ],
       "cards": [
         {
@@ -424,47 +686,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "Night vibe 😍 #shorts #trendingonshorts #dance",
-              "thumbnail": "https://i.ytimg.com/vi/Mc5pOHU6MJc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/Mc5pOHU6MJc",
-              "views": "2,184,128",
-              "likes": "71,227",
-              "duration": "0:21",
+              "title": "다 함께 취해 보자 #CHOOM °. ♪",
+              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
+              "views": "7,040,265",
+              "likes": "266,631",
+              "duration": "0:25",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#2",
-              "title": "Hellallallo Promo (TELUGU) | Peddi | Ram Charan | Buchi B...",
-              "thumbnail": "https://i.ytimg.com/vi/4v31nFdfUS8/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4v31nFdfUS8",
-              "views": "503,095",
-              "likes": "53,946",
-              "duration": "0:25",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "New viral trend #tiktok #music #dance #duet #funny #trend...",
+              "thumbnail": "https://i.ytimg.com/vi/Dq54E4e1mfo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/Dq54E4e1mfo",
+              "views": "10,944,371",
+              "likes": "41,198",
+              "duration": "0:09",
+              "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "Let's Choom! @BABYMONSTER #BABYMONSTER #CHOOM #shorts",
-              "thumbnail": "https://i.ytimg.com/vi/YPGPND_YBU4/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/YPGPND_YBU4",
-              "views": "838,452",
-              "likes": "48,067",
-              "duration": "0:23",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "Tiktok queens 🔥 || # #zahide #zah1de #berlin #lunatix #mu...",
+              "thumbnail": "https://i.ytimg.com/vi/6WzGHOMFkmo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/6WzGHOMFkmo",
+              "views": "4,423,279",
+              "likes": "94,856",
+              "duration": "0:22",
+              "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 조회 2,184,128 · 좋아요 71,227 · 21초 · 댄스·음악 챌린지"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631 · 25초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Hellallallo Promo (TELUGU) | Peddi | Ram… · 조회 503,095 · 좋아요 53,946 · 25초 · 제목·조회수 기반 급상승"
+              "text": "New viral trend #tiktok #music #dance #du… · 조회 10,944,371 · 좋아요 41,198 · 9초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "Let's Choom! @BABYMONSTER #BABYMONSTER #C… · 조회 838,452 · 좋아요 48,067 · 23초 · 제목·조회수 기반 급상승"
+              "text": "Tiktok queens 🔥 || # #zahide #zah1de #ber… · 조회 4,423,279 · 좋아요 94,856 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -473,15 +735,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 14개 / 58%"
+              "text": "댄스·음악 챌린지 38개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/23 신규 감지 없음 / 최신 보유 데이터 5/24 기준 재분석"
+              "text": "5/23 신규 감지 없음 / 최신 보유 데이터 5/25 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 좋아요 71,227 · 조회 대비 3.3%"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 좋아요 266,631 · 조회 대비 3.8%"
             },
             {
               "label": "API 조건",
@@ -498,15 +760,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #dance · 조회 2,184,128 · 좋아요 71,227"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631"
             },
             {
               "label": "길이",
-              "text": "40초 미만 24개 / 제한 근접 2개 / 평균 21초"
+              "text": "40초 미만 38개 / 제한 근접 2개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 중심으로 오늘 표본 형성 / 이전 비교 표본 부족"
+              "text": "댄스·음악 챌린지 비중 +42%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -528,7 +790,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "380개"
+          "value": "441개"
         },
         {
           "label": "오늘 감지",
@@ -571,8 +833,8 @@
               "title": "couldn't catch😂🫧#funny",
               "thumbnail": "https://i.ytimg.com/vi/1v9li9PO4gM/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/1v9li9PO4gM",
-              "views": "112,918,528",
-              "likes": "443,251",
+              "views": "115,195,185",
+              "likes": "452,700",
               "duration": "0:16",
               "cluster": "상황형 코미디·짧은 사건"
             },
@@ -581,9 +843,9 @@
               "title": "hide and seek #funny #cute #shorts",
               "thumbnail": "https://i.ytimg.com/vi/wtkv63WfgPI/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/wtkv63WfgPI",
-              "views": "88,126,858",
-              "likes": "391,074",
-              "duration": "0:21",
+              "views": "89,577,342",
+              "likes": "396,273",
+              "duration": "0:22",
               "cluster": "상황형 코미디·짧은 사건"
             }
           ],
@@ -594,11 +856,11 @@
             },
             {
               "label": "#2",
-              "text": "couldn't catch😂🫧#funny · 조회 112,918,528 · 좋아요 443,251 · 16초 · 상황형 코미디·짧은 사건"
+              "text": "couldn't catch😂🫧#funny · 조회 115,195,185 · 좋아요 452,700 · 16초 · 상황형 코미디·짧은 사건"
             },
             {
               "label": "#3",
-              "text": "hide and seek #funny #cute #shorts · 조회 88,126,858 · 좋아요 391,074 · 21초 · 상황형 코미디·짧은 사건"
+              "text": "hide and seek #funny #cute #shorts · 조회 89,577,342 · 좋아요 396,273 · 22초 · 상황형 코미디·짧은 사건"
             }
           ]
         },
@@ -653,7 +915,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "24개"
+          "value": "62개"
         },
         {
           "label": "오늘 감지",
@@ -665,7 +927,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "24개"
+          "value": "38개"
         },
         {
           "label": "기준",
@@ -673,9 +935,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 14개",
-        "상황형 코미디·짧은 사건 3개",
-        "편집·슬로우드 사운드 1개"
+        "댄스·음악 챌린지 38개",
+        "K-pop·아이돌 파생 3개",
+        "편집·슬로우드 사운드 1개",
+        "상황형 코미디·짧은 사건 1개"
       ],
       "cards": [
         {
@@ -683,47 +946,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "Night vibe 😍 #shorts #trendingonshorts #dance",
-              "thumbnail": "https://i.ytimg.com/vi/Mc5pOHU6MJc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/Mc5pOHU6MJc",
-              "views": "2,184,128",
-              "likes": "71,227",
-              "duration": "0:21",
+              "title": "다 함께 취해 보자 #CHOOM °. ♪",
+              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
+              "views": "7,040,265",
+              "likes": "266,631",
+              "duration": "0:25",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#2",
-              "title": "Hellallallo Promo (TELUGU) | Peddi | Ram Charan | Buchi B...",
-              "thumbnail": "https://i.ytimg.com/vi/4v31nFdfUS8/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4v31nFdfUS8",
-              "views": "503,095",
-              "likes": "53,946",
-              "duration": "0:25",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "New viral trend #tiktok #music #dance #duet #funny #trend...",
+              "thumbnail": "https://i.ytimg.com/vi/Dq54E4e1mfo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/Dq54E4e1mfo",
+              "views": "10,944,371",
+              "likes": "41,198",
+              "duration": "0:09",
+              "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "Let's Choom! @BABYMONSTER #BABYMONSTER #CHOOM #shorts",
-              "thumbnail": "https://i.ytimg.com/vi/YPGPND_YBU4/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/YPGPND_YBU4",
-              "views": "838,452",
-              "likes": "48,067",
-              "duration": "0:23",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "Tiktok queens 🔥 || # #zahide #zah1de #berlin #lunatix #mu...",
+              "thumbnail": "https://i.ytimg.com/vi/6WzGHOMFkmo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/6WzGHOMFkmo",
+              "views": "4,423,279",
+              "likes": "94,856",
+              "duration": "0:22",
+              "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 조회 2,184,128 · 좋아요 71,227 · 21초 · 댄스·음악 챌린지"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631 · 25초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Hellallallo Promo (TELUGU) | Peddi | Ram… · 조회 503,095 · 좋아요 53,946 · 25초 · 제목·조회수 기반 급상승"
+              "text": "New viral trend #tiktok #music #dance #du… · 조회 10,944,371 · 좋아요 41,198 · 9초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "Let's Choom! @BABYMONSTER #BABYMONSTER #C… · 조회 838,452 · 좋아요 48,067 · 23초 · 제목·조회수 기반 급상승"
+              "text": "Tiktok queens 🔥 || # #zahide #zah1de #ber… · 조회 4,423,279 · 좋아요 94,856 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -732,15 +995,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 14개 / 58%"
+              "text": "댄스·음악 챌린지 38개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/22 신규 감지 없음 / 최신 보유 데이터 5/24 기준 재분석"
+              "text": "5/22 신규 감지 없음 / 최신 보유 데이터 5/25 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 좋아요 71,227 · 조회 대비 3.3%"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 좋아요 266,631 · 조회 대비 3.8%"
             },
             {
               "label": "API 조건",
@@ -757,15 +1020,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #dance · 조회 2,184,128 · 좋아요 71,227"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631"
             },
             {
               "label": "길이",
-              "text": "40초 미만 24개 / 제한 근접 2개 / 평균 21초"
+              "text": "40초 미만 38개 / 제한 근접 2개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 중심으로 오늘 표본 형성 / 이전 비교 표본 부족"
+              "text": "댄스·음악 챌린지 비중 +42%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -787,7 +1050,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "380개"
+          "value": "441개"
         },
         {
           "label": "오늘 감지",
@@ -799,7 +1062,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "335개"
+          "value": "109개"
         },
         {
           "label": "기준",
@@ -807,10 +1070,10 @@
         }
       ],
       "badges": [
-        "상황형 코미디·짧은 사건 40개",
-        "댄스·음악 챌린지 36개",
-        "스포츠·퍼포먼스 순간 9개",
-        "K-pop·아이돌 파생 6개"
+        "댄스·음악 챌린지 43개",
+        "상황형 코미디·짧은 사건 25개",
+        "K-pop·아이돌 파생 4개",
+        "편집·슬로우드 사운드 2개"
       ],
       "cards": [
         {
@@ -818,47 +1081,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "jai veeru ki yaari🤪🤪👭👭 | #shorts #viralshorts #trending #...",
-              "thumbnail": "https://i.ytimg.com/vi/l52bfaNAlHU/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/l52bfaNAlHU",
-              "views": "3,155,897,758",
-              "likes": "23,910,493",
-              "duration": "0:15",
-              "cluster": "댄스·음악 챌린지"
+              "title": "Yehi Bachi Gir gayi hai #cartoonseries#Ytshorts#shorts#is...",
+              "thumbnail": "https://i.ytimg.com/vi/dfUxzBjJ8o4/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/dfUxzBjJ8o4",
+              "views": "1,047,315,499",
+              "likes": "5,324,589",
+              "duration": "0:26",
+              "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#2",
-              "title": "حرف الدي D 💜🔎دونت بي لااات😼🤒",
-              "thumbnail": "https://i.ytimg.com/vi/uJSxrHWPnB4/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/uJSxrHWPnB4",
-              "views": "3,131,819,897",
-              "likes": "23,373,401",
-              "duration": "0:14",
+              "title": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼",
+              "thumbnail": "https://i.ytimg.com/vi/vR6ylQMeeQ0/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/vR6ylQMeeQ0",
+              "views": "151,815,659",
+              "likes": "2,197,225",
+              "duration": "0:36",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#3",
-              "title": "Spider - Man VS T - Rex",
-              "thumbnail": "https://i.ytimg.com/vi/i8Bl8cueEsk/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/i8Bl8cueEsk",
-              "views": "3,086,936,564",
-              "likes": "22,042,478",
-              "duration": "0:14",
+              "title": "World's Fastest Date",
+              "thumbnail": "https://i.ytimg.com/vi/hCuqh2NU2Yg/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/hCuqh2NU2Yg",
+              "views": "118,484,554",
+              "likes": "2,287,638",
+              "duration": "0:32",
               "cluster": "제목·조회수 기반 급상승"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "jai veeru ki yaari🤪🤪👭👭 | #shorts #viralsh… · 조회 3,155,897,758 · 좋아요 23,910,493 · 15초 · 댄스·음악 챌린지"
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Yt… · 조회 1,047,315,499 · 좋아요 5,324,589 · 26초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#2",
-              "text": "حرف الدي D 💜🔎دونت بي لااات😼🤒 · 조회 3,131,819,897 · 좋아요 23,373,401 · 14초 · 제목·조회수 기반 급상승"
+              "text": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼ · 조회 151,815,659 · 좋아요 2,197,225 · 36초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
-              "text": "Spider - Man VS T - Rex · 조회 3,086,936,564 · 좋아요 22,042,478 · 14초 · 제목·조회수 기반 급상승"
+              "text": "World's Fastest Date · 조회 118,484,554 · 좋아요 2,287,638 · 32초 · 제목·조회수 기반 급상승"
             }
           ]
         },
@@ -867,15 +1130,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "상황형 코미디·짧은 사건 40개 / 12%"
+              "text": "댄스·음악 챌린지 43개 / 39%"
             },
             {
               "label": "감지 기준",
-              "text": "5/21 신규 감지 없음 / 최신 보유 데이터 5/24 기준 재분석"
+              "text": "5/21 신규 감지 없음 / 최신 보유 데이터 5/25 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Anaya Ke Dance Ke Liye Ek Like To Banta H… · 좋아요 26,073,746 · 조회 대비 1.0%"
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Yt… · 좋아요 5,324,589 · 조회 대비 0.5%"
             }
           ]
         },
@@ -884,19 +1147,19 @@
           "items": [
             {
               "label": "우선 적용",
-              "text": "첫 1초에 갈등·반전·결과 질문을 먼저 제시하고, 마지막 컷에서 보상을 회수함"
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
             },
             {
               "label": "참고 영상",
-              "text": "jai veeru ki yaari🤪🤪👭👭 | #shorts #viralshorts… · 조회 3,155,897,758 · 좋아요 23,910,493"
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Ytshor… · 조회 1,047,315,499 · 좋아요 5,324,589"
             },
             {
               "label": "길이",
-              "text": "40초 미만 335개 / 제한 근접 28개 / 평균 20초"
+              "text": "40초 미만 109개 / 제한 근접 7개 / 평균 22초"
             },
             {
               "label": "변화",
-              "text": "상황형 코미디·짧은 사건 강세 유지 / 5/24 재감지 표본 기준"
+              "text": "댄스·음악 챌린지 비중 +28%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -913,7 +1176,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "24개"
+          "value": "62개"
         },
         {
           "label": "오늘 감지",
@@ -925,7 +1188,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "24개"
+          "value": "38개"
         },
         {
           "label": "기준",
@@ -933,9 +1196,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 14개",
-        "상황형 코미디·짧은 사건 3개",
-        "편집·슬로우드 사운드 1개"
+        "댄스·음악 챌린지 38개",
+        "K-pop·아이돌 파생 3개",
+        "편집·슬로우드 사운드 1개",
+        "상황형 코미디·짧은 사건 1개"
       ],
       "cards": [
         {
@@ -943,47 +1207,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "Night vibe 😍 #shorts #trendingonshorts #dance",
-              "thumbnail": "https://i.ytimg.com/vi/Mc5pOHU6MJc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/Mc5pOHU6MJc",
-              "views": "2,184,128",
-              "likes": "71,227",
-              "duration": "0:21",
+              "title": "다 함께 취해 보자 #CHOOM °. ♪",
+              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
+              "views": "7,040,265",
+              "likes": "266,631",
+              "duration": "0:25",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#2",
-              "title": "Hellallallo Promo (TELUGU) | Peddi | Ram Charan | Buchi B...",
-              "thumbnail": "https://i.ytimg.com/vi/4v31nFdfUS8/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4v31nFdfUS8",
-              "views": "503,095",
-              "likes": "53,946",
-              "duration": "0:25",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "New viral trend #tiktok #music #dance #duet #funny #trend...",
+              "thumbnail": "https://i.ytimg.com/vi/Dq54E4e1mfo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/Dq54E4e1mfo",
+              "views": "10,944,371",
+              "likes": "41,198",
+              "duration": "0:09",
+              "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "Let's Choom! @BABYMONSTER #BABYMONSTER #CHOOM #shorts",
-              "thumbnail": "https://i.ytimg.com/vi/YPGPND_YBU4/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/YPGPND_YBU4",
-              "views": "838,452",
-              "likes": "48,067",
-              "duration": "0:23",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "Tiktok queens 🔥 || # #zahide #zah1de #berlin #lunatix #mu...",
+              "thumbnail": "https://i.ytimg.com/vi/6WzGHOMFkmo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/6WzGHOMFkmo",
+              "views": "4,423,279",
+              "likes": "94,856",
+              "duration": "0:22",
+              "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 조회 2,184,128 · 좋아요 71,227 · 21초 · 댄스·음악 챌린지"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631 · 25초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Hellallallo Promo (TELUGU) | Peddi | Ram… · 조회 503,095 · 좋아요 53,946 · 25초 · 제목·조회수 기반 급상승"
+              "text": "New viral trend #tiktok #music #dance #du… · 조회 10,944,371 · 좋아요 41,198 · 9초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "Let's Choom! @BABYMONSTER #BABYMONSTER #C… · 조회 838,452 · 좋아요 48,067 · 23초 · 제목·조회수 기반 급상승"
+              "text": "Tiktok queens 🔥 || # #zahide #zah1de #ber… · 조회 4,423,279 · 좋아요 94,856 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -992,15 +1256,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 14개 / 58%"
+              "text": "댄스·음악 챌린지 38개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/21 신규 감지 없음 / 최신 보유 데이터 5/24 기준 재분석"
+              "text": "5/21 신규 감지 없음 / 최신 보유 데이터 5/25 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 좋아요 71,227 · 조회 대비 3.3%"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 좋아요 266,631 · 조회 대비 3.8%"
             },
             {
               "label": "API 조건",
@@ -1017,15 +1281,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #dance · 조회 2,184,128 · 좋아요 71,227"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631"
             },
             {
               "label": "길이",
-              "text": "40초 미만 24개 / 제한 근접 2개 / 평균 21초"
+              "text": "40초 미만 38개 / 제한 근접 2개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 중심으로 오늘 표본 형성 / 이전 비교 표본 부족"
+              "text": "댄스·음악 챌린지 비중 +42%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -1047,7 +1311,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "380개"
+          "value": "441개"
         },
         {
           "label": "오늘 감지",
@@ -1059,7 +1323,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "335개"
+          "value": "109개"
         },
         {
           "label": "기준",
@@ -1067,10 +1331,10 @@
         }
       ],
       "badges": [
-        "상황형 코미디·짧은 사건 40개",
-        "댄스·음악 챌린지 36개",
-        "스포츠·퍼포먼스 순간 9개",
-        "K-pop·아이돌 파생 6개"
+        "댄스·음악 챌린지 43개",
+        "상황형 코미디·짧은 사건 25개",
+        "K-pop·아이돌 파생 4개",
+        "편집·슬로우드 사운드 2개"
       ],
       "cards": [
         {
@@ -1078,47 +1342,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "jai veeru ki yaari🤪🤪👭👭 | #shorts #viralshorts #trending #...",
-              "thumbnail": "https://i.ytimg.com/vi/l52bfaNAlHU/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/l52bfaNAlHU",
-              "views": "3,155,897,758",
-              "likes": "23,910,493",
-              "duration": "0:15",
-              "cluster": "댄스·음악 챌린지"
+              "title": "Yehi Bachi Gir gayi hai #cartoonseries#Ytshorts#shorts#is...",
+              "thumbnail": "https://i.ytimg.com/vi/dfUxzBjJ8o4/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/dfUxzBjJ8o4",
+              "views": "1,047,315,499",
+              "likes": "5,324,589",
+              "duration": "0:26",
+              "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#2",
-              "title": "حرف الدي D 💜🔎دونت بي لااات😼🤒",
-              "thumbnail": "https://i.ytimg.com/vi/uJSxrHWPnB4/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/uJSxrHWPnB4",
-              "views": "3,131,819,897",
-              "likes": "23,373,401",
-              "duration": "0:14",
+              "title": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼",
+              "thumbnail": "https://i.ytimg.com/vi/vR6ylQMeeQ0/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/vR6ylQMeeQ0",
+              "views": "151,815,659",
+              "likes": "2,197,225",
+              "duration": "0:36",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#3",
-              "title": "Spider - Man VS T - Rex",
-              "thumbnail": "https://i.ytimg.com/vi/i8Bl8cueEsk/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/i8Bl8cueEsk",
-              "views": "3,086,936,564",
-              "likes": "22,042,478",
-              "duration": "0:14",
+              "title": "World's Fastest Date",
+              "thumbnail": "https://i.ytimg.com/vi/hCuqh2NU2Yg/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/hCuqh2NU2Yg",
+              "views": "118,484,554",
+              "likes": "2,287,638",
+              "duration": "0:32",
               "cluster": "제목·조회수 기반 급상승"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "jai veeru ki yaari🤪🤪👭👭 | #shorts #viralsh… · 조회 3,155,897,758 · 좋아요 23,910,493 · 15초 · 댄스·음악 챌린지"
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Yt… · 조회 1,047,315,499 · 좋아요 5,324,589 · 26초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#2",
-              "text": "حرف الدي D 💜🔎دونت بي لااات😼🤒 · 조회 3,131,819,897 · 좋아요 23,373,401 · 14초 · 제목·조회수 기반 급상승"
+              "text": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼ · 조회 151,815,659 · 좋아요 2,197,225 · 36초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
-              "text": "Spider - Man VS T - Rex · 조회 3,086,936,564 · 좋아요 22,042,478 · 14초 · 제목·조회수 기반 급상승"
+              "text": "World's Fastest Date · 조회 118,484,554 · 좋아요 2,287,638 · 32초 · 제목·조회수 기반 급상승"
             }
           ]
         },
@@ -1127,15 +1391,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "상황형 코미디·짧은 사건 40개 / 12%"
+              "text": "댄스·음악 챌린지 43개 / 39%"
             },
             {
               "label": "감지 기준",
-              "text": "5/20 신규 감지 없음 / 최신 보유 데이터 5/24 기준 재분석"
+              "text": "5/20 신규 감지 없음 / 최신 보유 데이터 5/25 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Anaya Ke Dance Ke Liye Ek Like To Banta H… · 좋아요 26,073,746 · 조회 대비 1.0%"
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Yt… · 좋아요 5,324,589 · 조회 대비 0.5%"
             }
           ]
         },
@@ -1144,19 +1408,19 @@
           "items": [
             {
               "label": "우선 적용",
-              "text": "첫 1초에 갈등·반전·결과 질문을 먼저 제시하고, 마지막 컷에서 보상을 회수함"
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
             },
             {
               "label": "참고 영상",
-              "text": "jai veeru ki yaari🤪🤪👭👭 | #shorts #viralshorts… · 조회 3,155,897,758 · 좋아요 23,910,493"
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Ytshor… · 조회 1,047,315,499 · 좋아요 5,324,589"
             },
             {
               "label": "길이",
-              "text": "40초 미만 335개 / 제한 근접 28개 / 평균 20초"
+              "text": "40초 미만 109개 / 제한 근접 7개 / 평균 22초"
             },
             {
               "label": "변화",
-              "text": "상황형 코미디·짧은 사건 강세 유지 / 5/24 재감지 표본 기준"
+              "text": "댄스·음악 챌린지 비중 +28%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -1173,7 +1437,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "24개"
+          "value": "62개"
         },
         {
           "label": "오늘 감지",
@@ -1185,7 +1449,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "24개"
+          "value": "38개"
         },
         {
           "label": "기준",
@@ -1193,9 +1457,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 14개",
-        "상황형 코미디·짧은 사건 3개",
-        "편집·슬로우드 사운드 1개"
+        "댄스·음악 챌린지 38개",
+        "K-pop·아이돌 파생 3개",
+        "편집·슬로우드 사운드 1개",
+        "상황형 코미디·짧은 사건 1개"
       ],
       "cards": [
         {
@@ -1203,47 +1468,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "Night vibe 😍 #shorts #trendingonshorts #dance",
-              "thumbnail": "https://i.ytimg.com/vi/Mc5pOHU6MJc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/Mc5pOHU6MJc",
-              "views": "2,184,128",
-              "likes": "71,227",
-              "duration": "0:21",
+              "title": "다 함께 취해 보자 #CHOOM °. ♪",
+              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
+              "views": "7,040,265",
+              "likes": "266,631",
+              "duration": "0:25",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#2",
-              "title": "Hellallallo Promo (TELUGU) | Peddi | Ram Charan | Buchi B...",
-              "thumbnail": "https://i.ytimg.com/vi/4v31nFdfUS8/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4v31nFdfUS8",
-              "views": "503,095",
-              "likes": "53,946",
-              "duration": "0:25",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "New viral trend #tiktok #music #dance #duet #funny #trend...",
+              "thumbnail": "https://i.ytimg.com/vi/Dq54E4e1mfo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/Dq54E4e1mfo",
+              "views": "10,944,371",
+              "likes": "41,198",
+              "duration": "0:09",
+              "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "Let's Choom! @BABYMONSTER #BABYMONSTER #CHOOM #shorts",
-              "thumbnail": "https://i.ytimg.com/vi/YPGPND_YBU4/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/YPGPND_YBU4",
-              "views": "838,452",
-              "likes": "48,067",
-              "duration": "0:23",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "Tiktok queens 🔥 || # #zahide #zah1de #berlin #lunatix #mu...",
+              "thumbnail": "https://i.ytimg.com/vi/6WzGHOMFkmo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/6WzGHOMFkmo",
+              "views": "4,423,279",
+              "likes": "94,856",
+              "duration": "0:22",
+              "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 조회 2,184,128 · 좋아요 71,227 · 21초 · 댄스·음악 챌린지"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631 · 25초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Hellallallo Promo (TELUGU) | Peddi | Ram… · 조회 503,095 · 좋아요 53,946 · 25초 · 제목·조회수 기반 급상승"
+              "text": "New viral trend #tiktok #music #dance #du… · 조회 10,944,371 · 좋아요 41,198 · 9초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "Let's Choom! @BABYMONSTER #BABYMONSTER #C… · 조회 838,452 · 좋아요 48,067 · 23초 · 제목·조회수 기반 급상승"
+              "text": "Tiktok queens 🔥 || # #zahide #zah1de #ber… · 조회 4,423,279 · 좋아요 94,856 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -1252,15 +1517,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 14개 / 58%"
+              "text": "댄스·음악 챌린지 38개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/20 신규 감지 없음 / 최신 보유 데이터 5/24 기준 재분석"
+              "text": "5/20 신규 감지 없음 / 최신 보유 데이터 5/25 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 좋아요 71,227 · 조회 대비 3.3%"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 좋아요 266,631 · 조회 대비 3.8%"
             },
             {
               "label": "API 조건",
@@ -1277,15 +1542,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #dance · 조회 2,184,128 · 좋아요 71,227"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631"
             },
             {
               "label": "길이",
-              "text": "40초 미만 24개 / 제한 근접 2개 / 평균 21초"
+              "text": "40초 미만 38개 / 제한 근접 2개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 중심으로 오늘 표본 형성 / 이전 비교 표본 부족"
+              "text": "댄스·음악 챌린지 비중 +42%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -1307,7 +1572,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "380개"
+          "value": "441개"
         },
         {
           "label": "오늘 감지",
@@ -1319,7 +1584,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "335개"
+          "value": "109개"
         },
         {
           "label": "기준",
@@ -1327,10 +1592,10 @@
         }
       ],
       "badges": [
-        "상황형 코미디·짧은 사건 40개",
-        "댄스·음악 챌린지 36개",
-        "스포츠·퍼포먼스 순간 9개",
-        "K-pop·아이돌 파생 6개"
+        "댄스·음악 챌린지 43개",
+        "상황형 코미디·짧은 사건 25개",
+        "K-pop·아이돌 파생 4개",
+        "편집·슬로우드 사운드 2개"
       ],
       "cards": [
         {
@@ -1338,47 +1603,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "jai veeru ki yaari🤪🤪👭👭 | #shorts #viralshorts #trending #...",
-              "thumbnail": "https://i.ytimg.com/vi/l52bfaNAlHU/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/l52bfaNAlHU",
-              "views": "3,155,897,758",
-              "likes": "23,910,493",
-              "duration": "0:15",
-              "cluster": "댄스·음악 챌린지"
+              "title": "Yehi Bachi Gir gayi hai #cartoonseries#Ytshorts#shorts#is...",
+              "thumbnail": "https://i.ytimg.com/vi/dfUxzBjJ8o4/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/dfUxzBjJ8o4",
+              "views": "1,047,315,499",
+              "likes": "5,324,589",
+              "duration": "0:26",
+              "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#2",
-              "title": "حرف الدي D 💜🔎دونت بي لااات😼🤒",
-              "thumbnail": "https://i.ytimg.com/vi/uJSxrHWPnB4/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/uJSxrHWPnB4",
-              "views": "3,131,819,897",
-              "likes": "23,373,401",
-              "duration": "0:14",
+              "title": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼",
+              "thumbnail": "https://i.ytimg.com/vi/vR6ylQMeeQ0/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/vR6ylQMeeQ0",
+              "views": "151,815,659",
+              "likes": "2,197,225",
+              "duration": "0:36",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#3",
-              "title": "Spider - Man VS T - Rex",
-              "thumbnail": "https://i.ytimg.com/vi/i8Bl8cueEsk/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/i8Bl8cueEsk",
-              "views": "3,086,936,564",
-              "likes": "22,042,478",
-              "duration": "0:14",
+              "title": "World's Fastest Date",
+              "thumbnail": "https://i.ytimg.com/vi/hCuqh2NU2Yg/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/hCuqh2NU2Yg",
+              "views": "118,484,554",
+              "likes": "2,287,638",
+              "duration": "0:32",
               "cluster": "제목·조회수 기반 급상승"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "jai veeru ki yaari🤪🤪👭👭 | #shorts #viralsh… · 조회 3,155,897,758 · 좋아요 23,910,493 · 15초 · 댄스·음악 챌린지"
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Yt… · 조회 1,047,315,499 · 좋아요 5,324,589 · 26초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#2",
-              "text": "حرف الدي D 💜🔎دونت بي لااات😼🤒 · 조회 3,131,819,897 · 좋아요 23,373,401 · 14초 · 제목·조회수 기반 급상승"
+              "text": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼ · 조회 151,815,659 · 좋아요 2,197,225 · 36초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
-              "text": "Spider - Man VS T - Rex · 조회 3,086,936,564 · 좋아요 22,042,478 · 14초 · 제목·조회수 기반 급상승"
+              "text": "World's Fastest Date · 조회 118,484,554 · 좋아요 2,287,638 · 32초 · 제목·조회수 기반 급상승"
             }
           ]
         },
@@ -1387,15 +1652,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "상황형 코미디·짧은 사건 40개 / 12%"
+              "text": "댄스·음악 챌린지 43개 / 39%"
             },
             {
               "label": "감지 기준",
-              "text": "5/19 신규 감지 없음 / 최신 보유 데이터 5/24 기준 재분석"
+              "text": "5/19 신규 감지 없음 / 최신 보유 데이터 5/25 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Anaya Ke Dance Ke Liye Ek Like To Banta H… · 좋아요 26,073,746 · 조회 대비 1.0%"
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Yt… · 좋아요 5,324,589 · 조회 대비 0.5%"
             }
           ]
         },
@@ -1404,19 +1669,19 @@
           "items": [
             {
               "label": "우선 적용",
-              "text": "첫 1초에 갈등·반전·결과 질문을 먼저 제시하고, 마지막 컷에서 보상을 회수함"
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
             },
             {
               "label": "참고 영상",
-              "text": "jai veeru ki yaari🤪🤪👭👭 | #shorts #viralshorts… · 조회 3,155,897,758 · 좋아요 23,910,493"
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Ytshor… · 조회 1,047,315,499 · 좋아요 5,324,589"
             },
             {
               "label": "길이",
-              "text": "40초 미만 335개 / 제한 근접 28개 / 평균 20초"
+              "text": "40초 미만 109개 / 제한 근접 7개 / 평균 22초"
             },
             {
               "label": "변화",
-              "text": "상황형 코미디·짧은 사건 강세 유지 / 5/24 재감지 표본 기준"
+              "text": "댄스·음악 챌린지 비중 +28%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -1433,7 +1698,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "24개"
+          "value": "62개"
         },
         {
           "label": "오늘 감지",
@@ -1445,7 +1710,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "24개"
+          "value": "38개"
         },
         {
           "label": "기준",
@@ -1453,9 +1718,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 14개",
-        "상황형 코미디·짧은 사건 3개",
-        "편집·슬로우드 사운드 1개"
+        "댄스·음악 챌린지 38개",
+        "K-pop·아이돌 파생 3개",
+        "편집·슬로우드 사운드 1개",
+        "상황형 코미디·짧은 사건 1개"
       ],
       "cards": [
         {
@@ -1463,47 +1729,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "Night vibe 😍 #shorts #trendingonshorts #dance",
-              "thumbnail": "https://i.ytimg.com/vi/Mc5pOHU6MJc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/Mc5pOHU6MJc",
-              "views": "2,184,128",
-              "likes": "71,227",
-              "duration": "0:21",
+              "title": "다 함께 취해 보자 #CHOOM °. ♪",
+              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
+              "views": "7,040,265",
+              "likes": "266,631",
+              "duration": "0:25",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#2",
-              "title": "Hellallallo Promo (TELUGU) | Peddi | Ram Charan | Buchi B...",
-              "thumbnail": "https://i.ytimg.com/vi/4v31nFdfUS8/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4v31nFdfUS8",
-              "views": "503,095",
-              "likes": "53,946",
-              "duration": "0:25",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "New viral trend #tiktok #music #dance #duet #funny #trend...",
+              "thumbnail": "https://i.ytimg.com/vi/Dq54E4e1mfo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/Dq54E4e1mfo",
+              "views": "10,944,371",
+              "likes": "41,198",
+              "duration": "0:09",
+              "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "Let's Choom! @BABYMONSTER #BABYMONSTER #CHOOM #shorts",
-              "thumbnail": "https://i.ytimg.com/vi/YPGPND_YBU4/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/YPGPND_YBU4",
-              "views": "838,452",
-              "likes": "48,067",
-              "duration": "0:23",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "Tiktok queens 🔥 || # #zahide #zah1de #berlin #lunatix #mu...",
+              "thumbnail": "https://i.ytimg.com/vi/6WzGHOMFkmo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/6WzGHOMFkmo",
+              "views": "4,423,279",
+              "likes": "94,856",
+              "duration": "0:22",
+              "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 조회 2,184,128 · 좋아요 71,227 · 21초 · 댄스·음악 챌린지"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631 · 25초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Hellallallo Promo (TELUGU) | Peddi | Ram… · 조회 503,095 · 좋아요 53,946 · 25초 · 제목·조회수 기반 급상승"
+              "text": "New viral trend #tiktok #music #dance #du… · 조회 10,944,371 · 좋아요 41,198 · 9초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "Let's Choom! @BABYMONSTER #BABYMONSTER #C… · 조회 838,452 · 좋아요 48,067 · 23초 · 제목·조회수 기반 급상승"
+              "text": "Tiktok queens 🔥 || # #zahide #zah1de #ber… · 조회 4,423,279 · 좋아요 94,856 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -1512,15 +1778,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 14개 / 58%"
+              "text": "댄스·음악 챌린지 38개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/19 신규 감지 없음 / 최신 보유 데이터 5/24 기준 재분석"
+              "text": "5/19 신규 감지 없음 / 최신 보유 데이터 5/25 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 좋아요 71,227 · 조회 대비 3.3%"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 좋아요 266,631 · 조회 대비 3.8%"
             },
             {
               "label": "API 조건",
@@ -1537,15 +1803,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #dance · 조회 2,184,128 · 좋아요 71,227"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631"
             },
             {
               "label": "길이",
-              "text": "40초 미만 24개 / 제한 근접 2개 / 평균 21초"
+              "text": "40초 미만 38개 / 제한 근접 2개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 중심으로 오늘 표본 형성 / 이전 비교 표본 부족"
+              "text": "댄스·음악 챌린지 비중 +42%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -1567,7 +1833,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "380개"
+          "value": "441개"
         },
         {
           "label": "오늘 감지",
@@ -1579,7 +1845,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "335개"
+          "value": "109개"
         },
         {
           "label": "기준",
@@ -1587,10 +1853,10 @@
         }
       ],
       "badges": [
-        "상황형 코미디·짧은 사건 40개",
-        "댄스·음악 챌린지 36개",
-        "스포츠·퍼포먼스 순간 9개",
-        "K-pop·아이돌 파생 6개"
+        "댄스·음악 챌린지 43개",
+        "상황형 코미디·짧은 사건 25개",
+        "K-pop·아이돌 파생 4개",
+        "편집·슬로우드 사운드 2개"
       ],
       "cards": [
         {
@@ -1598,47 +1864,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "jai veeru ki yaari🤪🤪👭👭 | #shorts #viralshorts #trending #...",
-              "thumbnail": "https://i.ytimg.com/vi/l52bfaNAlHU/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/l52bfaNAlHU",
-              "views": "3,155,897,758",
-              "likes": "23,910,493",
-              "duration": "0:15",
-              "cluster": "댄스·음악 챌린지"
+              "title": "Yehi Bachi Gir gayi hai #cartoonseries#Ytshorts#shorts#is...",
+              "thumbnail": "https://i.ytimg.com/vi/dfUxzBjJ8o4/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/dfUxzBjJ8o4",
+              "views": "1,047,315,499",
+              "likes": "5,324,589",
+              "duration": "0:26",
+              "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#2",
-              "title": "حرف الدي D 💜🔎دونت بي لااات😼🤒",
-              "thumbnail": "https://i.ytimg.com/vi/uJSxrHWPnB4/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/uJSxrHWPnB4",
-              "views": "3,131,819,897",
-              "likes": "23,373,401",
-              "duration": "0:14",
+              "title": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼",
+              "thumbnail": "https://i.ytimg.com/vi/vR6ylQMeeQ0/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/vR6ylQMeeQ0",
+              "views": "151,815,659",
+              "likes": "2,197,225",
+              "duration": "0:36",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#3",
-              "title": "Spider - Man VS T - Rex",
-              "thumbnail": "https://i.ytimg.com/vi/i8Bl8cueEsk/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/i8Bl8cueEsk",
-              "views": "3,086,936,564",
-              "likes": "22,042,478",
-              "duration": "0:14",
+              "title": "World's Fastest Date",
+              "thumbnail": "https://i.ytimg.com/vi/hCuqh2NU2Yg/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/hCuqh2NU2Yg",
+              "views": "118,484,554",
+              "likes": "2,287,638",
+              "duration": "0:32",
               "cluster": "제목·조회수 기반 급상승"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "jai veeru ki yaari🤪🤪👭👭 | #shorts #viralsh… · 조회 3,155,897,758 · 좋아요 23,910,493 · 15초 · 댄스·음악 챌린지"
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Yt… · 조회 1,047,315,499 · 좋아요 5,324,589 · 26초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#2",
-              "text": "حرف الدي D 💜🔎دونت بي لااات😼🤒 · 조회 3,131,819,897 · 좋아요 23,373,401 · 14초 · 제목·조회수 기반 급상승"
+              "text": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼ · 조회 151,815,659 · 좋아요 2,197,225 · 36초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
-              "text": "Spider - Man VS T - Rex · 조회 3,086,936,564 · 좋아요 22,042,478 · 14초 · 제목·조회수 기반 급상승"
+              "text": "World's Fastest Date · 조회 118,484,554 · 좋아요 2,287,638 · 32초 · 제목·조회수 기반 급상승"
             }
           ]
         },
@@ -1647,15 +1913,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "상황형 코미디·짧은 사건 40개 / 12%"
+              "text": "댄스·음악 챌린지 43개 / 39%"
             },
             {
               "label": "감지 기준",
-              "text": "5/18 신규 감지 없음 / 최신 보유 데이터 5/24 기준 재분석"
+              "text": "5/18 신규 감지 없음 / 최신 보유 데이터 5/25 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Anaya Ke Dance Ke Liye Ek Like To Banta H… · 좋아요 26,073,746 · 조회 대비 1.0%"
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Yt… · 좋아요 5,324,589 · 조회 대비 0.5%"
             }
           ]
         },
@@ -1664,19 +1930,19 @@
           "items": [
             {
               "label": "우선 적용",
-              "text": "첫 1초에 갈등·반전·결과 질문을 먼저 제시하고, 마지막 컷에서 보상을 회수함"
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
             },
             {
               "label": "참고 영상",
-              "text": "jai veeru ki yaari🤪🤪👭👭 | #shorts #viralshorts… · 조회 3,155,897,758 · 좋아요 23,910,493"
+              "text": "Yehi Bachi Gir gayi hai #cartoonseries#Ytshor… · 조회 1,047,315,499 · 좋아요 5,324,589"
             },
             {
               "label": "길이",
-              "text": "40초 미만 335개 / 제한 근접 28개 / 평균 20초"
+              "text": "40초 미만 109개 / 제한 근접 7개 / 평균 22초"
             },
             {
               "label": "변화",
-              "text": "상황형 코미디·짧은 사건 강세 유지 / 5/24 재감지 표본 기준"
+              "text": "댄스·음악 챌린지 비중 +28%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -1693,7 +1959,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "24개"
+          "value": "62개"
         },
         {
           "label": "오늘 감지",
@@ -1705,7 +1971,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "24개"
+          "value": "38개"
         },
         {
           "label": "기준",
@@ -1713,9 +1979,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 14개",
-        "상황형 코미디·짧은 사건 3개",
-        "편집·슬로우드 사운드 1개"
+        "댄스·음악 챌린지 38개",
+        "K-pop·아이돌 파생 3개",
+        "편집·슬로우드 사운드 1개",
+        "상황형 코미디·짧은 사건 1개"
       ],
       "cards": [
         {
@@ -1723,47 +1990,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "Night vibe 😍 #shorts #trendingonshorts #dance",
-              "thumbnail": "https://i.ytimg.com/vi/Mc5pOHU6MJc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/Mc5pOHU6MJc",
-              "views": "2,184,128",
-              "likes": "71,227",
-              "duration": "0:21",
+              "title": "다 함께 취해 보자 #CHOOM °. ♪",
+              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
+              "views": "7,040,265",
+              "likes": "266,631",
+              "duration": "0:25",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#2",
-              "title": "Hellallallo Promo (TELUGU) | Peddi | Ram Charan | Buchi B...",
-              "thumbnail": "https://i.ytimg.com/vi/4v31nFdfUS8/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4v31nFdfUS8",
-              "views": "503,095",
-              "likes": "53,946",
-              "duration": "0:25",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "New viral trend #tiktok #music #dance #duet #funny #trend...",
+              "thumbnail": "https://i.ytimg.com/vi/Dq54E4e1mfo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/Dq54E4e1mfo",
+              "views": "10,944,371",
+              "likes": "41,198",
+              "duration": "0:09",
+              "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "Let's Choom! @BABYMONSTER #BABYMONSTER #CHOOM #shorts",
-              "thumbnail": "https://i.ytimg.com/vi/YPGPND_YBU4/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/YPGPND_YBU4",
-              "views": "838,452",
-              "likes": "48,067",
-              "duration": "0:23",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "Tiktok queens 🔥 || # #zahide #zah1de #berlin #lunatix #mu...",
+              "thumbnail": "https://i.ytimg.com/vi/6WzGHOMFkmo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/6WzGHOMFkmo",
+              "views": "4,423,279",
+              "likes": "94,856",
+              "duration": "0:22",
+              "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 조회 2,184,128 · 좋아요 71,227 · 21초 · 댄스·음악 챌린지"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631 · 25초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Hellallallo Promo (TELUGU) | Peddi | Ram… · 조회 503,095 · 좋아요 53,946 · 25초 · 제목·조회수 기반 급상승"
+              "text": "New viral trend #tiktok #music #dance #du… · 조회 10,944,371 · 좋아요 41,198 · 9초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "Let's Choom! @BABYMONSTER #BABYMONSTER #C… · 조회 838,452 · 좋아요 48,067 · 23초 · 제목·조회수 기반 급상승"
+              "text": "Tiktok queens 🔥 || # #zahide #zah1de #ber… · 조회 4,423,279 · 좋아요 94,856 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -1772,15 +2039,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 14개 / 58%"
+              "text": "댄스·음악 챌린지 38개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/18 신규 감지 없음 / 최신 보유 데이터 5/24 기준 재분석"
+              "text": "5/18 신규 감지 없음 / 최신 보유 데이터 5/25 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 좋아요 71,227 · 조회 대비 3.3%"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 좋아요 266,631 · 조회 대비 3.8%"
             },
             {
               "label": "API 조건",
@@ -1797,15 +2064,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #dance · 조회 2,184,128 · 좋아요 71,227"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631"
             },
             {
               "label": "길이",
-              "text": "40초 미만 24개 / 제한 근접 2개 / 평균 21초"
+              "text": "40초 미만 38개 / 제한 근접 2개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 중심으로 오늘 표본 형성 / 이전 비교 표본 부족"
+              "text": "댄스·음악 챌린지 비중 +42%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -1827,7 +2094,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "380개"
+          "value": "441개"
         },
         {
           "label": "오늘 감지",
@@ -1953,7 +2220,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "24개"
+          "value": "62개"
         },
         {
           "label": "오늘 감지",
@@ -1965,7 +2232,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "24개"
+          "value": "38개"
         },
         {
           "label": "기준",
@@ -1973,9 +2240,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 14개",
-        "상황형 코미디·짧은 사건 3개",
-        "편집·슬로우드 사운드 1개"
+        "댄스·음악 챌린지 38개",
+        "K-pop·아이돌 파생 3개",
+        "편집·슬로우드 사운드 1개",
+        "상황형 코미디·짧은 사건 1개"
       ],
       "cards": [
         {
@@ -1983,47 +2251,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "Night vibe 😍 #shorts #trendingonshorts #dance",
-              "thumbnail": "https://i.ytimg.com/vi/Mc5pOHU6MJc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/Mc5pOHU6MJc",
-              "views": "2,184,128",
-              "likes": "71,227",
-              "duration": "0:21",
+              "title": "다 함께 취해 보자 #CHOOM °. ♪",
+              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
+              "views": "7,040,265",
+              "likes": "266,631",
+              "duration": "0:25",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#2",
-              "title": "Hellallallo Promo (TELUGU) | Peddi | Ram Charan | Buchi B...",
-              "thumbnail": "https://i.ytimg.com/vi/4v31nFdfUS8/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4v31nFdfUS8",
-              "views": "503,095",
-              "likes": "53,946",
-              "duration": "0:25",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "New viral trend #tiktok #music #dance #duet #funny #trend...",
+              "thumbnail": "https://i.ytimg.com/vi/Dq54E4e1mfo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/Dq54E4e1mfo",
+              "views": "10,944,371",
+              "likes": "41,198",
+              "duration": "0:09",
+              "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "Let's Choom! @BABYMONSTER #BABYMONSTER #CHOOM #shorts",
-              "thumbnail": "https://i.ytimg.com/vi/YPGPND_YBU4/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/YPGPND_YBU4",
-              "views": "838,452",
-              "likes": "48,067",
-              "duration": "0:23",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "Tiktok queens 🔥 || # #zahide #zah1de #berlin #lunatix #mu...",
+              "thumbnail": "https://i.ytimg.com/vi/6WzGHOMFkmo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/6WzGHOMFkmo",
+              "views": "4,423,279",
+              "likes": "94,856",
+              "duration": "0:22",
+              "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 조회 2,184,128 · 좋아요 71,227 · 21초 · 댄스·음악 챌린지"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631 · 25초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Hellallallo Promo (TELUGU) | Peddi | Ram… · 조회 503,095 · 좋아요 53,946 · 25초 · 제목·조회수 기반 급상승"
+              "text": "New viral trend #tiktok #music #dance #du… · 조회 10,944,371 · 좋아요 41,198 · 9초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "Let's Choom! @BABYMONSTER #BABYMONSTER #C… · 조회 838,452 · 좋아요 48,067 · 23초 · 제목·조회수 기반 급상승"
+              "text": "Tiktok queens 🔥 || # #zahide #zah1de #ber… · 조회 4,423,279 · 좋아요 94,856 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -2032,15 +2300,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 14개 / 58%"
+              "text": "댄스·음악 챌린지 38개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/17 신규 감지 없음 / 최신 보유 데이터 5/24 기준 재분석"
+              "text": "5/17 신규 감지 없음 / 최신 보유 데이터 5/25 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 좋아요 71,227 · 조회 대비 3.3%"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 좋아요 266,631 · 조회 대비 3.8%"
             },
             {
               "label": "API 조건",
@@ -2057,15 +2325,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #dance · 조회 2,184,128 · 좋아요 71,227"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631"
             },
             {
               "label": "길이",
-              "text": "40초 미만 24개 / 제한 근접 2개 / 평균 21초"
+              "text": "40초 미만 38개 / 제한 근접 2개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 중심으로 오늘 표본 형성 / 이전 비교 표본 부족"
+              "text": "댄스·음악 챌린지 비중 +42%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -2087,7 +2355,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "380개"
+          "value": "441개"
         },
         {
           "label": "오늘 감지",
@@ -2194,7 +2462,7 @@
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +22%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "상황형 코미디·짧은 사건 비중 +16%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -2211,7 +2479,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "24개"
+          "value": "62개"
         },
         {
           "label": "오늘 감지",
@@ -2223,7 +2491,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "24개"
+          "value": "38개"
         },
         {
           "label": "기준",
@@ -2231,9 +2499,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 14개",
-        "상황형 코미디·짧은 사건 3개",
-        "편집·슬로우드 사운드 1개"
+        "댄스·음악 챌린지 38개",
+        "K-pop·아이돌 파생 3개",
+        "편집·슬로우드 사운드 1개",
+        "상황형 코미디·짧은 사건 1개"
       ],
       "cards": [
         {
@@ -2241,47 +2510,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "Night vibe 😍 #shorts #trendingonshorts #dance",
-              "thumbnail": "https://i.ytimg.com/vi/Mc5pOHU6MJc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/Mc5pOHU6MJc",
-              "views": "2,184,128",
-              "likes": "71,227",
-              "duration": "0:21",
+              "title": "다 함께 취해 보자 #CHOOM °. ♪",
+              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
+              "views": "7,040,265",
+              "likes": "266,631",
+              "duration": "0:25",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#2",
-              "title": "Hellallallo Promo (TELUGU) | Peddi | Ram Charan | Buchi B...",
-              "thumbnail": "https://i.ytimg.com/vi/4v31nFdfUS8/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4v31nFdfUS8",
-              "views": "503,095",
-              "likes": "53,946",
-              "duration": "0:25",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "New viral trend #tiktok #music #dance #duet #funny #trend...",
+              "thumbnail": "https://i.ytimg.com/vi/Dq54E4e1mfo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/Dq54E4e1mfo",
+              "views": "10,944,371",
+              "likes": "41,198",
+              "duration": "0:09",
+              "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "Let's Choom! @BABYMONSTER #BABYMONSTER #CHOOM #shorts",
-              "thumbnail": "https://i.ytimg.com/vi/YPGPND_YBU4/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/YPGPND_YBU4",
-              "views": "838,452",
-              "likes": "48,067",
-              "duration": "0:23",
-              "cluster": "제목·조회수 기반 급상승"
+              "title": "Tiktok queens 🔥 || # #zahide #zah1de #berlin #lunatix #mu...",
+              "thumbnail": "https://i.ytimg.com/vi/6WzGHOMFkmo/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/6WzGHOMFkmo",
+              "views": "4,423,279",
+              "likes": "94,856",
+              "duration": "0:22",
+              "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 조회 2,184,128 · 좋아요 71,227 · 21초 · 댄스·음악 챌린지"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631 · 25초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Hellallallo Promo (TELUGU) | Peddi | Ram… · 조회 503,095 · 좋아요 53,946 · 25초 · 제목·조회수 기반 급상승"
+              "text": "New viral trend #tiktok #music #dance #du… · 조회 10,944,371 · 좋아요 41,198 · 9초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "Let's Choom! @BABYMONSTER #BABYMONSTER #C… · 조회 838,452 · 좋아요 48,067 · 23초 · 제목·조회수 기반 급상승"
+              "text": "Tiktok queens 🔥 || # #zahide #zah1de #ber… · 조회 4,423,279 · 좋아요 94,856 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -2290,15 +2559,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 14개 / 58%"
+              "text": "댄스·음악 챌린지 38개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/16 신규 감지 없음 / 최신 보유 데이터 5/24 기준 재분석"
+              "text": "5/16 신규 감지 없음 / 최신 보유 데이터 5/25 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #d… · 좋아요 71,227 · 조회 대비 3.3%"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 좋아요 266,631 · 조회 대비 3.8%"
             },
             {
               "label": "API 조건",
@@ -2315,15 +2584,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Night vibe 😍 #shorts #trendingonshorts #dance · 조회 2,184,128 · 좋아요 71,227"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,040,265 · 좋아요 266,631"
             },
             {
               "label": "길이",
-              "text": "40초 미만 24개 / 제한 근접 2개 / 평균 21초"
+              "text": "40초 미만 38개 / 제한 근접 2개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 중심으로 오늘 표본 형성 / 이전 비교 표본 부족"
+              "text": "댄스·음악 챌린지 비중 +42%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
