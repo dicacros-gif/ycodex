@@ -2963,6 +2963,47 @@ def render_card(item: dict[str, Any], index: int) -> str:
       </article>"""
 
 
+def high_view_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return sorted(
+        unique_content_items([item for item in items if is_displayable(item)]),
+        key=lambda item: (parse_int(item.get("viewsGained")), parse_int(item.get("likeCount")), popularity_score(item)),
+        reverse=True,
+    )
+
+
+def render_youtube_api_showcase(api_items: list[dict[str, Any]]) -> str:
+    ranked = high_view_items(api_items)
+    if not ranked:
+        return """
+      <div class="grid">
+        <div class="empty-state">공식 API 후보는 다음 업데이트에서 다시 확인됩니다.</div>
+      </div>"""
+
+    top_item = ranked[0]
+    top_cards = "\n".join(render_mega_case_card(item) for item in ranked[:3])
+    grid_cards = "".join(render_card(item, index) for index, item in enumerate(ranked, start=1))
+    return f"""
+      <div class="mega-case-section">
+        <div class="mega-section-heading">
+          <h3>YouTube API 조회수 상위 Shorts</h3>
+        </div>
+        <div class="mega-case-list">{top_cards}</div>
+      </div>
+      <div class="trend-brief youtube-api-brief" aria-label="YouTube API top video">
+        <div class="trend-heading">
+          <strong>NOW TRENDING #1</strong>
+          <ul class="trend-meta">
+            <li>{highlight_text(f'{fmt_int(top_item.get("viewsGained"))} views')}</li>
+            <li>{highlight_text(f'{fmt_count(top_item.get("likeCount"))} 좋아요')}</li>
+            <li>{highlight_text(str(top_item.get("publishedAt") or "게시일 확인"))}</li>
+          </ul>
+        </div>
+        <ul class="trend-notes">{render_points(card_popularity_points(top_item))}</ul>
+      </div>
+      <div class="grid">{grid_cards}
+      </div>"""
+
+
 def group_items_by_region(items: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
     grouped = {region["key"]: [] for region in REGIONS}
     seen: set[str] = set()
@@ -3491,9 +3532,7 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
         f"""
     <section id="panel-youtube-api" class="region-panel" data-region-panel="youtube_api" role="tabpanel" aria-labelledby="tab-youtube-api" aria-label="YouTube Data API Shorts">
 {api_analysis}
-      <div class="grid">
-        <div class="empty-state">공식 API 후보는 각 지역 탭 카드에 반영됩니다.</div>
-      </div>
+{render_youtube_api_showcase(api_items)}
     </section>""",
     ]
     for region in REGIONS:
