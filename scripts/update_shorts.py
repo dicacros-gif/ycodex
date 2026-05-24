@@ -3347,6 +3347,32 @@ def top_video_insight_lines(items: list[dict[str, Any]], limit: int = 3) -> list
     return [insight_line(f"#{index}", video_metric_summary(item)) for index, item in enumerate(ranked[:limit], start=1)]
 
 
+def top_video_insight_media(items: list[dict[str, Any]], limit: int = 3) -> list[dict[str, Any]]:
+    ranked = sorted(
+        unique_content_items(items),
+        key=lambda item: (popularity_score(item), parse_int(item.get("viewsGained")), parse_int(item.get("likeCount"))),
+        reverse=True,
+    )
+    media: list[dict[str, Any]] = []
+    for index, item in enumerate(ranked[:limit], start=1):
+        video_id = str(item.get("id") or "")
+        if not video_id:
+            continue
+        media.append(
+            {
+                "rank": f"#{index}",
+                "title": compact_title(str(item.get("title") or ""), 58),
+                "thumbnail": item.get("thumbnail") or thumbnail_url(video_id),
+                "url": item.get("shortsUrl") or normalized_url(video_id),
+                "views": fmt_count(item.get("viewsGained")),
+                "likes": fmt_count(item.get("likeCount")),
+                "duration": fmt_duration(item.get("duration")),
+                "cluster": cluster_label(item_cluster_keys(item)[0]),
+            }
+        )
+    return media
+
+
 def top_like_summary(items: list[dict[str, Any]]) -> str:
     liked_items = [item for item in items if parse_int(item.get("likeCount")) > 0]
     if not liked_items:
@@ -3486,6 +3512,7 @@ def build_trend_model(items: list[dict[str, Any]], generated_at: str, title: str
     avg_views = average_int([parse_int(item.get("viewsGained")) for item in active_items])
     avg_duration = average_int([parse_int(item.get("duration")) for item in active_items])
     key_video_lines = top_video_insight_lines(active_items)
+    key_video_media = top_video_insight_media(active_items)
 
     badges = [
         f"{cluster_label(key)} {count}개"
@@ -3500,6 +3527,7 @@ def build_trend_model(items: list[dict[str, Any]], generated_at: str, title: str
     cards = [
         {
             "title": "핵심 영상",
+            "videos": key_video_media,
             "items": key_video_lines or [insight_line("대기", "표시 가능한 영상이 부족해 다음 수집에서 재분석")],
         },
         {
@@ -3595,11 +3623,40 @@ def render_labeled_items(items: list[dict[str, str]]) -> str:
     return "\n".join(rows)
 
 
+def render_insight_video_media(videos: list[dict[str, Any]]) -> str:
+    if not videos:
+        return ""
+    rows = []
+    for video in videos:
+        title = str(video.get("title") or "")
+        url = str(video.get("url") or "#")
+        thumbnail = str(video.get("thumbnail") or "")
+        rows.append(
+            f"""
+              <a class="insight-video" href="{escape(url)}" target="_blank" rel="noopener" aria-label="{escape(title)}">
+                <span class="insight-video-thumb">
+                  <img src="{escape(thumbnail)}" alt="{escape(title)} thumbnail" loading="lazy">
+                  <b>{escape(str(video.get('rank') or ''))}</b>
+                </span>
+                <span class="insight-video-copy">
+                  <strong>{escape(title)}</strong>
+                  <span>조회 {escape(str(video.get('views') or '0'))} · 좋아요 {escape(str(video.get('likes') or '0'))} · {escape(str(video.get('duration') or ''))}</span>
+                  <em>{escape(str(video.get('cluster') or ''))}</em>
+                </span>
+              </a>"""
+        )
+    return f"""
+            <div class="insight-video-list">
+{''.join(rows)}
+            </div>"""
+
+
 def render_insight_cards(cards: list[dict[str, Any]], class_name: str = "insight-card") -> str:
     return "\n".join(
         f"""
           <article class="{class_name}">
             <h3>{escape(card.get('title', ''))}</h3>
+            {render_insight_video_media(card.get('videos') or [])}
             <div class="mini-metrics">{render_metric_pills(card.get('metrics') or [])}</div>
             <ul>{render_labeled_items(card.get('items') or [])}</ul>
           </article>"""
@@ -4057,6 +4114,71 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
       font-size: 14px;
       line-height: 1.35;
       font-weight: 900;
+    }}
+    .insight-video-list {{
+      display: grid;
+      gap: 8px;
+      margin: 0 0 12px;
+    }}
+    .insight-video {{
+      display: grid;
+      grid-template-columns: 68px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      padding: 8px;
+      border: 1px solid #edf2f7;
+      border-radius: 8px;
+      background: #fffafa;
+      color: #344054;
+      text-decoration: none;
+    }}
+    .insight-video:hover {{
+      border-color: rgba(220, 38, 38, 0.32);
+      background: #fff7f7;
+    }}
+    .insight-video-thumb {{
+      position: relative;
+      display: block;
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      border-radius: 7px;
+      background: #111827;
+    }}
+    .insight-video-thumb img {{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }}
+    .insight-video-thumb b {{
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      padding: 2px 5px;
+      border-radius: 999px;
+      background: rgba(127, 29, 29, 0.9);
+      color: #ffffff;
+      font-size: 10px;
+      line-height: 1.2;
+    }}
+    .insight-video-copy {{
+      min-width: 0;
+      display: grid;
+      gap: 4px;
+    }}
+    .insight-video-copy strong {{
+      color: #101828;
+      font-size: 12.5px;
+      line-height: 1.35;
+      font-weight: 900;
+    }}
+    .insight-video-copy span,
+    .insight-video-copy em {{
+      color: #667085;
+      font-size: 11.5px;
+      line-height: 1.35;
+      font-style: normal;
+      font-weight: 800;
     }}
     .insight-subsection {{
       margin-top: 14px;
@@ -4709,6 +4831,7 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
       .tab-button::after {{ left: 9px; right: 9px; bottom: 4px; }}
       .daily-insight-head {{ flex-direction: column; }}
       .insight-metrics {{ justify-content: flex-start; }}
+      .insight-video {{ grid-template-columns: 58px minmax(0, 1fr); gap: 8px; }}
       .insight-card li,
       .source-card li,
       .creator-insight-card li {{ grid-template-columns: 1fr; gap: 3px; }}
