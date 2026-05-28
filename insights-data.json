@@ -1,5 +1,266 @@
 [
   {
+    "dateKey": "2026-05-29",
+    "updatedAt": "2026-05-29T07:00:23+09:00",
+    "updatedLabel": "5/29 07:00",
+    "global": {
+      "title": "트렌드 분석",
+      "metrics": [
+        {
+          "label": "전체 표시",
+          "value": "1175개"
+        },
+        {
+          "label": "오늘 감지",
+          "value": "135개"
+        },
+        {
+          "label": "신규 편입",
+          "value": "34개"
+        },
+        {
+          "label": "분석 표본",
+          "value": "135개"
+        },
+        {
+          "label": "기준",
+          "value": "50,000뷰 이상"
+        }
+      ],
+      "badges": [
+        "댄스·음악 챌린지 76개",
+        "상황형 코미디·짧은 사건 28개",
+        "편집·슬로우드 사운드 12개",
+        "K-pop·아이돌 파생 6개"
+      ],
+      "cards": [
+        {
+          "title": "핵심 영상",
+          "videos": [
+            {
+              "rank": "#1",
+              "title": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubeshorts",
+              "thumbnail": "https://i.ytimg.com/vi/HiDUWmHkYz8/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/HiDUWmHkYz8",
+              "views": "701,806,079",
+              "likes": "3,301,853",
+              "duration": "0:26",
+              "cluster": "제목·조회수 기반 급상승"
+            },
+            {
+              "rank": "#2",
+              "title": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼",
+              "thumbnail": "https://i.ytimg.com/vi/vR6ylQMeeQ0/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/vR6ylQMeeQ0",
+              "views": "198,994,146",
+              "likes": "2,835,409",
+              "duration": "0:36",
+              "cluster": "제목·조회수 기반 급상승"
+            },
+            {
+              "rank": "#3",
+              "title": "🐶 ¿Un cachorro adoptado por un CANGURO? | Leo, El Explora...",
+              "thumbnail": "https://i.ytimg.com/vi/p9gimFhGGNs/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/p9gimFhGGNs",
+              "views": "241,479,029",
+              "likes": "1,483,662",
+              "duration": "0:27",
+              "cluster": "제목·조회수 기반 급상승"
+            }
+          ],
+          "items": [
+            {
+              "label": "#1",
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubesh… · 조회 701,806,079 · 좋아요 3,301,853 · 26초 · 제목·조회수 기반 급상승"
+            },
+            {
+              "label": "#2",
+              "text": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼ · 조회 198,994,146 · 좋아요 2,835,409 · 36초 · 제목·조회수 기반 급상승"
+            },
+            {
+              "label": "#3",
+              "text": "🐶 ¿Un cachorro adoptado por un CANGURO? |… · 조회 241,479,029 · 좋아요 1,483,662 · 27초 · 제목·조회수 기반 급상승"
+            }
+          ]
+        },
+        {
+          "title": "오늘 신호",
+          "items": [
+            {
+              "label": "강한 포맷",
+              "text": "댄스·음악 챌린지 76개 / 56%"
+            },
+            {
+              "label": "감지 기준",
+              "text": "5/29 랭킹·API 재감지 135개 / 신규 편입 34개 / 기존 재확인 101개"
+            },
+            {
+              "label": "반응 밀도",
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubesh… · 좋아요 3,301,853 · 조회 대비 0.5%"
+            }
+          ]
+        },
+        {
+          "title": "제작 액션",
+          "items": [
+            {
+              "label": "우선 적용",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "참고 영상",
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubeshorts · 조회 701,806,079 · 좋아요 3,301,853"
+            },
+            {
+              "label": "길이",
+              "text": "40초 미만 135개 / 제한 근접 5개 / 평균 20초"
+            },
+            {
+              "label": "변화",
+              "text": "댄스·음악 챌린지 비중 +42%p / 오늘 랭킹에서 가장 빠르게 확대"
+            },
+            {
+              "label": "검토 포인트",
+              "text": "첫 프레임에서 결과 질문을 만들고 마지막 컷에서 보상 회수"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "creatorCards": []
+    },
+    "api": {
+      "title": "YouTube API 인사이트",
+      "metrics": [
+        {
+          "label": "전체 표시",
+          "value": "161개"
+        },
+        {
+          "label": "오늘 감지",
+          "value": "66개"
+        },
+        {
+          "label": "신규 편입",
+          "value": "13개"
+        },
+        {
+          "label": "분석 표본",
+          "value": "66개"
+        },
+        {
+          "label": "기준",
+          "value": "50,000뷰 이상"
+        }
+      ],
+      "badges": [
+        "댄스·음악 챌린지 66개",
+        "편집·슬로우드 사운드 11개",
+        "K-pop·아이돌 파생 6개",
+        "상황형 코미디·짧은 사건 5개"
+      ],
+      "cards": [
+        {
+          "title": "핵심 영상",
+          "videos": [
+            {
+              "rank": "#1",
+              "title": "Let it hypnotize 🌀",
+              "thumbnail": "https://i.ytimg.com/vi/6ehIDEXp1_c/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/6ehIDEXp1_c",
+              "views": "12,490,642",
+              "likes": "456,454",
+              "duration": "0:33",
+              "cluster": "댄스·음악 챌린지"
+            },
+            {
+              "rank": "#2",
+              "title": "Mom Will Always Be There ❤️ | Headlights feat. KIDDO(Slow...",
+              "thumbnail": "https://i.ytimg.com/vi/p_4U9x92CUY/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/p_4U9x92CUY",
+              "views": "26,007,048",
+              "likes": "219,679",
+              "duration": "0:12",
+              "cluster": "댄스·음악 챌린지"
+            },
+            {
+              "rank": "#3",
+              "title": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️",
+              "thumbnail": "https://i.ytimg.com/vi/VXAtCHr4CIE/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/VXAtCHr4CIE",
+              "views": "8,531,320",
+              "likes": "280,311",
+              "duration": "0:22",
+              "cluster": "댄스·음악 챌린지"
+            }
+          ],
+          "items": [
+            {
+              "label": "#1",
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454 · 33초 · 댄스·음악 챌린지"
+            },
+            {
+              "label": "#2",
+              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 26,007,048 · 좋아요 219,679 · 12초 · 댄스·음악 챌린지"
+            },
+            {
+              "label": "#3",
+              "text": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️ · 조회 8,531,320 · 좋아요 280,311 · 22초 · 댄스·음악 챌린지"
+            }
+          ]
+        },
+        {
+          "title": "오늘 신호",
+          "items": [
+            {
+              "label": "강한 포맷",
+              "text": "댄스·음악 챌린지 66개 / 100%"
+            },
+            {
+              "label": "감지 기준",
+              "text": "5/29 랭킹·API 재감지 66개 / 신규 편입 13개 / 기존 재확인 53개"
+            },
+            {
+              "label": "반응 밀도",
+              "text": "Let it hypnotize 🌀 · 좋아요 456,454 · 조회 대비 3.7%"
+            },
+            {
+              "label": "API 조건",
+              "text": "search / videos / 50,000뷰 이상 / 40초 미만"
+            }
+          ]
+        },
+        {
+          "title": "제작 액션",
+          "items": [
+            {
+              "label": "우선 적용",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "참고 영상",
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454"
+            },
+            {
+              "label": "길이",
+              "text": "40초 미만 66개 / 제한 근접 3개 / 평균 19초"
+            },
+            {
+              "label": "변화",
+              "text": "댄스·음악 챌린지 비중 +11%p / 오늘 랭킹에서 가장 빠르게 확대"
+            },
+            {
+              "label": "검토 포인트",
+              "text": "첫 프레임에서 결과 질문을 만들고 마지막 컷에서 보상 회수"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "creatorCards": []
+    }
+  },
+  {
     "dateKey": "2026-05-28",
     "updatedAt": "2026-05-28T07:57:42+09:00",
     "updatedLabel": "5/28 07:57",
@@ -8,11 +269,11 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1141개"
+          "value": "1175개"
         },
         {
           "label": "오늘 감지",
-          "value": "842개"
+          "value": "761개"
         },
         {
           "label": "신규 편입",
@@ -20,7 +281,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "842개"
+          "value": "761개"
         },
         {
           "label": "기준",
@@ -28,10 +289,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 126개",
-        "상황형 코미디·짧은 사건 63개",
-        "편집·슬로우드 사운드 17개",
-        "K-pop·아이돌 파생 14개"
+        "댄스·음악 챌린지 76개",
+        "상황형 코미디·짧은 사건 49개",
+        "K-pop·아이돌 파생 11개",
+        "편집·슬로우드 사운드 10개"
       ],
       "cards": [
         {
@@ -88,11 +349,11 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 126개 / 15%"
+              "text": "댄스·음악 챌린지 76개 / 10%"
             },
             {
               "label": "감지 기준",
-              "text": "5/28 랭킹·API 재감지 842개 / 신규 편입 121개 / 기존 재확인 721개"
+              "text": "5/28 랭킹·API 재감지 761개 / 신규 편입 121개 / 기존 재확인 640개"
             },
             {
               "label": "반응 밀도",
@@ -113,7 +374,7 @@
             },
             {
               "label": "길이",
-              "text": "40초 미만 842개 / 제한 근접 61개 / 평균 20초"
+              "text": "40초 미만 761개 / 제한 근접 57개 / 평균 19초"
             },
             {
               "label": "변화",
@@ -134,11 +395,11 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "148개"
+          "value": "161개"
         },
         {
           "label": "오늘 감지",
-          "value": "78개"
+          "value": "32개"
         },
         {
           "label": "신규 편입",
@@ -146,7 +407,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "78개"
+          "value": "32개"
         },
         {
           "label": "기준",
@@ -154,10 +415,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 78개",
-        "편집·슬로우드 사운드 10개",
-        "K-pop·아이돌 파생 6개",
-        "상황형 코미디·짧은 사건 5개"
+        "댄스·음악 챌린지 32개",
+        "편집·슬로우드 사운드 3개",
+        "K-pop·아이돌 파생 3개",
+        "상황형 코미디·짧은 사건 1개"
       ],
       "cards": [
         {
@@ -165,47 +426,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "Let it hypnotize 🌀",
-              "thumbnail": "https://i.ytimg.com/vi/6ehIDEXp1_c/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/6ehIDEXp1_c",
-              "views": "12,229,701",
-              "likes": "451,109",
-              "duration": "0:33",
+              "title": "Hello Girl Trend - 67 (Six Seven) 😆 | Follow Me #trending...",
+              "thumbnail": "https://i.ytimg.com/vi/irylaO1pi_g/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/irylaO1pi_g",
+              "views": "16,717,832",
+              "likes": "122,173",
+              "duration": "0:20",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#2",
-              "title": "Mom Will Always Be There ❤️ | Headlights feat. KIDDO(Slow...",
-              "thumbnail": "https://i.ytimg.com/vi/p_4U9x92CUY/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/p_4U9x92CUY",
-              "views": "25,951,207",
-              "likes": "219,035",
-              "duration": "0:12",
+              "title": "Bacon forgot about the dance competition then.. 😉💗 | Catc...",
+              "thumbnail": "https://i.ytimg.com/vi/8vX_kppgxSE/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/8vX_kppgxSE",
+              "views": "12,900,321",
+              "likes": "152,347",
+              "duration": "0:15",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "다 함께 취해 보자 #CHOOM °. ♪",
-              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
-              "views": "7,322,170",
-              "likes": "272,841",
-              "duration": "0:25",
+              "title": "BAILANDO SAMBA CON ALEGRIA Y PASION ✨💃 #samba #brazil #ri...",
+              "thumbnail": "https://i.ytimg.com/vi/c0qvhhPCtmM/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/c0qvhhPCtmM",
+              "views": "3,153,924",
+              "likes": "33,211",
+              "duration": "0:22",
               "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109 · 33초 · 댄스·음악 챌린지"
+              "text": "Hello Girl Trend - 67 (Six Seven) 😆 | Fol… · 조회 16,717,832 · 좋아요 122,173 · 20초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 25,951,207 · 좋아요 219,035 · 12초 · 댄스·음악 챌린지"
+              "text": "Bacon forgot about the dance competition… · 조회 12,900,321 · 좋아요 152,347 · 15초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,322,170 · 좋아요 272,841 · 25초 · 댄스·음악 챌린지"
+              "text": "BAILANDO SAMBA CON ALEGRIA Y PASION ✨💃 #s… · 조회 3,153,924 · 좋아요 33,211 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -214,15 +475,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 78개 / 100%"
+              "text": "댄스·음악 챌린지 32개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/28 랭킹·API 재감지 78개 / 신규 편입 4개 / 기존 재확인 74개"
+              "text": "5/28 랭킹·API 재감지 32개 / 신규 편입 4개 / 기존 재확인 28개"
             },
             {
               "label": "반응 밀도",
-              "text": "Let it hypnotize 🌀 · 좋아요 451,109 · 조회 대비 3.7%"
+              "text": "Bacon forgot about the dance competition… · 좋아요 152,347 · 조회 대비 1.2%"
             },
             {
               "label": "API 조건",
@@ -239,15 +500,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109"
+              "text": "Hello Girl Trend - 67 (Six Seven) 😆 | Follow… · 조회 16,717,832 · 좋아요 122,173"
             },
             {
               "label": "길이",
-              "text": "40초 미만 78개 / 제한 근접 4개 / 평균 19초"
+              "text": "40초 미만 32개 / 제한 근접 1개 / 평균 19초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +14%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 강세 유지 / 5/28 재감지 표본 기준"
             },
             {
               "label": "검토 포인트",
@@ -269,11 +530,11 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1141개"
+          "value": "1175개"
         },
         {
           "label": "오늘 감지",
-          "value": "502개"
+          "value": "500개"
         },
         {
           "label": "신규 편입",
@@ -281,7 +542,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "502개"
+          "value": "500개"
         },
         {
           "label": "기준",
@@ -289,8 +550,8 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 47개",
-        "상황형 코미디·짧은 사건 30개",
+        "댄스·음악 챌린지 46개",
+        "상황형 코미디·짧은 사건 28개",
         "편집·슬로우드 사운드 13개",
         "스포츠·퍼포먼스 순간 7개"
       ],
@@ -349,11 +610,11 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 47개 / 9%"
+              "text": "댄스·음악 챌린지 46개 / 9%"
             },
             {
               "label": "감지 기준",
-              "text": "5/27 랭킹·API 재감지 502개 / 신규 편입 483개 / 기존 재확인 19개"
+              "text": "5/27 랭킹·API 재감지 500개 / 신규 편입 483개 / 기존 재확인 17개"
             },
             {
               "label": "반응 밀도",
@@ -374,7 +635,7 @@
             },
             {
               "label": "길이",
-              "text": "40초 미만 502개 / 제한 근접 39개 / 평균 20초"
+              "text": "40초 미만 500개 / 제한 근접 39개 / 평균 20초"
             },
             {
               "label": "변화",
@@ -395,11 +656,11 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "148개"
+          "value": "161개"
         },
         {
           "label": "오늘 감지",
-          "value": "15개"
+          "value": "14개"
         },
         {
           "label": "신규 편입",
@@ -407,7 +668,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "15개"
+          "value": "14개"
         },
         {
           "label": "기준",
@@ -415,9 +676,8 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 15개",
+        "댄스·음악 챌린지 14개",
         "편집·슬로우드 사운드 8개",
-        "상황형 코미디·짧은 사건 1개",
         "K-pop·아이돌 파생 1개"
       ],
       "cards": [
@@ -426,16 +686,6 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "Dancing Saved Her Life 😭 || #gacha #gachaclub #gachalife...",
-              "thumbnail": "https://i.ytimg.com/vi/VRHMJXbPSUw/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/VRHMJXbPSUw",
-              "views": "3,629,465",
-              "likes": "145,637",
-              "duration": "0:22",
-              "cluster": "댄스·음악 챌린지"
-            },
-            {
-              "rank": "#2",
               "title": "20+20+20+7=? 🤔 @Belitskay | Follow Me | Six Seven 67 Danc...",
               "thumbnail": "https://i.ytimg.com/vi/ValynjO-wFo/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/ValynjO-wFo",
@@ -445,7 +695,7 @@
               "cluster": "댄스·음악 챌린지"
             },
             {
-              "rank": "#3",
+              "rank": "#2",
               "title": "He entered the dance competition by doing nervy funk danc...",
               "thumbnail": "https://i.ytimg.com/vi/CeYUZBKcLP8/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/CeYUZBKcLP8",
@@ -453,20 +703,30 @@
               "likes": "57,871",
               "duration": "0:15",
               "cluster": "댄스·음악 챌린지"
+            },
+            {
+              "rank": "#3",
+              "title": "에버랜드에서 소정이가 이춤을춘다면? 🕺💃 #춤추는곰돌의랜덤댄스 #dance #랜덤플레이댄스 #chall...",
+              "thumbnail": "https://i.ytimg.com/vi/Y6O_hIKDm9U/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/Y6O_hIKDm9U",
+              "views": "5,942,603",
+              "likes": "38,231",
+              "duration": "0:20",
+              "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Dancing Saved Her Life 😭 || #gacha #gacha… · 조회 3,629,465 · 좋아요 145,637 · 22초 · 댄스·음악 챌린지"
-            },
-            {
-              "label": "#2",
               "text": "20+20+20+7=? 🤔 @Belitskay | Follow Me | S… · 조회 8,358,689 · 좋아요 73,585 · 16초 · 댄스·음악 챌린지"
             },
             {
-              "label": "#3",
+              "label": "#2",
               "text": "He entered the dance competition by doing… · 조회 4,334,091 · 좋아요 57,871 · 15초 · 댄스·음악 챌린지"
+            },
+            {
+              "label": "#3",
+              "text": "에버랜드에서 소정이가 이춤을춘다면? 🕺💃 #춤추는곰돌의랜덤댄스 #dance… · 조회 5,942,603 · 좋아요 38,231 · 20초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -475,15 +735,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 15개 / 100%"
+              "text": "댄스·음악 챌린지 14개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/27 랭킹·API 재감지 15개 / 신규 편입 7개 / 기존 재확인 8개"
+              "text": "5/27 랭킹·API 재감지 14개 / 신규 편입 7개 / 기존 재확인 7개"
             },
             {
               "label": "반응 밀도",
-              "text": "Dancing Saved Her Life 😭 || #gacha #gacha… · 좋아요 145,637 · 조회 대비 4.0%"
+              "text": "20+20+20+7=? 🤔 @Belitskay | Follow Me | S… · 좋아요 73,585 · 조회 대비 0.9%"
             },
             {
               "label": "API 조건",
@@ -500,15 +760,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Dancing Saved Her Life 😭 || #gacha #gachaclub… · 조회 3,629,465 · 좋아요 145,637"
+              "text": "20+20+20+7=? 🤔 @Belitskay | Follow Me | Six S… · 조회 8,358,689 · 좋아요 73,585"
             },
             {
               "label": "길이",
-              "text": "40초 미만 15개 / 제한 근접 1개 / 평균 19초"
+              "text": "40초 미만 14개 / 제한 근접 1개 / 평균 19초"
             },
             {
               "label": "변화",
-              "text": "편집·슬로우드 사운드 비중 +44%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "편집·슬로우드 사운드 비중 +47%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -530,11 +790,11 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1141개"
+          "value": "1175개"
         },
         {
           "label": "오늘 감지",
-          "value": "83개"
+          "value": "79개"
         },
         {
           "label": "신규 편입",
@@ -542,7 +802,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "83개"
+          "value": "79개"
         },
         {
           "label": "기준",
@@ -550,7 +810,7 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 52개",
+        "댄스·음악 챌린지 49개",
         "상황형 코미디·짧은 사건 14개",
         "편집·슬로우드 사운드 4개",
         "K-pop·아이돌 파생 1개"
@@ -574,8 +834,8 @@
               "title": "🐶 ¿Un cachorro adoptado por un CANGURO? | Leo, El Explora...",
               "thumbnail": "https://i.ytimg.com/vi/p9gimFhGGNs/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/p9gimFhGGNs",
-              "views": "232,407,123",
-              "likes": "1,423,755",
+              "views": "241,479,029",
+              "likes": "1,483,662",
               "duration": "0:27",
               "cluster": "제목·조회수 기반 급상승"
             },
@@ -597,7 +857,7 @@
             },
             {
               "label": "#2",
-              "text": "🐶 ¿Un cachorro adoptado por un CANGURO? |… · 조회 232,407,123 · 좋아요 1,423,755 · 27초 · 제목·조회수 기반 급상승"
+              "text": "🐶 ¿Un cachorro adoptado por un CANGURO? |… · 조회 241,479,029 · 좋아요 1,483,662 · 27초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
@@ -610,11 +870,11 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 52개 / 63%"
+              "text": "댄스·음악 챌린지 49개 / 62%"
             },
             {
               "label": "감지 기준",
-              "text": "5/26 랭킹·API 재감지 83개 / 신규 편입 51개 / 기존 재확인 32개"
+              "text": "5/26 랭킹·API 재감지 79개 / 신규 편입 51개 / 기존 재확인 28개"
             },
             {
               "label": "반응 밀도",
@@ -635,11 +895,11 @@
             },
             {
               "label": "길이",
-              "text": "40초 미만 83개 / 제한 근접 6개 / 평균 20초"
+              "text": "40초 미만 79개 / 제한 근접 6개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +48%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 비중 +46%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -656,11 +916,11 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "148개"
+          "value": "161개"
         },
         {
           "label": "오늘 감지",
-          "value": "47개"
+          "value": "44개"
         },
         {
           "label": "신규 편입",
@@ -668,7 +928,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "47개"
+          "value": "44개"
         },
         {
           "label": "기준",
@@ -676,7 +936,7 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 47개",
+        "댄스·음악 챌린지 44개",
         "편집·슬로우드 사운드 3개",
         "상황형 코미디·짧은 사건 2개",
         "K-pop·아이돌 파생 1개"
@@ -687,26 +947,16 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "Tiktok Viral Trend | Give It Up to Me #shortvideo#editlyr...",
-              "thumbnail": "https://i.ytimg.com/vi/KJ9-iJr1Kus/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/KJ9-iJr1Kus",
-              "views": "4,135,679",
-              "likes": "43,793",
-              "duration": "0:12",
-              "cluster": "댄스·음악 챌린지"
-            },
-            {
-              "rank": "#2",
               "title": "JO BATIDAO 🎶소정아 왜그래😅 #춤추는소정 #춤추는곰돌 #춤추는곰돌의랜덤댄스 #댄스 #쇼츠 #챌...",
               "thumbnail": "https://i.ytimg.com/vi/R_FrGv5db00/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/R_FrGv5db00",
-              "views": "4,691,281",
-              "likes": "18,922",
+              "views": "4,692,714",
+              "likes": "18,933",
               "duration": "0:07",
               "cluster": "댄스·음악 챌린지"
             },
             {
-              "rank": "#3",
+              "rank": "#2",
               "title": "LAGU VIRAL X DANCE BRAZIL 🤩💃 #kembar #jogetseru #dance #j...",
               "thumbnail": "https://i.ytimg.com/vi/Sm4eMxkX5rY/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/Sm4eMxkX5rY",
@@ -714,20 +964,30 @@
               "likes": "13,268",
               "duration": "0:14",
               "cluster": "댄스·음악 챌린지"
+            },
+            {
+              "rank": "#3",
+              "title": "Tiktok Viral Trend | TAKA LA DENTRO Trend #tiktok #trendi...",
+              "thumbnail": "https://i.ytimg.com/vi/kIRnCTQmfOM/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/kIRnCTQmfOM",
+              "views": "1,511,199",
+              "likes": "18,705",
+              "duration": "0:16",
+              "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Tiktok Viral Trend | Give It Up to Me #sh… · 조회 4,135,679 · 좋아요 43,793 · 12초 · 댄스·음악 챌린지"
+              "text": "JO BATIDAO 🎶소정아 왜그래😅 #춤추는소정 #춤추는곰돌 #춤추는곰돌… · 조회 4,692,714 · 좋아요 18,933 · 7초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "JO BATIDAO 🎶소정아 왜그래😅 #춤추는소정 #춤추는곰돌 #춤추는곰돌… · 조회 4,691,281 · 좋아요 18,922 · 7초 · 댄스·음악 챌린지"
+              "text": "LAGU VIRAL X DANCE BRAZIL 🤩💃 #kembar #jog… · 조회 1,979,506 · 좋아요 13,268 · 14초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "LAGU VIRAL X DANCE BRAZIL 🤩💃 #kembar #jog… · 조회 1,979,506 · 좋아요 13,268 · 14초 · 댄스·음악 챌린지"
+              "text": "Tiktok Viral Trend | TAKA LA DENTRO Trend… · 조회 1,511,199 · 좋아요 18,705 · 16초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -736,15 +996,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 47개 / 100%"
+              "text": "댄스·음악 챌린지 44개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/26 랭킹·API 재감지 47개 / 신규 편입 32개 / 기존 재확인 15개"
+              "text": "5/26 랭킹·API 재감지 44개 / 신규 편입 32개 / 기존 재확인 12개"
             },
             {
               "label": "반응 밀도",
-              "text": "Tiktok Viral Trend | Give It Up to Me #sh… · 좋아요 43,793 · 조회 대비 1.1%"
+              "text": "JO BATIDAO 🎶소정아 왜그래😅 #춤추는소정 #춤추는곰돌 #춤추는곰돌… · 좋아요 18,933 · 조회 대비 0.4%"
             },
             {
               "label": "API 조건",
@@ -761,15 +1021,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Tiktok Viral Trend | Give It Up to Me #shortv… · 조회 4,135,679 · 좋아요 43,793"
+              "text": "JO BATIDAO 🎶소정아 왜그래😅 #춤추는소정 #춤추는곰돌 #춤추는곰돌의랜덤댄… · 조회 4,692,714 · 좋아요 18,933"
             },
             {
               "label": "길이",
-              "text": "40초 미만 47개 / 제한 근접 1개 / 평균 18초"
+              "text": "40초 미만 44개 / 제한 근접 1개 / 평균 18초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +10%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 비중 +9%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -791,7 +1051,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1141개"
+          "value": "1175개"
         },
         {
           "label": "오늘 감지",
@@ -835,8 +1095,8 @@
               "title": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼",
               "thumbnail": "https://i.ytimg.com/vi/vR6ylQMeeQ0/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/vR6ylQMeeQ0",
-              "views": "186,197,424",
-              "likes": "2,662,555",
+              "views": "198,994,146",
+              "likes": "2,835,409",
               "duration": "0:36",
               "cluster": "제목·조회수 기반 급상승"
             },
@@ -858,7 +1118,7 @@
             },
             {
               "label": "#2",
-              "text": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼ · 조회 186,197,424 · 좋아요 2,662,555 · 36초 · 제목·조회수 기반 급상승"
+              "text": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼ · 조회 198,994,146 · 좋아요 2,835,409 · 36초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
@@ -900,7 +1160,7 @@
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +60%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 비중 +59%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -917,7 +1177,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "148개"
+          "value": "161개"
         },
         {
           "label": "오늘 감지",
@@ -951,8 +1211,8 @@
               "title": "Let it hypnotize 🌀",
               "thumbnail": "https://i.ytimg.com/vi/6ehIDEXp1_c/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/6ehIDEXp1_c",
-              "views": "12,229,701",
-              "likes": "451,109",
+              "views": "12,490,642",
+              "likes": "456,454",
               "duration": "0:33",
               "cluster": "댄스·음악 챌린지"
             },
@@ -961,8 +1221,8 @@
               "title": "Mom Will Always Be There ❤️ | Headlights feat. KIDDO(Slow...",
               "thumbnail": "https://i.ytimg.com/vi/p_4U9x92CUY/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/p_4U9x92CUY",
-              "views": "25,951,207",
-              "likes": "219,035",
+              "views": "26,007,048",
+              "likes": "219,679",
               "duration": "0:12",
               "cluster": "댄스·음악 챌린지"
             },
@@ -971,8 +1231,8 @@
               "title": "다 함께 취해 보자 #CHOOM °. ♪",
               "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
-              "views": "7,322,170",
-              "likes": "272,841",
+              "views": "7,453,185",
+              "likes": "275,494",
               "duration": "0:25",
               "cluster": "댄스·음악 챌린지"
             }
@@ -980,15 +1240,15 @@
           "items": [
             {
               "label": "#1",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109 · 33초 · 댄스·음악 챌린지"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454 · 33초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 25,951,207 · 좋아요 219,035 · 12초 · 댄스·음악 챌린지"
+              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 26,007,048 · 좋아요 219,679 · 12초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,322,170 · 좋아요 272,841 · 25초 · 댄스·음악 챌린지"
+              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,453,185 · 좋아요 275,494 · 25초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -1005,7 +1265,7 @@
             },
             {
               "label": "반응 밀도",
-              "text": "Let it hypnotize 🌀 · 좋아요 451,109 · 조회 대비 3.7%"
+              "text": "Let it hypnotize 🌀 · 좋아요 456,454 · 조회 대비 3.7%"
             },
             {
               "label": "API 조건",
@@ -1022,7 +1282,7 @@
             },
             {
               "label": "참고 영상",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454"
             },
             {
               "label": "길이",
@@ -1030,7 +1290,7 @@
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +15%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 비중 +13%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -1052,7 +1312,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1141개"
+          "value": "1175개"
         },
         {
           "label": "오늘 감지",
@@ -1072,7 +1332,7 @@
         }
       ],
       "badges": [
-        "상황형 코미디·짧은 사건 34개",
+        "상황형 코미디·짧은 사건 35개",
         "댄스·음악 챌린지 32개",
         "스포츠·퍼포먼스 순간 6개",
         "K-pop·아이돌 파생 6개"
@@ -1132,7 +1392,7 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "상황형 코미디·짧은 사건 34개 / 11%"
+              "text": "상황형 코미디·짧은 사건 35개 / 11%"
             },
             {
               "label": "감지 기준",
@@ -1178,7 +1438,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "148개"
+          "value": "161개"
         },
         {
           "label": "오늘 감지",
@@ -1218,6 +1478,16 @@
             },
             {
               "rank": "#2",
+              "title": "Tiktok Viral Trend | Copines Dance Trend #tiktok #dancetr...",
+              "thumbnail": "https://i.ytimg.com/vi/hgfpBntPJhY/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/hgfpBntPJhY",
+              "views": "3,040,743",
+              "likes": "24,234",
+              "duration": "0:15",
+              "cluster": "댄스·음악 챌린지"
+            },
+            {
+              "rank": "#3",
               "title": "Hellallallo Promo (TELUGU) | Peddi | Ram Charan | Buchi B...",
               "thumbnail": "https://i.ytimg.com/vi/4v31nFdfUS8/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/4v31nFdfUS8",
@@ -1225,16 +1495,6 @@
               "likes": "53,946",
               "duration": "0:25",
               "cluster": "제목·조회수 기반 급상승"
-            },
-            {
-              "rank": "#3",
-              "title": "Tiktok Viral Trend | Copines Dance Trend #tiktok #dancetr...",
-              "thumbnail": "https://i.ytimg.com/vi/hgfpBntPJhY/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/hgfpBntPJhY",
-              "views": "2,937,494",
-              "likes": "23,532",
-              "duration": "0:15",
-              "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
@@ -1244,11 +1504,11 @@
             },
             {
               "label": "#2",
-              "text": "Hellallallo Promo (TELUGU) | Peddi | Ram… · 조회 503,095 · 좋아요 53,946 · 25초 · 제목·조회수 기반 급상승"
+              "text": "Tiktok Viral Trend | Copines Dance Trend… · 조회 3,040,743 · 좋아요 24,234 · 15초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "Tiktok Viral Trend | Copines Dance Trend… · 조회 2,937,494 · 좋아요 23,532 · 15초 · 댄스·음악 챌린지"
+              "text": "Hellallallo Promo (TELUGU) | Peddi | Ram… · 조회 503,095 · 좋아요 53,946 · 25초 · 제목·조회수 기반 급상승"
             }
           ]
         },
@@ -1312,7 +1572,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1141개"
+          "value": "1175개"
         },
         {
           "label": "오늘 감지",
@@ -1324,7 +1584,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "842개"
+          "value": "135개"
         },
         {
           "label": "기준",
@@ -1332,10 +1592,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 126개",
-        "상황형 코미디·짧은 사건 63개",
-        "편집·슬로우드 사운드 17개",
-        "K-pop·아이돌 파생 14개"
+        "댄스·음악 챌린지 76개",
+        "상황형 코미디·짧은 사건 28개",
+        "편집·슬로우드 사운드 12개",
+        "K-pop·아이돌 파생 6개"
       ],
       "cards": [
         {
@@ -1343,47 +1603,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "BEST Duo Trick Shots",
-              "thumbnail": "https://i.ytimg.com/vi/aU2KRF87RPc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/aU2KRF87RPc",
-              "views": "4,816,124,417",
-              "likes": "28,626,220",
-              "duration": "0:24",
+              "title": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubeshorts",
+              "thumbnail": "https://i.ytimg.com/vi/HiDUWmHkYz8/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/HiDUWmHkYz8",
+              "views": "701,806,079",
+              "likes": "3,301,853",
+              "duration": "0:26",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#2",
-              "title": "Anaya or Papa Ne ki Masti",
-              "thumbnail": "https://i.ytimg.com/vi/mUM1XW59Dmc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/mUM1XW59Dmc",
-              "views": "4,035,919,085",
-              "likes": "27,180,888",
-              "duration": "0:25",
+              "title": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼",
+              "thumbnail": "https://i.ytimg.com/vi/vR6ylQMeeQ0/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/vR6ylQMeeQ0",
+              "views": "198,994,146",
+              "likes": "2,835,409",
+              "duration": "0:36",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#3",
-              "title": "Bhai behen ka pyar 🤩 behen ne bahar nikal liya #shorts #s...",
-              "thumbnail": "https://i.ytimg.com/vi/78xZQWBrvGc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/78xZQWBrvGc",
-              "views": "3,987,823,909",
-              "likes": "27,506,647",
-              "duration": "0:21",
+              "title": "🐶 ¿Un cachorro adoptado por un CANGURO? | Leo, El Explora...",
+              "thumbnail": "https://i.ytimg.com/vi/p9gimFhGGNs/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/p9gimFhGGNs",
+              "views": "241,479,029",
+              "likes": "1,483,662",
+              "duration": "0:27",
               "cluster": "제목·조회수 기반 급상승"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "BEST Duo Trick Shots · 조회 4,816,124,417 · 좋아요 28,626,220 · 24초 · 제목·조회수 기반 급상승"
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubesh… · 조회 701,806,079 · 좋아요 3,301,853 · 26초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#2",
-              "text": "Anaya or Papa Ne ki Masti · 조회 4,035,919,085 · 좋아요 27,180,888 · 25초 · 제목·조회수 기반 급상승"
+              "text": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼ · 조회 198,994,146 · 좋아요 2,835,409 · 36초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
-              "text": "Bhai behen ka pyar 🤩 behen ne bahar nikal… · 조회 3,987,823,909 · 좋아요 27,506,647 · 21초 · 제목·조회수 기반 급상승"
+              "text": "🐶 ¿Un cachorro adoptado por un CANGURO? |… · 조회 241,479,029 · 좋아요 1,483,662 · 27초 · 제목·조회수 기반 급상승"
             }
           ]
         },
@@ -1392,15 +1652,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 126개 / 15%"
+              "text": "댄스·음악 챌린지 76개 / 56%"
             },
             {
               "label": "감지 기준",
-              "text": "5/23 신규 감지 없음 / 최신 보유 데이터 5/28 기준 재분석"
+              "text": "5/23 신규 감지 없음 / 최신 보유 데이터 5/29 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "BEST Duo Trick Shots · 좋아요 28,626,220 · 조회 대비 0.6%"
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubesh… · 좋아요 3,301,853 · 조회 대비 0.5%"
             }
           ]
         },
@@ -1413,15 +1673,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "BEST Duo Trick Shots · 조회 4,816,124,417 · 좋아요 28,626,220"
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubeshorts · 조회 701,806,079 · 좋아요 3,301,853"
             },
             {
               "label": "길이",
-              "text": "40초 미만 842개 / 제한 근접 61개 / 평균 20초"
+              "text": "40초 미만 135개 / 제한 근접 5개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 강세 유지 / 5/28 재감지 표본 기준"
+              "text": "댄스·음악 챌린지 비중 +42%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -1438,7 +1698,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "148개"
+          "value": "161개"
         },
         {
           "label": "오늘 감지",
@@ -1450,7 +1710,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "78개"
+          "value": "66개"
         },
         {
           "label": "기준",
@@ -1458,8 +1718,8 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 78개",
-        "편집·슬로우드 사운드 10개",
+        "댄스·음악 챌린지 66개",
+        "편집·슬로우드 사운드 11개",
         "K-pop·아이돌 파생 6개",
         "상황형 코미디·짧은 사건 5개"
       ],
@@ -1472,8 +1732,8 @@
               "title": "Let it hypnotize 🌀",
               "thumbnail": "https://i.ytimg.com/vi/6ehIDEXp1_c/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/6ehIDEXp1_c",
-              "views": "12,229,701",
-              "likes": "451,109",
+              "views": "12,490,642",
+              "likes": "456,454",
               "duration": "0:33",
               "cluster": "댄스·음악 챌린지"
             },
@@ -1482,34 +1742,34 @@
               "title": "Mom Will Always Be There ❤️ | Headlights feat. KIDDO(Slow...",
               "thumbnail": "https://i.ytimg.com/vi/p_4U9x92CUY/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/p_4U9x92CUY",
-              "views": "25,951,207",
-              "likes": "219,035",
+              "views": "26,007,048",
+              "likes": "219,679",
               "duration": "0:12",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "다 함께 취해 보자 #CHOOM °. ♪",
-              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
-              "views": "7,322,170",
-              "likes": "272,841",
-              "duration": "0:25",
+              "title": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️",
+              "thumbnail": "https://i.ytimg.com/vi/VXAtCHr4CIE/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/VXAtCHr4CIE",
+              "views": "8,531,320",
+              "likes": "280,311",
+              "duration": "0:22",
               "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109 · 33초 · 댄스·음악 챌린지"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454 · 33초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 25,951,207 · 좋아요 219,035 · 12초 · 댄스·음악 챌린지"
+              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 26,007,048 · 좋아요 219,679 · 12초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,322,170 · 좋아요 272,841 · 25초 · 댄스·음악 챌린지"
+              "text": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️ · 조회 8,531,320 · 좋아요 280,311 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -1518,15 +1778,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 78개 / 100%"
+              "text": "댄스·음악 챌린지 66개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/23 신규 감지 없음 / 최신 보유 데이터 5/28 기준 재분석"
+              "text": "5/23 신규 감지 없음 / 최신 보유 데이터 5/29 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Let it hypnotize 🌀 · 좋아요 451,109 · 조회 대비 3.7%"
+              "text": "Let it hypnotize 🌀 · 좋아요 456,454 · 조회 대비 3.7%"
             },
             {
               "label": "API 조건",
@@ -1543,15 +1803,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454"
             },
             {
               "label": "길이",
-              "text": "40초 미만 78개 / 제한 근접 4개 / 평균 19초"
+              "text": "40초 미만 66개 / 제한 근접 3개 / 평균 19초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +14%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 비중 +11%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -1573,7 +1833,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1141개"
+          "value": "1175개"
         },
         {
           "label": "오늘 감지",
@@ -1616,8 +1876,8 @@
               "title": "couldn't catch😂🫧#funny",
               "thumbnail": "https://i.ytimg.com/vi/1v9li9PO4gM/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/1v9li9PO4gM",
-              "views": "133,803,686",
-              "likes": "528,327",
+              "views": "136,746,486",
+              "likes": "540,562",
               "duration": "0:16",
               "cluster": "상황형 코미디·짧은 사건"
             },
@@ -1626,8 +1886,8 @@
               "title": "hide and seek #funny #cute #shorts",
               "thumbnail": "https://i.ytimg.com/vi/wtkv63WfgPI/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/wtkv63WfgPI",
-              "views": "90,193,897",
-              "likes": "398,942",
+              "views": "90,306,259",
+              "likes": "399,392",
               "duration": "0:22",
               "cluster": "상황형 코미디·짧은 사건"
             }
@@ -1639,11 +1899,11 @@
             },
             {
               "label": "#2",
-              "text": "couldn't catch😂🫧#funny · 조회 133,803,686 · 좋아요 528,327 · 16초 · 상황형 코미디·짧은 사건"
+              "text": "couldn't catch😂🫧#funny · 조회 136,746,486 · 좋아요 540,562 · 16초 · 상황형 코미디·짧은 사건"
             },
             {
               "label": "#3",
-              "text": "hide and seek #funny #cute #shorts · 조회 90,193,897 · 좋아요 398,942 · 22초 · 상황형 코미디·짧은 사건"
+              "text": "hide and seek #funny #cute #shorts · 조회 90,306,259 · 좋아요 399,392 · 22초 · 상황형 코미디·짧은 사건"
             }
           ]
         },
@@ -1681,7 +1941,7 @@
             },
             {
               "label": "변화",
-              "text": "상황형 코미디·짧은 사건 비중 +56%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "상황형 코미디·짧은 사건 비중 +55%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -1698,7 +1958,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "148개"
+          "value": "161개"
         },
         {
           "label": "오늘 감지",
@@ -1710,7 +1970,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "78개"
+          "value": "66개"
         },
         {
           "label": "기준",
@@ -1718,8 +1978,8 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 78개",
-        "편집·슬로우드 사운드 10개",
+        "댄스·음악 챌린지 66개",
+        "편집·슬로우드 사운드 11개",
         "K-pop·아이돌 파생 6개",
         "상황형 코미디·짧은 사건 5개"
       ],
@@ -1732,8 +1992,8 @@
               "title": "Let it hypnotize 🌀",
               "thumbnail": "https://i.ytimg.com/vi/6ehIDEXp1_c/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/6ehIDEXp1_c",
-              "views": "12,229,701",
-              "likes": "451,109",
+              "views": "12,490,642",
+              "likes": "456,454",
               "duration": "0:33",
               "cluster": "댄스·음악 챌린지"
             },
@@ -1742,34 +2002,34 @@
               "title": "Mom Will Always Be There ❤️ | Headlights feat. KIDDO(Slow...",
               "thumbnail": "https://i.ytimg.com/vi/p_4U9x92CUY/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/p_4U9x92CUY",
-              "views": "25,951,207",
-              "likes": "219,035",
+              "views": "26,007,048",
+              "likes": "219,679",
               "duration": "0:12",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "다 함께 취해 보자 #CHOOM °. ♪",
-              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
-              "views": "7,322,170",
-              "likes": "272,841",
-              "duration": "0:25",
+              "title": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️",
+              "thumbnail": "https://i.ytimg.com/vi/VXAtCHr4CIE/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/VXAtCHr4CIE",
+              "views": "8,531,320",
+              "likes": "280,311",
+              "duration": "0:22",
               "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109 · 33초 · 댄스·음악 챌린지"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454 · 33초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 25,951,207 · 좋아요 219,035 · 12초 · 댄스·음악 챌린지"
+              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 26,007,048 · 좋아요 219,679 · 12초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,322,170 · 좋아요 272,841 · 25초 · 댄스·음악 챌린지"
+              "text": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️ · 조회 8,531,320 · 좋아요 280,311 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -1778,15 +2038,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 78개 / 100%"
+              "text": "댄스·음악 챌린지 66개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/22 신규 감지 없음 / 최신 보유 데이터 5/28 기준 재분석"
+              "text": "5/22 신규 감지 없음 / 최신 보유 데이터 5/29 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Let it hypnotize 🌀 · 좋아요 451,109 · 조회 대비 3.7%"
+              "text": "Let it hypnotize 🌀 · 좋아요 456,454 · 조회 대비 3.7%"
             },
             {
               "label": "API 조건",
@@ -1803,15 +2063,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454"
             },
             {
               "label": "길이",
-              "text": "40초 미만 78개 / 제한 근접 4개 / 평균 19초"
+              "text": "40초 미만 66개 / 제한 근접 3개 / 평균 19초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +14%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 비중 +11%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -1833,7 +2093,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1141개"
+          "value": "1175개"
         },
         {
           "label": "오늘 감지",
@@ -1845,7 +2105,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "842개"
+          "value": "135개"
         },
         {
           "label": "기준",
@@ -1853,10 +2113,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 126개",
-        "상황형 코미디·짧은 사건 63개",
-        "편집·슬로우드 사운드 17개",
-        "K-pop·아이돌 파생 14개"
+        "댄스·음악 챌린지 76개",
+        "상황형 코미디·짧은 사건 28개",
+        "편집·슬로우드 사운드 12개",
+        "K-pop·아이돌 파생 6개"
       ],
       "cards": [
         {
@@ -1864,47 +2124,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "BEST Duo Trick Shots",
-              "thumbnail": "https://i.ytimg.com/vi/aU2KRF87RPc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/aU2KRF87RPc",
-              "views": "4,816,124,417",
-              "likes": "28,626,220",
-              "duration": "0:24",
+              "title": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubeshorts",
+              "thumbnail": "https://i.ytimg.com/vi/HiDUWmHkYz8/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/HiDUWmHkYz8",
+              "views": "701,806,079",
+              "likes": "3,301,853",
+              "duration": "0:26",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#2",
-              "title": "Anaya or Papa Ne ki Masti",
-              "thumbnail": "https://i.ytimg.com/vi/mUM1XW59Dmc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/mUM1XW59Dmc",
-              "views": "4,035,919,085",
-              "likes": "27,180,888",
-              "duration": "0:25",
+              "title": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼",
+              "thumbnail": "https://i.ytimg.com/vi/vR6ylQMeeQ0/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/vR6ylQMeeQ0",
+              "views": "198,994,146",
+              "likes": "2,835,409",
+              "duration": "0:36",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#3",
-              "title": "Bhai behen ka pyar 🤩 behen ne bahar nikal liya #shorts #s...",
-              "thumbnail": "https://i.ytimg.com/vi/78xZQWBrvGc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/78xZQWBrvGc",
-              "views": "3,987,823,909",
-              "likes": "27,506,647",
-              "duration": "0:21",
+              "title": "🐶 ¿Un cachorro adoptado por un CANGURO? | Leo, El Explora...",
+              "thumbnail": "https://i.ytimg.com/vi/p9gimFhGGNs/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/p9gimFhGGNs",
+              "views": "241,479,029",
+              "likes": "1,483,662",
+              "duration": "0:27",
               "cluster": "제목·조회수 기반 급상승"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "BEST Duo Trick Shots · 조회 4,816,124,417 · 좋아요 28,626,220 · 24초 · 제목·조회수 기반 급상승"
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubesh… · 조회 701,806,079 · 좋아요 3,301,853 · 26초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#2",
-              "text": "Anaya or Papa Ne ki Masti · 조회 4,035,919,085 · 좋아요 27,180,888 · 25초 · 제목·조회수 기반 급상승"
+              "text": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼ · 조회 198,994,146 · 좋아요 2,835,409 · 36초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
-              "text": "Bhai behen ka pyar 🤩 behen ne bahar nikal… · 조회 3,987,823,909 · 좋아요 27,506,647 · 21초 · 제목·조회수 기반 급상승"
+              "text": "🐶 ¿Un cachorro adoptado por un CANGURO? |… · 조회 241,479,029 · 좋아요 1,483,662 · 27초 · 제목·조회수 기반 급상승"
             }
           ]
         },
@@ -1913,15 +2173,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 126개 / 15%"
+              "text": "댄스·음악 챌린지 76개 / 56%"
             },
             {
               "label": "감지 기준",
-              "text": "5/21 신규 감지 없음 / 최신 보유 데이터 5/28 기준 재분석"
+              "text": "5/21 신규 감지 없음 / 최신 보유 데이터 5/29 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "BEST Duo Trick Shots · 좋아요 28,626,220 · 조회 대비 0.6%"
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubesh… · 좋아요 3,301,853 · 조회 대비 0.5%"
             }
           ]
         },
@@ -1934,15 +2194,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "BEST Duo Trick Shots · 조회 4,816,124,417 · 좋아요 28,626,220"
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubeshorts · 조회 701,806,079 · 좋아요 3,301,853"
             },
             {
               "label": "길이",
-              "text": "40초 미만 842개 / 제한 근접 61개 / 평균 20초"
+              "text": "40초 미만 135개 / 제한 근접 5개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 강세 유지 / 5/28 재감지 표본 기준"
+              "text": "댄스·음악 챌린지 비중 +42%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -1959,7 +2219,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "148개"
+          "value": "161개"
         },
         {
           "label": "오늘 감지",
@@ -1971,7 +2231,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "78개"
+          "value": "66개"
         },
         {
           "label": "기준",
@@ -1979,8 +2239,8 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 78개",
-        "편집·슬로우드 사운드 10개",
+        "댄스·음악 챌린지 66개",
+        "편집·슬로우드 사운드 11개",
         "K-pop·아이돌 파생 6개",
         "상황형 코미디·짧은 사건 5개"
       ],
@@ -1993,8 +2253,8 @@
               "title": "Let it hypnotize 🌀",
               "thumbnail": "https://i.ytimg.com/vi/6ehIDEXp1_c/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/6ehIDEXp1_c",
-              "views": "12,229,701",
-              "likes": "451,109",
+              "views": "12,490,642",
+              "likes": "456,454",
               "duration": "0:33",
               "cluster": "댄스·음악 챌린지"
             },
@@ -2003,34 +2263,34 @@
               "title": "Mom Will Always Be There ❤️ | Headlights feat. KIDDO(Slow...",
               "thumbnail": "https://i.ytimg.com/vi/p_4U9x92CUY/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/p_4U9x92CUY",
-              "views": "25,951,207",
-              "likes": "219,035",
+              "views": "26,007,048",
+              "likes": "219,679",
               "duration": "0:12",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "다 함께 취해 보자 #CHOOM °. ♪",
-              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
-              "views": "7,322,170",
-              "likes": "272,841",
-              "duration": "0:25",
+              "title": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️",
+              "thumbnail": "https://i.ytimg.com/vi/VXAtCHr4CIE/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/VXAtCHr4CIE",
+              "views": "8,531,320",
+              "likes": "280,311",
+              "duration": "0:22",
               "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109 · 33초 · 댄스·음악 챌린지"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454 · 33초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 25,951,207 · 좋아요 219,035 · 12초 · 댄스·음악 챌린지"
+              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 26,007,048 · 좋아요 219,679 · 12초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,322,170 · 좋아요 272,841 · 25초 · 댄스·음악 챌린지"
+              "text": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️ · 조회 8,531,320 · 좋아요 280,311 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -2039,15 +2299,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 78개 / 100%"
+              "text": "댄스·음악 챌린지 66개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/21 신규 감지 없음 / 최신 보유 데이터 5/28 기준 재분석"
+              "text": "5/21 신규 감지 없음 / 최신 보유 데이터 5/29 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Let it hypnotize 🌀 · 좋아요 451,109 · 조회 대비 3.7%"
+              "text": "Let it hypnotize 🌀 · 좋아요 456,454 · 조회 대비 3.7%"
             },
             {
               "label": "API 조건",
@@ -2064,15 +2324,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454"
             },
             {
               "label": "길이",
-              "text": "40초 미만 78개 / 제한 근접 4개 / 평균 19초"
+              "text": "40초 미만 66개 / 제한 근접 3개 / 평균 19초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +14%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 비중 +11%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -2094,7 +2354,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1141개"
+          "value": "1175개"
         },
         {
           "label": "오늘 감지",
@@ -2106,7 +2366,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "842개"
+          "value": "135개"
         },
         {
           "label": "기준",
@@ -2114,10 +2374,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 126개",
-        "상황형 코미디·짧은 사건 63개",
-        "편집·슬로우드 사운드 17개",
-        "K-pop·아이돌 파생 14개"
+        "댄스·음악 챌린지 76개",
+        "상황형 코미디·짧은 사건 28개",
+        "편집·슬로우드 사운드 12개",
+        "K-pop·아이돌 파생 6개"
       ],
       "cards": [
         {
@@ -2125,47 +2385,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "BEST Duo Trick Shots",
-              "thumbnail": "https://i.ytimg.com/vi/aU2KRF87RPc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/aU2KRF87RPc",
-              "views": "4,816,124,417",
-              "likes": "28,626,220",
-              "duration": "0:24",
+              "title": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubeshorts",
+              "thumbnail": "https://i.ytimg.com/vi/HiDUWmHkYz8/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/HiDUWmHkYz8",
+              "views": "701,806,079",
+              "likes": "3,301,853",
+              "duration": "0:26",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#2",
-              "title": "Anaya or Papa Ne ki Masti",
-              "thumbnail": "https://i.ytimg.com/vi/mUM1XW59Dmc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/mUM1XW59Dmc",
-              "views": "4,035,919,085",
-              "likes": "27,180,888",
-              "duration": "0:25",
+              "title": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼",
+              "thumbnail": "https://i.ytimg.com/vi/vR6ylQMeeQ0/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/vR6ylQMeeQ0",
+              "views": "198,994,146",
+              "likes": "2,835,409",
+              "duration": "0:36",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#3",
-              "title": "Bhai behen ka pyar 🤩 behen ne bahar nikal liya #shorts #s...",
-              "thumbnail": "https://i.ytimg.com/vi/78xZQWBrvGc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/78xZQWBrvGc",
-              "views": "3,987,823,909",
-              "likes": "27,506,647",
-              "duration": "0:21",
+              "title": "🐶 ¿Un cachorro adoptado por un CANGURO? | Leo, El Explora...",
+              "thumbnail": "https://i.ytimg.com/vi/p9gimFhGGNs/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/p9gimFhGGNs",
+              "views": "241,479,029",
+              "likes": "1,483,662",
+              "duration": "0:27",
               "cluster": "제목·조회수 기반 급상승"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "BEST Duo Trick Shots · 조회 4,816,124,417 · 좋아요 28,626,220 · 24초 · 제목·조회수 기반 급상승"
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubesh… · 조회 701,806,079 · 좋아요 3,301,853 · 26초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#2",
-              "text": "Anaya or Papa Ne ki Masti · 조회 4,035,919,085 · 좋아요 27,180,888 · 25초 · 제목·조회수 기반 급상승"
+              "text": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼ · 조회 198,994,146 · 좋아요 2,835,409 · 36초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
-              "text": "Bhai behen ka pyar 🤩 behen ne bahar nikal… · 조회 3,987,823,909 · 좋아요 27,506,647 · 21초 · 제목·조회수 기반 급상승"
+              "text": "🐶 ¿Un cachorro adoptado por un CANGURO? |… · 조회 241,479,029 · 좋아요 1,483,662 · 27초 · 제목·조회수 기반 급상승"
             }
           ]
         },
@@ -2174,15 +2434,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 126개 / 15%"
+              "text": "댄스·음악 챌린지 76개 / 56%"
             },
             {
               "label": "감지 기준",
-              "text": "5/20 신규 감지 없음 / 최신 보유 데이터 5/28 기준 재분석"
+              "text": "5/20 신규 감지 없음 / 최신 보유 데이터 5/29 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "BEST Duo Trick Shots · 좋아요 28,626,220 · 조회 대비 0.6%"
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubesh… · 좋아요 3,301,853 · 조회 대비 0.5%"
             }
           ]
         },
@@ -2195,15 +2455,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "BEST Duo Trick Shots · 조회 4,816,124,417 · 좋아요 28,626,220"
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubeshorts · 조회 701,806,079 · 좋아요 3,301,853"
             },
             {
               "label": "길이",
-              "text": "40초 미만 842개 / 제한 근접 61개 / 평균 20초"
+              "text": "40초 미만 135개 / 제한 근접 5개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 강세 유지 / 5/28 재감지 표본 기준"
+              "text": "댄스·음악 챌린지 비중 +42%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -2220,7 +2480,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "148개"
+          "value": "161개"
         },
         {
           "label": "오늘 감지",
@@ -2232,7 +2492,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "78개"
+          "value": "66개"
         },
         {
           "label": "기준",
@@ -2240,8 +2500,8 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 78개",
-        "편집·슬로우드 사운드 10개",
+        "댄스·음악 챌린지 66개",
+        "편집·슬로우드 사운드 11개",
         "K-pop·아이돌 파생 6개",
         "상황형 코미디·짧은 사건 5개"
       ],
@@ -2254,8 +2514,8 @@
               "title": "Let it hypnotize 🌀",
               "thumbnail": "https://i.ytimg.com/vi/6ehIDEXp1_c/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/6ehIDEXp1_c",
-              "views": "12,229,701",
-              "likes": "451,109",
+              "views": "12,490,642",
+              "likes": "456,454",
               "duration": "0:33",
               "cluster": "댄스·음악 챌린지"
             },
@@ -2264,34 +2524,34 @@
               "title": "Mom Will Always Be There ❤️ | Headlights feat. KIDDO(Slow...",
               "thumbnail": "https://i.ytimg.com/vi/p_4U9x92CUY/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/p_4U9x92CUY",
-              "views": "25,951,207",
-              "likes": "219,035",
+              "views": "26,007,048",
+              "likes": "219,679",
               "duration": "0:12",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "다 함께 취해 보자 #CHOOM °. ♪",
-              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
-              "views": "7,322,170",
-              "likes": "272,841",
-              "duration": "0:25",
+              "title": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️",
+              "thumbnail": "https://i.ytimg.com/vi/VXAtCHr4CIE/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/VXAtCHr4CIE",
+              "views": "8,531,320",
+              "likes": "280,311",
+              "duration": "0:22",
               "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109 · 33초 · 댄스·음악 챌린지"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454 · 33초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 25,951,207 · 좋아요 219,035 · 12초 · 댄스·음악 챌린지"
+              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 26,007,048 · 좋아요 219,679 · 12초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,322,170 · 좋아요 272,841 · 25초 · 댄스·음악 챌린지"
+              "text": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️ · 조회 8,531,320 · 좋아요 280,311 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -2300,15 +2560,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 78개 / 100%"
+              "text": "댄스·음악 챌린지 66개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/20 신규 감지 없음 / 최신 보유 데이터 5/28 기준 재분석"
+              "text": "5/20 신규 감지 없음 / 최신 보유 데이터 5/29 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Let it hypnotize 🌀 · 좋아요 451,109 · 조회 대비 3.7%"
+              "text": "Let it hypnotize 🌀 · 좋아요 456,454 · 조회 대비 3.7%"
             },
             {
               "label": "API 조건",
@@ -2325,15 +2585,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454"
             },
             {
               "label": "길이",
-              "text": "40초 미만 78개 / 제한 근접 4개 / 평균 19초"
+              "text": "40초 미만 66개 / 제한 근접 3개 / 평균 19초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +14%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 비중 +11%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -2355,7 +2615,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1141개"
+          "value": "1175개"
         },
         {
           "label": "오늘 감지",
@@ -2367,7 +2627,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "842개"
+          "value": "135개"
         },
         {
           "label": "기준",
@@ -2375,10 +2635,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 126개",
-        "상황형 코미디·짧은 사건 63개",
-        "편집·슬로우드 사운드 17개",
-        "K-pop·아이돌 파생 14개"
+        "댄스·음악 챌린지 76개",
+        "상황형 코미디·짧은 사건 28개",
+        "편집·슬로우드 사운드 12개",
+        "K-pop·아이돌 파생 6개"
       ],
       "cards": [
         {
@@ -2386,47 +2646,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "BEST Duo Trick Shots",
-              "thumbnail": "https://i.ytimg.com/vi/aU2KRF87RPc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/aU2KRF87RPc",
-              "views": "4,816,124,417",
-              "likes": "28,626,220",
-              "duration": "0:24",
+              "title": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubeshorts",
+              "thumbnail": "https://i.ytimg.com/vi/HiDUWmHkYz8/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/HiDUWmHkYz8",
+              "views": "701,806,079",
+              "likes": "3,301,853",
+              "duration": "0:26",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#2",
-              "title": "Anaya or Papa Ne ki Masti",
-              "thumbnail": "https://i.ytimg.com/vi/mUM1XW59Dmc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/mUM1XW59Dmc",
-              "views": "4,035,919,085",
-              "likes": "27,180,888",
-              "duration": "0:25",
+              "title": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼",
+              "thumbnail": "https://i.ytimg.com/vi/vR6ylQMeeQ0/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/vR6ylQMeeQ0",
+              "views": "198,994,146",
+              "likes": "2,835,409",
+              "duration": "0:36",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#3",
-              "title": "Bhai behen ka pyar 🤩 behen ne bahar nikal liya #shorts #s...",
-              "thumbnail": "https://i.ytimg.com/vi/78xZQWBrvGc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/78xZQWBrvGc",
-              "views": "3,987,823,909",
-              "likes": "27,506,647",
-              "duration": "0:21",
+              "title": "🐶 ¿Un cachorro adoptado por un CANGURO? | Leo, El Explora...",
+              "thumbnail": "https://i.ytimg.com/vi/p9gimFhGGNs/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/p9gimFhGGNs",
+              "views": "241,479,029",
+              "likes": "1,483,662",
+              "duration": "0:27",
               "cluster": "제목·조회수 기반 급상승"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "BEST Duo Trick Shots · 조회 4,816,124,417 · 좋아요 28,626,220 · 24초 · 제목·조회수 기반 급상승"
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubesh… · 조회 701,806,079 · 좋아요 3,301,853 · 26초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#2",
-              "text": "Anaya or Papa Ne ki Masti · 조회 4,035,919,085 · 좋아요 27,180,888 · 25초 · 제목·조회수 기반 급상승"
+              "text": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼ · 조회 198,994,146 · 좋아요 2,835,409 · 36초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
-              "text": "Bhai behen ka pyar 🤩 behen ne bahar nikal… · 조회 3,987,823,909 · 좋아요 27,506,647 · 21초 · 제목·조회수 기반 급상승"
+              "text": "🐶 ¿Un cachorro adoptado por un CANGURO? |… · 조회 241,479,029 · 좋아요 1,483,662 · 27초 · 제목·조회수 기반 급상승"
             }
           ]
         },
@@ -2435,15 +2695,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 126개 / 15%"
+              "text": "댄스·음악 챌린지 76개 / 56%"
             },
             {
               "label": "감지 기준",
-              "text": "5/19 신규 감지 없음 / 최신 보유 데이터 5/28 기준 재분석"
+              "text": "5/19 신규 감지 없음 / 최신 보유 데이터 5/29 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "BEST Duo Trick Shots · 좋아요 28,626,220 · 조회 대비 0.6%"
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubesh… · 좋아요 3,301,853 · 조회 대비 0.5%"
             }
           ]
         },
@@ -2456,15 +2716,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "BEST Duo Trick Shots · 조회 4,816,124,417 · 좋아요 28,626,220"
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubeshorts · 조회 701,806,079 · 좋아요 3,301,853"
             },
             {
               "label": "길이",
-              "text": "40초 미만 842개 / 제한 근접 61개 / 평균 20초"
+              "text": "40초 미만 135개 / 제한 근접 5개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 강세 유지 / 5/28 재감지 표본 기준"
+              "text": "댄스·음악 챌린지 비중 +42%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -2481,7 +2741,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "148개"
+          "value": "161개"
         },
         {
           "label": "오늘 감지",
@@ -2493,7 +2753,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "78개"
+          "value": "66개"
         },
         {
           "label": "기준",
@@ -2501,8 +2761,8 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 78개",
-        "편집·슬로우드 사운드 10개",
+        "댄스·음악 챌린지 66개",
+        "편집·슬로우드 사운드 11개",
         "K-pop·아이돌 파생 6개",
         "상황형 코미디·짧은 사건 5개"
       ],
@@ -2515,8 +2775,8 @@
               "title": "Let it hypnotize 🌀",
               "thumbnail": "https://i.ytimg.com/vi/6ehIDEXp1_c/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/6ehIDEXp1_c",
-              "views": "12,229,701",
-              "likes": "451,109",
+              "views": "12,490,642",
+              "likes": "456,454",
               "duration": "0:33",
               "cluster": "댄스·음악 챌린지"
             },
@@ -2525,34 +2785,34 @@
               "title": "Mom Will Always Be There ❤️ | Headlights feat. KIDDO(Slow...",
               "thumbnail": "https://i.ytimg.com/vi/p_4U9x92CUY/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/p_4U9x92CUY",
-              "views": "25,951,207",
-              "likes": "219,035",
+              "views": "26,007,048",
+              "likes": "219,679",
               "duration": "0:12",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "다 함께 취해 보자 #CHOOM °. ♪",
-              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
-              "views": "7,322,170",
-              "likes": "272,841",
-              "duration": "0:25",
+              "title": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️",
+              "thumbnail": "https://i.ytimg.com/vi/VXAtCHr4CIE/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/VXAtCHr4CIE",
+              "views": "8,531,320",
+              "likes": "280,311",
+              "duration": "0:22",
               "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109 · 33초 · 댄스·음악 챌린지"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454 · 33초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 25,951,207 · 좋아요 219,035 · 12초 · 댄스·음악 챌린지"
+              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 26,007,048 · 좋아요 219,679 · 12초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,322,170 · 좋아요 272,841 · 25초 · 댄스·음악 챌린지"
+              "text": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️ · 조회 8,531,320 · 좋아요 280,311 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -2561,15 +2821,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 78개 / 100%"
+              "text": "댄스·음악 챌린지 66개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/19 신규 감지 없음 / 최신 보유 데이터 5/28 기준 재분석"
+              "text": "5/19 신규 감지 없음 / 최신 보유 데이터 5/29 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Let it hypnotize 🌀 · 좋아요 451,109 · 조회 대비 3.7%"
+              "text": "Let it hypnotize 🌀 · 좋아요 456,454 · 조회 대비 3.7%"
             },
             {
               "label": "API 조건",
@@ -2586,15 +2846,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454"
             },
             {
               "label": "길이",
-              "text": "40초 미만 78개 / 제한 근접 4개 / 평균 19초"
+              "text": "40초 미만 66개 / 제한 근접 3개 / 평균 19초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +14%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 비중 +11%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -2616,7 +2876,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1141개"
+          "value": "1175개"
         },
         {
           "label": "오늘 감지",
@@ -2628,7 +2888,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "842개"
+          "value": "135개"
         },
         {
           "label": "기준",
@@ -2636,10 +2896,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 126개",
-        "상황형 코미디·짧은 사건 63개",
-        "편집·슬로우드 사운드 17개",
-        "K-pop·아이돌 파생 14개"
+        "댄스·음악 챌린지 76개",
+        "상황형 코미디·짧은 사건 28개",
+        "편집·슬로우드 사운드 12개",
+        "K-pop·아이돌 파생 6개"
       ],
       "cards": [
         {
@@ -2647,47 +2907,47 @@
           "videos": [
             {
               "rank": "#1",
-              "title": "BEST Duo Trick Shots",
-              "thumbnail": "https://i.ytimg.com/vi/aU2KRF87RPc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/aU2KRF87RPc",
-              "views": "4,816,124,417",
-              "likes": "28,626,220",
-              "duration": "0:24",
+              "title": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubeshorts",
+              "thumbnail": "https://i.ytimg.com/vi/HiDUWmHkYz8/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/HiDUWmHkYz8",
+              "views": "701,806,079",
+              "likes": "3,301,853",
+              "duration": "0:26",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#2",
-              "title": "Anaya or Papa Ne ki Masti",
-              "thumbnail": "https://i.ytimg.com/vi/mUM1XW59Dmc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/mUM1XW59Dmc",
-              "views": "4,035,919,085",
-              "likes": "27,180,888",
-              "duration": "0:25",
+              "title": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼",
+              "thumbnail": "https://i.ytimg.com/vi/vR6ylQMeeQ0/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/vR6ylQMeeQ0",
+              "views": "198,994,146",
+              "likes": "2,835,409",
+              "duration": "0:36",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "rank": "#3",
-              "title": "Bhai behen ka pyar 🤩 behen ne bahar nikal liya #shorts #s...",
-              "thumbnail": "https://i.ytimg.com/vi/78xZQWBrvGc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/78xZQWBrvGc",
-              "views": "3,987,823,909",
-              "likes": "27,506,647",
-              "duration": "0:21",
+              "title": "🐶 ¿Un cachorro adoptado por un CANGURO? | Leo, El Explora...",
+              "thumbnail": "https://i.ytimg.com/vi/p9gimFhGGNs/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/p9gimFhGGNs",
+              "views": "241,479,029",
+              "likes": "1,483,662",
+              "duration": "0:27",
               "cluster": "제목·조회수 기반 급상승"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "BEST Duo Trick Shots · 조회 4,816,124,417 · 좋아요 28,626,220 · 24초 · 제목·조회수 기반 급상승"
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubesh… · 조회 701,806,079 · 좋아요 3,301,853 · 26초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#2",
-              "text": "Anaya or Papa Ne ki Masti · 조회 4,035,919,085 · 좋아요 27,180,888 · 25초 · 제목·조회수 기반 급상승"
+              "text": "Smiti Ke Liya Kn-Kn Subscribe Korega🥲 ￼ · 조회 198,994,146 · 좋아요 2,835,409 · 36초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
-              "text": "Bhai behen ka pyar 🤩 behen ne bahar nikal… · 조회 3,987,823,909 · 좋아요 27,506,647 · 21초 · 제목·조회수 기반 급상승"
+              "text": "🐶 ¿Un cachorro adoptado por un CANGURO? |… · 조회 241,479,029 · 좋아요 1,483,662 · 27초 · 제목·조회수 기반 급상승"
             }
           ]
         },
@@ -2696,15 +2956,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 126개 / 15%"
+              "text": "댄스·음악 챌린지 76개 / 56%"
             },
             {
               "label": "감지 기준",
-              "text": "5/18 신규 감지 없음 / 최신 보유 데이터 5/28 기준 재분석"
+              "text": "5/18 신규 감지 없음 / 최신 보유 데이터 5/29 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "BEST Duo Trick Shots · 좋아요 28,626,220 · 조회 대비 0.6%"
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubesh… · 좋아요 3,301,853 · 조회 대비 0.5%"
             }
           ]
         },
@@ -2717,15 +2977,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "BEST Duo Trick Shots · 조회 4,816,124,417 · 좋아요 28,626,220"
+              "text": "いろボールでいろをおぼえよう！ #shorts #ベビーバス #youtubeshorts · 조회 701,806,079 · 좋아요 3,301,853"
             },
             {
               "label": "길이",
-              "text": "40초 미만 842개 / 제한 근접 61개 / 평균 20초"
+              "text": "40초 미만 135개 / 제한 근접 5개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 강세 유지 / 5/28 재감지 표본 기준"
+              "text": "댄스·음악 챌린지 비중 +42%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -2742,7 +3002,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "148개"
+          "value": "161개"
         },
         {
           "label": "오늘 감지",
@@ -2754,7 +3014,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "78개"
+          "value": "66개"
         },
         {
           "label": "기준",
@@ -2762,8 +3022,8 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 78개",
-        "편집·슬로우드 사운드 10개",
+        "댄스·음악 챌린지 66개",
+        "편집·슬로우드 사운드 11개",
         "K-pop·아이돌 파생 6개",
         "상황형 코미디·짧은 사건 5개"
       ],
@@ -2776,8 +3036,8 @@
               "title": "Let it hypnotize 🌀",
               "thumbnail": "https://i.ytimg.com/vi/6ehIDEXp1_c/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/6ehIDEXp1_c",
-              "views": "12,229,701",
-              "likes": "451,109",
+              "views": "12,490,642",
+              "likes": "456,454",
               "duration": "0:33",
               "cluster": "댄스·음악 챌린지"
             },
@@ -2786,34 +3046,34 @@
               "title": "Mom Will Always Be There ❤️ | Headlights feat. KIDDO(Slow...",
               "thumbnail": "https://i.ytimg.com/vi/p_4U9x92CUY/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/p_4U9x92CUY",
-              "views": "25,951,207",
-              "likes": "219,035",
+              "views": "26,007,048",
+              "likes": "219,679",
               "duration": "0:12",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "다 함께 취해 보자 #CHOOM °. ♪",
-              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
-              "views": "7,322,170",
-              "likes": "272,841",
-              "duration": "0:25",
+              "title": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️",
+              "thumbnail": "https://i.ytimg.com/vi/VXAtCHr4CIE/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/VXAtCHr4CIE",
+              "views": "8,531,320",
+              "likes": "280,311",
+              "duration": "0:22",
               "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109 · 33초 · 댄스·음악 챌린지"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454 · 33초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 25,951,207 · 좋아요 219,035 · 12초 · 댄스·음악 챌린지"
+              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 26,007,048 · 좋아요 219,679 · 12초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,322,170 · 좋아요 272,841 · 25초 · 댄스·음악 챌린지"
+              "text": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️ · 조회 8,531,320 · 좋아요 280,311 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -2822,15 +3082,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 78개 / 100%"
+              "text": "댄스·음악 챌린지 66개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/18 신규 감지 없음 / 최신 보유 데이터 5/28 기준 재분석"
+              "text": "5/18 신규 감지 없음 / 최신 보유 데이터 5/29 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Let it hypnotize 🌀 · 좋아요 451,109 · 조회 대비 3.7%"
+              "text": "Let it hypnotize 🌀 · 좋아요 456,454 · 조회 대비 3.7%"
             },
             {
               "label": "API 조건",
@@ -2847,15 +3107,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454"
             },
             {
               "label": "길이",
-              "text": "40초 미만 78개 / 제한 근접 4개 / 평균 19초"
+              "text": "40초 미만 66개 / 제한 근접 3개 / 평균 19초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +14%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 비중 +11%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -2877,7 +3137,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1141개"
+          "value": "1175개"
         },
         {
           "label": "오늘 감지",
@@ -3003,7 +3263,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "148개"
+          "value": "161개"
         },
         {
           "label": "오늘 감지",
@@ -3015,7 +3275,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "78개"
+          "value": "66개"
         },
         {
           "label": "기준",
@@ -3023,8 +3283,8 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 78개",
-        "편집·슬로우드 사운드 10개",
+        "댄스·음악 챌린지 66개",
+        "편집·슬로우드 사운드 11개",
         "K-pop·아이돌 파생 6개",
         "상황형 코미디·짧은 사건 5개"
       ],
@@ -3037,8 +3297,8 @@
               "title": "Let it hypnotize 🌀",
               "thumbnail": "https://i.ytimg.com/vi/6ehIDEXp1_c/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/6ehIDEXp1_c",
-              "views": "12,229,701",
-              "likes": "451,109",
+              "views": "12,490,642",
+              "likes": "456,454",
               "duration": "0:33",
               "cluster": "댄스·음악 챌린지"
             },
@@ -3047,34 +3307,34 @@
               "title": "Mom Will Always Be There ❤️ | Headlights feat. KIDDO(Slow...",
               "thumbnail": "https://i.ytimg.com/vi/p_4U9x92CUY/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/p_4U9x92CUY",
-              "views": "25,951,207",
-              "likes": "219,035",
+              "views": "26,007,048",
+              "likes": "219,679",
               "duration": "0:12",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "다 함께 취해 보자 #CHOOM °. ♪",
-              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
-              "views": "7,322,170",
-              "likes": "272,841",
-              "duration": "0:25",
+              "title": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️",
+              "thumbnail": "https://i.ytimg.com/vi/VXAtCHr4CIE/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/VXAtCHr4CIE",
+              "views": "8,531,320",
+              "likes": "280,311",
+              "duration": "0:22",
               "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109 · 33초 · 댄스·음악 챌린지"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454 · 33초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 25,951,207 · 좋아요 219,035 · 12초 · 댄스·음악 챌린지"
+              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 26,007,048 · 좋아요 219,679 · 12초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,322,170 · 좋아요 272,841 · 25초 · 댄스·음악 챌린지"
+              "text": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️ · 조회 8,531,320 · 좋아요 280,311 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -3083,15 +3343,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 78개 / 100%"
+              "text": "댄스·음악 챌린지 66개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/17 신규 감지 없음 / 최신 보유 데이터 5/28 기준 재분석"
+              "text": "5/17 신규 감지 없음 / 최신 보유 데이터 5/29 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Let it hypnotize 🌀 · 좋아요 451,109 · 조회 대비 3.7%"
+              "text": "Let it hypnotize 🌀 · 좋아요 456,454 · 조회 대비 3.7%"
             },
             {
               "label": "API 조건",
@@ -3108,15 +3368,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454"
             },
             {
               "label": "길이",
-              "text": "40초 미만 78개 / 제한 근접 4개 / 평균 19초"
+              "text": "40초 미만 66개 / 제한 근접 3개 / 평균 19초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +14%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 비중 +11%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -3138,7 +3398,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1141개"
+          "value": "1175개"
         },
         {
           "label": "오늘 감지",
@@ -3262,7 +3522,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "148개"
+          "value": "161개"
         },
         {
           "label": "오늘 감지",
@@ -3274,7 +3534,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "78개"
+          "value": "66개"
         },
         {
           "label": "기준",
@@ -3282,8 +3542,8 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 78개",
-        "편집·슬로우드 사운드 10개",
+        "댄스·음악 챌린지 66개",
+        "편집·슬로우드 사운드 11개",
         "K-pop·아이돌 파생 6개",
         "상황형 코미디·짧은 사건 5개"
       ],
@@ -3296,8 +3556,8 @@
               "title": "Let it hypnotize 🌀",
               "thumbnail": "https://i.ytimg.com/vi/6ehIDEXp1_c/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/6ehIDEXp1_c",
-              "views": "12,229,701",
-              "likes": "451,109",
+              "views": "12,490,642",
+              "likes": "456,454",
               "duration": "0:33",
               "cluster": "댄스·음악 챌린지"
             },
@@ -3306,34 +3566,34 @@
               "title": "Mom Will Always Be There ❤️ | Headlights feat. KIDDO(Slow...",
               "thumbnail": "https://i.ytimg.com/vi/p_4U9x92CUY/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/p_4U9x92CUY",
-              "views": "25,951,207",
-              "likes": "219,035",
+              "views": "26,007,048",
+              "likes": "219,679",
               "duration": "0:12",
               "cluster": "댄스·음악 챌린지"
             },
             {
               "rank": "#3",
-              "title": "다 함께 취해 보자 #CHOOM °. ♪",
-              "thumbnail": "https://i.ytimg.com/vi/4y4gp2Kl60c/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/4y4gp2Kl60c",
-              "views": "7,322,170",
-              "likes": "272,841",
-              "duration": "0:25",
+              "title": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️",
+              "thumbnail": "https://i.ytimg.com/vi/VXAtCHr4CIE/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/VXAtCHr4CIE",
+              "views": "8,531,320",
+              "likes": "280,311",
+              "duration": "0:22",
               "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109 · 33초 · 댄스·음악 챌린지"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454 · 33초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 25,951,207 · 좋아요 219,035 · 12초 · 댄스·음악 챌린지"
+              "text": "Mom Will Always Be There ❤️ | Headlights… · 조회 26,007,048 · 좋아요 219,679 · 12초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "다 함께 취해 보자 #CHOOM ° / ♪ · 조회 7,322,170 · 좋아요 272,841 · 25초 · 댄스·음악 챌린지"
+              "text": "이 춤…운동 많이 된다 with @GYMJONGKOOK 🏋️‍♀️ · 조회 8,531,320 · 좋아요 280,311 · 22초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -3342,15 +3602,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 78개 / 100%"
+              "text": "댄스·음악 챌린지 66개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "5/16 신규 감지 없음 / 최신 보유 데이터 5/28 기준 재분석"
+              "text": "5/16 신규 감지 없음 / 최신 보유 데이터 5/29 기준 재분석"
             },
             {
               "label": "반응 밀도",
-              "text": "Let it hypnotize 🌀 · 좋아요 451,109 · 조회 대비 3.7%"
+              "text": "Let it hypnotize 🌀 · 좋아요 456,454 · 조회 대비 3.7%"
             },
             {
               "label": "API 조건",
@@ -3367,15 +3627,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Let it hypnotize 🌀 · 조회 12,229,701 · 좋아요 451,109"
+              "text": "Let it hypnotize 🌀 · 조회 12,490,642 · 좋아요 456,454"
             },
             {
               "label": "길이",
-              "text": "40초 미만 78개 / 제한 근접 4개 / 평균 19초"
+              "text": "40초 미만 66개 / 제한 근접 3개 / 평균 19초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +14%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 비중 +11%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
