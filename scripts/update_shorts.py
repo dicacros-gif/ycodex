@@ -16,6 +16,7 @@ from urllib.parse import quote_plus, urlencode, urljoin
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "shorts-data.json"
 INSIGHTS_PATH = ROOT / "insights-data.json"
+DELETED_SHORTS_PATH = ROOT / "deleted-shorts.json"
 INDEX_PATH = ROOT / "index.html"
 
 KST = timezone(timedelta(hours=9))
@@ -453,7 +454,7 @@ def fetch_text(url: str) -> str:
 def read_data() -> list[dict[str, Any]]:
     if not DATA_PATH.exists():
         return []
-    return normalize_items(json.loads(DATA_PATH.read_text(encoding="utf-8")))
+    return filter_deleted_items(normalize_items(json.loads(DATA_PATH.read_text(encoding="utf-8"))))
 
 
 def read_insights() -> list[dict[str, Any]]:
@@ -518,7 +519,7 @@ def order_items_newest_first(items: list[dict[str, Any]]) -> list[dict[str, Any]
 
 
 def write_data(items: list[dict[str, Any]]) -> None:
-    items = order_items_newest_first(items)
+    items = filter_deleted_items(order_items_newest_first(items))
     DATA_PATH.write_text(
         json.dumps(items, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
@@ -542,6 +543,76 @@ def video_id_from_any(value: str) -> str | None:
         if match:
             return match.group(1)
     return None
+
+
+_DELETED_VIDEO_IDS_CACHE: set[str] | None = None
+
+
+def normalize_deleted_video_id(value: Any) -> str | None:
+    text = str(value or "").strip()
+    if not text:
+        return None
+    if re.fullmatch(r"[A-Za-z0-9_-]{11}", text):
+        return text
+    return video_id_from_any(text)
+
+
+def read_deleted_video_ids() -> set[str]:
+    global _DELETED_VIDEO_IDS_CACHE
+    if _DELETED_VIDEO_IDS_CACHE is not None:
+        return set(_DELETED_VIDEO_IDS_CACHE)
+    if not DELETED_SHORTS_PATH.exists():
+        _DELETED_VIDEO_IDS_CACHE = set()
+        return set()
+    try:
+        payload = json.loads(DELETED_SHORTS_PATH.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _DELETED_VIDEO_IDS_CACHE = set()
+        return set()
+
+    raw_items: list[Any]
+    if isinstance(payload, dict):
+        raw_items = []
+        for key in ("ids", "videoIds", "deleted", "deletedShorts", "shorts"):
+            value = payload.get(key)
+            if isinstance(value, list):
+                raw_items.extend(value)
+    elif isinstance(payload, list):
+        raw_items = payload
+    else:
+        raw_items = []
+
+    deleted_ids: set[str] = set()
+    for item in raw_items:
+        value = item
+        if isinstance(item, dict):
+            value = item.get("id") or item.get("videoId") or item.get("shortsUrl") or item.get("url") or item.get("thumbnail")
+        video_id = normalize_deleted_video_id(value)
+        if video_id:
+            deleted_ids.add(video_id)
+
+    _DELETED_VIDEO_IDS_CACHE = deleted_ids
+    return set(deleted_ids)
+
+
+def is_deleted_item(item: dict[str, Any], deleted_ids: set[str] | None = None) -> bool:
+    ids = deleted_ids if deleted_ids is not None else read_deleted_video_ids()
+    if not ids:
+        return False
+    candidates = (
+        item.get("id"),
+        item.get("shortsUrl"),
+        item.get("url"),
+        item.get("thumbnail"),
+    )
+    return any((video_id := normalize_deleted_video_id(value)) in ids for value in candidates if value)
+
+
+def filter_deleted_items(items: list[dict[str, Any]], deleted_ids: set[str] | None = None) -> list[dict[str, Any]]:
+    ids = deleted_ids if deleted_ids is not None else read_deleted_video_ids()
+    if not ids:
+        return items
+    return [item for item in items if not is_deleted_item(item, ids)]
 
 
 def normalized_url(video_id: str) -> str:
@@ -1691,10 +1762,11 @@ def update_existing_item(old: dict[str, Any], new: dict[str, Any]) -> None:
 
 def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]], max_new: int) -> list[dict[str, Any]]:
     # Keep the archive append-only: only brand-new, non-duplicate videos are placed above history.
-    existing_unique = dedupe_accumulated_items(existing)
+    deleted_ids = read_deleted_video_ids()
+    existing_unique = dedupe_accumulated_items(filter_deleted_items(existing, deleted_ids))
     old_by_id = {item.get("id"): item for item in existing_unique if item.get("id")}
     old_by_signature = {content_signature(item): item for item in existing_unique if content_signature(item)}
-    ranked = sorted(new_items, key=rank_item)
+    ranked = sorted(filter_deleted_items(new_items, deleted_ids), key=rank_item)
 
     candidates_by_region: dict[str, list[dict[str, Any]]] = {region["key"]: [] for region in REGIONS}
     seen: set[str] = set()
@@ -1757,7 +1829,7 @@ def merge_items(existing: list[dict[str, Any]], new_items: list[dict[str, Any]],
         if viral_added >= VIRAL_NEW_ITEMS_LIMIT:
             break
 
-    return order_items_newest_first(selected + existing_unique)
+    return filter_deleted_items(order_items_newest_first(selected + existing_unique), deleted_ids)
 
 
 def regions_needing_search(candidates: list[dict[str, Any]], max_new: int) -> set[str]:
@@ -1782,11 +1854,11 @@ def is_short_9x16_item(item: dict[str, Any]) -> bool:
 
 
 def filter_shortform_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    return [item for item in items if is_short_9x16_item(item)]
+    return filter_deleted_items([item for item in items if is_short_9x16_item(item)])
 
 
 def prune_shortform_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    return [item for item in dedupe_accumulated_items(items) if is_collectable_new_item(item)]
+    return filter_deleted_items([item for item in dedupe_accumulated_items(items) if is_collectable_new_item(item)])
 
 
 def source_priority(item: dict[str, Any]) -> int:
@@ -1871,6 +1943,7 @@ def is_collectable_new_item(item: dict[str, Any]) -> bool:
     return (
         parse_int(item.get("viewsGained")) >= min_display_views_for_item(item)
         and is_short_9x16_item(item)
+        and not is_deleted_item(item)
     )
 
 
@@ -1879,6 +1952,7 @@ def is_displayable(item: dict[str, Any]) -> bool:
         parse_int(item.get("viewsGained")) >= min_display_views_for_item(item)
         and bool(item.get("publishedAt"))
         and is_short_9x16_item(item)
+        and not is_deleted_item(item)
     )
 
 
@@ -2623,12 +2697,16 @@ def source_label(item: dict[str, Any]) -> str:
 
 def render_mega_case_card(item: dict[str, Any]) -> str:
     source_url = str(item.get("sourceUrl") or item.get("shortsUrl") or "#")
+    video_id = escape(str(item.get("id") or ""))
     return f"""
-        <article class="mega-case-card">
-          <a class="mega-case-thumb" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">
-            <img src="{escape(item.get('thumbnail') or thumbnail_url(item['id']))}" alt="{escape(str(item.get('title', 'YouTube Shorts thumbnail')))}">
-            <span class="duration-badge">{fmt_duration(item.get('duration'))}</span>
-          </a>
+        <article class="mega-case-card" data-video-id="{video_id}">
+          <div class="mega-case-media">
+            <a class="mega-case-thumb" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">
+              <img src="{escape(item.get('thumbnail') or thumbnail_url(item['id']))}" alt="{escape(str(item.get('title', 'YouTube Shorts thumbnail')))}">
+              <span class="duration-badge">{fmt_duration(item.get('duration'))}</span>
+            </a>
+            <button class="delete-short" type="button" data-delete-short="{video_id}" aria-label="Delete this video thumbnail" title="Delete this video">&times;</button>
+          </div>
           <div class="mega-case-body">
             <h3><a href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener">{escape(compact_title(str(item.get('title', '')), 72))}</a></h3>
             <div class="mega-case-meta">
@@ -3085,13 +3163,17 @@ def render_youtube_api_analysis(items: list[dict[str, Any]]) -> str:
 
 def render_card(item: dict[str, Any], index: int) -> str:
     reason_items = render_points(card_popularity_points(item))
+    video_id = escape(str(item.get("id") or ""))
     return f"""
-      <article class="short-card">
-        <a class="thumb-link" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener" aria-label="Open {escape(item['title'])} on YouTube Shorts">
-          <img src="{escape(item['thumbnail'])}" alt="{escape(item['title'])} thumbnail" loading="lazy">
-          <span class="rank">#{index}</span>
-          <span class="duration-badge">{fmt_duration(item.get('duration'))}</span>
-        </a>
+      <article class="short-card" data-video-id="{video_id}">
+        <div class="thumb-frame">
+          <a class="thumb-link" href="{escape(item['shortsUrl'])}" target="_blank" rel="noopener" aria-label="Open {escape(item['title'])} on YouTube Shorts">
+            <img src="{escape(item['thumbnail'])}" alt="{escape(item['title'])} thumbnail" loading="lazy">
+            <span class="rank">#{index}</span>
+            <span class="duration-badge">{fmt_duration(item.get('duration'))}</span>
+          </a>
+          <button class="delete-short" type="button" data-delete-short="{video_id}" aria-label="Delete this video thumbnail" title="Delete this video">&times;</button>
+        </div>
         <div class="short-body">
           <h2>{escape(item['title'])}</h2>
           <div class="stats-row">
@@ -3360,6 +3442,7 @@ def top_video_insight_media(items: list[dict[str, Any]], limit: int = 3) -> list
             continue
         media.append(
             {
+                "id": video_id,
                 "rank": f"#{index}",
                 "title": compact_title(str(item.get("title") or ""), 58),
                 "thumbnail": item.get("thumbnail") or thumbnail_url(video_id),
@@ -3631,9 +3714,11 @@ def render_insight_video_media(videos: list[dict[str, Any]]) -> str:
         title = str(video.get("title") or "")
         url = str(video.get("url") or "#")
         thumbnail = str(video.get("thumbnail") or "")
+        video_id = normalize_deleted_video_id(video.get("id") or url or thumbnail)
+        data_attr = f' data-video-id="{escape(video_id)}"' if video_id else ""
         rows.append(
             f"""
-              <a class="insight-video" href="{escape(url)}" target="_blank" rel="noopener" aria-label="{escape(title)}">
+              <a class="insight-video" href="{escape(url)}" target="_blank" rel="noopener" aria-label="{escape(title)}"{data_attr}>
                 <span class="insight-video-thumb">
                   <img src="{escape(thumbnail)}" alt="{escape(title)} thumbnail" loading="lazy">
                   <b>{escape(str(video.get('rank') or ''))}</b>
@@ -4648,6 +4733,50 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
       border-color: rgba(220, 38, 38, 0.38);
       box-shadow: 0 14px 36px rgba(220, 38, 38, 0.14);
     }}
+    .thumb-frame,
+    .mega-case-media {{
+      position: relative;
+      min-width: 0;
+    }}
+    [data-video-id][hidden] {{
+      display: none !important;
+    }}
+    .short-card.is-deleting,
+    .mega-case-card.is-deleting,
+    .insight-video.is-deleting {{
+      opacity: 0;
+      transform: scale(0.96);
+      transition: opacity 0.14s ease, transform 0.14s ease;
+    }}
+    .delete-short {{
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 5;
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      border-radius: 999px;
+      background: rgba(127, 29, 29, 0.92);
+      color: #ffffff;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+      cursor: pointer;
+      font: 900 34px/1 "Noto Sans KR", system-ui, sans-serif;
+      padding: 0 0 4px;
+      transition: background 0.16s ease, transform 0.16s ease, box-shadow 0.16s ease;
+    }}
+    .delete-short:hover {{
+      background: #dc2626;
+      transform: scale(1.08);
+      box-shadow: 0 10px 24px rgba(127, 29, 29, 0.36);
+    }}
+    .delete-short:focus-visible {{
+      outline: 3px solid rgba(29, 78, 216, 0.42);
+      outline-offset: 3px;
+    }}
     .thumb-link {{
       position: relative;
       display: block;
@@ -4864,6 +4993,109 @@ def render_index(items: list[dict[str, Any]], insight_history: list[dict[str, An
   <script>
     const buttons = Array.from(document.querySelectorAll("[data-region-tab]"));
     const panelsByRegion = new Map(Array.from(document.querySelectorAll("[data-region-panel]")).map((panel) => [panel.dataset.regionPanel, panel]));
+    const deletedShortsStorageKey = "ycodex-deleted-shorts-v1";
+    const deletedShortsWindowNameKey = "ycodexDeletedShorts";
+    const getDeletedShortsStorage = () => {{
+      try {{
+        return window.localStorage || null;
+      }} catch (error) {{
+        return null;
+      }}
+    }};
+    const readDeletedShortsCookie = () => {{
+      try {{
+        const cookie = document.cookie.split("; ").find((item) => item.startsWith(`${{deletedShortsStorageKey}}=`));
+        return cookie ? decodeURIComponent(cookie.split("=").slice(1).join("=")) : "";
+      }} catch (error) {{
+        return "";
+      }}
+    }};
+    const writeDeletedShortsCookie = (value) => {{
+      try {{
+        document.cookie = `${{deletedShortsStorageKey}}=${{encodeURIComponent(value)}}; path=/; max-age=31536000; SameSite=Lax`;
+      }} catch (error) {{
+        // Some embedded browsers expose cookies as read-only; localStorage/window.name still cover normal use.
+      }}
+    }};
+    const readDeletedShortsWindowName = () => {{
+      try {{
+        const parsed = JSON.parse(window.name || "{{}}");
+        const value = parsed[deletedShortsWindowNameKey];
+        return Array.isArray(value) ? JSON.stringify(value) : "";
+      }} catch (error) {{
+        return "";
+      }}
+    }};
+    const writeDeletedShortsWindowName = (ids) => {{
+      try {{
+        const parsed = JSON.parse(window.name || "{{}}");
+        parsed[deletedShortsWindowNameKey] = Array.from(ids).sort();
+        window.name = JSON.stringify(parsed);
+      }} catch (error) {{
+        window.name = JSON.stringify({{ [deletedShortsWindowNameKey]: Array.from(ids).sort() }});
+      }}
+    }};
+
+    const readDeletedShortIds = () => {{
+      try {{
+        const storage = getDeletedShortsStorage();
+        const raw = (storage && storage.getItem(deletedShortsStorageKey))
+          || readDeletedShortsCookie()
+          || readDeletedShortsWindowName()
+          || "[]";
+        const parsed = JSON.parse(raw);
+        return new Set(Array.isArray(parsed) ? parsed.filter(Boolean) : []);
+      }} catch (error) {{
+        return new Set();
+      }}
+    }};
+
+    const writeDeletedShortIds = (ids) => {{
+      try {{
+        const storage = getDeletedShortsStorage();
+        const value = JSON.stringify(Array.from(ids).sort());
+        if (storage) storage.setItem(deletedShortsStorageKey, value);
+        writeDeletedShortsCookie(value);
+        writeDeletedShortsWindowName(ids);
+      }} catch (error) {{
+        console.warn("Could not persist deleted shorts", error);
+      }}
+    }};
+
+    const deletedShortIds = readDeletedShortIds();
+
+    const matchingVideoElements = (videoId) =>
+      Array.from(document.querySelectorAll("[data-video-id]")).filter((node) => node.dataset.videoId === videoId);
+
+    const hideVideo = (videoId, animate = false) => {{
+      if (!videoId) return;
+      matchingVideoElements(videoId).forEach((node) => {{
+        if (node.hidden) return;
+        if (!animate) {{
+          node.hidden = true;
+          return;
+        }}
+        node.classList.add("is-deleting");
+        window.setTimeout(() => {{
+          node.hidden = true;
+          node.classList.remove("is-deleting");
+        }}, 140);
+      }});
+    }};
+
+    deletedShortIds.forEach((videoId) => hideVideo(videoId));
+
+    document.querySelectorAll("[data-delete-short]").forEach((button) => {{
+      button.addEventListener("click", (event) => {{
+        event.preventDefault();
+        event.stopPropagation();
+        const videoId = button.dataset.deleteShort;
+        if (!videoId) return;
+        deletedShortIds.add(videoId);
+        writeDeletedShortIds(deletedShortIds);
+        hideVideo(videoId, true);
+      }});
+    }});
 
     const activateTab = (button) => {{
       const region = button.dataset.regionTab;
@@ -4907,7 +5139,8 @@ def main() -> int:
     parser.add_argument("--max-new", type=int, default=int(os.environ.get("MAX_NEW_SHORTS_PER_REGION", "18")))
     args = parser.parse_args()
 
-    existing = read_data()
+    deleted_video_ids = read_deleted_video_ids()
+    existing = filter_deleted_items(read_data(), deleted_video_ids)
     insight_history = read_insights()
     if args.render_only:
         merged = prune_shortform_items(existing)
@@ -4922,6 +5155,7 @@ def main() -> int:
         candidates = collect_vidirun(collected_at)
         candidates.extend(collect_html_sources(collected_at))
         candidates.extend(collect_youtube_api(collected_at))
+        candidates = filter_deleted_items(candidates, deleted_video_ids)
         enrich_candidates_with_youtube_api_metadata(candidates)
         if SKIP_YT_DLP_METADATA:
             print("warning: SKIP_YT_DLP_METADATA is set; using source/API metadata only", file=sys.stderr)
@@ -4943,11 +5177,12 @@ def main() -> int:
                         file=sys.stderr,
                     )
                     search_candidates = collect_youtube_search(collected_at, needed_regions)
+                    search_candidates = filter_deleted_items(search_candidates, deleted_video_ids)
                     enrich_video_metadata(search_candidates)
                     candidates.extend(filter_shortform_items(search_candidates))
                 else:
                     print("ranking sources filled every region; skipping YouTube search fallback", file=sys.stderr)
-        merged = merge_items(existing, candidates, args.max_new)
+        merged = filter_deleted_items(merge_items(existing, candidates, args.max_new), deleted_video_ids)
         if SKIP_YT_DLP_METADATA:
             print("warning: SKIP_YT_DLP_METADATA is set; skipping publish-date enrichment", file=sys.stderr)
         else:

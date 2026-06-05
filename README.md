@@ -14,6 +14,8 @@ This repository keeps a static `index.html` of trending YouTube Shorts candidate
 
 The scheduled GitHub Actions workflow runs every day at 20:00 UTC and retries at 21:30 UTC, which is 05:00 and 06:30 in Asia/Seoul. It updates `shorts-data.json`, `insights-data.json`, and `index.html` on a GitHub-hosted runner.
 
+Videos listed in `deleted-shorts.json` are removed from future renders and ignored when new candidates are merged.
+
 ## Region Tabs
 
 `index.html` renders separate tabs for 글로벌, KR, US, JP, 멕시코, 독일, 브라질, 인도네시아, 아르헨티나, 필리핀, 스페인, 이탈리아, 프랑스, 우즈베키스탄, 알제리, 카자흐스탄, and 베트남.
