@@ -1,5 +1,272 @@
 [
   {
+    "dateKey": "2026-07-05",
+    "updatedAt": "2026-07-05T06:05:16+09:00",
+    "updatedLabel": "7/5 06:05",
+    "global": {
+      "title": "트렌드 분석",
+      "metrics": [
+        {
+          "label": "전체 표시",
+          "value": "4339개"
+        },
+        {
+          "label": "오늘 감지",
+          "value": "168개"
+        },
+        {
+          "label": "신규 편입",
+          "value": "23개"
+        },
+        {
+          "label": "분석 표본",
+          "value": "168개"
+        },
+        {
+          "label": "기준",
+          "value": "50,000뷰 이상"
+        }
+      ],
+      "badges": [
+        "댄스·음악 챌린지 118개",
+        "편집·슬로우드 사운드 18개",
+        "상황형 코미디·짧은 사건 13개",
+        "K-pop·아이돌 파생 8개"
+      ],
+      "cards": [
+        {
+          "title": "핵심 영상",
+          "videos": [
+            {
+              "id": "p9gimFhGGNs",
+              "rank": "#1",
+              "title": "🐶 ¿Un cachorro adoptado por un CANGURO? | Leo, El Explora...",
+              "thumbnail": "https://i.ytimg.com/vi/p9gimFhGGNs/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/p9gimFhGGNs",
+              "views": "385,879,193",
+              "likes": "2,410,776",
+              "duration": "0:27",
+              "cluster": "제목·조회수 기반 급상승"
+            },
+            {
+              "id": "CcvXAlSfJ1w",
+              "rank": "#2",
+              "title": "No way! Chips new hacks! #thatlittlepuff",
+              "thumbnail": "https://i.ytimg.com/vi/CcvXAlSfJ1w/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/CcvXAlSfJ1w",
+              "views": "295,084,905",
+              "likes": "1,711,127",
+              "duration": "0:29",
+              "cluster": "제목·조회수 기반 급상승"
+            },
+            {
+              "id": "X6T_Z_jRgIA",
+              "rank": "#3",
+              "title": "Yeh Fancy Wali Machli Hai #cartoonseries#Ytshorts#shorts#...",
+              "thumbnail": "https://i.ytimg.com/vi/X6T_Z_jRgIA/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/X6T_Z_jRgIA",
+              "views": "269,655,998",
+              "likes": "1,361,034",
+              "duration": "0:22",
+              "cluster": "제목·조회수 기반 급상승"
+            }
+          ],
+          "items": [
+            {
+              "label": "#1",
+              "text": "🐶 ¿Un cachorro adoptado por un CANGURO? |… · 조회 385,879,193 · 좋아요 2,410,776 · 27초 · 제목·조회수 기반 급상승"
+            },
+            {
+              "label": "#2",
+              "text": "No way! Chips new hacks! #thatlittlepuff · 조회 295,084,905 · 좋아요 1,711,127 · 29초 · 제목·조회수 기반 급상승"
+            },
+            {
+              "label": "#3",
+              "text": "Yeh Fancy Wali Machli Hai #cartoonseries#… · 조회 269,655,998 · 좋아요 1,361,034 · 22초 · 제목·조회수 기반 급상승"
+            }
+          ]
+        },
+        {
+          "title": "오늘 신호",
+          "items": [
+            {
+              "label": "강한 포맷",
+              "text": "댄스·음악 챌린지 118개 / 70%"
+            },
+            {
+              "label": "감지 기준",
+              "text": "7/5 랭킹·API 재감지 168개 / 신규 편입 23개 / 기존 재확인 145개"
+            },
+            {
+              "label": "반응 밀도",
+              "text": "🐶 ¿Un cachorro adoptado por un CANGURO? |… · 좋아요 2,410,776 · 조회 대비 0.6%"
+            }
+          ]
+        },
+        {
+          "title": "제작 액션",
+          "items": [
+            {
+              "label": "우선 적용",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "참고 영상",
+              "text": "🐶 ¿Un cachorro adoptado por un CANGURO? | Leo… · 조회 385,879,193 · 좋아요 2,410,776"
+            },
+            {
+              "label": "길이",
+              "text": "40초 미만 168개 / 제한 근접 12개 / 평균 20초"
+            },
+            {
+              "label": "변화",
+              "text": "댄스·음악 챌린지 비중 +56%p / 오늘 랭킹에서 가장 빠르게 확대"
+            },
+            {
+              "label": "검토 포인트",
+              "text": "첫 프레임에서 결과 질문을 만들고 마지막 컷에서 보상 회수"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "creatorCards": []
+    },
+    "api": {
+      "title": "YouTube API 인사이트",
+      "metrics": [
+        {
+          "label": "전체 표시",
+          "value": "519개"
+        },
+        {
+          "label": "오늘 감지",
+          "value": "112개"
+        },
+        {
+          "label": "신규 편입",
+          "value": "6개"
+        },
+        {
+          "label": "분석 표본",
+          "value": "112개"
+        },
+        {
+          "label": "기준",
+          "value": "50,000뷰 이상"
+        }
+      ],
+      "badges": [
+        "댄스·음악 챌린지 112개",
+        "편집·슬로우드 사운드 16개",
+        "K-pop·아이돌 파생 8개",
+        "상황형 코미디·짧은 사건 5개"
+      ],
+      "cards": [
+        {
+          "title": "핵심 영상",
+          "videos": [
+            {
+              "id": "t8f0YNopU-0",
+              "rank": "#1",
+              "title": "Thu Mỹ: Hello Girl! 😂 | Follow Me | 67 (Six Seven) Trend...",
+              "thumbnail": "https://i.ytimg.com/vi/t8f0YNopU-0/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/t8f0YNopU-0",
+              "views": "80,629,786",
+              "likes": "343,069",
+              "duration": "0:20",
+              "cluster": "댄스·음악 챌린지"
+            },
+            {
+              "id": "SD_2ePNykLU",
+              "rank": "#2",
+              "title": "Chunari Chunari || Dance || WhatsApp (Lyrics) Dance Statu...",
+              "thumbnail": "https://i.ytimg.com/vi/SD_2ePNykLU/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/SD_2ePNykLU",
+              "views": "42,954,324",
+              "likes": "456,830",
+              "duration": "0:30",
+              "cluster": "댄스·음악 챌린지"
+            },
+            {
+              "id": "vmidUsJ5e8Y",
+              "rank": "#3",
+              "title": "Neymar was dancing 🕺 🇧🇷 #shorts #fifaworldcup #brazil",
+              "thumbnail": "https://i.ytimg.com/vi/vmidUsJ5e8Y/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/vmidUsJ5e8Y",
+              "views": "28,002,364",
+              "likes": "280,984",
+              "duration": "0:29",
+              "cluster": "댄스·음악 챌린지"
+            }
+          ],
+          "items": [
+            {
+              "label": "#1",
+              "text": "Thu Mỹ: Hello Girl! 😂 | Follow Me | 67 (S… · 조회 80,629,786 · 좋아요 343,069 · 20초 · 댄스·음악 챌린지"
+            },
+            {
+              "label": "#2",
+              "text": "Chunari Chunari || Dance || WhatsApp (Lyr… · 조회 42,954,324 · 좋아요 456,830 · 30초 · 댄스·음악 챌린지"
+            },
+            {
+              "label": "#3",
+              "text": "Neymar was dancing 🕺 🇧🇷 #shorts #fifaworl… · 조회 28,002,364 · 좋아요 280,984 · 29초 · 댄스·음악 챌린지"
+            }
+          ]
+        },
+        {
+          "title": "오늘 신호",
+          "items": [
+            {
+              "label": "강한 포맷",
+              "text": "댄스·음악 챌린지 112개 / 100%"
+            },
+            {
+              "label": "감지 기준",
+              "text": "7/5 랭킹·API 재감지 112개 / 신규 편입 6개 / 기존 재확인 106개"
+            },
+            {
+              "label": "반응 밀도",
+              "text": "Chunari Chunari || Dance || WhatsApp (Lyr… · 좋아요 456,830 · 조회 대비 1.1%"
+            },
+            {
+              "label": "API 조건",
+              "text": "search / videos / 50,000뷰 이상 / 40초 미만"
+            }
+          ]
+        },
+        {
+          "title": "제작 액션",
+          "items": [
+            {
+              "label": "우선 적용",
+              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
+            },
+            {
+              "label": "참고 영상",
+              "text": "Thu Mỹ: Hello Girl! 😂 | Follow Me | 67 (Six S… · 조회 80,629,786 · 좋아요 343,069"
+            },
+            {
+              "label": "길이",
+              "text": "40초 미만 112개 / 제한 근접 9개 / 평균 20초"
+            },
+            {
+              "label": "변화",
+              "text": "댄스·음악 챌린지 강세 유지 / 7/5 재감지 표본 기준"
+            },
+            {
+              "label": "검토 포인트",
+              "text": "첫 프레임에서 결과 질문을 만들고 마지막 컷에서 보상 회수"
+            }
+          ]
+        }
+      ],
+      "sources": [],
+      "creatorCards": []
+    }
+  },
+  {
     "dateKey": "2026-07-04",
     "updatedAt": "2026-07-04T07:34:47+09:00",
     "updatedLabel": "7/4 07:34",
@@ -8,11 +275,11 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "4316개"
+          "value": "4339개"
         },
         {
           "label": "오늘 감지",
-          "value": "841개"
+          "value": "718개"
         },
         {
           "label": "신규 편입",
@@ -20,7 +287,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "841개"
+          "value": "718개"
         },
         {
           "label": "기준",
@@ -28,10 +295,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 154개",
-        "상황형 코미디·짧은 사건 54개",
-        "편집·슬로우드 사운드 17개",
-        "스포츠·퍼포먼스 순간 16개"
+        "댄스·음악 챌린지 59개",
+        "상황형 코미디·짧은 사건 45개",
+        "스포츠·퍼포먼스 순간 12개",
+        "K-pop·아이돌 파생 9개"
       ],
       "cards": [
         {
@@ -91,11 +358,11 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 154개 / 18%"
+              "text": "댄스·음악 챌린지 59개 / 8%"
             },
             {
               "label": "감지 기준",
-              "text": "7/4 랭킹·API 재감지 841개 / 신규 편입 87개 / 기존 재확인 754개"
+              "text": "7/4 랭킹·API 재감지 718개 / 신규 편입 87개 / 기존 재확인 631개"
             },
             {
               "label": "반응 밀도",
@@ -116,7 +383,7 @@
             },
             {
               "label": "길이",
-              "text": "40초 미만 841개 / 제한 근접 52개 / 평균 19초"
+              "text": "40초 미만 718개 / 제한 근접 43개 / 평균 19초"
             },
             {
               "label": "변화",
@@ -137,11 +404,11 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "513개"
+          "value": "519개"
         },
         {
           "label": "오늘 감지",
-          "value": "116개"
+          "value": "22개"
         },
         {
           "label": "신규 편입",
@@ -149,7 +416,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "116개"
+          "value": "22개"
         },
         {
           "label": "기준",
@@ -157,61 +424,61 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 116개",
-        "편집·슬로우드 사운드 13개",
-        "K-pop·아이돌 파생 7개",
-        "상황형 코미디·짧은 사건 6개"
+        "댄스·음악 챌린지 22개",
+        "상황형 코미디·짧은 사건 2개",
+        "편집·슬로우드 사운드 1개",
+        "K-pop·아이돌 파생 1개"
       ],
       "cards": [
         {
           "title": "핵심 영상",
           "videos": [
             {
-              "id": "t8f0YNopU-0",
-              "rank": "#1",
-              "title": "Thu Mỹ: Hello Girl! 😂 | Follow Me | 67 (Six Seven) Trend...",
-              "thumbnail": "https://i.ytimg.com/vi/t8f0YNopU-0/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/t8f0YNopU-0",
-              "views": "80,428,513",
-              "likes": "342,324",
-              "duration": "0:20",
-              "cluster": "댄스·음악 챌린지"
-            },
-            {
-              "id": "SD_2ePNykLU",
-              "rank": "#2",
-              "title": "Chunari Chunari || Dance || WhatsApp (Lyrics) Dance Statu...",
-              "thumbnail": "https://i.ytimg.com/vi/SD_2ePNykLU/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/SD_2ePNykLU",
-              "views": "41,393,388",
-              "likes": "441,547",
-              "duration": "0:30",
-              "cluster": "댄스·음악 챌린지"
-            },
-            {
               "id": "vmidUsJ5e8Y",
-              "rank": "#3",
+              "rank": "#1",
               "title": "Neymar was dancing 🕺 🇧🇷 #shorts #fifaworldcup #brazil",
               "thumbnail": "https://i.ytimg.com/vi/vmidUsJ5e8Y/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/vmidUsJ5e8Y",
-              "views": "27,981,090",
-              "likes": "280,654",
+              "views": "28,002,364",
+              "likes": "280,984",
               "duration": "0:29",
+              "cluster": "댄스·음악 챌린지"
+            },
+            {
+              "id": "NiRy_3DJrW0",
+              "rank": "#2",
+              "title": "Which Is Best Clip😮‍💨⚽ SHAKIRA DAI DAI TREND DANCE🤍 #shak...",
+              "thumbnail": "https://i.ytimg.com/vi/NiRy_3DJrW0/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/NiRy_3DJrW0",
+              "views": "7,762,076",
+              "likes": "26,492",
+              "duration": "0:06",
+              "cluster": "댄스·음악 챌린지"
+            },
+            {
+              "id": "Sp2T9sTMj1E",
+              "rank": "#3",
+              "title": "440 Volt ✨ || Funny 😂 || WhatsApp (Lyrics) Dance Status |...",
+              "thumbnail": "https://i.ytimg.com/vi/Sp2T9sTMj1E/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/Sp2T9sTMj1E",
+              "views": "9,022,666",
+              "likes": "확인 필요",
+              "duration": "0:13",
               "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Thu Mỹ: Hello Girl! 😂 | Follow Me | 67 (S… · 조회 80,428,513 · 좋아요 342,324 · 20초 · 댄스·음악 챌린지"
+              "text": "Neymar was dancing 🕺 🇧🇷 #shorts #fifaworl… · 조회 28,002,364 · 좋아요 280,984 · 29초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Chunari Chunari || Dance || WhatsApp (Lyr… · 조회 41,393,388 · 좋아요 441,547 · 30초 · 댄스·음악 챌린지"
+              "text": "Which Is Best Clip😮‍💨⚽ SHAKIRA DAI DAI TR… · 조회 7,762,076 · 좋아요 26,492 · 6초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "Neymar was dancing 🕺 🇧🇷 #shorts #fifaworl… · 조회 27,981,090 · 좋아요 280,654 · 29초 · 댄스·음악 챌린지"
+              "text": "440 Volt ✨ || Funny 😂 || WhatsApp (Lyrics… · 조회 9,022,666 · 좋아요 확인 필요 · 13초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -220,15 +487,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 116개 / 100%"
+              "text": "댄스·음악 챌린지 22개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "7/4 랭킹·API 재감지 116개 / 신규 편입 11개 / 기존 재확인 105개"
+              "text": "7/4 랭킹·API 재감지 22개 / 신규 편입 11개 / 기존 재확인 11개"
             },
             {
               "label": "반응 밀도",
-              "text": "Chunari Chunari || Dance || WhatsApp (Lyr… · 좋아요 441,547 · 조회 대비 1.1%"
+              "text": "Neymar was dancing 🕺 🇧🇷 #shorts #fifaworl… · 좋아요 280,984 · 조회 대비 1.0%"
             },
             {
               "label": "API 조건",
@@ -245,11 +512,11 @@
             },
             {
               "label": "참고 영상",
-              "text": "Thu Mỹ: Hello Girl! 😂 | Follow Me | 67 (Six S… · 조회 80,428,513 · 좋아요 342,324"
+              "text": "Neymar was dancing 🕺 🇧🇷 #shorts #fifaworldcup… · 조회 28,002,364 · 좋아요 280,984"
             },
             {
               "label": "길이",
-              "text": "40초 미만 116개 / 제한 근접 7개 / 평균 20초"
+              "text": "40초 미만 22개 / 제한 근접 0개 / 평균 20초"
             },
             {
               "label": "변화",
@@ -275,11 +542,11 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "4316개"
+          "value": "4339개"
         },
         {
           "label": "오늘 감지",
-          "value": "193개"
+          "value": "190개"
         },
         {
           "label": "신규 편입",
@@ -287,7 +554,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "193개"
+          "value": "190개"
         },
         {
           "label": "기준",
@@ -295,7 +562,7 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 30개",
+        "댄스·음악 챌린지 27개",
         "상황형 코미디·짧은 사건 7개",
         "스포츠·퍼포먼스 순간 7개",
         "K-pop·아이돌 파생 5개"
@@ -358,11 +625,11 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 30개 / 16%"
+              "text": "댄스·음악 챌린지 27개 / 14%"
             },
             {
               "label": "감지 기준",
-              "text": "7/3 랭킹·API 재감지 193개 / 신규 편입 154개 / 기존 재확인 39개"
+              "text": "7/3 랭킹·API 재감지 190개 / 신규 편입 154개 / 기존 재확인 36개"
             },
             {
               "label": "반응 밀도",
@@ -383,7 +650,7 @@
             },
             {
               "label": "길이",
-              "text": "40초 미만 193개 / 제한 근접 10개 / 평균 18초"
+              "text": "40초 미만 190개 / 제한 근접 10개 / 평균 18초"
             },
             {
               "label": "변화",
@@ -404,11 +671,11 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "513개"
+          "value": "519개"
         },
         {
           "label": "오늘 감지",
-          "value": "23개"
+          "value": "20개"
         },
         {
           "label": "신규 편입",
@@ -416,7 +683,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "23개"
+          "value": "20개"
         },
         {
           "label": "기준",
@@ -424,7 +691,7 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 23개",
+        "댄스·음악 챌린지 20개",
         "편집·슬로우드 사운드 3개",
         "K-pop·아이돌 파생 3개",
         "스포츠·퍼포먼스 순간 1개"
@@ -439,8 +706,8 @@
               "title": "Chunari Chunari || Dance || WhatsApp (Lyrics) Dance Statu...",
               "thumbnail": "https://i.ytimg.com/vi/SD_2ePNykLU/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/SD_2ePNykLU",
-              "views": "41,393,388",
-              "likes": "441,547",
+              "views": "42,954,324",
+              "likes": "456,830",
               "duration": "0:30",
               "cluster": "댄스·음악 챌린지"
             },
@@ -470,7 +737,7 @@
           "items": [
             {
               "label": "#1",
-              "text": "Chunari Chunari || Dance || WhatsApp (Lyr… · 조회 41,393,388 · 좋아요 441,547 · 30초 · 댄스·음악 챌린지"
+              "text": "Chunari Chunari || Dance || WhatsApp (Lyr… · 조회 42,954,324 · 좋아요 456,830 · 30초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
@@ -487,15 +754,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 23개 / 100%"
+              "text": "댄스·음악 챌린지 20개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "7/3 랭킹·API 재감지 23개 / 신규 편입 7개 / 기존 재확인 16개"
+              "text": "7/3 랭킹·API 재감지 20개 / 신규 편입 7개 / 기존 재확인 13개"
             },
             {
               "label": "반응 밀도",
-              "text": "Chunari Chunari || Dance || WhatsApp (Lyr… · 좋아요 441,547 · 조회 대비 1.1%"
+              "text": "Chunari Chunari || Dance || WhatsApp (Lyr… · 좋아요 456,830 · 조회 대비 1.1%"
             },
             {
               "label": "API 조건",
@@ -512,15 +779,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "Chunari Chunari || Dance || WhatsApp (Lyrics)… · 조회 41,393,388 · 좋아요 441,547"
+              "text": "Chunari Chunari || Dance || WhatsApp (Lyrics)… · 조회 42,954,324 · 좋아요 456,830"
             },
             {
               "label": "길이",
-              "text": "40초 미만 23개 / 제한 근접 1개 / 평균 19초"
+              "text": "40초 미만 20개 / 제한 근접 1개 / 평균 19초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 강세 유지 / 7/3 재감지 표본 기준"
+              "text": "K-pop·아이돌 파생 비중 +9%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -542,7 +809,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "4316개"
+          "value": "4339개"
         },
         {
           "label": "오늘 감지",
@@ -583,8 +850,19 @@
               "cluster": "제목·조회수 기반 급상승"
             },
             {
-              "id": "BxPZZs5gA-w",
+              "id": "J4JVEEkTHR4",
               "rank": "#2",
+              "title": "Which Country Wins The World Cup? 🤝🔊",
+              "thumbnail": "https://i.ytimg.com/vi/J4JVEEkTHR4/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/J4JVEEkTHR4",
+              "views": "47,926,906",
+              "likes": "1,654,084",
+              "duration": "0:39",
+              "cluster": "제목·조회수 기반 급상승"
+            },
+            {
+              "id": "BxPZZs5gA-w",
+              "rank": "#3",
               "title": "Messi and Ronaldo rivalry❤️🔥🥶 #football",
               "thumbnail": "https://i.ytimg.com/vi/BxPZZs5gA-w/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/BxPZZs5gA-w",
@@ -592,17 +870,6 @@
               "likes": "1,200,330",
               "duration": "0:26",
               "cluster": "스포츠·퍼포먼스 순간"
-            },
-            {
-              "id": "KkNyPH6iXIw",
-              "rank": "#3",
-              "title": "Perfect Slice Challenge (ft. John Cena)",
-              "thumbnail": "https://i.ytimg.com/vi/KkNyPH6iXIw/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/KkNyPH6iXIw",
-              "views": "32,829,078",
-              "likes": "835,098",
-              "duration": "0:27",
-              "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
@@ -612,11 +879,11 @@
             },
             {
               "label": "#2",
-              "text": "Messi and Ronaldo rivalry❤️🔥🥶 #football · 조회 44,796,038 · 좋아요 1,200,330 · 26초 · 스포츠·퍼포먼스 순간"
+              "text": "Which Country Wins The World Cup? 🤝🔊 · 조회 47,926,906 · 좋아요 1,654,084 · 39초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
-              "text": "Perfect Slice Challenge (ft / John Cena) · 조회 32,829,078 · 좋아요 835,098 · 27초 · 댄스·음악 챌린지"
+              "text": "Messi and Ronaldo rivalry❤️🔥🥶 #football · 조회 44,796,038 · 좋아요 1,200,330 · 26초 · 스포츠·퍼포먼스 순간"
             }
           ]
         },
@@ -633,7 +900,7 @@
             },
             {
               "label": "반응 밀도",
-              "text": "¡Pequeña Zoey Patina! 🛼✨ Rumi Prioriza la… · 좋아요 1,536,209 · 조회 대비 0.5%"
+              "text": "Which Country Wins The World Cup? 🤝🔊 · 좋아요 1,654,084 · 조회 대비 3.5%"
             }
           ]
         },
@@ -671,7 +938,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "513개"
+          "value": "519개"
         },
         {
           "label": "오늘 감지",
@@ -717,8 +984,8 @@
               "title": "They put the Digidigidigi in hey 😳Vol 2 #shorts #ai #danc...",
               "thumbnail": "https://i.ytimg.com/vi/aJl4725TGro/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/aJl4725TGro",
-              "views": "17,175,267",
-              "likes": "375,030",
+              "views": "17,250,709",
+              "likes": "376,081",
               "duration": "0:36",
               "cluster": "댄스·음악 챌린지"
             },
@@ -741,7 +1008,7 @@
             },
             {
               "label": "#2",
-              "text": "They put the Digidigidigi in hey 😳Vol 2 #… · 조회 17,175,267 · 좋아요 375,030 · 36초 · 댄스·음악 챌린지"
+              "text": "They put the Digidigidigi in hey 😳Vol 2 #… · 조회 17,250,709 · 좋아요 376,081 · 36초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
@@ -809,7 +1076,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "4316개"
+          "value": "4339개"
         },
         {
           "label": "오늘 감지",
@@ -855,8 +1122,8 @@
               "title": "Phones In 2000 vs 2010 vs 2020 vs 2030.",
               "thumbnail": "https://i.ytimg.com/vi/yaDcdlYhW-A/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/yaDcdlYhW-A",
-              "views": "59,757,816",
-              "likes": "1,309,135",
+              "views": "64,867,472",
+              "likes": "1,380,734",
               "duration": "0:15",
               "cluster": "상황형 코미디·짧은 사건"
             },
@@ -866,8 +1133,8 @@
               "title": "The Dress Debate That Divided the Internet — Gold vs Pink...",
               "thumbnail": "https://i.ytimg.com/vi/ruAncQPcjNE/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/ruAncQPcjNE",
-              "views": "102,255,567",
-              "likes": "605,770",
+              "views": "104,975,867",
+              "likes": "623,476",
               "duration": "0:17",
               "cluster": "제목·조회수 기반 급상승"
             }
@@ -879,11 +1146,11 @@
             },
             {
               "label": "#2",
-              "text": "Phones In 2000 vs 2010 vs 2020 vs 2030 / · 조회 59,757,816 · 좋아요 1,309,135 · 15초 · 상황형 코미디·짧은 사건"
+              "text": "Phones In 2000 vs 2010 vs 2020 vs 2030 / · 조회 64,867,472 · 좋아요 1,380,734 · 15초 · 상황형 코미디·짧은 사건"
             },
             {
               "label": "#3",
-              "text": "The Dress Debate That Divided the Interne… · 조회 102,255,567 · 좋아요 605,770 · 17초 · 제목·조회수 기반 급상승"
+              "text": "The Dress Debate That Divided the Interne… · 조회 104,975,867 · 좋아요 623,476 · 17초 · 제목·조회수 기반 급상승"
             }
           ]
         },
@@ -900,7 +1167,7 @@
             },
             {
               "label": "반응 밀도",
-              "text": "Phones In 2000 vs 2010 vs 2020 vs 2030 / · 좋아요 1,309,135 · 조회 대비 2.2%"
+              "text": "Phones In 2000 vs 2010 vs 2020 vs 2030 / · 좋아요 1,380,734 · 조회 대비 2.1%"
             }
           ]
         },
@@ -938,7 +1205,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "513개"
+          "value": "519개"
         },
         {
           "label": "오늘 감지",
@@ -989,14 +1256,14 @@
               "cluster": "댄스·음악 챌린지"
             },
             {
-              "id": "YC1FehG6LeQ",
+              "id": "UUEdLKZZMjg",
               "rank": "#3",
-              "title": "You Have $66 to Use! #shorts #challenge #kpop",
-              "thumbnail": "https://i.ytimg.com/vi/YC1FehG6LeQ/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/YC1FehG6LeQ",
-              "views": "1,565,162",
-              "likes": "33,383",
-              "duration": "0:08",
+              "title": "Victoria Zghibarță - What Sounds Like",
+              "thumbnail": "https://i.ytimg.com/vi/UUEdLKZZMjg/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/UUEdLKZZMjg",
+              "views": "2,582,221",
+              "likes": "23,998",
+              "duration": "0:25",
               "cluster": "댄스·음악 챌린지"
             }
           ],
@@ -1011,7 +1278,7 @@
             },
             {
               "label": "#3",
-              "text": "You Have $66 to Use! #shorts #challenge #… · 조회 1,565,162 · 좋아요 33,383 · 8초 · 댄스·음악 챌린지"
+              "text": "Victoria Zghibarță - What Sounds Like · 조회 2,582,221 · 좋아요 23,998 · 25초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -1075,11 +1342,11 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "4316개"
+          "value": "4339개"
         },
         {
           "label": "오늘 감지",
-          "value": "307개"
+          "value": "306개"
         },
         {
           "label": "신규 편입",
@@ -1087,7 +1354,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "307개"
+          "value": "306개"
         },
         {
           "label": "기준",
@@ -1095,7 +1362,7 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 25개",
+        "댄스·음악 챌린지 24개",
         "상황형 코미디·짧은 사건 18개",
         "스포츠·퍼포먼스 순간 13개",
         "K-pop·아이돌 파생 5개"
@@ -1158,11 +1425,11 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 25개 / 8%"
+              "text": "댄스·음악 챌린지 24개 / 8%"
             },
             {
               "label": "감지 기준",
-              "text": "6/30 랭킹·API 재감지 307개 / 신규 편입 137개 / 기존 재확인 170개"
+              "text": "6/30 랭킹·API 재감지 306개 / 신규 편입 137개 / 기존 재확인 169개"
             },
             {
               "label": "반응 밀도",
@@ -1183,7 +1450,7 @@
             },
             {
               "label": "길이",
-              "text": "40초 미만 307개 / 제한 근접 26개 / 평균 20초"
+              "text": "40초 미만 306개 / 제한 근접 26개 / 평균 20초"
             },
             {
               "label": "변화",
@@ -1204,11 +1471,11 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "513개"
+          "value": "519개"
         },
         {
           "label": "오늘 감지",
-          "value": "14개"
+          "value": "13개"
         },
         {
           "label": "신규 편입",
@@ -1216,7 +1483,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "14개"
+          "value": "13개"
         },
         {
           "label": "기준",
@@ -1224,8 +1491,8 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 14개",
-        "편집·슬로우드 사운드 3개",
+        "댄스·음악 챌린지 13개",
+        "편집·슬로우드 사운드 2개",
         "K-pop·아이돌 파생 2개"
       ],
       "cards": [
@@ -1255,14 +1522,14 @@
               "cluster": "댄스·음악 챌린지"
             },
             {
-              "id": "7YdoPjtfJr0",
+              "id": "9_cVv1httvY",
               "rank": "#3",
-              "title": "Jeene Laga Hoon 🥀🎀 || Slowed Reverb || Aesthetic Dance Ly...",
-              "thumbnail": "https://i.ytimg.com/vi/7YdoPjtfJr0/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/7YdoPjtfJr0",
-              "views": "4,356,572",
-              "likes": "확인 필요",
-              "duration": "0:27",
+              "title": "That Ela ké Cavucadinha Beat Hits Hard | TikTok Trend 202...",
+              "thumbnail": "https://i.ytimg.com/vi/9_cVv1httvY/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/9_cVv1httvY",
+              "views": "1,750,086",
+              "likes": "26,044",
+              "duration": "0:16",
               "cluster": "댄스·음악 챌린지"
             }
           ],
@@ -1277,7 +1544,7 @@
             },
             {
               "label": "#3",
-              "text": "Jeene Laga Hoon 🥀🎀 || Slowed Reverb || Ae… · 조회 4,356,572 · 좋아요 확인 필요 · 27초 · 댄스·음악 챌린지"
+              "text": "That Ela ké Cavucadinha Beat Hits Hard |… · 조회 1,750,086 · 좋아요 26,044 · 16초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -1286,11 +1553,11 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 14개 / 100%"
+              "text": "댄스·음악 챌린지 13개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "6/30 랭킹·API 재감지 14개 / 신규 편입 6개 / 기존 재확인 8개"
+              "text": "6/30 랭킹·API 재감지 13개 / 신규 편입 6개 / 기존 재확인 7개"
             },
             {
               "label": "반응 밀도",
@@ -1315,7 +1582,7 @@
             },
             {
               "label": "길이",
-              "text": "40초 미만 14개 / 제한 근접 1개 / 평균 19초"
+              "text": "40초 미만 13개 / 제한 근접 1개 / 평균 18초"
             },
             {
               "label": "변화",
@@ -1341,7 +1608,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "4316개"
+          "value": "4339개"
         },
         {
           "label": "오늘 감지",
@@ -1470,7 +1737,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "513개"
+          "value": "519개"
         },
         {
           "label": "오늘 감지",
@@ -1516,8 +1783,8 @@
               "title": "붉은 악마도 디기디기는 못 참지🎶🤣 #digidigi #디기디기챌린지 #디기디기 #돼지댄서 #랜덤플레이...",
               "thumbnail": "https://i.ytimg.com/vi/63UB7zbg354/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/63UB7zbg354",
-              "views": "5,574,517",
-              "likes": "31,048",
+              "views": "5,928,643",
+              "likes": "32,893",
               "duration": "0:23",
               "cluster": "댄스·음악 챌린지"
             },
@@ -1540,7 +1807,7 @@
             },
             {
               "label": "#2",
-              "text": "붉은 악마도 디기디기는 못 참지🎶🤣 #digidigi #디기디기챌린지 #디… · 조회 5,574,517 · 좋아요 31,048 · 23초 · 댄스·음악 챌린지"
+              "text": "붉은 악마도 디기디기는 못 참지🎶🤣 #digidigi #디기디기챌린지 #디… · 조회 5,928,643 · 좋아요 32,893 · 23초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
@@ -1608,7 +1875,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "4316개"
+          "value": "4339개"
         },
         {
           "label": "오늘 감지",
@@ -1737,7 +2004,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "513개"
+          "value": "519개"
         },
         {
           "label": "오늘 감지",
@@ -1793,8 +2060,8 @@
               "title": "TikTok Viral Trend | FUNK POU Trend #tiktok #trending #ed...",
               "thumbnail": "https://i.ytimg.com/vi/Y3FZhmnw1B8/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/Y3FZhmnw1B8",
-              "views": "7,472,700",
-              "likes": "74,779",
+              "views": "7,515,776",
+              "likes": "75,437",
               "duration": "0:13",
               "cluster": "댄스·음악 챌린지"
             }
@@ -1810,7 +2077,7 @@
             },
             {
               "label": "#3",
-              "text": "TikTok Viral Trend | FUNK POU Trend #tikt… · 조회 7,472,700 · 좋아요 74,779 · 13초 · 댄스·음악 챌린지"
+              "text": "TikTok Viral Trend | FUNK POU Trend #tikt… · 조회 7,515,776 · 좋아요 75,437 · 13초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -1874,7 +2141,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "4316개"
+          "value": "4339개"
         },
         {
           "label": "오늘 감지",
@@ -2003,7 +2270,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "513개"
+          "value": "519개"
         },
         {
           "label": "오늘 감지",
@@ -2118,7 +2385,7 @@
             },
             {
               "label": "변화",
-              "text": "K-pop·아이돌 파생 비중 +8%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 강세 유지 / 6/27 재감지 표본 기준"
             },
             {
               "label": "검토 포인트",
@@ -2140,7 +2407,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "4316개"
+          "value": "4339개"
         },
         {
           "label": "오늘 감지",
@@ -2186,8 +2453,8 @@
               "title": "I Raced The Fastest Man On Earth",
               "thumbnail": "https://i.ytimg.com/vi/XCGVurja73c/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/XCGVurja73c",
-              "views": "59,551,587",
-              "likes": "1,496,418",
+              "views": "60,577,733",
+              "likes": "1,516,739",
               "duration": "0:25",
               "cluster": "제목·조회수 기반 급상승"
             },
@@ -2210,7 +2477,7 @@
             },
             {
               "label": "#2",
-              "text": "I Raced The Fastest Man On Earth · 조회 59,551,587 · 좋아요 1,496,418 · 25초 · 제목·조회수 기반 급상승"
+              "text": "I Raced The Fastest Man On Earth · 조회 60,577,733 · 좋아요 1,516,739 · 25초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
@@ -2231,7 +2498,7 @@
             },
             {
               "label": "반응 밀도",
-              "text": "I Raced The Fastest Man On Earth · 좋아요 1,496,418 · 조회 대비 2.5%"
+              "text": "I Raced The Fastest Man On Earth · 좋아요 1,516,739 · 조회 대비 2.5%"
             }
           ]
         },
@@ -2269,7 +2536,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "513개"
+          "value": "519개"
         },
         {
           "label": "오늘 감지",
@@ -2314,8 +2581,8 @@
               "title": "SHAKIRA - DAI DAI 🔥 FIFA World Cup 2026 Dance Trend ⚽ #sh...",
               "thumbnail": "https://i.ytimg.com/vi/IXFIUv7XV6M/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/IXFIUv7XV6M",
-              "views": "1,523,212",
-              "likes": "27,334",
+              "views": "1,542,456",
+              "likes": "27,640",
               "duration": "0:22",
               "cluster": "댄스·음악 챌린지"
             },
@@ -2325,8 +2592,8 @@
               "title": "Brazil vs Argentina..! Who Wins the World Cup Dance Chall...",
               "thumbnail": "https://i.ytimg.com/vi/5vWzaDYvVLk/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/5vWzaDYvVLk",
-              "views": "1,590,411",
-              "likes": "20,686",
+              "views": "1,659,311",
+              "likes": "21,595",
               "duration": "0:19",
               "cluster": "댄스·음악 챌린지"
             }
@@ -2338,11 +2605,11 @@
             },
             {
               "label": "#2",
-              "text": "SHAKIRA - DAI DAI 🔥 FIFA World Cup 2026 D… · 조회 1,523,212 · 좋아요 27,334 · 22초 · 댄스·음악 챌린지"
+              "text": "SHAKIRA - DAI DAI 🔥 FIFA World Cup 2026 D… · 조회 1,542,456 · 좋아요 27,640 · 22초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "Brazil vs Argentina..! Who Wins the World… · 조회 1,590,411 · 좋아요 20,686 · 19초 · 댄스·음악 챌린지"
+              "text": "Brazil vs Argentina..! Who Wins the World… · 조회 1,659,311 · 좋아요 21,595 · 19초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -2359,7 +2626,7 @@
             },
             {
               "label": "반응 밀도",
-              "text": "SHAKIRA - DAI DAI 🔥 FIFA World Cup 2026 D… · 좋아요 27,334 · 조회 대비 1.8%"
+              "text": "SHAKIRA - DAI DAI 🔥 FIFA World Cup 2026 D… · 좋아요 27,640 · 조회 대비 1.8%"
             },
             {
               "label": "API 조건",
@@ -2406,7 +2673,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "4316개"
+          "value": "4339개"
         },
         {
           "label": "오늘 감지",
@@ -2534,7 +2801,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "513개"
+          "value": "519개"
         },
         {
           "label": "오늘 감지",
@@ -2566,8 +2833,8 @@
               "title": "@Belitskay: Hello Girl! 😍 | Follow Me | Six Seven 67 Danc...",
               "thumbnail": "https://i.ytimg.com/vi/qBc_AEzpfxo/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/qBc_AEzpfxo",
-              "views": "18,017,282",
-              "likes": "102,755",
+              "views": "18,031,823",
+              "likes": "102,911",
               "duration": "0:20",
               "cluster": "댄스·음악 챌린지"
             },
@@ -2583,21 +2850,21 @@
               "cluster": "댄스·음악 챌린지"
             },
             {
-              "id": "EJALBwzYz7Y",
+              "id": "icxMW8M8qTw",
               "rank": "#3",
-              "title": "260530 음악중심 ITZY 미니팬미팅 채령 캐치 캐치 챌린지 4k 60p 직캠 #Shorts",
-              "thumbnail": "https://i.ytimg.com/vi/EJALBwzYz7Y/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/EJALBwzYz7Y",
-              "views": "3,595,642",
-              "likes": "50,457",
-              "duration": "0:21",
+              "title": "ARGENTINA vs ALGERIA🔥 Which Team?😳 FIFA World Cup⚽",
+              "thumbnail": "https://i.ytimg.com/vi/icxMW8M8qTw/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/icxMW8M8qTw",
+              "views": "4,224,320",
+              "likes": "44,672",
+              "duration": "0:36",
               "cluster": "댄스·음악 챌린지"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "@Belitskay: Hello Girl! 😍 | Follow Me | S… · 조회 18,017,282 · 좋아요 102,755 · 20초 · 댄스·음악 챌린지"
+              "text": "@Belitskay: Hello Girl! 😍 | Follow Me | S… · 조회 18,031,823 · 좋아요 102,911 · 20초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
@@ -2605,7 +2872,7 @@
             },
             {
               "label": "#3",
-              "text": "260530 음악중심 ITZY 미니팬미팅 채령 캐치 캐치 챌린지 4k 60… · 조회 3,595,642 · 좋아요 50,457 · 21초 · 댄스·음악 챌린지"
+              "text": "ARGENTINA vs ALGERIA🔥 Which Team?😳 FIFA W… · 조회 4,224,320 · 좋아요 44,672 · 36초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -2622,7 +2889,7 @@
             },
             {
               "label": "반응 밀도",
-              "text": "@Belitskay: Hello Girl! 😍 | Follow Me | S… · 좋아요 102,755 · 조회 대비 0.6%"
+              "text": "@Belitskay: Hello Girl! 😍 | Follow Me | S… · 좋아요 102,911 · 조회 대비 0.6%"
             },
             {
               "label": "API 조건",
@@ -2639,7 +2906,7 @@
             },
             {
               "label": "참고 영상",
-              "text": "@Belitskay: Hello Girl! 😍 | Follow Me | Six S… · 조회 18,017,282 · 좋아요 102,755"
+              "text": "@Belitskay: Hello Girl! 😍 | Follow Me | Six S… · 조회 18,031,823 · 좋아요 102,911"
             },
             {
               "label": "길이",
@@ -2669,7 +2936,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "4316개"
+          "value": "4339개"
         },
         {
           "label": "오늘 감지",
@@ -2798,7 +3065,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "513개"
+          "value": "519개"
         },
         {
           "label": "오늘 감지",
@@ -2913,7 +3180,7 @@
             },
             {
               "label": "변화",
-              "text": "K-pop·아이돌 파생 비중 +10%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "K-pop·아이돌 파생 비중 +9%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -2935,7 +3202,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "4316개"
+          "value": "4339개"
         },
         {
           "label": "오늘 감지",
@@ -3064,7 +3331,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "513개"
+          "value": "519개"
         },
         {
           "label": "오늘 감지",
@@ -3121,7 +3388,7 @@
               "thumbnail": "https://i.ytimg.com/vi/po3CnwnSjcU/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/po3CnwnSjcU",
               "views": "12,835,390",
-              "likes": "23,466",
+              "likes": "23,479",
               "duration": "0:14",
               "cluster": "댄스·음악 챌린지"
             }
@@ -3137,7 +3404,7 @@
             },
             {
               "label": "#3",
-              "text": "VIRAL SHAKIRA DAI DAI DANCE TREND 😳 #shor… · 조회 12,835,390 · 좋아요 23,466 · 14초 · 댄스·음악 챌린지"
+              "text": "VIRAL SHAKIRA DAI DAI DANCE TREND 😳 #shor… · 조회 12,835,390 · 좋아요 23,479 · 14초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -3201,7 +3468,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "4316개"
+          "value": "4339개"
         },
         {
           "label": "오늘 감지",
@@ -3330,7 +3597,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "513개"
+          "value": "519개"
         },
         {
           "label": "오늘 감지",
@@ -3447,273 +3714,6 @@
             {
               "label": "변화",
               "text": "상황형 코미디·짧은 사건 비중 +11%p / 오늘 랭킹에서 가장 빠르게 확대"
-            },
-            {
-              "label": "검토 포인트",
-              "text": "첫 프레임에서 결과 질문을 만들고 마지막 컷에서 보상 회수"
-            }
-          ]
-        }
-      ],
-      "sources": [],
-      "creatorCards": []
-    }
-  },
-  {
-    "dateKey": "2026-06-21",
-    "updatedAt": "2026-06-21T07:44:22+09:00",
-    "updatedLabel": "6/21 07:44",
-    "global": {
-      "title": "트렌드 분석",
-      "metrics": [
-        {
-          "label": "전체 표시",
-          "value": "4316개"
-        },
-        {
-          "label": "오늘 감지",
-          "value": "133개"
-        },
-        {
-          "label": "신규 편입",
-          "value": "97개"
-        },
-        {
-          "label": "분석 표본",
-          "value": "133개"
-        },
-        {
-          "label": "기준",
-          "value": "50,000뷰 이상"
-        }
-      ],
-      "badges": [
-        "댄스·음악 챌린지 28개",
-        "상황형 코미디·짧은 사건 6개",
-        "K-pop·아이돌 파생 5개",
-        "편집·슬로우드 사운드 4개"
-      ],
-      "cards": [
-        {
-          "title": "핵심 영상",
-          "videos": [
-            {
-              "id": "-t7n04U0F5o",
-              "rank": "#1",
-              "title": "Left or Right! (Fight with Pro Wrestler!) feat ‪@RedScorp...",
-              "thumbnail": "https://i.ytimg.com/vi/-t7n04U0F5o/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/-t7n04U0F5o",
-              "views": "383,135,661",
-              "likes": "6,407,395",
-              "duration": "0:28",
-              "cluster": "제목·조회수 기반 급상승"
-            },
-            {
-              "id": "XMzx1UPYMrc",
-              "rank": "#2",
-              "title": "Advit mere liye bandaid laya 😇 Tom & Jerry #shorts #emoti...",
-              "thumbnail": "https://i.ytimg.com/vi/XMzx1UPYMrc/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/XMzx1UPYMrc",
-              "views": "180,796,252",
-              "likes": "1,296,285",
-              "duration": "0:31",
-              "cluster": "제목·조회수 기반 급상승"
-            },
-            {
-              "id": "KAGtyqVflG8",
-              "rank": "#3",
-              "title": "Did the cute puppy go to heaven with the balloon? 😭",
-              "thumbnail": "https://i.ytimg.com/vi/KAGtyqVflG8/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/KAGtyqVflG8",
-              "views": "149,176,095",
-              "likes": "1,305,265",
-              "duration": "0:25",
-              "cluster": "제목·조회수 기반 급상승"
-            }
-          ],
-          "items": [
-            {
-              "label": "#1",
-              "text": "Left or Right! (Fight with Pro Wrestler!)… · 조회 383,135,661 · 좋아요 6,407,395 · 28초 · 제목·조회수 기반 급상승"
-            },
-            {
-              "label": "#2",
-              "text": "Advit mere liye bandaid laya 😇 Tom & Jerr… · 조회 180,796,252 · 좋아요 1,296,285 · 31초 · 제목·조회수 기반 급상승"
-            },
-            {
-              "label": "#3",
-              "text": "Did the cute puppy go to heaven with the… · 조회 149,176,095 · 좋아요 1,305,265 · 25초 · 제목·조회수 기반 급상승"
-            }
-          ]
-        },
-        {
-          "title": "오늘 신호",
-          "items": [
-            {
-              "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 28개 / 21%"
-            },
-            {
-              "label": "감지 기준",
-              "text": "6/21 랭킹·API 재감지 133개 / 신규 편입 97개 / 기존 재확인 36개"
-            },
-            {
-              "label": "반응 밀도",
-              "text": "Left or Right! (Fight with Pro Wrestler!)… · 좋아요 6,407,395 · 조회 대비 1.7%"
-            }
-          ]
-        },
-        {
-          "title": "제작 액션",
-          "items": [
-            {
-              "label": "우선 적용",
-              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
-            },
-            {
-              "label": "참고 영상",
-              "text": "Left or Right! (Fight with Pro Wrestler!) fea… · 조회 383,135,661 · 좋아요 6,407,395"
-            },
-            {
-              "label": "길이",
-              "text": "40초 미만 133개 / 제한 근접 8개 / 평균 19초"
-            },
-            {
-              "label": "변화",
-              "text": "댄스·음악 챌린지 강세 유지 / 6/21 재감지 표본 기준"
-            },
-            {
-              "label": "검토 포인트",
-              "text": "첫 프레임에서 결과 질문을 만들고 마지막 컷에서 보상 회수"
-            }
-          ]
-        }
-      ],
-      "sources": [],
-      "creatorCards": []
-    },
-    "api": {
-      "title": "YouTube API 인사이트",
-      "metrics": [
-        {
-          "label": "전체 표시",
-          "value": "513개"
-        },
-        {
-          "label": "오늘 감지",
-          "value": "21개"
-        },
-        {
-          "label": "신규 편입",
-          "value": "15개"
-        },
-        {
-          "label": "분석 표본",
-          "value": "21개"
-        },
-        {
-          "label": "기준",
-          "value": "50,000뷰 이상"
-        }
-      ],
-      "badges": [
-        "댄스·음악 챌린지 21개",
-        "편집·슬로우드 사운드 3개",
-        "K-pop·아이돌 파생 2개",
-        "상황형 코미디·짧은 사건 1개"
-      ],
-      "cards": [
-        {
-          "title": "핵심 영상",
-          "videos": [
-            {
-              "id": "ss5yiQSnGcI",
-              "rank": "#1",
-              "title": "🔥 Shakira 🇲🇽 vs Nora 🇨🇦 vs Lisa 🇺🇸 | FIFA World Cup 2026...",
-              "thumbnail": "https://i.ytimg.com/vi/ss5yiQSnGcI/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/ss5yiQSnGcI",
-              "views": "9,291,376",
-              "likes": "190,721",
-              "duration": "0:22",
-              "cluster": "댄스·음악 챌린지"
-            },
-            {
-              "id": "u-VWR86nCDQ",
-              "rank": "#2",
-              "title": "⏰️15초‼️타이머 댄스 챌린지⁉️ 채이는 과연⁉️🤣🤣 #춤추는곰돌 #춤추는채이 #춤추는곰돌의랜덤댄스...",
-              "thumbnail": "https://i.ytimg.com/vi/u-VWR86nCDQ/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/u-VWR86nCDQ",
-              "views": "6,969,940",
-              "likes": "82,627",
-              "duration": "0:22",
-              "cluster": "댄스·음악 챌린지"
-            },
-            {
-              "id": "pa9QCkAGAis",
-              "rank": "#3",
-              "title": "\"Billy Butcher🗿 Vs 150 Supes💪\" - The Boys edit | FUNK TAK...",
-              "thumbnail": "https://i.ytimg.com/vi/pa9QCkAGAis/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/pa9QCkAGAis",
-              "views": "3,390,633",
-              "likes": "123,615",
-              "duration": "0:30",
-              "cluster": "댄스·음악 챌린지"
-            }
-          ],
-          "items": [
-            {
-              "label": "#1",
-              "text": "🔥 Shakira 🇲🇽 vs Nora 🇨🇦 vs Lisa 🇺🇸 | FIFA… · 조회 9,291,376 · 좋아요 190,721 · 22초 · 댄스·음악 챌린지"
-            },
-            {
-              "label": "#2",
-              "text": "⏰️15초‼️타이머 댄스 챌린지⁉️ 채이는 과연⁉️🤣🤣 #춤추는곰돌 #춤추… · 조회 6,969,940 · 좋아요 82,627 · 22초 · 댄스·음악 챌린지"
-            },
-            {
-              "label": "#3",
-              "text": "\"Billy Butcher🗿 Vs 150 Supes💪\" - The Boys… · 조회 3,390,633 · 좋아요 123,615 · 30초 · 댄스·음악 챌린지"
-            }
-          ]
-        },
-        {
-          "title": "오늘 신호",
-          "items": [
-            {
-              "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 21개 / 100%"
-            },
-            {
-              "label": "감지 기준",
-              "text": "6/21 랭킹·API 재감지 21개 / 신규 편입 15개 / 기존 재확인 6개"
-            },
-            {
-              "label": "반응 밀도",
-              "text": "🔥 Shakira 🇲🇽 vs Nora 🇨🇦 vs Lisa 🇺🇸 | FIFA… · 좋아요 190,721 · 조회 대비 2.1%"
-            },
-            {
-              "label": "API 조건",
-              "text": "search / videos / 50,000뷰 이상 / 40초 미만"
-            }
-          ]
-        },
-        {
-          "title": "제작 액션",
-          "items": [
-            {
-              "label": "우선 적용",
-              "text": "음악 훅과 따라 하기 쉬운 동작을 초반에 배치하고, 루프가 자연스럽게 이어지게 만듦"
-            },
-            {
-              "label": "참고 영상",
-              "text": "🔥 Shakira 🇲🇽 vs Nora 🇨🇦 vs Lisa 🇺🇸 | FIFA Wor… · 조회 9,291,376 · 좋아요 190,721"
-            },
-            {
-              "label": "길이",
-              "text": "40초 미만 21개 / 제한 근접 0개 / 평균 21초"
-            },
-            {
-              "label": "변화",
-              "text": "댄스·음악 챌린지 강세 유지 / 6/21 재감지 표본 기준"
             },
             {
               "label": "검토 포인트",
