@@ -1,5 +1,135 @@
 [
   {
+    "id": "cn3UCMHY6XA",
+    "region": "id",
+    "regionLabel": "인도네시아",
+    "title": "KAPILUT",
+    "channel": "76 Channel",
+    "category": "YouTube Data API Shorts Search",
+    "shortsUrl": "https://www.youtube.com/shorts/cn3UCMHY6XA",
+    "thumbnail": "https://i.ytimg.com/vi/cn3UCMHY6XA/hqdefault.jpg",
+    "viewsGained": 91782,
+    "likeCount": 404,
+    "sourceRank": 24,
+    "sourceWindow": "api-viewCount",
+    "sourceName": "YouTube Data API - 인도네시아",
+    "sourceUrl": "https://www.youtube.com/results?search_query=Indonesia+dance+challenge+shorts+music",
+    "collectedAt": "2026-09-14T08:22:11+09:00",
+    "publishedAt": "2026-09-06",
+    "matchNotes": [
+      "source: YouTube Data API v3",
+      "api query: Indonesia dance challenge shorts music",
+      "official search and video metadata",
+      "api short-duration shorts candidate",
+      "shorts text signal",
+      "manual visual/audio check recommended"
+    ],
+    "duration": 24,
+    "width": 1080,
+    "height": 1920,
+    "aspectRatio": 0.5625,
+    "isShort9x16": true
+  },
+  {
+    "id": "jYhARH4nGbc",
+    "region": "ph",
+    "regionLabel": "필리핀",
+    "title": "Tiktok Viral Trend | Nao Percibi Thai Budots #tiktok #trending #edit #trend #dance#lyrics#viralvideo",
+    "channel": "kaiban_editz",
+    "category": "YouTube Data API Shorts Search",
+    "shortsUrl": "https://www.youtube.com/shorts/jYhARH4nGbc",
+    "thumbnail": "https://i.ytimg.com/vi/jYhARH4nGbc/hqdefault.jpg",
+    "viewsGained": 1960251,
+    "likeCount": 18403,
+    "sourceRank": 16,
+    "sourceWindow": "api-viewCount",
+    "sourceName": "YouTube Data API - 필리핀",
+    "sourceUrl": "https://www.youtube.com/results?search_query=Philippines+trending+shorts+dance+music",
+    "collectedAt": "2026-09-14T08:22:11+09:00",
+    "publishedAt": "2026-08-25",
+    "matchNotes": [
+      "source: YouTube Data API v3",
+      "api query: Philippines trending shorts dance music",
+      "official search and video metadata",
+      "api short-duration shorts candidate",
+      "core keyword: dance",
+      "music/trend signal: edit, trend, trending",
+      "shorts text signal",
+      "excluded signal: lyrics",
+      "manual visual/audio check recommended"
+    ],
+    "duration": 17,
+    "width": 1080,
+    "height": 1920,
+    "aspectRatio": 0.5625,
+    "isShort9x16": true
+  },
+  {
+    "id": "_SlkEskd4V0",
+    "region": "es",
+    "regionLabel": "스페인",
+    "title": "Bam Bam Dance Challenge 🔥 Watch This Amazing Performance",
+    "channel": "Krishna-Samyuta",
+    "category": "YouTube Data API Shorts Search",
+    "shortsUrl": "https://www.youtube.com/shorts/_SlkEskd4V0",
+    "thumbnail": "https://i.ytimg.com/vi/_SlkEskd4V0/hqdefault.jpg",
+    "viewsGained": 867852,
+    "likeCount": 9929,
+    "sourceRank": 20,
+    "sourceWindow": "api-viewCount",
+    "sourceName": "YouTube Data API - 스페인",
+    "sourceUrl": "https://www.youtube.com/results?search_query=Spain+dance+challenge+shorts+music",
+    "collectedAt": "2026-09-14T08:22:11+09:00",
+    "publishedAt": "2026-08-26",
+    "matchNotes": [
+      "source: YouTube Data API v3",
+      "api query: Spain dance challenge shorts music",
+      "official search and video metadata",
+      "api short-duration shorts candidate",
+      "core keyword: challenge, dance, performance",
+      "shorts text signal",
+      "manual visual/audio check recommended"
+    ],
+    "duration": 24,
+    "width": 1080,
+    "height": 1920,
+    "aspectRatio": 0.5625,
+    "isShort9x16": true
+  },
+  {
+    "id": "BoDrPVArJ9I",
+    "region": "es",
+    "regionLabel": "스페인",
+    "title": "😱Let Me Drive Funk |New TikTok Trend 2026🔥#viral #shorts #music #tiktok #trending #tiktokvideo",
+    "channel": "Mr Oditi Magic",
+    "category": "YouTube Data API Shorts Search",
+    "shortsUrl": "https://www.youtube.com/shorts/BoDrPVArJ9I",
+    "thumbnail": "https://i.ytimg.com/vi/BoDrPVArJ9I/hqdefault.jpg",
+    "viewsGained": 914079,
+    "likeCount": null,
+    "sourceRank": 23,
+    "sourceWindow": "api-viewCount",
+    "sourceName": "YouTube Data API - 스페인",
+    "sourceUrl": "https://www.youtube.com/results?search_query=Spain+dance+challenge+shorts+music",
+    "collectedAt": "2026-09-14T08:22:11+09:00",
+    "publishedAt": "2026-08-30",
+    "matchNotes": [
+      "source: YouTube Data API v3",
+      "api query: Spain dance challenge shorts music",
+      "official search and video metadata",
+      "api short-duration shorts candidate",
+      "music/trend signal: funk, music, trend",
+      "shorts text signal",
+      "manual visual/audio check recommended",
+      "metadata: YouTube Data API video details"
+    ],
+    "duration": 11,
+    "width": 1080,
+    "height": 1920,
+    "aspectRatio": 0.5625,
+    "isShort9x16": true
+  },
+  {
     "id": "KplTL7bCWbQ",
     "region": "global",
     "regionLabel": "글로벌",
@@ -8,8 +138,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/KplTL7bCWbQ",
     "thumbnail": "https://i.ytimg.com/vi/KplTL7bCWbQ/hqdefault.jpg",
-    "viewsGained": 23869380,
-    "likeCount": 313568,
+    "viewsGained": 24050303,
+    "likeCount": 314191,
     "sourceRank": 12,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -26,7 +156,8 @@
     "duration": 12,
     "width": 1080,
     "height": 1920,
-    "aspectRatio": 0.5625
+    "aspectRatio": 0.5625,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "H46KQcrWUt8",
@@ -37,8 +168,8 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/H46KQcrWUt8",
     "thumbnail": "https://i.ytimg.com/vi/H46KQcrWUt8/hqdefault.jpg",
-    "viewsGained": 11317423,
-    "likeCount": 173203,
+    "viewsGained": 11527319,
+    "likeCount": 174405,
     "sourceRank": 46,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -55,7 +186,8 @@
     "duration": 39,
     "width": 1080,
     "height": 1920,
-    "aspectRatio": 0.5625
+    "aspectRatio": 0.5625,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "6ZhzFD4hPR0",
@@ -66,8 +198,8 @@
     "category": "Comedy",
     "shortsUrl": "https://www.youtube.com/shorts/6ZhzFD4hPR0",
     "thumbnail": "https://i.ytimg.com/vi/6ZhzFD4hPR0/hqdefault.jpg",
-    "viewsGained": 17926796,
-    "likeCount": 57797,
+    "viewsGained": 18152743,
+    "likeCount": 58017,
     "sourceRank": 8,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -85,7 +217,8 @@
     "duration": 11,
     "width": 1080,
     "height": 1920,
-    "aspectRatio": 0.5625
+    "aspectRatio": 0.5625,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "G7H44umFhQU",
@@ -96,7 +229,7 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/G7H44umFhQU",
     "thumbnail": "https://i.ytimg.com/vi/G7H44umFhQU/hqdefault.jpg",
-    "viewsGained": 9573478,
+    "viewsGained": 9600942,
     "likeCount": null,
     "sourceRank": 42,
     "sourceWindow": "24H",
@@ -114,7 +247,8 @@
     "duration": 19,
     "width": 1080,
     "height": 1920,
-    "aspectRatio": 0.5625
+    "aspectRatio": 0.5625,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "TLwnduq2hZo",
@@ -125,9 +259,9 @@
     "category": "TubeTrending Shorts 48H",
     "shortsUrl": "https://www.youtube.com/shorts/TLwnduq2hZo",
     "thumbnail": "https://i.ytimg.com/vi/TLwnduq2hZo/hqdefault.jpg",
-    "viewsGained": 5219159,
-    "likeCount": 151775,
-    "sourceRank": 8,
+    "viewsGained": 5246766,
+    "likeCount": 151895,
+    "sourceRank": 7,
     "sourceWindow": "48H",
     "sourceName": "TubeTrending Most Viewed New Shorts",
     "sourceUrl": "https://www.tubetrending.com/?duration=shorts&lang=en",
@@ -144,7 +278,8 @@
     "duration": 7,
     "width": 1080,
     "height": 1920,
-    "aspectRatio": 0.5625
+    "aspectRatio": 0.5625,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "cAFnFsetkUQ",
@@ -155,9 +290,9 @@
     "category": "TubeTrending Shorts 48H",
     "shortsUrl": "https://www.youtube.com/shorts/cAFnFsetkUQ",
     "thumbnail": "https://i.ytimg.com/vi/cAFnFsetkUQ/hqdefault.jpg",
-    "viewsGained": 6166406,
-    "likeCount": 132133,
-    "sourceRank": 7,
+    "viewsGained": 6249416,
+    "likeCount": 132679,
+    "sourceRank": 6,
     "sourceWindow": "48H",
     "sourceName": "TubeTrending Most Viewed New Shorts",
     "sourceUrl": "https://www.tubetrending.com/?duration=shorts&lang=en",
@@ -176,7 +311,8 @@
     "duration": 36,
     "width": 1080,
     "height": 1920,
-    "aspectRatio": 0.5625
+    "aspectRatio": 0.5625,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "0ZGlU2k97Sw",
@@ -187,9 +323,9 @@
     "category": "TubeTrending Shorts 48H",
     "shortsUrl": "https://www.youtube.com/shorts/0ZGlU2k97Sw",
     "thumbnail": "https://i.ytimg.com/vi/0ZGlU2k97Sw/hqdefault.jpg",
-    "viewsGained": 4719665,
-    "likeCount": 118641,
-    "sourceRank": 9,
+    "viewsGained": 4788551,
+    "likeCount": 118961,
+    "sourceRank": 8,
     "sourceWindow": "48H",
     "sourceName": "TubeTrending Most Viewed New Shorts",
     "sourceUrl": "https://www.tubetrending.com/?duration=shorts&lang=en",
@@ -206,7 +342,8 @@
     "duration": 12,
     "width": 1080,
     "height": 1920,
-    "aspectRatio": 0.5625
+    "aspectRatio": 0.5625,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "TaV1fYl7YMU",
@@ -217,8 +354,8 @@
     "category": "TubeTrending Shorts 48H",
     "shortsUrl": "https://www.youtube.com/shorts/TaV1fYl7YMU",
     "thumbnail": "https://i.ytimg.com/vi/TaV1fYl7YMU/hqdefault.jpg",
-    "viewsGained": 9627711,
-    "likeCount": 39930,
+    "viewsGained": 9723872,
+    "likeCount": 40148,
     "sourceRank": 2,
     "sourceWindow": "48H",
     "sourceName": "TubeTrending Most Viewed New Shorts",
@@ -237,7 +374,8 @@
     "duration": 11,
     "width": 1080,
     "height": 1920,
-    "aspectRatio": 0.5625
+    "aspectRatio": 0.5625,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "8KK6jpr7U-U",
@@ -278,8 +416,8 @@
     "category": "TubeTrending Shorts 48H",
     "shortsUrl": "https://www.youtube.com/shorts/J__L0-_j5P4",
     "thumbnail": "https://i.ytimg.com/vi/J__L0-_j5P4/hqdefault.jpg",
-    "viewsGained": 9553075,
-    "likeCount": 34398,
+    "viewsGained": 9657870,
+    "likeCount": 34468,
     "sourceRank": 3,
     "sourceWindow": "48H",
     "sourceName": "TubeTrending Most Viewed New Shorts",
@@ -297,7 +435,8 @@
     "duration": 10,
     "width": 1080,
     "height": 1920,
-    "aspectRatio": 0.5625
+    "aspectRatio": 0.5625,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "J0GGBomkXOE",
@@ -308,9 +447,9 @@
     "category": "TubeTrending Shorts 48H",
     "shortsUrl": "https://www.youtube.com/shorts/J0GGBomkXOE",
     "thumbnail": "https://i.ytimg.com/vi/J0GGBomkXOE/hqdefault.jpg",
-    "viewsGained": 4367168,
-    "likeCount": 20174,
-    "sourceRank": 10,
+    "viewsGained": 4409540,
+    "likeCount": 20225,
+    "sourceRank": 9,
     "sourceWindow": "48H",
     "sourceName": "TubeTrending Most Viewed New Shorts",
     "sourceUrl": "https://www.tubetrending.com/?duration=shorts&lang=en",
@@ -327,7 +466,8 @@
     "duration": 19,
     "width": 1080,
     "height": 1920,
-    "aspectRatio": 0.5625
+    "aspectRatio": 0.5625,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "emaYnHAwUMU",
@@ -338,8 +478,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/emaYnHAwUMU",
     "thumbnail": "https://i.ytimg.com/vi/emaYnHAwUMU/hqdefault.jpg",
-    "viewsGained": 6150385,
-    "likeCount": 40839,
+    "viewsGained": 6542421,
+    "likeCount": 41691,
     "sourceRank": 19,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -361,7 +501,8 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "isShort9x16": true
+    "isShort9x16": true,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "Uqau-DFJIC0",
@@ -436,9 +577,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/JiXf_cOTHFs",
     "thumbnail": "https://i.ytimg.com/vi/JiXf_cOTHFs/hqdefault.jpg",
-    "viewsGained": 603536,
-    "likeCount": 5353,
-    "sourceRank": 10,
+    "viewsGained": 624037,
+    "likeCount": 5387,
+    "sourceRank": 9,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 미국",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+USA",
@@ -457,7 +598,8 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "isShort9x16": true
+    "isShort9x16": true,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "dXqNf0EAlDo",
@@ -468,8 +610,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/dXqNf0EAlDo",
     "thumbnail": "https://i.ytimg.com/vi/dXqNf0EAlDo/hqdefault.jpg",
-    "viewsGained": 1085385,
-    "likeCount": 15796,
+    "viewsGained": 1107104,
+    "likeCount": 15848,
     "sourceRank": 16,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 멕시코",
@@ -489,7 +631,8 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "isShort9x16": true
+    "isShort9x16": true,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "GO-fSRAjEig",
@@ -500,8 +643,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/GO-fSRAjEig",
     "thumbnail": "https://i.ytimg.com/vi/GO-fSRAjEig/hqdefault.jpg",
-    "viewsGained": 222920,
-    "likeCount": 2886,
+    "viewsGained": 223150,
+    "likeCount": 2890,
     "sourceRank": 23,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 멕시코",
@@ -521,7 +664,42 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "isShort9x16": true
+    "isShort9x16": true,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
+  },
+  {
+    "id": "Fgytr3rM1a4",
+    "region": "br",
+    "regionLabel": "브라질",
+    "title": "Sequencia dance trend | Sequencia de Ritmada #shorts #trending #tiktoksounds #edit",
+    "channel": "SyncedCut",
+    "category": "YouTube Data API Shorts Search",
+    "shortsUrl": "https://www.youtube.com/shorts/Fgytr3rM1a4",
+    "thumbnail": "https://i.ytimg.com/vi/Fgytr3rM1a4/hqdefault.jpg",
+    "viewsGained": 1835549,
+    "likeCount": 18075,
+    "sourceRank": 22,
+    "sourceWindow": "api-viewCount",
+    "sourceName": "YouTube Data API - 브라질",
+    "sourceUrl": "https://www.youtube.com/results?search_query=Brazil+dance+challenge+shorts+funk",
+    "collectedAt": "2026-09-14T07:16:07+09:00",
+    "publishedAt": "2026-09-09",
+    "matchNotes": [
+      "source: YouTube Data API v3",
+      "api query: Brazil dance challenge shorts funk",
+      "official search and video metadata",
+      "api short-duration shorts candidate",
+      "core keyword: dance",
+      "music/trend signal: edit, trend, trending",
+      "shorts text signal",
+      "manual visual/audio check recommended"
+    ],
+    "duration": 10,
+    "width": 1080,
+    "height": 1920,
+    "aspectRatio": 0.5625,
+    "isShort9x16": true,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "CsNQua26bG0",
@@ -550,39 +728,6 @@
       "manual visual/audio check recommended"
     ],
     "duration": 16,
-    "width": 1080,
-    "height": 1920,
-    "aspectRatio": 0.5625,
-    "isShort9x16": true
-  },
-  {
-    "id": "Fgytr3rM1a4",
-    "region": "br",
-    "regionLabel": "브라질",
-    "title": "Sequencia dance trend | Sequencia de Ritmada #shorts #trending #tiktoksounds #edit",
-    "channel": "SyncedCut",
-    "category": "YouTube Data API Shorts Search",
-    "shortsUrl": "https://www.youtube.com/shorts/Fgytr3rM1a4",
-    "thumbnail": "https://i.ytimg.com/vi/Fgytr3rM1a4/hqdefault.jpg",
-    "viewsGained": 1701867,
-    "likeCount": 17508,
-    "sourceRank": 24,
-    "sourceWindow": "api-viewCount",
-    "sourceName": "YouTube Data API - 브라질",
-    "sourceUrl": "https://www.youtube.com/results?search_query=Brazil+dance+challenge+shorts+funk",
-    "collectedAt": "2026-09-14T07:16:07+09:00",
-    "publishedAt": "2026-09-09",
-    "matchNotes": [
-      "source: YouTube Data API v3",
-      "api query: Brazil dance challenge shorts funk",
-      "official search and video metadata",
-      "api short-duration shorts candidate",
-      "core keyword: dance",
-      "music/trend signal: edit, trend, trending",
-      "shorts text signal",
-      "manual visual/audio check recommended"
-    ],
-    "duration": 10,
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
@@ -628,8 +773,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/rSiLIrBqz7k",
     "thumbnail": "https://i.ytimg.com/vi/rSiLIrBqz7k/hqdefault.jpg",
-    "viewsGained": 222319,
-    "likeCount": 958,
+    "viewsGained": 222907,
+    "likeCount": 964,
     "sourceRank": 10,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 인도네시아",
@@ -649,7 +794,8 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "isShort9x16": true
+    "isShort9x16": true,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "N_S7wOHDq0I",
@@ -660,9 +806,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/N_S7wOHDq0I",
     "thumbnail": "https://i.ytimg.com/vi/N_S7wOHDq0I/hqdefault.jpg",
-    "viewsGained": 85914,
+    "viewsGained": 85933,
     "likeCount": 496,
-    "sourceRank": 24,
+    "sourceRank": 23,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 인도네시아",
     "sourceUrl": "https://www.youtube.com/results?search_query=Indonesia+dance+challenge+shorts+music",
@@ -682,7 +828,8 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "isShort9x16": true
+    "isShort9x16": true,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "po4-NbQp_LM",
@@ -693,8 +840,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/po4-NbQp_LM",
     "thumbnail": "https://i.ytimg.com/vi/po4-NbQp_LM/hqdefault.jpg",
-    "viewsGained": 472323,
-    "likeCount": 2745,
+    "viewsGained": 472906,
+    "likeCount": 2748,
     "sourceRank": 5,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 아르헨티나",
@@ -714,7 +861,8 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "isShort9x16": true
+    "isShort9x16": true,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "LdQTgrV7oQA",
@@ -725,8 +873,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/LdQTgrV7oQA",
     "thumbnail": "https://i.ytimg.com/vi/LdQTgrV7oQA/hqdefault.jpg",
-    "viewsGained": 15038344,
-    "likeCount": 104140,
+    "viewsGained": 15118935,
+    "likeCount": 104392,
     "sourceRank": 47,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -744,7 +892,37 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
+  },
+  {
+    "id": "r27y1lpX9ZA",
+    "region": "global",
+    "regionLabel": "글로벌",
+    "title": "⚽️💿SPEED OF FOOTBALLERS PLAYERS VS DISCS | 🏆 WHO WON?!",
+    "channel": "DAIMER",
+    "category": "People & Blogs",
+    "shortsUrl": "https://www.youtube.com/shorts/r27y1lpX9ZA",
+    "thumbnail": "https://i.ytimg.com/vi/r27y1lpX9ZA/hqdefault.jpg",
+    "viewsGained": 13579827,
+    "likeCount": 82716,
+    "sourceRank": 18,
+    "sourceWindow": "24H",
+    "sourceName": "Vidirun Top 50 Short-Form Videos",
+    "sourceUrl": "https://vidirun.com/format-short",
+    "collectedAt": "2026-09-13T08:12:07+09:00",
+    "publishedAt": "2026-09-08",
+    "matchNotes": [
+      "preferred category",
+      "manual visual/audio check recommended",
+      "portrait inferred from shorts source",
+      "metadata: YouTube Data API video details"
+    ],
+    "isShort9x16": true,
+    "duration": 25,
+    "width": 1080,
+    "height": 1920,
+    "aspectRatio": 0.5625,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "1I5SuD6eXoA",
@@ -776,36 +954,6 @@
     "aspectRatio": 0.5625
   },
   {
-    "id": "r27y1lpX9ZA",
-    "region": "global",
-    "regionLabel": "글로벌",
-    "title": "⚽️💿SPEED OF FOOTBALLERS PLAYERS VS DISCS | 🏆 WHO WON?!",
-    "channel": "DAIMER",
-    "category": "People & Blogs",
-    "shortsUrl": "https://www.youtube.com/shorts/r27y1lpX9ZA",
-    "thumbnail": "https://i.ytimg.com/vi/r27y1lpX9ZA/hqdefault.jpg",
-    "viewsGained": 13497008,
-    "likeCount": 82413,
-    "sourceRank": 18,
-    "sourceWindow": "24H",
-    "sourceName": "Vidirun Top 50 Short-Form Videos",
-    "sourceUrl": "https://vidirun.com/format-short",
-    "collectedAt": "2026-09-13T08:12:07+09:00",
-    "publishedAt": "2026-09-08",
-    "matchNotes": [
-      "preferred category",
-      "manual visual/audio check recommended",
-      "portrait inferred from shorts source",
-      "metadata: YouTube Data API video details"
-    ],
-    "isShort9x16": true,
-    "duration": 25,
-    "width": 1080,
-    "height": 1920,
-    "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
-  },
-  {
     "id": "qFCqU07hXI0",
     "region": "global",
     "regionLabel": "글로벌",
@@ -814,8 +962,8 @@
     "category": "Sports",
     "shortsUrl": "https://www.youtube.com/shorts/qFCqU07hXI0",
     "thumbnail": "https://i.ytimg.com/vi/qFCqU07hXI0/hqdefault.jpg",
-    "viewsGained": 9960389,
-    "likeCount": 88530,
+    "viewsGained": 10372642,
+    "likeCount": 89451,
     "sourceRank": 19,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -833,7 +981,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "1UgMYp8wVgA",
@@ -1089,8 +1237,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/L4LM4vNDOWM",
     "thumbnail": "https://i.ytimg.com/vi/L4LM4vNDOWM/hqdefault.jpg",
-    "viewsGained": 764607,
-    "likeCount": 5760,
+    "viewsGained": 768876,
+    "likeCount": 5778,
     "sourceRank": 12,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 대한민국",
@@ -1110,7 +1258,8 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "isShort9x16": true
+    "isShort9x16": true,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "MdggPkKxQ-E",
@@ -1121,8 +1270,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/MdggPkKxQ-E",
     "thumbnail": "https://i.ytimg.com/vi/MdggPkKxQ-E/hqdefault.jpg",
-    "viewsGained": 38674254,
-    "likeCount": 287411,
+    "viewsGained": 39150361,
+    "likeCount": 288397,
     "sourceRank": 13,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -1140,7 +1289,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "ok6wBZwxjgs",
@@ -1151,8 +1300,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/ok6wBZwxjgs",
     "thumbnail": "https://i.ytimg.com/vi/ok6wBZwxjgs/hqdefault.jpg",
-    "viewsGained": 34688956,
-    "likeCount": 232347,
+    "viewsGained": 35452312,
+    "likeCount": 234239,
     "sourceRank": 7,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -1171,7 +1320,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "eJ3yV2lEUpA",
@@ -1212,8 +1361,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/9E4GdBTGM94",
     "thumbnail": "https://i.ytimg.com/vi/9E4GdBTGM94/hqdefault.jpg",
-    "viewsGained": 40049550,
-    "likeCount": 128859,
+    "viewsGained": 40757306,
+    "likeCount": 129863,
     "sourceRank": 14,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -1231,7 +1380,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "kyN5vegpVVo",
@@ -1242,8 +1391,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/kyN5vegpVVo",
     "thumbnail": "https://i.ytimg.com/vi/kyN5vegpVVo/hqdefault.jpg",
-    "viewsGained": 33671639,
-    "likeCount": 201614,
+    "viewsGained": 33943524,
+    "likeCount": 202377,
     "sourceRank": 22,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -1262,7 +1411,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "7_sx2_TL3qk",
@@ -1273,8 +1422,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/7_sx2_TL3qk",
     "thumbnail": "https://i.ytimg.com/vi/7_sx2_TL3qk/hqdefault.jpg",
-    "viewsGained": 35679647,
-    "likeCount": 159060,
+    "viewsGained": 36273663,
+    "likeCount": 160396,
     "sourceRank": 3,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -1296,7 +1445,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "CFsJvnaPeOQ",
@@ -1307,8 +1456,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/CFsJvnaPeOQ",
     "thumbnail": "https://i.ytimg.com/vi/CFsJvnaPeOQ/hqdefault.jpg",
-    "viewsGained": 17685697,
-    "likeCount": 365123,
+    "viewsGained": 18257384,
+    "likeCount": 367964,
     "sourceRank": 33,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -1326,7 +1475,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "8BmdHDvYYLE",
@@ -1337,8 +1486,8 @@
     "category": "Comedy",
     "shortsUrl": "https://www.youtube.com/shorts/8BmdHDvYYLE",
     "thumbnail": "https://i.ytimg.com/vi/8BmdHDvYYLE/hqdefault.jpg",
-    "viewsGained": 16476491,
-    "likeCount": 296369,
+    "viewsGained": 16945502,
+    "likeCount": 298823,
     "sourceRank": 49,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -1356,7 +1505,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "_Paa_ncetaI",
@@ -1367,8 +1516,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/_Paa_ncetaI",
     "thumbnail": "https://i.ytimg.com/vi/_Paa_ncetaI/hqdefault.jpg",
-    "viewsGained": 31613750,
-    "likeCount": 115550,
+    "viewsGained": 31915214,
+    "likeCount": 116025,
     "sourceRank": 17,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -1388,7 +1537,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "wCJu7fuP1Oc",
@@ -1399,8 +1548,8 @@
     "category": "Film & Animation",
     "shortsUrl": "https://www.youtube.com/shorts/wCJu7fuP1Oc",
     "thumbnail": "https://i.ytimg.com/vi/wCJu7fuP1Oc/hqdefault.jpg",
-    "viewsGained": 16107893,
-    "likeCount": 240466,
+    "viewsGained": 16379330,
+    "likeCount": 241137,
     "sourceRank": 39,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -1418,7 +1567,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "OuNBRSnccgQ",
@@ -1429,8 +1578,8 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/OuNBRSnccgQ",
     "thumbnail": "https://i.ytimg.com/vi/OuNBRSnccgQ/hqdefault.jpg",
-    "viewsGained": 19235601,
-    "likeCount": 167923,
+    "viewsGained": 19563818,
+    "likeCount": 168759,
     "sourceRank": 15,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -1448,7 +1597,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "xSgZ1YECOfE",
@@ -1642,7 +1791,7 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/M09rC67V6VE",
     "thumbnail": "https://i.ytimg.com/vi/M09rC67V6VE/hqdefault.jpg",
-    "viewsGained": 169916153,
+    "viewsGained": 169980227,
     "likeCount": null,
     "sourceRank": 8,
     "sourceWindow": "7D",
@@ -1661,7 +1810,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "lYzMvH9CbLA",
@@ -1704,8 +1853,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/k9CJqcPq-Q4",
     "thumbnail": "https://i.ytimg.com/vi/k9CJqcPq-Q4/hqdefault.jpg",
-    "viewsGained": 1044013,
-    "likeCount": 6452,
+    "viewsGained": 1084790,
+    "likeCount": 6672,
     "sourceRank": 9,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 대한민국",
@@ -1727,7 +1876,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-13T08:12:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "-EfrYQAgX7w",
@@ -1738,9 +1887,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/-EfrYQAgX7w",
     "thumbnail": "https://i.ytimg.com/vi/-EfrYQAgX7w/hqdefault.jpg",
-    "viewsGained": 873276,
+    "viewsGained": 873430,
     "likeCount": 6185,
-    "sourceRank": 8,
+    "sourceRank": 10,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 대한민국",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80",
@@ -1761,7 +1910,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "y4BGkTeKg1M",
@@ -1774,7 +1923,7 @@
     "thumbnail": "https://i.ytimg.com/vi/y4BGkTeKg1M/hqdefault.jpg",
     "viewsGained": 826749,
     "likeCount": 3757,
-    "sourceRank": 9,
+    "sourceRank": 11,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 대한민국",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80",
@@ -1794,7 +1943,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "O_o74RBzHtg",
@@ -1828,7 +1977,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "y9DuROHP8iA",
@@ -1861,7 +2010,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "S5j_q9UEVCI",
@@ -1998,8 +2147,8 @@
     "category": "Comedy",
     "shortsUrl": "https://www.youtube.com/shorts/rF1pNl5KMr4",
     "thumbnail": "https://i.ytimg.com/vi/rF1pNl5KMr4/hqdefault.jpg",
-    "viewsGained": 54049032,
-    "likeCount": 429703,
+    "viewsGained": 54759500,
+    "likeCount": 430896,
     "sourceRank": 6,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -2017,7 +2166,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "KPFl0hPPuHo",
@@ -2028,8 +2177,8 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/KPFl0hPPuHo",
     "thumbnail": "https://i.ytimg.com/vi/KPFl0hPPuHo/hqdefault.jpg",
-    "viewsGained": 26132164,
-    "likeCount": 387815,
+    "viewsGained": 26614446,
+    "likeCount": 390527,
     "sourceRank": 31,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -2047,7 +2196,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "VeYNB5hq-1Y",
@@ -2058,8 +2207,8 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/VeYNB5hq-1Y",
     "thumbnail": "https://i.ytimg.com/vi/VeYNB5hq-1Y/hqdefault.jpg",
-    "viewsGained": 37780040,
-    "likeCount": 151903,
+    "viewsGained": 38141981,
+    "likeCount": 152270,
     "sourceRank": 11,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -2079,7 +2228,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "MMjUpnjTMxk",
@@ -2090,8 +2239,8 @@
     "category": "Sports",
     "shortsUrl": "https://www.youtube.com/shorts/MMjUpnjTMxk",
     "thumbnail": "https://i.ytimg.com/vi/MMjUpnjTMxk/hqdefault.jpg",
-    "viewsGained": 19990434,
-    "likeCount": 219013,
+    "viewsGained": 20401325,
+    "likeCount": 221179,
     "sourceRank": 41,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -2109,7 +2258,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "Jz-YZbiaxn4",
@@ -2152,8 +2301,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/pND0B4b_Xiw",
     "thumbnail": "https://i.ytimg.com/vi/pND0B4b_Xiw/hqdefault.jpg",
-    "viewsGained": 21578060,
-    "likeCount": 116058,
+    "viewsGained": 21606626,
+    "likeCount": 116125,
     "sourceRank": 34,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -2171,7 +2320,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "U3FQtUrS4U0",
@@ -2205,36 +2354,6 @@
     "lastSeenAt": "2026-09-13T08:12:07+09:00"
   },
   {
-    "id": "8t4eXqr5J9U",
-    "region": "global",
-    "regionLabel": "글로벌",
-    "title": "POV: your friend can’t read #mecchachameleon",
-    "channel": "Chameleons Hub",
-    "category": "People & Blogs",
-    "shortsUrl": "https://www.youtube.com/shorts/8t4eXqr5J9U",
-    "thumbnail": "https://i.ytimg.com/vi/8t4eXqr5J9U/hqdefault.jpg",
-    "viewsGained": 17150373,
-    "likeCount": 71632,
-    "sourceRank": 35,
-    "sourceWindow": "24H",
-    "sourceName": "Vidirun Top 50 Short-Form Videos",
-    "sourceUrl": "https://vidirun.com/format-short",
-    "collectedAt": "2026-09-12T07:22:57+09:00",
-    "publishedAt": "2026-09-10",
-    "matchNotes": [
-      "preferred category",
-      "manual visual/audio check recommended",
-      "portrait inferred from shorts source",
-      "metadata: YouTube Data API video details"
-    ],
-    "isShort9x16": true,
-    "duration": 10,
-    "width": 1080,
-    "height": 1920,
-    "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
-  },
-  {
     "id": "RTLFKOqd5po",
     "region": "global",
     "regionLabel": "글로벌",
@@ -2243,8 +2362,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/RTLFKOqd5po",
     "thumbnail": "https://i.ytimg.com/vi/RTLFKOqd5po/hqdefault.jpg",
-    "viewsGained": 16607515,
-    "likeCount": 71985,
+    "viewsGained": 17085332,
+    "likeCount": 72969,
     "sourceRank": 38,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -2262,7 +2381,37 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
+  },
+  {
+    "id": "8t4eXqr5J9U",
+    "region": "global",
+    "regionLabel": "글로벌",
+    "title": "POV: your friend can’t read #mecchachameleon",
+    "channel": "Chameleons Hub",
+    "category": "People & Blogs",
+    "shortsUrl": "https://www.youtube.com/shorts/8t4eXqr5J9U",
+    "thumbnail": "https://i.ytimg.com/vi/8t4eXqr5J9U/hqdefault.jpg",
+    "viewsGained": 17184397,
+    "likeCount": 71657,
+    "sourceRank": 35,
+    "sourceWindow": "24H",
+    "sourceName": "Vidirun Top 50 Short-Form Videos",
+    "sourceUrl": "https://vidirun.com/format-short",
+    "collectedAt": "2026-09-12T07:22:57+09:00",
+    "publishedAt": "2026-09-10",
+    "matchNotes": [
+      "preferred category",
+      "manual visual/audio check recommended",
+      "portrait inferred from shorts source",
+      "metadata: YouTube Data API video details"
+    ],
+    "isShort9x16": true,
+    "duration": 10,
+    "width": 1080,
+    "height": 1920,
+    "aspectRatio": 0.5625,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "VwtCes70Jeo",
@@ -2551,7 +2700,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/ewuHLJO5-GY",
     "thumbnail": "https://i.ytimg.com/vi/ewuHLJO5-GY/hqdefault.jpg",
-    "viewsGained": 1352607,
+    "viewsGained": 1352640,
     "likeCount": 23601,
     "sourceRank": 19,
     "sourceWindow": "api-viewCount",
@@ -2573,7 +2722,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "ZsXe3I1gjIU",
@@ -2584,8 +2733,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/ZsXe3I1gjIU",
     "thumbnail": "https://i.ytimg.com/vi/ZsXe3I1gjIU/hqdefault.jpg",
-    "viewsGained": 344928,
-    "likeCount": 2932,
+    "viewsGained": 347041,
+    "likeCount": 2942,
     "sourceRank": 7,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 인도네시아",
@@ -2605,7 +2754,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "UzvuRWHayso",
@@ -2616,9 +2765,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/UzvuRWHayso",
     "thumbnail": "https://i.ytimg.com/vi/UzvuRWHayso/hqdefault.jpg",
-    "viewsGained": 97822,
+    "viewsGained": 97843,
     "likeCount": 425,
-    "sourceRank": 23,
+    "sourceRank": 22,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 인도네시아",
     "sourceUrl": "https://www.youtube.com/results?search_query=Indonesia+dance+challenge+shorts+music",
@@ -2637,7 +2786,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "YVTu52g6VLA",
@@ -2648,9 +2797,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/YVTu52g6VLA",
     "thumbnail": "https://i.ytimg.com/vi/YVTu52g6VLA/hqdefault.jpg",
-    "viewsGained": 905646,
-    "likeCount": 6240,
-    "sourceRank": 24,
+    "viewsGained": 951292,
+    "likeCount": 6469,
+    "sourceRank": 23,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 필리핀",
     "sourceUrl": "https://www.youtube.com/results?search_query=Philippines+trending+shorts+dance+music",
@@ -2671,7 +2820,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-13T08:12:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "HIzItn6cY7I",
@@ -2748,8 +2897,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/_lzJPQ6LJWM",
     "thumbnail": "https://i.ytimg.com/vi/_lzJPQ6LJWM/hqdefault.jpg",
-    "viewsGained": 60030606,
-    "likeCount": 209029,
+    "viewsGained": 60219163,
+    "likeCount": 209241,
     "sourceRank": 30,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -2767,7 +2916,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "Nwcb-XP2Tn0",
@@ -2808,8 +2957,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/rDRvJcVdQR4",
     "thumbnail": "https://i.ytimg.com/vi/rDRvJcVdQR4/hqdefault.jpg",
-    "viewsGained": 31226400,
-    "likeCount": 212345,
+    "viewsGained": 31561963,
+    "likeCount": 213111,
     "sourceRank": 21,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -2828,7 +2977,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "m6Pl690fKBA",
@@ -2960,8 +3109,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/5N0Pide7e9s",
     "thumbnail": "https://i.ytimg.com/vi/5N0Pide7e9s/hqdefault.jpg",
-    "viewsGained": 18824060,
-    "likeCount": 157278,
+    "viewsGained": 18943389,
+    "likeCount": 157919,
     "sourceRank": 44,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -2979,7 +3128,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "l-d7d6ClN3Q",
@@ -3179,8 +3328,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/d96YGG7m9t8",
     "thumbnail": "https://i.ytimg.com/vi/d96YGG7m9t8/hqdefault.jpg",
-    "viewsGained": 14322147,
-    "likeCount": 65636,
+    "viewsGained": 14570917,
+    "likeCount": 65998,
     "sourceRank": 6,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -3201,7 +3350,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "cWAq12C8Avo",
@@ -3212,9 +3361,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/cWAq12C8Avo",
     "thumbnail": "https://i.ytimg.com/vi/cWAq12C8Avo/hqdefault.jpg",
-    "viewsGained": 5467992,
-    "likeCount": 37151,
-    "sourceRank": 23,
+    "viewsGained": 5535473,
+    "likeCount": 37316,
+    "sourceRank": 22,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+slowed+dance+edit",
@@ -3236,7 +3385,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "ikeOn_YAtrY",
@@ -3279,8 +3428,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/0EKvhIRfeZM",
     "thumbnail": "https://i.ytimg.com/vi/0EKvhIRfeZM/hqdefault.jpg",
-    "viewsGained": 413003,
-    "likeCount": 3236,
+    "viewsGained": 413578,
+    "likeCount": 3238,
     "sourceRank": 12,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 필리핀",
@@ -3303,7 +3452,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "ms_Vq8A2hmM",
@@ -3338,7 +3487,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "Jn-m9JLO-jw",
@@ -3533,9 +3682,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/2J3mBh9WEDc",
     "thumbnail": "https://i.ytimg.com/vi/2J3mBh9WEDc/hqdefault.jpg",
-    "viewsGained": 185896,
-    "likeCount": 833,
-    "sourceRank": 18,
+    "viewsGained": 185973,
+    "likeCount": 835,
+    "sourceRank": 17,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 인도네시아",
     "sourceUrl": "https://www.youtube.com/results?search_query=Indonesia+dance+challenge+shorts+music",
@@ -3554,7 +3703,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "OEdxFLwZSjY",
@@ -3565,8 +3714,8 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/OEdxFLwZSjY",
     "thumbnail": "https://i.ytimg.com/vi/OEdxFLwZSjY/hqdefault.jpg",
-    "viewsGained": 102721283,
-    "likeCount": 784174,
+    "viewsGained": 103724156,
+    "likeCount": 787323,
     "sourceRank": 5,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -3584,7 +3733,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "CM9Muh1ALvs",
@@ -3656,7 +3805,7 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/J85bG_D853o",
     "thumbnail": "https://i.ytimg.com/vi/J85bG_D853o/hqdefault.jpg",
-    "viewsGained": 32964863,
+    "viewsGained": 32991848,
     "likeCount": null,
     "sourceRank": 43,
     "sourceWindow": "24H",
@@ -3675,7 +3824,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "YnAV5CbJ6Ck",
@@ -3930,8 +4079,8 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/9lsj0kRBA_Y",
     "thumbnail": "https://i.ytimg.com/vi/9lsj0kRBA_Y/hqdefault.jpg",
-    "viewsGained": 261121660,
-    "likeCount": 1286465,
+    "viewsGained": 261346338,
+    "likeCount": 1286656,
     "sourceRank": 5,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -3950,7 +4099,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "mll-HPHd2oA",
@@ -3961,8 +4110,8 @@
     "category": "Howto & Style",
     "shortsUrl": "https://www.youtube.com/shorts/mll-HPHd2oA",
     "thumbnail": "https://i.ytimg.com/vi/mll-HPHd2oA/hqdefault.jpg",
-    "viewsGained": 89534318,
-    "likeCount": 696624,
+    "viewsGained": 89924976,
+    "likeCount": 698060,
     "sourceRank": 11,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -3980,7 +4129,37 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
+  },
+  {
+    "id": "2wOf6xMpL5Y",
+    "region": "global",
+    "regionLabel": "글로벌",
+    "title": "We Messed With Her Birthday Cake... BIG MISTAKE 😂🎂",
+    "channel": "xxxx",
+    "category": "People & Blogs",
+    "shortsUrl": "https://www.youtube.com/shorts/2wOf6xMpL5Y",
+    "thumbnail": "https://i.ytimg.com/vi/2wOf6xMpL5Y/hqdefault.jpg",
+    "viewsGained": 60240743,
+    "likeCount": 200510,
+    "sourceRank": 40,
+    "sourceWindow": "7D",
+    "sourceName": "Vidirun Top 50 Short-Form Videos",
+    "sourceUrl": "https://vidirun.com/format-short",
+    "collectedAt": "2026-09-10T07:23:45+09:00",
+    "publishedAt": "2026-09-07",
+    "matchNotes": [
+      "preferred category",
+      "manual visual/audio check recommended",
+      "portrait inferred from shorts source",
+      "metadata: YouTube Data API video details"
+    ],
+    "isShort9x16": true,
+    "duration": 11,
+    "width": 1080,
+    "height": 1920,
+    "aspectRatio": 0.5625,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "l5WjIr151Ec",
@@ -3991,8 +4170,8 @@
     "category": "Comedy",
     "shortsUrl": "https://www.youtube.com/shorts/l5WjIr151Ec",
     "thumbnail": "https://i.ytimg.com/vi/l5WjIr151Ec/hqdefault.jpg",
-    "viewsGained": 55745788,
-    "likeCount": 249310,
+    "viewsGained": 55746845,
+    "likeCount": 249313,
     "sourceRank": 18,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -4012,37 +4191,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
-  },
-  {
-    "id": "2wOf6xMpL5Y",
-    "region": "global",
-    "regionLabel": "글로벌",
-    "title": "We Messed With Her Birthday Cake... BIG MISTAKE 😂🎂",
-    "channel": "xxxx",
-    "category": "People & Blogs",
-    "shortsUrl": "https://www.youtube.com/shorts/2wOf6xMpL5Y",
-    "thumbnail": "https://i.ytimg.com/vi/2wOf6xMpL5Y/hqdefault.jpg",
-    "viewsGained": 59522374,
-    "likeCount": 199595,
-    "sourceRank": 40,
-    "sourceWindow": "7D",
-    "sourceName": "Vidirun Top 50 Short-Form Videos",
-    "sourceUrl": "https://vidirun.com/format-short",
-    "collectedAt": "2026-09-10T07:23:45+09:00",
-    "publishedAt": "2026-09-07",
-    "matchNotes": [
-      "preferred category",
-      "manual visual/audio check recommended",
-      "portrait inferred from shorts source",
-      "metadata: YouTube Data API video details"
-    ],
-    "isShort9x16": true,
-    "duration": 11,
-    "width": 1080,
-    "height": 1920,
-    "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "fHZI03_3Inw",
@@ -4053,8 +4202,8 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/fHZI03_3Inw",
     "thumbnail": "https://i.ytimg.com/vi/fHZI03_3Inw/hqdefault.jpg",
-    "viewsGained": 24988553,
-    "likeCount": 462907,
+    "viewsGained": 25077639,
+    "likeCount": 463525,
     "sourceRank": 38,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -4072,7 +4221,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "OKGtaVDQu8Q",
@@ -4233,7 +4382,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "qDj-fEUIKlc",
@@ -4365,8 +4514,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/BcYcgRl5oxY",
     "thumbnail": "https://i.ytimg.com/vi/BcYcgRl5oxY/hqdefault.jpg",
-    "viewsGained": 4206962,
-    "likeCount": 50936,
+    "viewsGained": 4213211,
+    "likeCount": 50944,
     "sourceRank": 28,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -4387,7 +4536,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "vOcjQF0wSUA",
@@ -4398,9 +4547,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/vOcjQF0wSUA",
     "thumbnail": "https://i.ytimg.com/vi/vOcjQF0wSUA/hqdefault.jpg",
-    "viewsGained": 176498,
+    "viewsGained": 177021,
     "likeCount": 697,
-    "sourceRank": 16,
+    "sourceRank": 15,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 인도네시아",
     "sourceUrl": "https://www.youtube.com/results?search_query=Indonesia+dance+challenge+shorts+music",
@@ -4421,7 +4570,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "xJyk4Yht6Z4",
@@ -4861,8 +5010,8 @@
     "category": "Howto & Style",
     "shortsUrl": "https://www.youtube.com/shorts/tJvAIz66Z6U",
     "thumbnail": "https://i.ytimg.com/vi/tJvAIz66Z6U/hqdefault.jpg",
-    "viewsGained": 46981704,
-    "likeCount": 224097,
+    "viewsGained": 47045618,
+    "likeCount": 224187,
     "sourceRank": 30,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -4880,7 +5029,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "GWUsG7oO0QI",
@@ -5017,8 +5166,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/4gkravenKpw",
     "thumbnail": "https://i.ytimg.com/vi/4gkravenKpw/hqdefault.jpg",
-    "viewsGained": 388204,
-    "likeCount": 2673,
+    "viewsGained": 388660,
+    "likeCount": 2677,
     "sourceRank": 20,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 멕시코",
@@ -5040,7 +5189,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "Wp-ce05HaEo",
@@ -5084,7 +5233,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/1faJl29rabM",
     "thumbnail": "https://i.ytimg.com/vi/1faJl29rabM/hqdefault.jpg",
-    "viewsGained": 5097573,
+    "viewsGained": 5104059,
     "likeCount": null,
     "sourceRank": 4,
     "sourceWindow": "api-viewCount",
@@ -5108,7 +5257,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "3Gk6irHGaBE",
@@ -5120,7 +5269,7 @@
     "shortsUrl": "https://www.youtube.com/shorts/3Gk6irHGaBE",
     "thumbnail": "https://i.ytimg.com/vi/3Gk6irHGaBE/hqdefault.jpg",
     "viewsGained": 53947,
-    "likeCount": 1377,
+    "likeCount": 1378,
     "sourceRank": 18,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 베트남",
@@ -5141,7 +5290,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "PF6Lmt3NyNw",
@@ -5182,9 +5331,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/p4wtKNISPzo",
     "thumbnail": "https://i.ytimg.com/vi/p4wtKNISPzo/hqdefault.jpg",
-    "viewsGained": 591143,
+    "viewsGained": 594270,
     "likeCount": null,
-    "sourceRank": 34,
+    "sourceRank": 36,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+cute+dance+one+person+music",
@@ -5205,7 +5354,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-11T08:20:44+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "gkvxLbyGjYc",
@@ -5497,8 +5646,8 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/TV9hHv2zQhI",
     "thumbnail": "https://i.ytimg.com/vi/TV9hHv2zQhI/hqdefault.jpg",
-    "viewsGained": 30087184,
-    "likeCount": 416999,
+    "viewsGained": 30126964,
+    "likeCount": 417039,
     "sourceRank": 20,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -5517,7 +5666,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "TCcKJopdp0I",
@@ -5810,7 +5959,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/EQcqhsmoReg",
     "thumbnail": "https://i.ytimg.com/vi/EQcqhsmoReg/hqdefault.jpg",
-    "viewsGained": 755519,
+    "viewsGained": 755547,
     "likeCount": 15287,
     "sourceRank": 34,
     "sourceWindow": "api-viewCount",
@@ -5831,7 +5980,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "ZTKM-2fm1Uo",
@@ -5842,8 +5991,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/ZTKM-2fm1Uo",
     "thumbnail": "https://i.ytimg.com/vi/ZTKM-2fm1Uo/hqdefault.jpg",
-    "viewsGained": 16399894,
-    "likeCount": 54610,
+    "viewsGained": 16454019,
+    "likeCount": 54698,
     "sourceRank": 5,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -5864,7 +6013,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "c3l-xmWvn4s",
@@ -5875,8 +6024,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/c3l-xmWvn4s",
     "thumbnail": "https://i.ytimg.com/vi/c3l-xmWvn4s/hqdefault.jpg",
-    "viewsGained": 1612195,
-    "likeCount": 38725,
+    "viewsGained": 1620784,
+    "likeCount": 38797,
     "sourceRank": 3,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 미국",
@@ -5897,7 +6046,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "BqT0mVpNOmk",
@@ -5908,8 +6057,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/BqT0mVpNOmk",
     "thumbnail": "https://i.ytimg.com/vi/BqT0mVpNOmk/hqdefault.jpg",
-    "viewsGained": 4589208,
-    "likeCount": 43680,
+    "viewsGained": 4590577,
+    "likeCount": 43686,
     "sourceRank": 6,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 브라질",
@@ -5931,7 +6080,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "4w5jtYv5p3A",
@@ -5964,7 +6113,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "_BiNVXL_bUk",
@@ -5997,7 +6146,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "gEPRvFxx_us",
@@ -6008,8 +6157,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/gEPRvFxx_us",
     "thumbnail": "https://i.ytimg.com/vi/gEPRvFxx_us/hqdefault.jpg",
-    "viewsGained": 273740,
-    "likeCount": 2779,
+    "viewsGained": 273794,
+    "likeCount": 2780,
     "sourceRank": 15,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 베트남",
@@ -6030,7 +6179,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "uCe_4t0THpg",
@@ -6041,8 +6190,8 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/uCe_4t0THpg",
     "thumbnail": "https://i.ytimg.com/vi/uCe_4t0THpg/hqdefault.jpg",
-    "viewsGained": 29401811,
-    "likeCount": 246226,
+    "viewsGained": 29503045,
+    "likeCount": 246552,
     "sourceRank": 33,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -6060,7 +6209,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "ypV6oI-9UbY",
@@ -6163,9 +6312,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/yRx3d8Bnnuw",
     "thumbnail": "https://i.ytimg.com/vi/yRx3d8Bnnuw/hqdefault.jpg",
-    "viewsGained": 152378,
+    "viewsGained": 152385,
     "likeCount": 925,
-    "sourceRank": 21,
+    "sourceRank": 19,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 인도네시아",
     "sourceUrl": "https://www.youtube.com/results?search_query=Indonesia+dance+challenge+shorts+music",
@@ -6185,7 +6334,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "6WbT2yrRuPQ",
@@ -6506,8 +6655,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/OP3a2qzW5Yk",
     "thumbnail": "https://i.ytimg.com/vi/OP3a2qzW5Yk/hqdefault.jpg",
-    "viewsGained": 38807417,
-    "likeCount": 146906,
+    "viewsGained": 38831060,
+    "likeCount": 146947,
     "sourceRank": 32,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -6526,7 +6675,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "1j_l7yG5Oxs",
@@ -6629,8 +6778,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/6nQgNjauRXQ",
     "thumbnail": "https://i.ytimg.com/vi/6nQgNjauRXQ/hqdefault.jpg",
-    "viewsGained": 29745627,
-    "likeCount": 115029,
+    "viewsGained": 29889946,
+    "likeCount": 115281,
     "sourceRank": 41,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -6649,7 +6798,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "ImRk_Y_Hzsg",
@@ -6752,9 +6901,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/nvUAeY8QxmM",
     "thumbnail": "https://i.ytimg.com/vi/nvUAeY8QxmM/hqdefault.jpg",
-    "viewsGained": 2012315,
-    "likeCount": 15715,
-    "sourceRank": 6,
+    "viewsGained": 2016363,
+    "likeCount": 15730,
+    "sourceRank": 7,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 대한민국",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80",
@@ -6774,7 +6923,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "q5DyJFz3leQ",
@@ -6785,9 +6934,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/q5DyJFz3leQ",
     "thumbnail": "https://i.ytimg.com/vi/q5DyJFz3leQ/hqdefault.jpg",
-    "viewsGained": 1048249,
+    "viewsGained": 1048347,
     "likeCount": 10381,
-    "sourceRank": 7,
+    "sourceRank": 8,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 대한민국",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80",
@@ -6807,7 +6956,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "iSaxhrvpLi8",
@@ -6852,7 +7001,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/ep9sKkG7f94",
     "thumbnail": "https://i.ytimg.com/vi/ep9sKkG7f94/hqdefault.jpg",
-    "viewsGained": 2657256,
+    "viewsGained": 2657845,
     "likeCount": null,
     "sourceRank": 14,
     "sourceWindow": "api-viewCount",
@@ -6875,7 +7024,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "UNS1flsjqA0",
@@ -6941,7 +7090,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "oe-DCMHquSc",
@@ -7148,8 +7297,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/0RERX7wEuTM",
     "thumbnail": "https://i.ytimg.com/vi/0RERX7wEuTM/hqdefault.jpg",
-    "viewsGained": 12109445,
-    "likeCount": 200706,
+    "viewsGained": 12140663,
+    "likeCount": 201018,
     "sourceRank": 15,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -7169,7 +7318,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "vRZ0GNME-h4",
@@ -7214,8 +7363,8 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/YGB1cpQKCF8",
     "thumbnail": "https://i.ytimg.com/vi/YGB1cpQKCF8/hqdefault.jpg",
-    "viewsGained": 60371330,
-    "likeCount": 1221941,
+    "viewsGained": 60922872,
+    "likeCount": 1227263,
     "sourceRank": 20,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -7233,7 +7382,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "GooOKAZtJC8",
@@ -7516,8 +7665,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/jVAUwVsWteM",
     "thumbnail": "https://i.ytimg.com/vi/jVAUwVsWteM/hqdefault.jpg",
-    "viewsGained": 50086384,
-    "likeCount": 601958,
+    "viewsGained": 50164351,
+    "likeCount": 602046,
     "sourceRank": 15,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -7536,7 +7685,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "wsZlX-m-I74",
@@ -7827,7 +7976,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/6vW3EaXTKtw",
     "thumbnail": "https://i.ytimg.com/vi/6vW3EaXTKtw/hqdefault.jpg",
-    "viewsGained": 242669,
+    "viewsGained": 242821,
     "likeCount": null,
     "sourceRank": 18,
     "sourceWindow": "api-viewCount",
@@ -7852,7 +8001,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "XkJUbLYj6Wo",
@@ -7863,8 +8012,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/XkJUbLYj6Wo",
     "thumbnail": "https://i.ytimg.com/vi/XkJUbLYj6Wo/hqdefault.jpg",
-    "viewsGained": 1322423,
-    "likeCount": 32163,
+    "viewsGained": 1326532,
+    "likeCount": 32168,
     "sourceRank": 3,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 독일",
@@ -7886,7 +8035,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "WUWTXZawxeQ",
@@ -7897,8 +8046,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/WUWTXZawxeQ",
     "thumbnail": "https://i.ytimg.com/vi/WUWTXZawxeQ/hqdefault.jpg",
-    "viewsGained": 149741,
-    "likeCount": 2154,
+    "viewsGained": 149787,
+    "likeCount": 2155,
     "sourceRank": 10,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 독일",
@@ -7919,7 +8068,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "DPWOGI3jqhA",
@@ -7930,7 +8079,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/DPWOGI3jqhA",
     "thumbnail": "https://i.ytimg.com/vi/DPWOGI3jqhA/hqdefault.jpg",
-    "viewsGained": 99546,
+    "viewsGained": 99548,
     "likeCount": 2331,
     "sourceRank": 11,
     "sourceWindow": "api-viewCount",
@@ -7953,7 +8102,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "5yBBi5t0SnM",
@@ -7964,7 +8113,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/5yBBi5t0SnM",
     "thumbnail": "https://i.ytimg.com/vi/5yBBi5t0SnM/hqdefault.jpg",
-    "viewsGained": 87718,
+    "viewsGained": 87722,
     "likeCount": null,
     "sourceRank": 12,
     "sourceWindow": "api-viewCount",
@@ -7988,7 +8137,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "NTdaPSqj1a4",
@@ -8032,8 +8181,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/LBenimCgHIs",
     "thumbnail": "https://i.ytimg.com/vi/LBenimCgHIs/hqdefault.jpg",
-    "viewsGained": 93758,
-    "likeCount": 800,
+    "viewsGained": 93776,
+    "likeCount": 801,
     "sourceRank": 17,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 베트남",
@@ -8054,7 +8203,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "jYJuEv3H4Fw",
@@ -8343,8 +8492,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/YFSKUyJXNCo",
     "thumbnail": "https://i.ytimg.com/vi/YFSKUyJXNCo/hqdefault.jpg",
-    "viewsGained": 1203623,
-    "likeCount": 14185,
+    "viewsGained": 1204600,
+    "likeCount": 14196,
     "sourceRank": 32,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -8365,7 +8514,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "-KqrohKZssU",
@@ -8376,9 +8525,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/-KqrohKZssU",
     "thumbnail": "https://i.ytimg.com/vi/-KqrohKZssU/hqdefault.jpg",
-    "viewsGained": 131306,
+    "viewsGained": 131311,
     "likeCount": 641,
-    "sourceRank": 22,
+    "sourceRank": 20,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 인도네시아",
     "sourceUrl": "https://www.youtube.com/results?search_query=Indonesia+dance+challenge+shorts+music",
@@ -8397,7 +8546,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "bX2RbVQ_6r0",
@@ -8408,8 +8557,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/bX2RbVQ_6r0",
     "thumbnail": "https://i.ytimg.com/vi/bX2RbVQ_6r0/hqdefault.jpg",
-    "viewsGained": 134127893,
-    "likeCount": 475620,
+    "viewsGained": 134381455,
+    "likeCount": 476019,
     "sourceRank": 25,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -8428,7 +8577,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "Oc7ffyr2Wv4",
@@ -8745,7 +8894,7 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/CFhJHXxcx34",
     "thumbnail": "https://i.ytimg.com/vi/CFhJHXxcx34/hqdefault.jpg",
-    "viewsGained": 267132343,
+    "viewsGained": 267139554,
     "likeCount": null,
     "sourceRank": 2,
     "sourceWindow": "7D",
@@ -8764,7 +8913,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "dexU3VDaZEM",
@@ -8775,8 +8924,8 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/dexU3VDaZEM",
     "thumbnail": "https://i.ytimg.com/vi/dexU3VDaZEM/hqdefault.jpg",
-    "viewsGained": 95516550,
-    "likeCount": 776200,
+    "viewsGained": 95642000,
+    "likeCount": 776779,
     "sourceRank": 28,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -8796,7 +8945,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "Al9cucyRTQA",
@@ -9048,7 +9197,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "ydnfrBt1Qj0",
@@ -9225,8 +9374,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/UqrAhnw_3cA",
     "thumbnail": "https://i.ytimg.com/vi/UqrAhnw_3cA/hqdefault.jpg",
-    "viewsGained": 117877692,
-    "likeCount": 414710,
+    "viewsGained": 117880328,
+    "likeCount": 414714,
     "sourceRank": 1,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -9248,7 +9397,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "CDnb-Xm599k",
@@ -9259,8 +9408,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/CDnb-Xm599k",
     "thumbnail": "https://i.ytimg.com/vi/CDnb-Xm599k/hqdefault.jpg",
-    "viewsGained": 16374820,
-    "likeCount": 100811,
+    "viewsGained": 16378482,
+    "likeCount": 100814,
     "sourceRank": 4,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -9282,7 +9431,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "cFZ3B3Y5rs4",
@@ -9327,7 +9476,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/Z1oQ1UetBSI",
     "thumbnail": "https://i.ytimg.com/vi/Z1oQ1UetBSI/hqdefault.jpg",
-    "viewsGained": 605235,
+    "viewsGained": 605322,
     "likeCount": 2824,
     "sourceRank": 35,
     "sourceWindow": "api-viewCount",
@@ -9349,7 +9498,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "gH0H-gbkUTQ",
@@ -9547,8 +9696,8 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/OykWt31S56I",
     "thumbnail": "https://i.ytimg.com/vi/OykWt31S56I/hqdefault.jpg",
-    "viewsGained": 39502421,
-    "likeCount": 502758,
+    "viewsGained": 39746775,
+    "likeCount": 503438,
     "sourceRank": 34,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -9566,7 +9715,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "N7ZX7_ZKHnY",
@@ -9880,6 +10029,39 @@
     "lastSeenAt": "2026-09-04T08:27:51+09:00"
   },
   {
+    "id": "1BS7gLuPo9U",
+    "region": "global",
+    "regionLabel": "글로벌",
+    "title": "Buena Vida Mala Fama 🖤🔥 Slowed #shortsfeed #dancetrend #danceedit #edit #popular",
+    "channel": "Prodby Lex",
+    "category": "YouTube Data API Shorts Search",
+    "shortsUrl": "https://www.youtube.com/shorts/1BS7gLuPo9U",
+    "thumbnail": "https://i.ytimg.com/vi/1BS7gLuPo9U/hqdefault.jpg",
+    "viewsGained": 10799618,
+    "likeCount": 61666,
+    "sourceRank": 16,
+    "sourceWindow": "api-viewCount",
+    "sourceName": "YouTube Data API - 글로벌",
+    "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+slowed+dance+edit",
+    "collectedAt": "2026-09-04T07:27:24+09:00",
+    "publishedAt": "2026-08-30",
+    "matchNotes": [
+      "source: YouTube Data API v3",
+      "api query: #shorts slowed dance edit",
+      "official search and video metadata",
+      "api short-duration shorts candidate",
+      "music/trend signal: edit, slowed",
+      "shorts text signal",
+      "manual visual/audio check recommended"
+    ],
+    "duration": 11,
+    "width": 1080,
+    "height": 1920,
+    "aspectRatio": 0.5625,
+    "isShort9x16": true,
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
+  },
+  {
     "id": "xME7A9khQn0",
     "region": "global",
     "regionLabel": "글로벌",
@@ -9914,39 +10096,6 @@
     "lastSeenAt": "2026-09-05T08:12:27+09:00"
   },
   {
-    "id": "1BS7gLuPo9U",
-    "region": "global",
-    "regionLabel": "글로벌",
-    "title": "Buena Vida Mala Fama 🖤🔥 Slowed #shortsfeed #dancetrend #danceedit #edit #popular",
-    "channel": "Prodby Lex",
-    "category": "YouTube Data API Shorts Search",
-    "shortsUrl": "https://www.youtube.com/shorts/1BS7gLuPo9U",
-    "thumbnail": "https://i.ytimg.com/vi/1BS7gLuPo9U/hqdefault.jpg",
-    "viewsGained": 10731035,
-    "likeCount": 61461,
-    "sourceRank": 16,
-    "sourceWindow": "api-viewCount",
-    "sourceName": "YouTube Data API - 글로벌",
-    "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+slowed+dance+edit",
-    "collectedAt": "2026-09-04T07:27:24+09:00",
-    "publishedAt": "2026-08-30",
-    "matchNotes": [
-      "source: YouTube Data API v3",
-      "api query: #shorts slowed dance edit",
-      "official search and video metadata",
-      "api short-duration shorts candidate",
-      "music/trend signal: edit, slowed",
-      "shorts text signal",
-      "manual visual/audio check recommended"
-    ],
-    "duration": 11,
-    "width": 1080,
-    "height": 1920,
-    "aspectRatio": 0.5625,
-    "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
-  },
-  {
     "id": "TtIzPPvCjO0",
     "region": "us",
     "regionLabel": "미국",
@@ -9955,7 +10104,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/TtIzPPvCjO0",
     "thumbnail": "https://i.ytimg.com/vi/TtIzPPvCjO0/hqdefault.jpg",
-    "viewsGained": 913466,
+    "viewsGained": 913600,
     "likeCount": 8730,
     "sourceRank": 23,
     "sourceWindow": "api-viewCount",
@@ -9977,7 +10126,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "KIHBVA06Xkk",
@@ -10056,8 +10205,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/d72yNkyDdj0",
     "thumbnail": "https://i.ytimg.com/vi/d72yNkyDdj0/hqdefault.jpg",
-    "viewsGained": 390337,
-    "likeCount": 4140,
+    "viewsGained": 390381,
+    "likeCount": 4139,
     "sourceRank": 6,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 인도네시아",
@@ -10078,7 +10227,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "caVfGbTp8L0",
@@ -10144,7 +10293,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "3GlIqkFx0rk",
@@ -10178,7 +10327,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "Tcwh3Zf1ml4",
@@ -10314,8 +10463,8 @@
     "category": "People & Blogs",
     "shortsUrl": "https://www.youtube.com/shorts/27ldYQjB2YU",
     "thumbnail": "https://i.ytimg.com/vi/27ldYQjB2YU/hqdefault.jpg",
-    "viewsGained": 93929018,
-    "likeCount": 532533,
+    "viewsGained": 94025615,
+    "likeCount": 532889,
     "sourceRank": 22,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -10333,7 +10482,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "h7IxButEwDY",
@@ -10660,9 +10809,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/bN23zfPopJM",
     "thumbnail": "https://i.ytimg.com/vi/bN23zfPopJM/hqdefault.jpg",
-    "viewsGained": 2305578,
-    "likeCount": 20067,
-    "sourceRank": 4,
+    "viewsGained": 2308712,
+    "likeCount": 20084,
+    "sourceRank": 5,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 대한민국",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80",
@@ -10682,7 +10831,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "FS-b2kp-K8A",
@@ -10761,8 +10910,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/Jki3A1LGuJY",
     "thumbnail": "https://i.ytimg.com/vi/Jki3A1LGuJY/hqdefault.jpg",
-    "viewsGained": 1705175,
-    "likeCount": 16362,
+    "viewsGained": 1706613,
+    "likeCount": 16364,
     "sourceRank": 10,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 브라질",
@@ -10785,7 +10934,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "xIwcvpb_nWY",
@@ -10796,7 +10945,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/xIwcvpb_nWY",
     "thumbnail": "https://i.ytimg.com/vi/xIwcvpb_nWY/hqdefault.jpg",
-    "viewsGained": 744070,
+    "viewsGained": 744164,
     "likeCount": 6452,
     "sourceRank": 3,
     "sourceWindow": "api-viewCount",
@@ -10819,7 +10968,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "0QQLub0IZzM",
@@ -10955,8 +11104,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/LlfWKI998YQ",
     "thumbnail": "https://i.ytimg.com/vi/LlfWKI998YQ/hqdefault.jpg",
-    "viewsGained": 13764562,
-    "likeCount": 200632,
+    "viewsGained": 13780605,
+    "likeCount": 200693,
     "sourceRank": 13,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -10976,7 +11125,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "_1ecYUuAVPI",
@@ -11359,8 +11508,8 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/tIBlH4OaV08",
     "thumbnail": "https://i.ytimg.com/vi/tIBlH4OaV08/hqdefault.jpg",
-    "viewsGained": 147823709,
-    "likeCount": 1601206,
+    "viewsGained": 148276313,
+    "likeCount": 1602827,
     "sourceRank": 24,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -11378,7 +11527,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "3wVPC6WUnOU",
@@ -11602,9 +11751,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/i4yfIB0ywq8",
     "thumbnail": "https://i.ytimg.com/vi/i4yfIB0ywq8/hqdefault.jpg",
-    "viewsGained": 2647749,
-    "likeCount": 18460,
-    "sourceRank": 3,
+    "viewsGained": 2650986,
+    "likeCount": 18474,
+    "sourceRank": 4,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 대한민국",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80",
@@ -11624,7 +11773,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "Rg5JfLFUfow",
@@ -11635,8 +11784,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/Rg5JfLFUfow",
     "thumbnail": "https://i.ytimg.com/vi/Rg5JfLFUfow/hqdefault.jpg",
-    "viewsGained": 3534885,
-    "likeCount": 14410,
+    "viewsGained": 3534948,
+    "likeCount": 14409,
     "sourceRank": 1,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 인도네시아",
@@ -11657,7 +11806,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "t5qkkjKrVJ8",
@@ -11670,7 +11819,7 @@
     "thumbnail": "https://i.ytimg.com/vi/t5qkkjKrVJ8/hqdefault.jpg",
     "viewsGained": 275938,
     "likeCount": null,
-    "sourceRank": 15,
+    "sourceRank": 14,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 인도네시아",
     "sourceUrl": "https://www.youtube.com/results?search_query=Indonesia+dance+challenge+shorts+music",
@@ -11692,7 +11841,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "WdMz9dvDpS8",
@@ -11703,9 +11852,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/WdMz9dvDpS8",
     "thumbnail": "https://i.ytimg.com/vi/WdMz9dvDpS8/hqdefault.jpg",
-    "viewsGained": 1553320,
+    "viewsGained": 1556857,
     "likeCount": null,
-    "sourceRank": 21,
+    "sourceRank": 20,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 브라질",
     "sourceUrl": "https://www.youtube.com/results?search_query=Brazil+dance+challenge+shorts+funk",
@@ -11727,7 +11876,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "uEW66HoeiAY",
@@ -12011,8 +12160,8 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/g3j14auCVVg",
     "thumbnail": "https://i.ytimg.com/vi/g3j14auCVVg/hqdefault.jpg",
-    "viewsGained": 723359470,
-    "likeCount": 5850779,
+    "viewsGained": 724539219,
+    "likeCount": 5853906,
     "sourceRank": 1,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -12030,7 +12179,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "T9LQRX7R_Uk",
@@ -12041,8 +12190,8 @@
     "category": "Sports",
     "shortsUrl": "https://www.youtube.com/shorts/T9LQRX7R_Uk",
     "thumbnail": "https://i.ytimg.com/vi/T9LQRX7R_Uk/hqdefault.jpg",
-    "viewsGained": 194267214,
-    "likeCount": 1098853,
+    "viewsGained": 195120407,
+    "likeCount": 1100556,
     "sourceRank": 7,
     "sourceWindow": "7D",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -12060,7 +12209,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "9CWvgjc5iD0",
@@ -12286,8 +12435,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/YJmknU9Vr8k",
     "thumbnail": "https://i.ytimg.com/vi/YJmknU9Vr8k/hqdefault.jpg",
-    "viewsGained": 7073576,
-    "likeCount": 128519,
+    "viewsGained": 7098494,
+    "likeCount": 128767,
     "sourceRank": 18,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -12310,7 +12459,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "5JzcjwRtInc",
@@ -12354,9 +12503,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/PPfw4wykHtM",
     "thumbnail": "https://i.ytimg.com/vi/PPfw4wykHtM/hqdefault.jpg",
-    "viewsGained": 3425195,
+    "viewsGained": 3426139,
     "likeCount": 5410,
-    "sourceRank": 1,
+    "sourceRank": 2,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 대한민국",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80",
@@ -12376,7 +12525,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "oS1VoYgp2rQ",
@@ -12387,7 +12536,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/oS1VoYgp2rQ",
     "thumbnail": "https://i.ytimg.com/vi/oS1VoYgp2rQ/hqdefault.jpg",
-    "viewsGained": 152498,
+    "viewsGained": 152500,
     "likeCount": null,
     "sourceRank": 21,
     "sourceWindow": "api-viewCount",
@@ -12410,7 +12559,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "BdpNTkh07pQ",
@@ -12421,8 +12570,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/BdpNTkh07pQ",
     "thumbnail": "https://i.ytimg.com/vi/BdpNTkh07pQ/hqdefault.jpg",
-    "viewsGained": 7202466,
-    "likeCount": 30474,
+    "viewsGained": 7203566,
+    "likeCount": 30476,
     "sourceRank": 2,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 브라질",
@@ -12444,7 +12593,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "equb6lD0roE",
@@ -13312,9 +13461,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/Zm3wyVNUW8g",
     "thumbnail": "https://i.ytimg.com/vi/Zm3wyVNUW8g/hqdefault.jpg",
-    "viewsGained": 8839226,
-    "likeCount": 66721,
-    "sourceRank": 2,
+    "viewsGained": 8871029,
+    "likeCount": 66853,
+    "sourceRank": 1,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 대한민국",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80",
@@ -13334,7 +13483,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-12T08:29:39+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "WQ_v7TK6nPo",
@@ -13345,8 +13494,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/WQ_v7TK6nPo",
     "thumbnail": "https://i.ytimg.com/vi/WQ_v7TK6nPo/hqdefault.jpg",
-    "viewsGained": 973162,
-    "likeCount": 16840,
+    "viewsGained": 974706,
+    "likeCount": 16845,
     "sourceRank": 21,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 미국",
@@ -13369,7 +13518,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "p8hsqgS78oQ",
@@ -13380,14 +13529,14 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/p8hsqgS78oQ",
     "thumbnail": "https://i.ytimg.com/vi/p8hsqgS78oQ/hqdefault.jpg",
-    "viewsGained": 2383868,
-    "likeCount": 20670,
-    "sourceRank": 20,
+    "viewsGained": 2713690,
+    "likeCount": 16916,
+    "sourceRank": 18,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 브라질",
     "sourceUrl": "https://www.youtube.com/results?search_query=Brazil+dance+challenge+shorts+funk",
     "collectedAt": "2026-08-31T07:35:54+09:00",
-    "publishedAt": "2026-08-24",
+    "publishedAt": "2026-08-26",
     "matchNotes": [
       "source: YouTube Data API v3",
       "api query: Brazil dance challenge shorts funk",
@@ -13403,7 +13552,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "9Y4XaZO9Fto",
@@ -13447,8 +13596,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/IqY3V2okSps",
     "thumbnail": "https://i.ytimg.com/vi/IqY3V2okSps/hqdefault.jpg",
-    "viewsGained": 1420285,
-    "likeCount": 10297,
+    "viewsGained": 1421661,
+    "likeCount": 10299,
     "sourceRank": 23,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 브라질",
@@ -13471,7 +13620,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "p5Zd7hIZn58",
@@ -13482,8 +13631,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/p5Zd7hIZn58",
     "thumbnail": "https://i.ytimg.com/vi/p5Zd7hIZn58/hqdefault.jpg",
-    "viewsGained": 1130280,
-    "likeCount": 17846,
+    "viewsGained": 1131495,
+    "likeCount": 17857,
     "sourceRank": 14,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 일본",
@@ -13506,7 +13655,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "sFMsbETBY3g",
@@ -14013,8 +14162,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/eUJLC7DAS-8",
     "thumbnail": "https://i.ytimg.com/vi/eUJLC7DAS-8/hqdefault.jpg",
-    "viewsGained": 6872830,
-    "likeCount": 243457,
+    "viewsGained": 6882042,
+    "likeCount": 243522,
     "sourceRank": 7,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -14034,7 +14183,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "NSA0RCYCVJc",
@@ -14045,9 +14194,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/NSA0RCYCVJc",
     "thumbnail": "https://i.ytimg.com/vi/NSA0RCYCVJc/hqdefault.jpg",
-    "viewsGained": 5032224,
-    "likeCount": 58804,
-    "sourceRank": 24,
+    "viewsGained": 5048887,
+    "likeCount": 58896,
+    "sourceRank": 23,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+slowed+dance+edit",
@@ -14067,7 +14216,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "d7InNIfxVG4",
@@ -14078,8 +14227,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/d7InNIfxVG4",
     "thumbnail": "https://i.ytimg.com/vi/d7InNIfxVG4/hqdefault.jpg",
-    "viewsGained": 1443660,
-    "likeCount": 13920,
+    "viewsGained": 1448451,
+    "likeCount": 13938,
     "sourceRank": 1,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 멕시코",
@@ -14099,7 +14248,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "kca-r_lUhEc",
@@ -14145,8 +14294,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/-wP-v67FZKM",
     "thumbnail": "https://i.ytimg.com/vi/-wP-v67FZKM/hqdefault.jpg",
-    "viewsGained": 2266273,
-    "likeCount": 25492,
+    "viewsGained": 2268342,
+    "likeCount": 25491,
     "sourceRank": 14,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 브라질",
@@ -14168,7 +14317,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "Hj60Hz1IGa4",
@@ -14201,7 +14350,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "WDkjgysrl7w",
@@ -14403,7 +14552,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/girLhahKCSU",
     "thumbnail": "https://i.ytimg.com/vi/girLhahKCSU/hqdefault.jpg",
-    "viewsGained": 339214,
+    "viewsGained": 345207,
     "likeCount": null,
     "sourceRank": 24,
     "sourceWindow": "api-viewCount",
@@ -14427,7 +14576,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-08-30T08:31:55+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "qjJTWL4IGus",
@@ -15026,9 +15175,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/gukrAw1Rlm8",
     "thumbnail": "https://i.ytimg.com/vi/gukrAw1Rlm8/hqdefault.jpg",
-    "viewsGained": 201162,
+    "viewsGained": 201173,
     "likeCount": 1073,
-    "sourceRank": 17,
+    "sourceRank": 16,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 인도네시아",
     "sourceUrl": "https://www.youtube.com/results?search_query=Indonesia+dance+challenge+shorts+music",
@@ -15047,7 +15196,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "SP7nu0o-4IU",
@@ -15058,8 +15207,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/SP7nu0o-4IU",
     "thumbnail": "https://i.ytimg.com/vi/SP7nu0o-4IU/hqdefault.jpg",
-    "viewsGained": 914680,
-    "likeCount": 6948,
+    "viewsGained": 914889,
+    "likeCount": 6949,
     "sourceRank": 2,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 베트남",
@@ -15079,7 +15228,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "HXWu_oAB3FQ",
@@ -15307,8 +15456,8 @@
     "category": "RedToolBox Top Shorts",
     "shortsUrl": "https://www.youtube.com/shorts/nKpVu1yD0Jw",
     "thumbnail": "https://i.ytimg.com/vi/nKpVu1yD0Jw/hqdefault.jpg",
-    "viewsGained": 173130337,
-    "likeCount": 989214,
+    "viewsGained": 173541001,
+    "likeCount": 990183,
     "sourceRank": 10,
     "sourceWindow": "daily",
     "sourceName": "RedToolBox Top Shorts",
@@ -15327,7 +15476,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "sAHhb1CzWT4",
@@ -15463,8 +15612,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/_KAcMr1Ewls",
     "thumbnail": "https://i.ytimg.com/vi/_KAcMr1Ewls/hqdefault.jpg",
-    "viewsGained": 5306227,
-    "likeCount": 140831,
+    "viewsGained": 5329036,
+    "likeCount": 141263,
     "sourceRank": 21,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -15485,7 +15634,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "B8C2WICUSPo",
@@ -15530,8 +15679,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/MRlVCijTq90",
     "thumbnail": "https://i.ytimg.com/vi/MRlVCijTq90/hqdefault.jpg",
-    "viewsGained": 1133523,
-    "likeCount": 18993,
+    "viewsGained": 1133738,
+    "likeCount": 18996,
     "sourceRank": 15,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 멕시코",
@@ -15554,7 +15703,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "kxdKimdk1IY",
@@ -15598,17 +15747,17 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/u4NXkSHOwfI",
     "thumbnail": "https://i.ytimg.com/vi/u4NXkSHOwfI/hqdefault.jpg",
-    "viewsGained": 1194242,
+    "viewsGained": 1194824,
     "likeCount": 8906,
-    "sourceRank": 22,
+    "sourceRank": 24,
     "sourceWindow": "api-viewCount",
-    "sourceName": "YouTube Data API - 필리핀",
-    "sourceUrl": "https://www.youtube.com/results?search_query=Philippines+trending+shorts+dance+music",
+    "sourceName": "YouTube Data API - 브라질",
+    "sourceUrl": "https://www.youtube.com/results?search_query=Brazil+dance+challenge+shorts+funk",
     "collectedAt": "2026-08-28T13:08:12+09:00",
     "publishedAt": "2026-08-20",
     "matchNotes": [
       "source: YouTube Data API v3",
-      "api query: Philippines trending shorts dance music",
+      "api query: Brazil dance challenge shorts funk",
       "official search and video metadata",
       "api short-duration shorts candidate",
       "core keyword: dance",
@@ -15621,7 +15770,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "Fe04zoSFIrA",
@@ -15632,8 +15781,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/Fe04zoSFIrA",
     "thumbnail": "https://i.ytimg.com/vi/Fe04zoSFIrA/hqdefault.jpg",
-    "viewsGained": 567411,
-    "likeCount": 5717,
+    "viewsGained": 567564,
+    "likeCount": 5719,
     "sourceRank": 4,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 인도네시아",
@@ -15654,7 +15803,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "nK5nFZoSuEw",
@@ -15697,8 +15846,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/j6QqQeyvVxs",
     "thumbnail": "https://i.ytimg.com/vi/j6QqQeyvVxs/hqdefault.jpg",
-    "viewsGained": 5385362,
-    "likeCount": 49988,
+    "viewsGained": 5406911,
+    "likeCount": 50042,
     "sourceRank": 10,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -15721,7 +15870,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "-ooY1QhQo-o",
@@ -15790,7 +15939,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "f2szByj6Jyc",
@@ -15824,7 +15973,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "XLi-T-RO9BI",
@@ -15858,7 +16007,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "u4h7eKa90jY",
@@ -16022,8 +16171,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/qvE6WTL4o28",
     "thumbnail": "https://i.ytimg.com/vi/qvE6WTL4o28/hqdefault.jpg",
-    "viewsGained": 93909964,
-    "likeCount": 292062,
+    "viewsGained": 93923653,
+    "likeCount": 292077,
     "sourceRank": 2,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -16044,7 +16193,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "AI5co0muhJg",
@@ -16671,9 +16820,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/jyLx2owRdQA",
     "thumbnail": "https://i.ytimg.com/vi/jyLx2owRdQA/hqdefault.jpg",
-    "viewsGained": 1769786,
+    "viewsGained": 1770181,
     "likeCount": 4869,
-    "sourceRank": 5,
+    "sourceRank": 6,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 대한민국",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+%EB%8C%84%EC%8A%A4+%EC%9D%8C%EC%95%85+%EC%B1%8C%EB%A6%B0%EC%A7%80",
@@ -16693,7 +16842,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "suyE2dPQ8uo",
@@ -16704,8 +16853,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/suyE2dPQ8uo",
     "thumbnail": "https://i.ytimg.com/vi/suyE2dPQ8uo/hqdefault.jpg",
-    "viewsGained": 636542,
-    "likeCount": 18874,
+    "viewsGained": 638308,
+    "likeCount": 18882,
     "sourceRank": 7,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 미국",
@@ -16725,7 +16874,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "UUL95bgf75g",
@@ -16736,7 +16885,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/UUL95bgf75g",
     "thumbnail": "https://i.ytimg.com/vi/UUL95bgf75g/hqdefault.jpg",
-    "viewsGained": 1555147,
+    "viewsGained": 1556298,
     "likeCount": null,
     "sourceRank": 31,
     "sourceWindow": "api-viewCount",
@@ -16759,7 +16908,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "3Jht-R4l7WA",
@@ -16770,8 +16919,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/3Jht-R4l7WA",
     "thumbnail": "https://i.ytimg.com/vi/3Jht-R4l7WA/hqdefault.jpg",
-    "viewsGained": 608183,
-    "likeCount": 6410,
+    "viewsGained": 608782,
+    "likeCount": 6411,
     "sourceRank": 33,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -16793,7 +16942,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "ggbT_JqFo5E",
@@ -16804,8 +16953,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/ggbT_JqFo5E",
     "thumbnail": "https://i.ytimg.com/vi/ggbT_JqFo5E/hqdefault.jpg",
-    "viewsGained": 2387454,
-    "likeCount": 11619,
+    "viewsGained": 2515995,
+    "likeCount": 12249,
     "sourceRank": 17,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 브라질",
@@ -16827,7 +16976,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-12T08:29:39+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "hVfnvFkVsIM",
@@ -16933,9 +17082,9 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/oVoN55dBMhA",
     "thumbnail": "https://i.ytimg.com/vi/oVoN55dBMhA/hqdefault.jpg",
-    "viewsGained": 6202602,
+    "viewsGained": 6202614,
     "likeCount": null,
-    "sourceRank": 11,
+    "sourceRank": 12,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+trend",
@@ -16957,7 +17106,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "8NMfCCSlOQY",
@@ -17518,7 +17667,7 @@
     "shortsUrl": "https://www.youtube.com/shorts/eL94auzx2Sk",
     "thumbnail": "https://i.ytimg.com/vi/eL94auzx2Sk/hqdefault.jpg",
     "viewsGained": 966306,
-    "likeCount": 15857,
+    "likeCount": 15859,
     "sourceRank": 22,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 미국",
@@ -17539,7 +17688,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "nxMX4-5jf-Q",
@@ -17619,7 +17768,7 @@
     "shortsUrl": "https://www.youtube.com/shorts/mAkWBjABDRc",
     "thumbnail": "https://i.ytimg.com/vi/mAkWBjABDRc/hqdefault.jpg",
     "viewsGained": 1503772,
-    "likeCount": 18554,
+    "likeCount": 18555,
     "sourceRank": 20,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 미국",
@@ -17641,7 +17790,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "Xw1GmWEQ5q8",
@@ -17652,7 +17801,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/Xw1GmWEQ5q8",
     "thumbnail": "https://i.ytimg.com/vi/Xw1GmWEQ5q8/hqdefault.jpg",
-    "viewsGained": 57957,
+    "viewsGained": 57961,
     "likeCount": 194,
     "sourceRank": 1,
     "sourceWindow": "api-viewCount",
@@ -17674,7 +17823,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "CiUQd_tWFPM",
@@ -17708,7 +17857,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "I52ohKQqh5I",
@@ -17875,7 +18024,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/f9cIrxs3yyE",
     "thumbnail": "https://i.ytimg.com/vi/f9cIrxs3yyE/hqdefault.jpg",
-    "viewsGained": 92527,
+    "viewsGained": 92528,
     "likeCount": 1098,
     "sourceRank": 21,
     "sourceWindow": "api-viewCount",
@@ -17897,7 +18046,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "7uCaEyUPGoM",
@@ -18493,8 +18642,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/FQpqBtUoMoU",
     "thumbnail": "https://i.ytimg.com/vi/FQpqBtUoMoU/hqdefault.jpg",
-    "viewsGained": 1301515,
-    "likeCount": 14045,
+    "viewsGained": 1301698,
+    "likeCount": 14047,
     "sourceRank": 18,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 미국",
@@ -18515,7 +18664,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "TVcgeGb_MhA",
@@ -18526,7 +18675,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/TVcgeGb_MhA",
     "thumbnail": "https://i.ytimg.com/vi/TVcgeGb_MhA/hqdefault.jpg",
-    "viewsGained": 250282,
+    "viewsGained": 250305,
     "likeCount": 3417,
     "sourceRank": 8,
     "sourceWindow": "api-viewCount",
@@ -18549,7 +18698,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "I5Ncn4mri2A",
@@ -18617,7 +18766,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "ftfEom5MZBI",
@@ -18628,7 +18777,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/ftfEom5MZBI",
     "thumbnail": "https://i.ytimg.com/vi/ftfEom5MZBI/hqdefault.jpg",
-    "viewsGained": 173607,
+    "viewsGained": 173708,
     "likeCount": null,
     "sourceRank": 17,
     "sourceWindow": "api-viewCount",
@@ -18652,7 +18801,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "IiblxSYNu6k",
@@ -19418,18 +19567,18 @@
     "region": "global",
     "regionLabel": "글로벌",
     "title": "VIRAL Animal KATSEYE Dance Trend 🔥😱 #shorts #animal #katseye #dance #trending #viral #music",
-    "channel": "MR MAGIC DEMO",
+    "channel": "vikas magic",
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/6YknPO1DfHw",
     "thumbnail": "https://i.ytimg.com/vi/6YknPO1DfHw/hqdefault.jpg",
     "viewsGained": 11386055,
-    "likeCount": 57454,
-    "sourceRank": 9,
+    "likeCount": 28853,
+    "sourceRank": 11,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+trend",
     "collectedAt": "2026-08-24T05:29:27+09:00",
-    "publishedAt": "2026-09-07",
+    "publishedAt": "2026-09-10",
     "matchNotes": [
       "source: YouTube Data API v3",
       "api query: #shorts dance challenge music trend",
@@ -19439,15 +19588,14 @@
       "music/trend signal: music, trend, trending",
       "shorts text signal",
       "excluded signal: animal",
-      "manual visual/audio check recommended",
-      "metadata: YouTube Data API video details"
+      "manual visual/audio check recommended"
     ],
     "isShort9x16": true,
     "duration": 8,
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "N7H1VK7tU0s",
@@ -19557,8 +19705,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/mRiB-mzBBsM",
     "thumbnail": "https://i.ytimg.com/vi/mRiB-mzBBsM/hqdefault.jpg",
-    "viewsGained": 35648912,
-    "likeCount": 212123,
+    "viewsGained": 35688522,
+    "likeCount": 212246,
     "sourceRank": 13,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 브라질",
@@ -19580,7 +19728,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "icKMROCig5U",
@@ -19690,7 +19838,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/kdPt4XnI3P8",
     "thumbnail": "https://i.ytimg.com/vi/kdPt4XnI3P8/hqdefault.jpg",
-    "viewsGained": 283013,
+    "viewsGained": 283038,
     "likeCount": 2216,
     "sourceRank": 8,
     "sourceWindow": "api-viewCount",
@@ -19712,7 +19860,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "M1mGHl9VuCc",
@@ -19849,7 +19997,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "nwU9Onucgdw",
@@ -20612,7 +20760,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/xkvOUQtvScA",
     "thumbnail": "https://i.ytimg.com/vi/xkvOUQtvScA/hqdefault.jpg",
-    "viewsGained": 145289,
+    "viewsGained": 145296,
     "likeCount": 811,
     "sourceRank": 18,
     "sourceWindow": "api-viewCount",
@@ -20634,7 +20782,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "XzXvjuCOr8w",
@@ -21103,7 +21251,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "QR4sT9sK72g",
@@ -22070,7 +22218,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "v8X9rMsfCfY",
@@ -23488,7 +23636,7 @@
     "thumbnail": "https://i.ytimg.com/vi/5KhPVIHfw_s/hqdefault.jpg",
     "viewsGained": 676082,
     "likeCount": 2280,
-    "sourceRank": 9,
+    "sourceRank": 10,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 미국",
     "sourceUrl": "https://www.youtube.com/results?search_query=%23shorts+dance+challenge+music+USA",
@@ -23509,7 +23657,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "IfJc8nL8Fm4",
@@ -23777,7 +23925,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "AhiVn0yyQuw",
@@ -24701,7 +24849,7 @@
     "shortsUrl": "https://www.youtube.com/shorts/89rLiabvj2w",
     "thumbnail": "https://i.ytimg.com/vi/89rLiabvj2w/hqdefault.jpg",
     "viewsGained": 251844,
-    "likeCount": 1516,
+    "likeCount": 1515,
     "sourceRank": 14,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 베트남",
@@ -24722,7 +24870,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "W7s1kHKhfqI",
@@ -25291,8 +25439,8 @@
     "category": "RedToolBox Top Shorts",
     "shortsUrl": "https://www.youtube.com/shorts/tQDJe-DFHHk",
     "thumbnail": "https://i.ytimg.com/vi/tQDJe-DFHHk/hqdefault.jpg",
-    "viewsGained": 138559501,
-    "likeCount": 676322,
+    "viewsGained": 138631288,
+    "likeCount": 676415,
     "sourceRank": 9,
     "sourceWindow": "weekly",
     "sourceName": "RedToolBox Top Shorts",
@@ -25311,7 +25459,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "eDeNIalMMBY",
@@ -25668,7 +25816,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "mRtKdjbiXeA",
@@ -28621,8 +28769,8 @@
     "category": "RedToolBox Top Shorts",
     "shortsUrl": "https://www.youtube.com/shorts/iP3fJbFeh1g",
     "thumbnail": "https://i.ytimg.com/vi/iP3fJbFeh1g/hqdefault.jpg",
-    "viewsGained": 316646763,
-    "likeCount": 1735626,
+    "viewsGained": 316927593,
+    "likeCount": 1736028,
     "sourceRank": 7,
     "sourceWindow": "weekly",
     "sourceName": "RedToolBox Top Shorts",
@@ -28641,7 +28789,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "crMgiCLGVX0",
@@ -29798,8 +29946,8 @@
     "category": "RedToolBox Top Shorts",
     "shortsUrl": "https://www.youtube.com/shorts/fNIsEpkA0K8",
     "thumbnail": "https://i.ytimg.com/vi/fNIsEpkA0K8/hqdefault.jpg",
-    "viewsGained": 470842367,
-    "likeCount": 2636719,
+    "viewsGained": 471385049,
+    "likeCount": 2637567,
     "sourceRank": 6,
     "sourceWindow": "weekly",
     "sourceName": "RedToolBox Top Shorts",
@@ -29818,7 +29966,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "Yynnz6bk2IE",
@@ -31512,7 +31660,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "T8nMrQw0jb8",
@@ -32012,7 +32160,7 @@
     "shortsUrl": "https://www.youtube.com/shorts/qqL8y2zDZVc",
     "thumbnail": "https://i.ytimg.com/vi/qqL8y2zDZVc/hqdefault.jpg",
     "viewsGained": 31722395,
-    "likeCount": 92465,
+    "likeCount": 92589,
     "sourceRank": 3,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 글로벌",
@@ -32034,7 +32182,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "bzTde_QCizg",
@@ -32312,7 +32460,7 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/TKIH2qFP8Uo",
     "thumbnail": "https://i.ytimg.com/vi/TKIH2qFP8Uo/hqdefault.jpg",
-    "viewsGained": 813496,
+    "viewsGained": 813583,
     "likeCount": 4958,
     "sourceRank": 16,
     "sourceWindow": "api-viewCount",
@@ -32335,7 +32483,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "6e8BDtOxPwA",
@@ -33088,8 +33236,8 @@
     "category": "RedToolBox Top Shorts",
     "shortsUrl": "https://www.youtube.com/shorts/y1nc6LfzjQQ",
     "thumbnail": "https://i.ytimg.com/vi/y1nc6LfzjQQ/hqdefault.jpg",
-    "viewsGained": 214931169,
-    "likeCount": 1352399,
+    "viewsGained": 215147234,
+    "likeCount": 1352901,
     "sourceRank": 10,
     "sourceWindow": "monthly",
     "sourceName": "RedToolBox Top Shorts",
@@ -33108,7 +33256,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "Z3gnSS5Ng6k",
@@ -35386,7 +35534,7 @@
     "shortsUrl": "https://www.youtube.com/shorts/K5PJ9Kc7FOs",
     "thumbnail": "https://i.ytimg.com/vi/K5PJ9Kc7FOs/hqdefault.jpg",
     "viewsGained": 13093751,
-    "likeCount": 17969,
+    "likeCount": 17974,
     "sourceRank": 5,
     "sourceWindow": "48H",
     "sourceName": "TubeTrending Most Viewed New Shorts",
@@ -35406,7 +35554,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "xH2MHDC2GQw",
@@ -38784,8 +38932,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/0jHcJT0Ry2Q",
     "thumbnail": "https://i.ytimg.com/vi/0jHcJT0Ry2Q/hqdefault.jpg",
-    "viewsGained": 1661931,
-    "likeCount": 7211,
+    "viewsGained": 1669452,
+    "likeCount": 7237,
     "sourceRank": 4,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 미국",
@@ -38805,7 +38953,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "SbX9NwgrkWY",
@@ -39962,7 +40110,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "QYdjBHOiFEQ",
@@ -40031,7 +40179,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "zyPsckDYUG4",
@@ -42281,7 +42429,7 @@
     "shortsUrl": "https://www.youtube.com/shorts/_07evFFexAc",
     "thumbnail": "https://i.ytimg.com/vi/_07evFFexAc/hqdefault.jpg",
     "viewsGained": 1246767,
-    "likeCount": 9392,
+    "likeCount": 9408,
     "sourceRank": 6,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 미국",
@@ -42301,7 +42449,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "CP-0YUsNfCM",
@@ -45896,7 +46044,7 @@
     "shortsUrl": "https://www.youtube.com/shorts/tuzkJh5Wzwk",
     "thumbnail": "https://i.ytimg.com/vi/tuzkJh5Wzwk/hqdefault.jpg",
     "viewsGained": 10692851,
-    "likeCount": 43166,
+    "likeCount": 43168,
     "sourceRank": 3,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 브라질",
@@ -45919,7 +46067,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "AZv3cDku85Q",
@@ -47863,8 +48011,8 @@
     "category": "RedToolBox Top Shorts",
     "shortsUrl": "https://www.youtube.com/shorts/m6n9pVTWIRA",
     "thumbnail": "https://i.ytimg.com/vi/m6n9pVTWIRA/hqdefault.jpg",
-    "viewsGained": 2678393079,
-    "likeCount": 12155537,
+    "viewsGained": 2678532821,
+    "likeCount": 12155815,
     "sourceRank": 6,
     "sourceWindow": "daily",
     "sourceName": "RedToolBox Top Shorts",
@@ -47884,7 +48032,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "4hRf2elZAhw",
@@ -64518,8 +64666,8 @@
     "category": "Entertainment",
     "shortsUrl": "https://www.youtube.com/shorts/Jsk8OJcZR-E",
     "thumbnail": "https://i.ytimg.com/vi/Jsk8OJcZR-E/hqdefault.jpg",
-    "viewsGained": 55451642,
-    "likeCount": 300172,
+    "viewsGained": 55537918,
+    "likeCount": 300337,
     "sourceRank": 10,
     "sourceWindow": "24H",
     "sourceName": "Vidirun Top 50 Short-Form Videos",
@@ -64537,7 +64685,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "6933xWovP_U",
@@ -71433,8 +71581,8 @@
     "category": "YouTube Data API Shorts Search",
     "shortsUrl": "https://www.youtube.com/shorts/PEqFUdBj1h0",
     "thumbnail": "https://i.ytimg.com/vi/PEqFUdBj1h0/hqdefault.jpg",
-    "viewsGained": 757194,
-    "likeCount": 4359,
+    "viewsGained": 757340,
+    "likeCount": 4360,
     "sourceRank": 8,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 미국",
@@ -71456,7 +71604,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "dx4oXZMtncs",
@@ -127632,7 +127780,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "OYxHBnlyCo8",
@@ -128082,8 +128230,8 @@
     "shortsUrl": "https://www.youtube.com/shorts/0vigfUZMNMc",
     "thumbnail": "https://i.ytimg.com/vi/0vigfUZMNMc/hqdefault.jpg",
     "viewsGained": 669556,
-    "likeCount": 7276,
-    "sourceRank": 21,
+    "likeCount": 7275,
+    "sourceRank": 20,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 프랑스",
     "sourceUrl": "https://www.youtube.com/results?search_query=France+dance+challenge+shorts+music",
@@ -128105,7 +128253,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "JcVxIQg3Jyo",
@@ -139843,8 +139991,8 @@
     "category": "RedToolBox Top Shorts",
     "shortsUrl": "https://www.youtube.com/shorts/O3OoFRPgFxY",
     "thumbnail": "https://i.ytimg.com/vi/O3OoFRPgFxY/hqdefault.jpg",
-    "viewsGained": 1174035370,
-    "likeCount": 5108654,
+    "viewsGained": 1174387401,
+    "likeCount": 5109125,
     "sourceRank": 8,
     "sourceWindow": "monthly",
     "sourceName": "RedToolBox Top Shorts",
@@ -139863,7 +140011,7 @@
     "width": 1080,
     "height": 1920,
     "aspectRatio": 0.5625,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "ZlRI_ca_tGw",
@@ -179478,7 +179626,7 @@
     "shortsUrl": "https://www.youtube.com/shorts/jx2Ch0wu3fM",
     "thumbnail": "https://i.ytimg.com/vi/jx2Ch0wu3fM/hqdefault.jpg",
     "viewsGained": 6545867,
-    "likeCount": 32704,
+    "likeCount": 32709,
     "sourceRank": 16,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 미국",
@@ -179501,7 +179649,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "00ZzIxFCY_E",
@@ -197689,7 +197837,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "Sza_FgA29pE",
@@ -197940,8 +198088,8 @@
     "shortsUrl": "https://www.youtube.com/shorts/JV-6UjCOcYI",
     "thumbnail": "https://i.ytimg.com/vi/JV-6UjCOcYI/hqdefault.jpg",
     "viewsGained": 755650,
-    "likeCount": 3772,
-    "sourceRank": 22,
+    "likeCount": 3802,
+    "sourceRank": 21,
     "sourceWindow": "api-viewCount",
     "sourceName": "YouTube Data API - 프랑스",
     "sourceUrl": "https://www.youtube.com/results?search_query=France+dance+challenge+shorts+music",
@@ -197962,7 +198110,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "LBOKR9zWpGs",
@@ -198195,7 +198343,7 @@
     "height": 1920,
     "aspectRatio": 0.5625,
     "isShort9x16": true,
-    "lastSeenAt": "2026-09-14T07:16:07+09:00"
+    "lastSeenAt": "2026-09-14T08:22:11+09:00"
   },
   {
     "id": "6WzGHOMFkmo",
