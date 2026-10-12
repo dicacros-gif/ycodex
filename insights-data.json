@@ -1,26 +1,26 @@
 [
   {
     "dateKey": "2026-10-12",
-    "updatedAt": "2026-10-12T08:32:13+09:00",
-    "updatedLabel": "10/12 08:32",
+    "updatedAt": "2026-10-12T09:41:42+09:00",
+    "updatedLabel": "10/12 09:41",
     "global": {
       "title": "트렌드 분석",
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "7459개"
+          "value": "7468개"
         },
         {
           "label": "오늘 감지",
-          "value": "175개"
+          "value": "185개"
         },
         {
           "label": "신규 편입",
-          "value": "32개"
+          "value": "41개"
         },
         {
           "label": "분석 표본",
-          "value": "175개"
+          "value": "185개"
         },
         {
           "label": "기준",
@@ -28,61 +28,61 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 126개",
-        "편집·슬로우드 사운드 26개",
-        "상황형 코미디·짧은 사건 18개",
-        "스포츠·퍼포먼스 순간 6개"
+        "댄스·음악 챌린지 132개",
+        "편집·슬로우드 사운드 27개",
+        "상황형 코미디·짧은 사건 19개",
+        "K-pop·아이돌 파생 7개"
       ],
       "cards": [
         {
           "title": "핵심 영상",
           "videos": [
             {
-              "id": "fNIsEpkA0K8",
+              "id": "m6n9pVTWIRA",
               "rank": "#1",
+              "title": "🤪 #londonbridges #kidssong 🎵 #funny",
+              "thumbnail": "https://i.ytimg.com/vi/m6n9pVTWIRA/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/m6n9pVTWIRA",
+              "views": "2,748,471,822",
+              "likes": "12,424,774",
+              "duration": "0:16",
+              "cluster": "상황형 코미디·짧은 사건"
+            },
+            {
+              "id": "fNIsEpkA0K8",
+              "rank": "#2",
               "title": "Веселимся в бассейне! Царевна с семьей идет купаться #цар...",
               "thumbnail": "https://i.ytimg.com/vi/fNIsEpkA0K8/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/fNIsEpkA0K8",
-              "views": "639,738,016",
-              "likes": "3,486,285",
+              "views": "639,880,149",
+              "likes": "3,487,182",
               "duration": "0:24",
               "cluster": "제목·조회수 기반 급상승"
             },
             {
               "id": "rJuwWW1kHPQ",
-              "rank": "#2",
+              "rank": "#3",
               "title": "🐉 O Dragão Salvou a Maçã do Otto! 🍎🥹 | #short #infantil",
               "thumbnail": "https://i.ytimg.com/vi/rJuwWW1kHPQ/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/rJuwWW1kHPQ",
-              "views": "548,322,602",
-              "likes": "2,892,148",
+              "views": "548,490,174",
+              "likes": "2,893,609",
               "duration": "0:23",
-              "cluster": "제목·조회수 기반 급상승"
-            },
-            {
-              "id": "h15pcl4SFe4",
-              "rank": "#3",
-              "title": "Nyemplung ke Selokan! 😱 #shorts #tayo",
-              "thumbnail": "https://i.ytimg.com/vi/h15pcl4SFe4/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/h15pcl4SFe4",
-              "views": "514,012,677",
-              "likes": "2,212,757",
-              "duration": "0:16",
               "cluster": "제목·조회수 기반 급상승"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "Веселимся в бассейне! Царевна с семьей ид… · 조회 639,738,016 · 좋아요 3,486,285 · 24초 · 제목·조회수 기반 급상승"
+              "text": "🤪 #londonbridges #kidssong 🎵 #funny · 조회 2,748,471,822 · 좋아요 12,424,774 · 16초 · 상황형 코미디·짧은 사건"
             },
             {
               "label": "#2",
-              "text": "🐉 O Dragão Salvou a Maçã do Otto! 🍎🥹 | #s… · 조회 548,322,602 · 좋아요 2,892,148 · 23초 · 제목·조회수 기반 급상승"
+              "text": "Веселимся в бассейне! Царевна с семьей ид… · 조회 639,880,149 · 좋아요 3,487,182 · 24초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
-              "text": "Nyemplung ke Selokan! 😱 #shorts #tayo · 조회 514,012,677 · 좋아요 2,212,757 · 16초 · 제목·조회수 기반 급상승"
+              "text": "🐉 O Dragão Salvou a Maçã do Otto! 🍎🥹 | #s… · 조회 548,490,174 · 좋아요 2,893,609 · 23초 · 제목·조회수 기반 급상승"
             }
           ]
         },
@@ -91,15 +91,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 126개 / 72%"
+              "text": "댄스·음악 챌린지 132개 / 71%"
             },
             {
               "label": "감지 기준",
-              "text": "10/12 랭킹·API 재감지 175개 / 신규 편입 32개 / 기존 재확인 143개"
+              "text": "10/12 랭킹·API 재감지 185개 / 신규 편입 41개 / 기존 재확인 144개"
             },
             {
               "label": "반응 밀도",
-              "text": "Веселимся в бассейне! Царевна с семьей ид… · 좋아요 3,486,285 · 조회 대비 0.5%"
+              "text": "🤪 #londonbridges #kidssong 🎵 #funny · 좋아요 12,424,774 · 조회 대비 0.5%"
             }
           ]
         },
@@ -112,11 +112,11 @@
             },
             {
               "label": "참고 영상",
-              "text": "Веселимся в бассейне! Царевна с семьей идет к… · 조회 639,738,016 · 좋아요 3,486,285"
+              "text": "🤪 #londonbridges #kidssong 🎵 #funny · 조회 2,748,471,822 · 좋아요 12,424,774"
             },
             {
               "label": "길이",
-              "text": "40초 미만 175개 / 제한 근접 11개 / 평균 19초"
+              "text": "40초 미만 185개 / 제한 근접 11개 / 평균 19초"
             },
             {
               "label": "변화",
@@ -137,19 +137,19 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1371개"
+          "value": "1377개"
         },
         {
           "label": "오늘 감지",
-          "value": "122개"
+          "value": "128개"
         },
         {
           "label": "신규 편입",
-          "value": "16개"
+          "value": "22개"
         },
         {
           "label": "분석 표본",
-          "value": "122개"
+          "value": "128개"
         },
         {
           "label": "기준",
@@ -157,10 +157,10 @@
         }
       ],
       "badges": [
-        "댄스·음악 챌린지 122개",
-        "편집·슬로우드 사운드 26개",
-        "상황형 코미디·짧은 사건 6개",
-        "K-pop·아이돌 파생 5개"
+        "댄스·음악 챌린지 128개",
+        "편집·슬로우드 사운드 27개",
+        "K-pop·아이돌 파생 7개",
+        "상황형 코미디·짧은 사건 6개"
       ],
       "cards": [
         {
@@ -173,7 +173,7 @@
               "thumbnail": "https://i.ytimg.com/vi/Dq54E4e1mfo/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/Dq54E4e1mfo",
               "views": "75,633,703",
-              "likes": "37,860",
+              "likes": "37,862",
               "duration": "0:14",
               "cluster": "댄스·음악 챌린지"
             },
@@ -183,8 +183,8 @@
               "title": "Wrap Me In Plastic (Slowed Down Version) by CHROMANCE & M...",
               "thumbnail": "https://i.ytimg.com/vi/t21T9Fcjk7M/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/t21T9Fcjk7M",
-              "views": "30,542,226",
-              "likes": "123,643",
+              "views": "30,557,896",
+              "likes": "123,758",
               "duration": "0:11",
               "cluster": "댄스·음악 챌린지"
             },
@@ -194,8 +194,8 @@
               "title": "Jab Jid Pe Aa Gyi Parvati | Group Dance | Wait For End #s...",
               "thumbnail": "https://i.ytimg.com/vi/1oHAIG4oobM/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/1oHAIG4oobM",
-              "views": "16,871,829",
-              "likes": "132,998",
+              "views": "16,872,682",
+              "likes": "133,045",
               "duration": "0:35",
               "cluster": "댄스·음악 챌린지"
             }
@@ -203,15 +203,15 @@
           "items": [
             {
               "label": "#1",
-              "text": "New viral trend #tiktok #music #dance #du… · 조회 75,633,703 · 좋아요 37,860 · 14초 · 댄스·음악 챌린지"
+              "text": "New viral trend #tiktok #music #dance #du… · 조회 75,633,703 · 좋아요 37,862 · 14초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Wrap Me In Plastic (Slowed Down Version)… · 조회 30,542,226 · 좋아요 123,643 · 11초 · 댄스·음악 챌린지"
+              "text": "Wrap Me In Plastic (Slowed Down Version)… · 조회 30,557,896 · 좋아요 123,758 · 11초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
-              "text": "Jab Jid Pe Aa Gyi Parvati | Group Dance |… · 조회 16,871,829 · 좋아요 132,998 · 35초 · 댄스·음악 챌린지"
+              "text": "Jab Jid Pe Aa Gyi Parvati | Group Dance |… · 조회 16,872,682 · 좋아요 133,045 · 35초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -220,15 +220,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 122개 / 100%"
+              "text": "댄스·음악 챌린지 128개 / 100%"
             },
             {
               "label": "감지 기준",
-              "text": "10/12 랭킹·API 재감지 122개 / 신규 편입 16개 / 기존 재확인 106개"
+              "text": "10/12 랭킹·API 재감지 128개 / 신규 편입 22개 / 기존 재확인 106개"
             },
             {
               "label": "반응 밀도",
-              "text": "Jab Jid Pe Aa Gyi Parvati | Group Dance |… · 좋아요 132,998 · 조회 대비 0.8%"
+              "text": "Jab Jid Pe Aa Gyi Parvati | Group Dance |… · 좋아요 133,045 · 조회 대비 0.8%"
             },
             {
               "label": "API 조건",
@@ -245,11 +245,11 @@
             },
             {
               "label": "참고 영상",
-              "text": "New viral trend #tiktok #music #dance #duet #… · 조회 75,633,703 · 좋아요 37,860"
+              "text": "New viral trend #tiktok #music #dance #duet #… · 조회 75,633,703 · 좋아요 37,862"
             },
             {
               "label": "길이",
-              "text": "40초 미만 122개 / 제한 근접 6개 / 평균 18초"
+              "text": "40초 미만 128개 / 제한 근접 6개 / 평균 19초"
             },
             {
               "label": "변화",
@@ -275,7 +275,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "7459개"
+          "value": "7468개"
         },
         {
           "label": "오늘 감지",
@@ -404,7 +404,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1371개"
+          "value": "1377개"
         },
         {
           "label": "오늘 감지",
@@ -461,8 +461,8 @@
               "title": "Pink Blush ~ Fam Edition #tiktok #foryou",
               "thumbnail": "https://i.ytimg.com/vi/CYnmJpqEXqg/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/CYnmJpqEXqg",
-              "views": "3,100,832",
-              "likes": "24,186",
+              "views": "3,101,204",
+              "likes": "24,194",
               "duration": "0:15",
               "cluster": "댄스·음악 챌린지"
             }
@@ -478,7 +478,7 @@
             },
             {
               "label": "#3",
-              "text": "Pink Blush ~ Fam Edition #tiktok #foryou · 조회 3,100,832 · 좋아요 24,186 · 15초 · 댄스·음악 챌린지"
+              "text": "Pink Blush ~ Fam Edition #tiktok #foryou · 조회 3,101,204 · 좋아요 24,194 · 15초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -542,7 +542,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "7459개"
+          "value": "7468개"
         },
         {
           "label": "오늘 감지",
@@ -588,8 +588,8 @@
               "title": "Don't Be Afraid, Brushing Teeth Is Fun and Cool!",
               "thumbnail": "https://i.ytimg.com/vi/OnepYsnh_Ro/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/OnepYsnh_Ro",
-              "views": "111,806,568",
-              "likes": "923,163",
+              "views": "112,793,803",
+              "likes": "935,288",
               "duration": "0:33",
               "cluster": "제목·조회수 기반 급상승"
             },
@@ -612,7 +612,7 @@
             },
             {
               "label": "#2",
-              "text": "Don't Be Afraid, Brushing Teeth Is Fun an… · 조회 111,806,568 · 좋아요 923,163 · 33초 · 제목·조회수 기반 급상승"
+              "text": "Don't Be Afraid, Brushing Teeth Is Fun an… · 조회 112,793,803 · 좋아요 935,288 · 33초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
@@ -671,7 +671,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1371개"
+          "value": "1377개"
         },
         {
           "label": "오늘 감지",
@@ -808,7 +808,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "7459개"
+          "value": "7468개"
         },
         {
           "label": "오늘 감지",
@@ -937,7 +937,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1371개"
+          "value": "1377개"
         },
         {
           "label": "오늘 감지",
@@ -1073,11 +1073,11 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "7459개"
+          "value": "7468개"
         },
         {
           "label": "오늘 감지",
-          "value": "36개"
+          "value": "35개"
         },
         {
           "label": "신규 편입",
@@ -1085,7 +1085,7 @@
         },
         {
           "label": "분석 표본",
-          "value": "36개"
+          "value": "35개"
         },
         {
           "label": "기준",
@@ -1095,7 +1095,7 @@
       "badges": [
         "댄스·음악 챌린지 15개",
         "편집·슬로우드 사운드 5개",
-        "상황형 코미디·짧은 사건 5개",
+        "상황형 코미디·짧은 사건 4개",
         "스포츠·퍼포먼스 순간 1개"
       ],
       "cards": [
@@ -1103,19 +1103,8 @@
           "title": "핵심 영상",
           "videos": [
             {
-              "id": "m6n9pVTWIRA",
-              "rank": "#1",
-              "title": "🤪 #londonbridges #kidssong 🎵 #funny",
-              "thumbnail": "https://i.ytimg.com/vi/m6n9pVTWIRA/hqdefault.jpg",
-              "url": "https://www.youtube.com/shorts/m6n9pVTWIRA",
-              "views": "2,728,122,917",
-              "likes": "12,342,318",
-              "duration": "0:16",
-              "cluster": "상황형 코미디·짧은 사건"
-            },
-            {
               "id": "uLfyMTMp_a4",
-              "rank": "#2",
+              "rank": "#1",
               "title": "Where is my toothbrush? It's time to brush my teeth!",
               "thumbnail": "https://i.ytimg.com/vi/uLfyMTMp_a4/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/uLfyMTMp_a4",
@@ -1126,28 +1115,39 @@
             },
             {
               "id": "7SltZQ0byJ4",
-              "rank": "#3",
+              "rank": "#2",
               "title": "표지판에 붙은 도로롱 떼어내는법 ㅋㅋ",
               "thumbnail": "https://i.ytimg.com/vi/7SltZQ0byJ4/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/7SltZQ0byJ4",
-              "views": "45,220,548",
-              "likes": "178,790",
+              "views": "45,264,067",
+              "likes": "179,089",
               "duration": "0:14",
               "cluster": "제목·조회수 기반 급상승"
+            },
+            {
+              "id": "MyDZZQqDd5Y",
+              "rank": "#3",
+              "title": "Funny Motorcycle Prank 😂",
+              "thumbnail": "https://i.ytimg.com/vi/MyDZZQqDd5Y/hqdefault.jpg",
+              "url": "https://www.youtube.com/shorts/MyDZZQqDd5Y",
+              "views": "44,687,675",
+              "likes": "157,235",
+              "duration": "0:12",
+              "cluster": "상황형 코미디·짧은 사건"
             }
           ],
           "items": [
             {
               "label": "#1",
-              "text": "🤪 #londonbridges #kidssong 🎵 #funny · 조회 2,728,122,917 · 좋아요 12,342,318 · 16초 · 상황형 코미디·짧은 사건"
-            },
-            {
-              "label": "#2",
               "text": "Where is my toothbrush? It's time to brus… · 조회 45,211,594 · 좋아요 324,085 · 35초 · 제목·조회수 기반 급상승"
             },
             {
+              "label": "#2",
+              "text": "표지판에 붙은 도로롱 떼어내는법 ㅋㅋ · 조회 45,264,067 · 좋아요 179,089 · 14초 · 제목·조회수 기반 급상승"
+            },
+            {
               "label": "#3",
-              "text": "표지판에 붙은 도로롱 떼어내는법 ㅋㅋ · 조회 45,220,548 · 좋아요 178,790 · 14초 · 제목·조회수 기반 급상승"
+              "text": "Funny Motorcycle Prank 😂 · 조회 44,687,675 · 좋아요 157,235 · 12초 · 상황형 코미디·짧은 사건"
             }
           ]
         },
@@ -1156,15 +1156,15 @@
           "items": [
             {
               "label": "강한 포맷",
-              "text": "댄스·음악 챌린지 15개 / 42%"
+              "text": "댄스·음악 챌린지 15개 / 43%"
             },
             {
               "label": "감지 기준",
-              "text": "10/8 랭킹·API 재감지 36개 / 신규 편입 30개 / 기존 재확인 6개"
+              "text": "10/8 랭킹·API 재감지 35개 / 신규 편입 30개 / 기존 재확인 5개"
             },
             {
               "label": "반응 밀도",
-              "text": "🤪 #londonbridges #kidssong 🎵 #funny · 좋아요 12,342,318 · 조회 대비 0.5%"
+              "text": "Finally found this gem 😂 · 좋아요 383,079 · 조회 대비 4.5%"
             }
           ]
         },
@@ -1177,15 +1177,15 @@
             },
             {
               "label": "참고 영상",
-              "text": "🤪 #londonbridges #kidssong 🎵 #funny · 조회 2,728,122,917 · 좋아요 12,342,318"
+              "text": "Where is my toothbrush? It's time to brush my… · 조회 45,211,594 · 좋아요 324,085"
             },
             {
               "label": "길이",
-              "text": "40초 미만 36개 / 제한 근접 2개 / 평균 20초"
+              "text": "40초 미만 35개 / 제한 근접 2개 / 평균 20초"
             },
             {
               "label": "변화",
-              "text": "댄스·음악 챌린지 비중 +18%p / 오늘 랭킹에서 가장 빠르게 확대"
+              "text": "댄스·음악 챌린지 비중 +19%p / 오늘 랭킹에서 가장 빠르게 확대"
             },
             {
               "label": "검토 포인트",
@@ -1202,7 +1202,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1371개"
+          "value": "1377개"
         },
         {
           "label": "오늘 감지",
@@ -1248,8 +1248,8 @@
               "title": "PINK BLUSH #trending #couple #shorts #dance #dancechallen...",
               "thumbnail": "https://i.ytimg.com/vi/fDaKDAxEKo8/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/fDaKDAxEKo8",
-              "views": "8,429,827",
-              "likes": "47,321",
+              "views": "8,439,439",
+              "likes": "47,448",
               "duration": "0:14",
               "cluster": "댄스·음악 챌린지"
             },
@@ -1272,7 +1272,7 @@
             },
             {
               "label": "#2",
-              "text": "PINK BLUSH #trending #couple #shorts #dan… · 조회 8,429,827 · 좋아요 47,321 · 14초 · 댄스·음악 챌린지"
+              "text": "PINK BLUSH #trending #couple #shorts #dan… · 조회 8,439,439 · 좋아요 47,448 · 14초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
@@ -1340,7 +1340,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "7459개"
+          "value": "7468개"
         },
         {
           "label": "오늘 감지",
@@ -1375,8 +1375,8 @@
               "title": "Aura +10000",
               "thumbnail": "https://i.ytimg.com/vi/fi0xQBH0J6s/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/fi0xQBH0J6s",
-              "views": "37,242,285",
-              "likes": "545,286",
+              "views": "37,299,358",
+              "likes": "547,004",
               "duration": "0:15",
               "cluster": "상황형 코미디·짧은 사건"
             },
@@ -1397,8 +1397,8 @@
               "title": "Now we know why bro took so long 😂 | #shorts",
               "thumbnail": "https://i.ytimg.com/vi/f22A1jRNgS0/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/f22A1jRNgS0",
-              "views": "21,826,258",
-              "likes": "521,363",
+              "views": "21,841,326",
+              "likes": "521,727",
               "duration": "0:14",
               "cluster": "제목·조회수 기반 급상승"
             }
@@ -1406,7 +1406,7 @@
           "items": [
             {
               "label": "#1",
-              "text": "Aura +10000 · 조회 37,242,285 · 좋아요 545,286 · 15초 · 상황형 코미디·짧은 사건"
+              "text": "Aura +10000 · 조회 37,299,358 · 좋아요 547,004 · 15초 · 상황형 코미디·짧은 사건"
             },
             {
               "label": "#2",
@@ -1414,7 +1414,7 @@
             },
             {
               "label": "#3",
-              "text": "Now we know why bro took so long 😂 | #sho… · 조회 21,826,258 · 좋아요 521,363 · 14초 · 제목·조회수 기반 급상승"
+              "text": "Now we know why bro took so long 😂 | #sho… · 조회 21,841,326 · 좋아요 521,727 · 14초 · 제목·조회수 기반 급상승"
             }
           ]
         },
@@ -1431,7 +1431,7 @@
             },
             {
               "label": "반응 밀도",
-              "text": "Aura +10000 · 좋아요 545,286 · 조회 대비 1.5%"
+              "text": "Aura +10000 · 좋아요 547,004 · 조회 대비 1.5%"
             }
           ]
         },
@@ -1444,7 +1444,7 @@
             },
             {
               "label": "참고 영상",
-              "text": "Aura +10000 · 조회 37,242,285 · 좋아요 545,286"
+              "text": "Aura +10000 · 조회 37,299,358 · 좋아요 547,004"
             },
             {
               "label": "길이",
@@ -1469,7 +1469,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1371개"
+          "value": "1377개"
         },
         {
           "label": "오늘 감지",
@@ -1526,8 +1526,8 @@
               "title": "내신발 어디갔어⁉️😳#춤추는곰돌의랜덤댄스 #춤추는곰돌 #춤추는곰돌의타이머댄스 #challenge #김프...",
               "thumbnail": "https://i.ytimg.com/vi/Afd1i2_5z2I/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/Afd1i2_5z2I",
-              "views": "13,372,813",
-              "likes": "49,295",
+              "views": "13,375,967",
+              "likes": "49,302",
               "duration": "0:16",
               "cluster": "댄스·음악 챌린지"
             }
@@ -1543,7 +1543,7 @@
             },
             {
               "label": "#3",
-              "text": "내신발 어디갔어⁉️😳#춤추는곰돌의랜덤댄스 #춤추는곰돌 #춤추는곰돌의타이머댄… · 조회 13,372,813 · 좋아요 49,295 · 16초 · 댄스·음악 챌린지"
+              "text": "내신발 어디갔어⁉️😳#춤추는곰돌의랜덤댄스 #춤추는곰돌 #춤추는곰돌의타이머댄… · 조회 13,375,967 · 좋아요 49,302 · 16초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -1607,7 +1607,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "7459개"
+          "value": "7468개"
         },
         {
           "label": "오늘 감지",
@@ -1735,7 +1735,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1371개"
+          "value": "1377개"
         },
         {
           "label": "오늘 감지",
@@ -1791,7 +1791,7 @@
               "title": "VIRAL Animal KATSEYE Dance Trend 🔥😱 #shorts #animal #kats...",
               "thumbnail": "https://i.ytimg.com/vi/MwTW-b7skak/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/MwTW-b7skak",
-              "views": "7,769,007",
+              "views": "7,769,031",
               "likes": "30,256",
               "duration": "0:14",
               "cluster": "댄스·음악 챌린지"
@@ -1808,7 +1808,7 @@
             },
             {
               "label": "#3",
-              "text": "VIRAL Animal KATSEYE Dance Trend 🔥😱 #shor… · 조회 7,769,007 · 좋아요 30,256 · 14초 · 댄스·음악 챌린지"
+              "text": "VIRAL Animal KATSEYE Dance Trend 🔥😱 #shor… · 조회 7,769,031 · 좋아요 30,256 · 14초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -1872,7 +1872,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "7459개"
+          "value": "7468개"
         },
         {
           "label": "오늘 감지",
@@ -1907,8 +1907,8 @@
               "title": "First guy deserves an oscar 📹 by : Jasontheween",
               "thumbnail": "https://i.ytimg.com/vi/LsJlzH9ihIo/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/LsJlzH9ihIo",
-              "views": "55,168,483",
-              "likes": "1,164,469",
+              "views": "55,276,387",
+              "likes": "1,168,288",
               "duration": "0:35",
               "cluster": "상황형 코미디·짧은 사건"
             },
@@ -1938,7 +1938,7 @@
           "items": [
             {
               "label": "#1",
-              "text": "First guy deserves an oscar 📹 by : Jasont… · 조회 55,168,483 · 좋아요 1,164,469 · 35초 · 상황형 코미디·짧은 사건"
+              "text": "First guy deserves an oscar 📹 by : Jasont… · 조회 55,276,387 · 좋아요 1,168,288 · 35초 · 상황형 코미디·짧은 사건"
             },
             {
               "label": "#2",
@@ -1963,7 +1963,7 @@
             },
             {
               "label": "반응 밀도",
-              "text": "First guy deserves an oscar 📹 by : Jasont… · 좋아요 1,164,469 · 조회 대비 2.1%"
+              "text": "First guy deserves an oscar 📹 by : Jasont… · 좋아요 1,168,288 · 조회 대비 2.1%"
             }
           ]
         },
@@ -1976,7 +1976,7 @@
             },
             {
               "label": "참고 영상",
-              "text": "First guy deserves an oscar 📹 by : Jasonthewe… · 조회 55,168,483 · 좋아요 1,164,469"
+              "text": "First guy deserves an oscar 📹 by : Jasonthewe… · 조회 55,276,387 · 좋아요 1,168,288"
             },
             {
               "label": "길이",
@@ -2001,7 +2001,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1371개"
+          "value": "1377개"
         },
         {
           "label": "오늘 감지",
@@ -2137,7 +2137,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "7459개"
+          "value": "7468개"
         },
         {
           "label": "오늘 감지",
@@ -2266,7 +2266,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1371개"
+          "value": "1377개"
         },
         {
           "label": "오늘 감지",
@@ -2404,7 +2404,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "7459개"
+          "value": "7468개"
         },
         {
           "label": "오늘 감지",
@@ -2460,8 +2460,8 @@
               "title": "Thought for sure I was gonna crush that bowling ball #hom...",
               "thumbnail": "https://i.ytimg.com/vi/C2isx2CjBCc/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/C2isx2CjBCc",
-              "views": "29,962,554",
-              "likes": "366,402",
+              "views": "29,993,629",
+              "likes": "366,741",
               "duration": "0:35",
               "cluster": "제목·조회수 기반 급상승"
             }
@@ -2477,7 +2477,7 @@
             },
             {
               "label": "#3",
-              "text": "Thought for sure I was gonna crush that b… · 조회 29,962,554 · 좋아요 366,402 · 35초 · 제목·조회수 기반 급상승"
+              "text": "Thought for sure I was gonna crush that b… · 조회 29,993,629 · 좋아요 366,741 · 35초 · 제목·조회수 기반 급상승"
             }
           ]
         },
@@ -2532,7 +2532,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1371개"
+          "value": "1377개"
         },
         {
           "label": "오늘 감지",
@@ -2588,8 +2588,8 @@
               "title": "TikTok Viral Trend | STEREO LOVE FUNK Trend #tiktok #tren...",
               "thumbnail": "https://i.ytimg.com/vi/nGP_wXZ_6hk/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/nGP_wXZ_6hk",
-              "views": "4,328,014",
-              "likes": "41,182",
+              "views": "4,328,557",
+              "likes": "41,187",
               "duration": "0:16",
               "cluster": "댄스·음악 챌린지"
             }
@@ -2605,7 +2605,7 @@
             },
             {
               "label": "#3",
-              "text": "TikTok Viral Trend | STEREO LOVE FUNK Tre… · 조회 4,328,014 · 좋아요 41,182 · 16초 · 댄스·음악 챌린지"
+              "text": "TikTok Viral Trend | STEREO LOVE FUNK Tre… · 조회 4,328,557 · 좋아요 41,187 · 16초 · 댄스·음악 챌린지"
             }
           ]
         },
@@ -2669,7 +2669,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "7459개"
+          "value": "7468개"
         },
         {
           "label": "오늘 감지",
@@ -2714,8 +2714,8 @@
               "title": "Empat Kata Ajaib | Lagu Anak #shorts #paud",
               "thumbnail": "https://i.ytimg.com/vi/eHgn5JMM9vA/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/eHgn5JMM9vA",
-              "views": "83,187,448",
-              "likes": "484,618",
+              "views": "83,264,216",
+              "likes": "485,438",
               "duration": "0:21",
               "cluster": "제목·조회수 기반 급상승"
             },
@@ -2738,7 +2738,7 @@
             },
             {
               "label": "#2",
-              "text": "Empat Kata Ajaib | Lagu Anak #shorts #paud · 조회 83,187,448 · 좋아요 484,618 · 21초 · 제목·조회수 기반 급상승"
+              "text": "Empat Kata Ajaib | Lagu Anak #shorts #paud · 조회 83,264,216 · 좋아요 485,438 · 21초 · 제목·조회수 기반 급상승"
             },
             {
               "label": "#3",
@@ -2797,7 +2797,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1371개"
+          "value": "1377개"
         },
         {
           "label": "오늘 감지",
@@ -2934,7 +2934,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "7459개"
+          "value": "7468개"
         },
         {
           "label": "오늘 감지",
@@ -3063,7 +3063,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1371개"
+          "value": "1377개"
         },
         {
           "label": "오늘 감지",
@@ -3098,8 +3098,8 @@
               "title": "Training Season Dua lipa Trend 🔥 - #shortsfeed #tiktok #m...",
               "thumbnail": "https://i.ytimg.com/vi/1uGm8ioRrG4/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/1uGm8ioRrG4",
-              "views": "5,435,083",
-              "likes": "38,426",
+              "views": "5,436,467",
+              "likes": "38,440",
               "duration": "0:16",
               "cluster": "댄스·음악 챌린지"
             },
@@ -3109,8 +3109,8 @@
               "title": "Parvati || Hanuman Ansh || Boys Amazing Dance ||Trending...",
               "thumbnail": "https://i.ytimg.com/vi/GbRl2w3MmT0/hqdefault.jpg",
               "url": "https://www.youtube.com/shorts/GbRl2w3MmT0",
-              "views": "4,632,267",
-              "likes": "42,221",
+              "views": "4,632,373",
+              "likes": "42,224",
               "duration": "0:26",
               "cluster": "댄스·음악 챌린지"
             },
@@ -3129,11 +3129,11 @@
           "items": [
             {
               "label": "#1",
-              "text": "Training Season Dua lipa Trend 🔥 - #short… · 조회 5,435,083 · 좋아요 38,426 · 16초 · 댄스·음악 챌린지"
+              "text": "Training Season Dua lipa Trend 🔥 - #short… · 조회 5,436,467 · 좋아요 38,440 · 16초 · 댄스·음악 챌린지"
             },
             {
               "label": "#2",
-              "text": "Parvati || Hanuman Ansh || Boys Amazing D… · 조회 4,632,267 · 좋아요 42,221 · 26초 · 댄스·음악 챌린지"
+              "text": "Parvati || Hanuman Ansh || Boys Amazing D… · 조회 4,632,373 · 좋아요 42,224 · 26초 · 댄스·음악 챌린지"
             },
             {
               "label": "#3",
@@ -3154,7 +3154,7 @@
             },
             {
               "label": "반응 밀도",
-              "text": "Parvati || Hanuman Ansh || Boys Amazing D… · 좋아요 42,221 · 조회 대비 0.9%"
+              "text": "Parvati || Hanuman Ansh || Boys Amazing D… · 좋아요 42,224 · 조회 대비 0.9%"
             },
             {
               "label": "API 조건",
@@ -3171,7 +3171,7 @@
             },
             {
               "label": "참고 영상",
-              "text": "Training Season Dua lipa Trend 🔥 - #shortsfee… · 조회 5,435,083 · 좋아요 38,426"
+              "text": "Training Season Dua lipa Trend 🔥 - #shortsfee… · 조회 5,436,467 · 좋아요 38,440"
             },
             {
               "label": "길이",
@@ -3201,7 +3201,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "7459개"
+          "value": "7468개"
         },
         {
           "label": "오늘 감지",
@@ -3330,7 +3330,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1371개"
+          "value": "1377개"
         },
         {
           "label": "오늘 감지",
@@ -3467,7 +3467,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "7459개"
+          "value": "7468개"
         },
         {
           "label": "오늘 감지",
@@ -3596,7 +3596,7 @@
       "metrics": [
         {
           "label": "전체 표시",
-          "value": "1371개"
+          "value": "1377개"
         },
         {
           "label": "오늘 감지",
